@@ -1,0 +1,131 @@
+<div class="wrap container-fluid">
+	<div class="row content">
+		<h2 class="hidden-xs">Paieškos rezultatai</h2>
+		<div>
+
+		</div>
+		<div class="container spots">
+			<div class="spots-dropdown">
+				<a (click)="toggleSearchProperties()" class="btn btn-dark" type="button">
+					<span class="recap">Paieškos parinktys</span>
+					<span [class.rotate]="rotatedSearchPropertiesArrow" class="glyphicon glyphicon-menu-down"></span>
+				</a>
+				<div class="dropdown-content" [style.height.px]="showSearchProperties">
+					<div class="container-fluid">
+						<div class="col-md-8">
+							<h4>Filtravimas</h4>
+							<div class="filter-by-text">
+								<label>Įveskite tekstą</label>
+								<input type="text" placeholder="Įveskite filtravimo raktažodį" [(ngModel)]='listFilter'>
+							</div>
+							<div class="col-md-6">
+								<ul class="list-group">
+									<li (click)="getAllCategorySpots()"
+											[class.active]="selectedCategory===''"
+											class="list-group-item">
+											<a>Visi</a>
+									</li>
+									<li *ngFor="let category of categories"
+									 		(click)="getParticularSpots(category, '')"
+											[class.active]="selectedCategory===category"
+											class="list-group-item">
+											<a>{{ category }}</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-6">
+								<ul class="list-group">
+									<li (click)="getAllCitySpots()"
+									 		[class.active]="selectedCity===''"
+											class="list-group-item">
+											<a>Visi</a>
+									</li>
+									<li *ngFor="let city of cities"
+									 		(click)="getParticularSpots('', city)"
+											[class.active]="selectedCity===city"
+											class="list-group-item">
+											<a>{{ city }}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h4>Rūšiavimas</h4>
+							<ul class="list-group">
+								<li (click)="sortSpotsByAlphabet()"
+								 		 class="list-group-item"
+										 [class.active]="selectedSorting==='alphabet'">
+										 <a>Pagal abėcėlė</a>
+								</li>
+								<li (click)="sortSpotsByRating()"
+										 class="list-group-item"
+										 [class.active]="selectedSorting==='rating'">
+										 <a>Reitingas</a>
+								</li>
+								<li (click)="sortSpotsByBeenHere()"
+								 		 class="list-group-item"
+										 [class.active]="selectedSorting==='beenHere'">
+										 <a>Lankomumas</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<sebm-google-map *ngIf="particularSpots" [latitude]="lat" [longitude]="lng" [zoom]="6" [scrollwheel]="false">
+				<sebm-google-map-marker *ngFor="let spot of particularSpots" [latitude]="spot.latitude" [longitude]="spot.longitude"></sebm-google-map-marker>
+			</sebm-google-map>-->
+			<div *ngFor='let spot of particularSpots | spotFilter:listFilter' class="col-md-3">
+				<a (click)="gotoDetail(spot)">
+					<div class="img_overflow">
+						<div *ngIf="spot.images.url" [style.background-image]="'url(' + spot.images.url + ')'"></div>
+						<div *ngIf="!spot.images.url" [style.background-image]="'url(' + defaultImage + ')'"></div>
+					</div>
+					<div class="post_excerpt">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-6 col-xs-6"><p>{{ spot.rating }} <span class="glyphicon glyphicon-star"></span></p></div>
+								<div class="col-md-6 col-xs-6"><p>{{ spot.beenHere }} <span class="glyphicon glyphicon-eye-open"></span></p></div>
+							</div>
+						</div>
+					</div>
+					<span class="location">{{ spot.title }}</span>
+				</a>
+			</div>
+			<div *ngIf="particularSpots == ''">
+				<div class="alert alert-danger">
+					We're sorry. We couldn't find any spots satisfying your query.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="spotter">
+	<div class="container">
+		<div class="row">
+			<h1>Spotter</h1>
+			<h3>Haven't found what you expected?</h3>
+			<p>Add spots yourself to help others to find the best workout locations</p>
+			<div class="container dotted">
+				<div class="row">
+					<div class="col-md-3 col-xs-3">
+						<img src="/assets/images/signup-icon.png" />
+						<span>Sign up</span>
+					</div>
+					<img class="arrow col-md-1 col-xs-1" src="/assets/images/arrow.png" />
+					<div class="col-md-3 col-xs-3">
+						<img src="/assets/images/find-icon.png" />
+						<span>Find a spot</span>
+					</div>
+					<img class="arrow col-md-1 col-xs-1" src="/assets/images/arrow.png" />
+					<div class="col-md-3 col-xs-3">
+						<img src="/assets/images/spot-icon.png" />
+						<span>Add the spot</span>
+					</div>
+				</div>
+			</div>
+			<a href="" (click)="gotoSpotters()" routerLinkActive="active" class="btn btn-dark">Find out the advantages</a>
+		</div>
+	</div>
+</section>

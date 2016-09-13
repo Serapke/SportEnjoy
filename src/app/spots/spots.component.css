@@ -1,0 +1,355 @@
+section {
+		padding: 90px 0;
+}
+.sebm-google-map-container {
+  height: 300px;
+	top: 0;
+
+}
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+    border: 4px solid #fff;
+    padding: 10px 20px;
+}
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin-top: 0;
+		margin-bottom: 0;
+}
+a {
+	text-decoration: none;
+}
+.alert {
+	border-radius: 0;
+	text-align: center;
+}
+
+
+.spots {
+    zoom: 1;
+    padding: 60px 0 30px;
+}
+	.spots .spots-dropdown {
+		transition: 1s all;
+	}
+	.spots .spots-dropdown .btn {
+		border: 0;
+		width: 100%;
+		position: relative;
+	}
+	.spots .spots-dropdown .btn .glyphicon {
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding-top: 10px;
+    position: absolute;
+    right: 12px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    pointer-events: none;
+}
+	.spots .spots-dropdown .dropdown-content {
+		width: 100%;
+		padding: 0;
+		border-radius: 0;
+		margin: 0;
+		border-left: 4px solid #203a4c;
+		border-right: 4px solid #203a4c;
+		height: 0;
+		position:relative;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+		transition: 0.5s;
+	}
+		.spots .spots-dropdown .dropdown-content h4 {
+			color: #203a4c;
+			padding: 10px 10px 0 10px;
+		}
+		.spots .spots-dropdown .dropdown-content .content {
+			padding: 10px;
+		}
+		.spots .spots-dropdown .dropdown-content .filter-by-text {
+			width: 100%;
+			padding: 0 0 20px 10px;
+		}
+		.spots .spots-dropdown .dropdown-content label {
+			color: #203a4c;
+		}
+		.spots .spots-dropdown .dropdown-content input {
+			width: 300px;
+			border: 1px solid #203a4c;
+			padding: 5px;
+			margin-left: 10px;
+			color: #203a4c;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group {
+			border-radius: 0;
+			border: 1px solid #203a4c;
+			height: 160px;
+			overflow-y: scroll;
+		}
+		.spots .spots-dropdown .dropdown-content .col-md-4 {
+			border-left: 4px solid #203a4c;
+		}
+		.spots .spots-dropdown .dropdown-content .col-md-4 .list-group {
+			margin-top: 64px;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item {
+			padding: 0;
+			border-radius: 0;
+			border: 0;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item > a{
+			display: block;
+			padding: 10px 15px;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item.active {
+			background: #203a4c;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item.active > a {
+			color: #fff;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item:focus,
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item:active,
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item:hover {
+			background: #e2e9eb;
+			cursor: pointer;
+		}
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item:focus > a,
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item:active > a,
+		.spots .spots-dropdown .dropdown-content .list-group .list-group-item:hover > a{
+			/*color: #fff;*/
+		}
+	.spots .col-md-3 {
+			overflow: hidden;
+			height: 350px;
+			max-height: 350px;
+			background-color: #e2e9eb;
+			padding: 0;
+			margin: 0;
+			-o-transition: background-color .5s ease-in-out;
+			-webkit-transition: background-color .5s ease-in-out;
+			transition: background-color .5s ease-in-out;
+			cursor: pointer;
+	}
+	.spots .col-md-3:hover {
+			opacity: 0.8;
+	}
+	.spots .col-md-3:hover > a .post_excerpt {
+			top: 0;
+	}
+	.spots > .col-md-3 > a .img_overflow {
+			width: 100%;
+			overflow: hidden;
+			max-height: 100%;
+			height: 100%;
+	}
+			.spots > .col-md-3 > a .img_overflow > div {
+					-o-transition: all 30s linear;
+					-webkit-transition: all 30s linear;
+					transition: all 30s linear;
+					height: 100%;
+					background: url('/assets/images/spotter-background.jpg') no-repeat center center;
+					-webkit-background-size: cover;
+					background-size: cover;
+					background-color: #b4c5cb;
+			}
+	.spots > .col-md-3 > a .post_excerpt {
+			transition: 1s all;
+			position: absolute;
+			top: -30;
+			left: 0;
+			width: 100%;
+			padding: 5px;
+			background: rgba(70, 70, 70, 1);
+	}
+	.spots > .col-md-3 > a .post_excerpt p {
+		margin: 0;
+		color: #eee;
+		text-align: center;
+	}
+	.spots > .col-md-3 > a .location {
+		position: absolute;
+		text-align: center;
+		bottom: 0;
+		left: 0;
+		padding: 5px;
+		background: rgba(70, 70, 70, 0.8);
+		width: 100%;
+		text-transform: uppercase;
+		color: #EEE;
+    font-weight: 500;
+	}
+
+	.spotter {
+	    background: url('/assets/images/spotter-background.jpg') center center no-repeat;
+	    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
+	    height: 700px;
+	    text-align: center;
+	    -webkit-background-size: cover;
+	    background-size: cover;
+			margin-top: 20px;
+	}
+			.spotter h1 {
+			    display: table;
+			    margin: 0 auto;
+			    position: relative;
+			    margin-bottom: 50px;
+			    color: #fff;
+			}
+			.spotter p {
+			    width: 50%;
+			    margin: 0 auto 85px;
+			}
+					.spotter .col-md-3 span {
+					    display: block;
+					    max-width: 180px;
+					    text-align: center;
+					    margin: 20px auto 0;
+					    font-weight: 700;
+					    text-transform: uppercase;
+					    font-size: 12px;
+					}
+					.arrow {
+						width: 12.5%;
+						padding-top: 30px;
+					}
+			.spotter .btn {
+			    text-transform: uppercase;
+			    font-weight: 700;
+			    margin-top: 70px;
+			}
+			.btn {
+			    padding: 15px 20px;
+			    vertical-align: inherit;
+			    border-radius: 0;
+			    border: none;
+			    font-size: 18px;
+			    -o-transition: background-color .3s ease;
+			    -webkit-transition: background-color .3s ease;
+			    transition: background-color .3s ease;
+			}
+
+ /* For normal and larger desktops */
+	@media (min-width: 992px) {
+	 .geo_link {
+	    margin: auto 10%;
+		}
+		.spots .post_excerpt .col-md-4 {
+	    padding: 0;
+		}
+	}
+	/* For tablets */
+	@media (max-width: 992px) and (min-width: 767px) {
+		.spots .col-md-3{
+		    width: 50%!important;
+		    margin: 0;
+		    float: left;
+		}
+		.spots {
+		    padding: 0!important;
+				margin: 0!important;
+				width: 100%;
+		}
+		.spots .col-md-3 > a .post_excerpt {
+				top: 0;
+		}
+		.spots .spots-dropdown .dropdown-content .col-md-4 {
+			border-left: 0;
+		}
+		.spots .spots-dropdown .dropdown-content .col-md-4 .list-group {
+			margin-top:  0px;
+		}
+		.spots > .col-md-3 {
+			height: auto;
+			max-height: auto;
+		}
+		.spots > .col-md-3 > a .img_overflow {
+				max-height: 250px;
+				height: 250px;
+		}
+	}
+	/* For smart phones */
+	@media (max-width: 767px) {
+		.spots {
+		    padding: 0!important;
+		}
+					.spots .spots-dropdown .dropdown-content input {
+						width: 80%;
+					}
+				.spots .spots-dropdown .dropdown-content .col-md-4 {
+					border-left: 0;
+					border-top: 1px solid #203a4c;
+				}
+				.spots .spots-dropdown .dropdown-content .col-md-4 .list-group {
+					margin-top: 0px;
+				}
+				.spots .col-md-3 {
+			    width: 100%;
+			    margin: 0;
+			    height: auto;
+
+				}
+						.spots > .col-md-3 > a .img_overflow {
+								max-height: 200px;
+								height: 200px;
+						}
+						.spots .col-md-3 > a .post_excerpt {
+								top: 0;
+								border-top: 1px solid #fff;
+						}
+						.spots .col-md-3 .post_excerpt .title {
+						    text-overflow: ellipsis;
+						    overflow: hidden;
+						    white-space: nowrap;
+						    font-size: 16px;
+						    max-height: none;
+						    height: auto;
+						}
+						.spots .col-md-3 .post_excerpt .container-fluid {
+						    margin-top: 10px!important;
+						}
+		.spotter {
+			margin: 0;
+	    height: auto;
+	    background-position: center;
+		}
+		section {
+	    padding: 40px 20px;
+		}
+		.dotted {
+			display: none;
+		}
+		.spotter h1 {
+	    width: 85%;
+	    padding: 15px 20px;
+	    margin-top: 15px;
+		}
+		.spotter p {
+	    width: 100%;
+	    margin: 0 auto;
+		}
+		.spotter .btn {
+	    font-size: 14px;
+	    margin-top: 45px;
+	    padding: 20px;
+		}
+	}

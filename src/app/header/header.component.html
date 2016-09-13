@@ -1,0 +1,157 @@
+<nav class="navbar navbar-default" [ngStyle]="{'background-image':'url(' + backgroundImage + ')'}">
+	<div *ngIf="showBrand" class="navbar-fixed-top navbar-header" [class.small]="navbarClass">
+		<div class="row navbar-brand">
+			<button class="navbar-toggle collapsed" (click)='showOverlay()'>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="col-md-3">
+				<a [routerLink]="['/spots']" routerLinkActive="active">SportEnjoy</a>
+			</div>
+			<div class="col-md-9">
+				<ul class="nav navbar-nav">
+					<li><a [routerLink]="['/spots']">Paieška</a></li>
+					<li *ngIf="!isModerator() && !isAdmin()"><a [routerLink]="['/top-places']">Top10</a></li>
+					<li *ngIf="!isModerator()  && !isAdmin()"><a [routerLink]="['/spotters']">Spotters</a></li>
+					<li *ngIf="isLoggedIn() && isAdmin()"><a [routerLink]="['/users']">Vartotojai</a></li>
+					<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())"><a [routerLink]="['/review']">Peržiūrėti</a></li>
+					<!-- <li><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
+					<li *ngIf="isLoggedIn()"><a [routerLink]="['/add-spot']">+ Vietą</a></li>
+					<li *ngIf="isLoggedIn()"><a [routerLink]="['/profile']">Profilis</a></li>
+					<li *ngIf="!isLoggedIn()" class="active"><a [routerLink]="['/login']" routerLinkActive="active">Prisijunk</a></li>
+					<li *ngIf="!isLoggedIn()" class="active"><a [routerLink]="['/register']" routerLinkActive="active">Registruokis</a></li>
+					<li *ngIf="isLoggedIn()" class="active"><a (click)="onLogout()" routerLinkActive="active">Atsijungti</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="showParams()" class="container hidden-xs">
+		<h2>Jūsų paieškos parametrai:</h2>
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Miestas: <span class="label label-primary" [innerHTML]="city"></span></h3>
+			</div>
+			<div class="col-md-6">
+				<h3>Kategorija: <span class="label label-primary">{{ category }}</span></h3>
+			</div>
+		</div>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div id="myNav" [style.height.%]="overlayHeight" class="overlay navbar-collapse">
+		<a href="javascript:void(0)" class="closebtn" (click)="hideOverlay()">&times;</a>
+		<div class="overlay-content">
+	    <ul class="nav navbar-nav">
+			<li (click)="hideOverlay()"><a [routerLink]="['/spots']" routerLinkActive="active">Paieška</a></li>
+			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/top-places']" routerLinkActive="active">Top10</a></li>
+			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/spotters']" routerLinkActive="active">Spotters</a></li>
+			<li *ngIf="isLoggedIn() && isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/users']">Vartotojai</a></li>
+			<!-- <li (click)="hideOverlay()"><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
+			<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())" (click)="hideOverlay()"><a [routerLink]="['/review']">Peržiūrėti</a></li>
+			<li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/add-spot']">+ Vietą</a></li>
+			<li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/profile']">Profilis</a></li>
+			<li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/login']" routerLinkActive="active">Prisijunk</a></li>
+			<li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/register']" routerLinkActive="active">Registruokis</a></li>
+			<li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a (click)="onLogout()" routerLinkActive="active">Atsijungti</a></li>
+			</ul>
+		</div>
+	</div>
+
+  <div *ngIf="showSearch()" class="container">
+	  <h2>Sporto vieta tau !</h2>
+			<div class="row">
+			    <div class="tab-content">
+			      <div class="tab-pane active">
+			        <form class="search-form form-inline" (ngSubmit)="onSubmit()">
+								<input type="search" value="" placeholder="Vieta" required
+									 [(ngModel)]="model.location" name="location">
+								<div class="category-dropdown">
+		        			<button (click)="toggleCategories()" class="btn btn-secondary" type="button">
+										<span class="recap">{{ category ? category : 'Kategorija' }}</span>
+										<span [class.rotate]="rotatedDropdownArrow" class="glyphicon glyphicon-menu-down"></span>
+									</button>
+									<ul *ngIf="rotatedDropdownArrow" class="dropdown-content">
+										<li *ngFor="let category of categories" (click)="saveCategory(category)"><a>{{ category }}</a></li>
+									</ul>
+								</div>
+								<button type="submit" class="search-submit btn btn-primary" [disabled]="category == ''">Ieškoti</button>
+			        </form>
+			      </div>
+			    </div>
+			</div>
+  </div>
+
+
+
+	<div *ngIf="showSocialMedia()" class="container">
+	  <h2>Sekite mus!</h2>
+			<div class="row">
+				<div class="social-media">
+				  <div class="col-md-offset-2 col-md-2 col-xs-3">
+						<a><img src="app/assets/images/facebook-logo.png" /></a>
+					</div>
+					<div class="col-md-offset-1 col-md-2 col-xs-3">
+						<a><img src="app/assets/images/twitter-logo.png" /></a>
+					</div>
+					<div class="col-md-offset-1 col-md-2 col-xs-3">
+						<a><img src="app/assets/images/instagram-logo.png" /></a>
+					</div>
+				</div>
+			</div>
+  </div>
+
+	<div *ngIf="showLogin()" class="container">
+			<h2>Prisijunk</h2>
+			<div class="row">
+				<div class="login">
+					<form class="form-inline" (ngSubmit)="onLogin()">
+						<div class="col-md-5">
+							<label class="sr-only" for="email">El. paštas</label>
+							<input type="email" class="form-control" name="email" placeholder="Email" required
+								[(ngModel)]="email">
+						</div>
+						<div class="col-md-5">
+							<label class="sr-only" for="password">Slaptažodis</label>
+							<input type="password" class="form-control" name="password" placeholder="Password" required
+									[(ngModel)]="password">
+						</div>
+						<button type="submit" class="btn btn-primary col-md-2">Prisijungti</button>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div *ngIf="errorMessage" class="alert alert-danger">
+					Klaida! {{ errorMessage }}
+				</div>
+			</div>
+			<div class="row" id="register">
+				<p>Neturi SportEnjoy paskyros? <a [routerLink]="['/register']" class="link">Registruokis</a></p>
+			</div>
+	</div>
+
+	<div *ngIf="showRegister()" class="container">
+			<h2>Registruokis</h2>
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 register">
+					<div *ngIf="errorMessage" class="alert alert-danger">
+						Klaida! {{ errorMessage.email || errorMessage.password || errorMessage.password_confirmation }}
+					</div>
+					<form class="form" (ngSubmit)="onRegister()">
+							<label class="sr-only" for="email">El. paštas</label>
+							<input type="email" class="form-control" placeholder="Email" required
+								[(ngModel)]="email" name="email">
+							<label class="sr-only" for="password">Slaptažodis</label>
+							<input type="password" class="form-control" placeholder="Password" required
+									[(ngModel)]="password" name="password">
+							<label class="sr-only" for="password-confirmation">Slaptažodio patvirtinimas</label>
+							<input type="password" class="form-control" placeholder="Password confirmation" autocomplete="off" autofill="off" required
+									[(ngModel)]="passwordConfirmation" name="password-confirmation">
+							<button type="submit" class="btn btn-primary">Registruotis</button>
+					</form>
+				</div>
+			</div>
+	</div>
+
+</nav>

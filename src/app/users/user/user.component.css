@@ -1,0 +1,62 @@
+.wrap {
+	background-color: rgb(241, 244, 245);
+	color: #444;
+}
+.btn {
+		padding: 15px 40px;
+		vertical-align: inherit;
+		border-radius: 0;
+		border: none;
+		font-size: 18px;
+		-o-transition: background-color .3s ease;
+		-webkit-transition: background-color .3s ease;
+		transition: background-color .3s ease;
+}
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin: 0;
+}
+.panel {
+	border-radius: 0;
+}
+.panel .panel-heading {
+	border-radius: 0;
+}
+.alert {
+	border-radius: 0;
+}
+
+.content {
+    position: static;
+    float: none!important;
+    width: 100%!important;
+}
+.content .review.row {
+    background: #172935;
+    padding: 20px;
+    text-align: center;
+}
+.content .review button {
+	box-shadow: 1px 1px 1px #444;
+	padding: 15px 60px;
+}
+.content .user-details {
+	margin-top: 30px;
+}
+.content .user-details .user-image {
+	width: 140px;
+}
+
+@media (max-width: 990px) {
+	.col-md-3 button {
+		width: 250px;
+	}
+}

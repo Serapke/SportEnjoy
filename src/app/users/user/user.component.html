@@ -1,0 +1,55 @@
+<div *ngIf="user" class="wrap">
+    <div class="container-fluid content">
+				<div class="row review">
+					<div class="col-md-3">
+						<button (click)="makeAdmin()" type="button" class="btn btn-success">Paskirti adminu</button>
+					</div>
+					<div class="col-md-3">
+						<button *ngIf="!user.moderator" (click)="makeModerator()" type="button" class="btn btn-info">Paskirti moderatoriu</button>
+					</div>
+					<div class="col-md-3">
+						<button *ngIf="user.moderator || user.admin" (click)="makeSpotter()" type="button" class="btn btn-primary">Paskirti spotteriu</button>
+					</div>
+					<div class="col-md-3">
+						<button *ngIf="!user.banned" (click)="ban(true)" type="button" class="btn btn-danger">Blokuoti</button>
+            <button *ngIf="user.banned" (click)="ban(false)" type="button" class="btn btn-danger">Atblokuoti</button>
+					</div>
+				</div>
+				<div class="container user-details">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h4 class="panel-title">Vartotojo informacija <span *ngIf="user.banned">- <strong class="text-danger text-uppercase">Užblokuotas</strong></span></h4>
+								</div>
+								<div class="panel-body">
+									<div class="col-md-5">
+										<img *ngIf="user.image.image.url" [src]="user.image.image.url" class="img-thumbnail user-image"/>
+										<div *ngIf="!user.image.image.url" class="alert alert-info">
+											<p>Vartotojas nėra pateikęs savo nuotraukos</p>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<p><strong>El. paštas:</strong> {{ user.email }}</p>
+										<p><strong>Vieta:</strong> {{ user.location }}</p>
+										<p><strong>Prisiregistravo:</strong> {{ user.created_at | date:'mediumDate'}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h4 class="panel-title">Vartotojo aktyvumas</h4>
+								</div>
+								<div class="panel-body">
+									<p>{{ user.name || 'Vartotojas' }} pažymėjo <span class="badge">{{ user.spotsMarked }}</span> vietas.</p>
+									<p>{{ user.name || 'Vartotojas' }} buvo <span class="badge">{{ user.beenHereCount }}</span> vietose.</p>
+									<p>{{ user.name || 'Vartotojas' }} parašė <span class="badge">{{ user.commentsCount }}</span> komentarus.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+    </div>
+</div>

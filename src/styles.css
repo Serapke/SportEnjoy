@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  color: #fff;
+  font-family: Cantarell,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+    border: 4px solid #fff;
+    padding: 10px 20px;
+}
+h2 {
+    font-size: 41.4px;
+    font-weight: 700;
+    text-align: center;
+}
+.btn.btn-dark {
+		color: #fff;
+		background-color: #203a4c;
+		padding: 15px;
+		border-radius: 0;
+}
+.btn {
+  border-radius: 0;
+}
+.btn.btn-dark:hover {
+		background-color: #182c3a;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.rotate {
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* Form */
+form label {
+  font-weight: 400;
+	font-size: 18px;
+}
+form input[type=text],
+form input[type=email],
+form input[type=number],
+form textarea[type=text] {
+	background: #fff;
+	width: 100%;
+	padding: 12px;
+	height: auto;
+	float: none;
+	border-color: #fff;
+}
+input[type=radio] {
+	background: #fff;
+	border-color: #fff;
+	border-radius: 0;
+}
+form input.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+form input.ng-valid {
+  border-left: 5px solid #42A948; /* green */
+}
+form input:active,
+form input:focus,
+form textarea:active,
+form textarea:focus {
+	border-color: #007496;
+}
+form textarea[type=text] {
+	resize: none;
+}
+form textarea.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+form textarea.ng-valid {
+  border-left: 5px solid #42A948; /* green */
+}
+.form-control {
+  border-radius: 0;
+}
+.form-group.submit {
+  text-align: center;
+}
+.form-group.half {
+	width: 50%;
+	float: left;
+}

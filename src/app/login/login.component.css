@@ -1,0 +1,54 @@
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin: 0;
+}
+a {
+	text-decoration: none;
+}
+
+.login-item {
+		text-align: center;
+		padding: 0;
+		background: #203a4c;
+}
+.login-item#fb {
+		background: #3b5998;
+}
+.login-item#google {
+		background: #c53929;
+}
+.login-item img {
+	background: #fff;
+}
+.login-item .logo {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+.login-items h4 {
+	border-top: 1px solid #fff;
+	color: #fff;
+	padding: 15px 20px;
+	margin: 0;
+	line-height: 25px;
+}
+.login-items a {
+	width: 100%;
+	display: inline-block;
+}
+
+@media (max-width: 767px) {
+	.login-items h4 {
+		border: 0;
+		padding: 0;
+		line-height: 80px;
+		text-align: left;
+	}
+}

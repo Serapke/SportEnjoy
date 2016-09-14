@@ -1,0 +1,173 @@
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #32353c;
+    margin: 20px 0;
+}
+.sebm-google-map-container {
+	height: 200px;
+	width: 98%;
+}
+.spot-review{
+    background: #172935;
+    padding: 20px;
+    text-align: center;
+}
+.spot-review button {
+	box-shadow: 1px 1px 1px #444;
+	padding: 15px 60px;
+}
+.spot-detail {
+	padding: 20px 0px;
+}
+.spot-detail .spot-title {
+	color: #203a4c;
+	text-shadow: none;
+	margin: 5px 0 15px;
+	text-align: left;
+}
+.spot-detail .geo_link a {
+	padding-left: 17px;
+	color: #007496;
+	font-size: 16px;
+}
+.spot-detail .sidebar {
+  color: #798994;
+  font-weight: 700;
+  padding-top: 45px;
+  text-align: center;
+	border-left: 1px solid #dee3ea;
+}
+.spot-detail .sidebar .beenHere {
+	padding-bottom: 40px;
+	border-bottom: 1px solid #dee3ea;
+}
+.spot-detail .sidebar .beenHere .btn {
+	width: 80%;
+}
+.spot-detail .sidebar .spot-stats {
+	display: inline-block;
+	width: 100%;
+	padding: 17px 0;
+}
+.spot-detail .sidebar .spot-stats p {
+	vertical-align: middle;
+	line-height: 36px;
+	width: 100%;
+	color: #999;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+.spot-detail .sidebar .spot-stats p#category {
+	line-height: 36px;
+	font-size: 14px;
+}
+.spot-detail .sidebar .spot-stats span {
+  margin-left: 7px;
+}
+.spot-detail .sidebar .spot-stats img {
+	height: 24px;
+	margin-top: 6px;
+}
+.spot-images > div {
+	width: 100%;
+	text-align: center;
+}
+.spot-images .image > img {
+	width: 80%;
+	height: 400px;
+	cursor: pointer;
+}
+.spot-images .image > img:hover {
+	opacity: 0.8;
+}
+.spot-description {
+	color: #798994;
+	font-size: 14px;
+}
+.spot-description p {
+	padding-left: 20px;
+}
+
+/* For tablets and smart phones */
+@media (max-width: 992px) {
+	.spot-detail {
+		padding: 20px 0 0;
+	}
+	.spot-detail .sidebar {
+		border-left: 0;
+		border-top: 1px solid #666;
+		padding: 20px 0 0;
+		text-align: center;
+		margin-top: 20px;
+	}
+	.spot-detail .sidebar .beenHere {
+		border: 0;
+		border-bottom: 1px solid #666;
+	}
+	.spot-images h3 {
+		padding-left: 20px;
+		margin: 10px 0;
+	}
+	.spot-description h3 {
+		padding-left: 20px;
+		margin: 10px 0;
+	}
+	.spot-detail .sidebar .spot-stats p {
+		margin-bottom: 0;
+	}
+	.spot-images .image > img {
+		width: 80%;
+		height: 200px;
+	}
+}
+
+@media (max-width: 768px) {
+	h1, h2 {
+    font-size: 22px;
+	}
+	.content {
+	    padding: 0;
+	}
+	.content .product_header {
+    position: static;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+	}
+	.content .product_header h2 {
+    margin: 15px 0;
+	}
+	.content .product_header .container-fluid p {
+		display: block;
+	}
+	.content .product_header .col-md-4:first-child {
+    padding-left: 0;
+	}
+	.content .product_header .col-md-4:last-child {
+    padding-right: 0;
+	}
+	.content .product_header .geo_link a {
+	    padding-left: 0px;
+	}
+}
+@media (max-width: 595px) {
+	.content .product_header .container-fluid {
+		padding-top: 20px;
+	}
+	.content .product_header .row .rate-spot {
+		padding-left: 0;
+	}
+	.content .product_header .row .rate-spot h4 {
+		margin-bottom: 0;
+	}
+	.content .product_header .row .rate-spot .btn {
+		width: 100%;
+	}
+	.content .product_header .col-md-4,
+	.content .product_header .col-md-3,
+  .content .product_header .col-md-5 {
+		width: 100%;
+		padding: 5px 0;
+	}
+}

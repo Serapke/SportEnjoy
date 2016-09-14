@@ -7,7 +7,6 @@ import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
 import { ISpot } from './spot';
 import { SpotFilterPipe } from './spot-filter.pipe';
-// import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core';
 
 @Component({
 	templateUrl: './spots.component.html',
@@ -15,7 +14,6 @@ import { SpotFilterPipe } from './spot-filter.pipe';
 	pipes: [SpotFilterPipe],
 	directives: [
 		ROUTER_DIRECTIVES
-		// GOOGLE_MAPS_DIRECTIVES
 	]
 })
 export class SpotsComponent implements OnInit, OnDestroy{

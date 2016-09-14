@@ -65,7 +65,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	parseParams(path: string): void {
 		let buff = path.substring(path.indexOf('=')+1);
 		this.city = buff.substring(0, buff.indexOf(';'));
-		buff = buff.substring(path.indexOf('=')+1).replace(/g%20/g, ' ');
+		buff = buff.substring(path.indexOf('=')+1).replace(/%20/g, ' ');
 		this.category = buff.replace(/%C5%A1/g, 'š');
 		console.log(this.city + " " + this.category);
 	}

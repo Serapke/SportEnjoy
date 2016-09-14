@@ -1,0 +1,40 @@
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin-top: 0;
+}
+#review {
+  padding-top: 20px;
+}
+#review .panel,
+#review .panel-heading,
+#review .panel-footer {
+	border-radius: 0;
+}
+#review .panel-footer {
+  color: #555;
+  text-align: center;
+}
+#review .table.spots {
+	color: #444;
+	font-size: 14px;
+}
+#review .table.spots tbody tr {
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	#review {
+		padding: 0;
+	}
+  .panel {
+    border: 0;
+  }
+}

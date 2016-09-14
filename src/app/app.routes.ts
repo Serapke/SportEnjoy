@@ -59,12 +59,12 @@ export const routes: RouterConfig = [
 		path: 'profile',
 		component: ProfileComponent,
 		canActivate: [LoggedInGuard]
+	},
+	{
+		path: 'review',
+		component: ReviewComponent,
+		canActivate: [LoggedInGuard]
 	}
-	// {
-	// 	path: 'review',
-	// 	component: ReviewComponent,
-	// 	canActivate: [LoggedInGuard]
-	// },
 	// {
 	// 	path: 'spot/:id/update',
 	// 	component: SpotUpdateComponent,

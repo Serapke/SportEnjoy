@@ -10,6 +10,7 @@ import { SpottersComponent } from './spotters/spotters.component';
 import { LoginComponent } from './login/login.component';
 import { SpotAddComponent } from './spots/spot-add/spot-add.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProfileComponent } from './profile/profile.component';
     SpottersComponent,
     LoginComponent,
     SpotAddComponent,
-    ProfileComponent
+    ProfileComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

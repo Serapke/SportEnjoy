@@ -1,0 +1,35 @@
+<div class="container-fluid">
+	<div class="row">
+		<h2 class="hidden-xs">Peržiūrėti</h2>
+	</div>
+	<div class="row">
+		<div id="review" class="col-md-offset-1 col-md-10">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Neperžiūrėtos vietos</div>
+				<table class="table table-hover spots">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Pavadinimas</th>
+							<th>Kategorija</th>
+							<th class="hidden-xs">Vieta</th>
+							<th class="hidden-xs">Sukurta</th>
+							<th>Spotter</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let spot of spots"
+							[routerLink]="['/spot', spot.id]">
+							<td>{{ spot.id }}</td>
+							<td>{{ spot.title }}</td>
+							<td>{{ spot.category }}</td>
+							<td class="hidden-xs">{{ spot.city }}, {{ spot.country }}</td>
+							<td class="hidden-xs">{{ spot.created_at | date:'mediumDate' }}</td>
+							<td>{{ spot.user_id }}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div *ngIf="spots && spots.length == 0" class="panel-footer">Šiuo metu neperžiūrėtų vietų nėra</div>
+		</div>
+	</div>
+</div>

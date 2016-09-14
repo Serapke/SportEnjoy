@@ -5,8 +5,8 @@ import { SpotService } from '../spot.service';
 
 @Component({
 	selector: 'ng-topPlaces',
-	templateUrl: './top-spots.component.html',
-	styleUrls: ['./top-spots.component.css'],
+	templateUrl: './spots-top.component.html',
+	styleUrls: ['./spots-top.component.css'],
 	directives: [ROUTER_DIRECTIVES]
 })
 export class TopSpotsComponent {

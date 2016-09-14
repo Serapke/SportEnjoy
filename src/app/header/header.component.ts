@@ -144,25 +144,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	checkBgImage() {
 		switch(this.path) {
 			case '/':
-				this.backgroundImage = 'testas/assets/images/c2.jpg';
+				this.backgroundImage = '/assets/images/c2.jpg';
 				break;
 			case '/top-places':
-				this.backgroundImage = 'testas/assets/images/c2.jpg';
+				this.backgroundImage = '/assets/images/c2.jpg';
 				break;
 			case '/spot':
-				this.backgroundImage = 'testas/assets/images/spotter-background.jpg';
+				this.backgroundImage = '/assets/images/spotter-background.jpg';
 				break;
 			case '/spots':
-				this.backgroundImage = 'testas/assets/images/spotter-background.jpg';
+				this.backgroundImage = '/assets/images/spotter-background.jpg';
 				break;
 			case '/spotters':
-				this.backgroundImage = 'testas/assets/images/c6.jpg';
+				this.backgroundImage = '/assets/images/c6.jpg';
 				break;
 			case '/login':
-				this.backgroundImage = 'testas/assets/images/c3.jpg';
+				this.backgroundImage = '/assets/images/c3.jpg';
 				break;
 			default:
-				this.backgroundImage = 'testas/assets/images/header-background.jpg';
+				this.backgroundImage = '/assets/images/header-background.jpg';
 		}
 	}
 

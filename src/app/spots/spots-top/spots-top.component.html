@@ -1,0 +1,55 @@
+<div class="wrap container-fluid">
+	<div class="content row">
+		<h2 class="hidden-xs">Populiariausios vietos</h2>
+		<div class="container top-places">
+			<div *ngFor="let spot of spots" class="col-md-3">
+				<a [routerLink]="['/spot/' + spot.id]">
+					<div class="img_overflow">
+						<div *ngIf="spot.images.url" [style.background-image]="'url(' + spot.images.url + ')'"></div>
+						<div *ngIf="!spot.images.url" [style.background-image]="'url(' + defaultImage + ')'"></div>
+					</div>
+					<div class="post_excerpt">
+						<span class="title">{{ spot.title }}</span>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-4 col-xs-4"><p>{{ spot.rating }} <span class="glyphicon glyphicon-star"></span></p></div>
+								<div class="col-md-4 col-xs-4"><p>{{ spot.beenHere}} <span class="glyphicon glyphicon-eye-open"></span></p></div>
+								<div class="col-md-4 col-xs-4"><p><img [src]="'app/assets/images/' + spot.category + '.png'" /></p></div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<a (click)="searchSpotLocation(spot.city)" class="geo_link"><i class="gh_geopin"></i>{{ spot.city }}, {{spot.country}}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="spotter">
+	<div class="container">
+		<div class="row">
+			<h1>Spotters</h1>
+			<h3>Become a part. Be a spotter.</h3>
+			<p>Get on active sport places and add spots to help others to find the best workout locations</p>
+			<div class="container dotted">
+				<div class="row">
+					<div class="col-md-3 col-xs-3">
+						<img src="app/assets/images/signup-icon.png" />
+						<span>Sign up</span>
+					</div>
+					<img class="arrow col-md-1 col-xs-1" src="app/assets/images/arrow.png" />
+					<div class="col-md-3 col-xs-3">
+						<img src="app/assets/images/find-icon.png" />
+						<span>Find a spot</span>
+					</div>
+					<img class="arrow col-md-1 col-xs-1" src="app/assets/images/arrow.png" />
+					<div class="col-md-3 col-xs-3">
+						<img src="app/assets/images/spot-icon.png" />
+						<span>Add the spot</span>
+					</div>
+				</div>
+			</div>
+			<a [routerLink]="['/spotters']" routerLinkActive="active" class="btn btn-dark">Find out the advantages</a>
+		</div>
+	</div>
+</section>

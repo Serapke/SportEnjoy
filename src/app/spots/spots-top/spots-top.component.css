@@ -1,0 +1,252 @@
+section {
+		padding: 90px 0;
+}
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+    border: 4px solid #fff;
+    padding: 10px 20px;
+}
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin-top: 0;
+}
+a {
+	text-decoration: none;
+}
+
+
+
+.top-places {
+    zoom: 1;
+    padding: 60px 0 30px;
+}
+		.top-places .col-md-3 {
+				height: 350px;
+				max-height: 350px;
+				background-color: #e2e9eb;
+				padding: 0;
+				margin: 0 2.65% 60px 0;
+				width: 23%;
+				-o-transition: background-color .5s ease-in-out;
+				-webkit-transition: background-color .5s ease-in-out;
+				transition: background-color .5s ease-in-out;
+				position: relative;
+		}
+		.top-places .col-md-3:nth-child(4n) {
+		    margin-right: 0;
+		}
+		.top-places .col-md-3:hover {
+		    background-color: #C8D50B;
+		}
+				.top-places > .col-md-3 > a {
+				    display: block;
+				}
+				.top-places > .col-md-3 > a .img_overflow {
+				    width: 100%;
+				    overflow: hidden;
+				    max-height: 180px;
+				    height: 180px;
+				}
+						.top-places > .col-md-3 > a .img_overflow > div {
+						    -o-transition: all 30s linear;
+						    -webkit-transition: all 30s linear;
+						    transition: all 30s linear;
+						    height: 180px;
+						    background: url(../images/placeholder-560.jpg) no-repeat center center;
+						    -webkit-background-size: cover;
+						    background-size: cover;
+						    -ms-behavior: url(../images/backgroundsize.min.htc);
+						    background-color: #b4c5cb;
+						}
+				.top-places .col-md-3 > a .post_excerpt {
+				    padding: 20px;
+				    -webkit-box-sizing: border-box;
+				    box-sizing: border-box;
+				    text-align: center;
+				}
+						.top-places .col-md-3 > a .post_excerpt .title {
+						    color: #203a4c;
+						    display: block;
+						    max-height: 50px;
+						    height: 50px;
+						    line-height: 1.3;
+						}
+						.top-places .col-md-3 > a:hover .post_excerpt .title {
+						    text-decoration: none;
+						}
+						.top-places .col-md-3 > a .post_excerpt .container-fluid {
+						    margin-top: 40px;
+						}
+								.top-places .col-md-3 > a .post_excerpt .col-md-4 {
+								    text-align: center;
+								    height: 40px;
+								    display: table;
+								    background: #fff;
+								    color: #627581;
+								    color: rgba(32,58,76,.7);
+								    font-weight: 700;
+								    font-size: 12px;
+								    border-right: 2px solid #e2e9eb;
+								}
+										.top-places > .col-md-3 > a .post_excerpt .col-md-4 p {
+										    display: table-cell;
+										    vertical-align: middle;
+										    margin: 0;
+										    max-width: 45px;
+										}
+												.top-places > .col-md-3 > a .post_excerpt .col-md-4 span {
+												    padding-left: 7px;
+														line-height: 1;
+												}
+				.top-places .geo_link {
+				    color: #007496;
+				    font-size: 12px;
+				    background-color: transparent;
+				    text-align: center;
+				    position: absolute;
+				    left: 0;
+				    bottom: 80px;
+				    right: 0;
+				    z-index: 1;
+				    margin: auto 18%;
+				    width: auto;
+				}
+				.top-places .geo_link:hover {
+					text-decoration:  underline;
+					color: #007496;
+				}
+
+
+
+.spotter {
+    background: url('app/assets/images/spotter-background.jpg') center center no-repeat;
+    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
+    height: 700px;
+    text-align: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -ms-behavior: url(../images/backgroundsize.min.htc);
+}
+		.spotter h1 {
+		    display: table;
+		    margin: 0 auto;
+		    position: relative;
+		    margin-bottom: 50px;
+		    color: #fff;
+		}
+		.spotter p {
+		    width: 50%;
+		    margin: 0 auto 85px;
+		}
+				.spotter .col-md-3 span {
+				    display: block;
+				    max-width: 180px;
+				    text-align: center;
+				    margin: 20px auto 0;
+				    font-weight: 700;
+				    text-transform: uppercase;
+				    font-size: 12px;
+				}
+				.arrow {
+					width: 12.5%;
+					padding-top: 30px;
+				}
+		.spotter .btn {
+		    text-transform: uppercase;
+		    font-weight: 700;
+		    margin-top: 70px;
+		}
+		.btn {
+		    padding: 15px 20px;
+		    vertical-align: inherit;
+		    border-radius: 0;
+		    border: none;
+		    font-size: 18px;
+		    -o-transition: background-color .3s ease;
+		    -webkit-transition: background-color .3s ease;
+		    transition: background-color .3s ease;
+		}
+
+
+
+@media (min-width: 992px) {
+ .geo_link {
+    margin: auto 10%;
+	}
+	.top-places .post_excerpt .col-md-4 {
+    padding: 0;
+	}
+}
+@media (max-width: 992px) and (min-width: 768px) {
+	.top-places .col-md-3:nth-child(odd) {
+	    margin-left: 0!important;
+	}
+	.top-places .col-md-3:nth-child(4n) {
+	    margin-right: 0;
+	}
+	.top-places .col-md-3{
+	    width: 48.5%!important;
+	    margin: 0 0 20px 20px!important;
+	    float: left;
+	}
+}
+@media (max-width: 768px) {
+	.top-places {
+	    padding: 0!important;
+	}
+			.top-places .col-md-3 {
+		    width: 100%;
+		    margin: 0;
+		    height: 340px;
+		    max-height: 340px;
+			}
+					.top-places > .col-md-3 > a .img_overflow {
+							max-height: 200px;
+							height: 200px;
+					}
+					.top-places .col-md-3 .post_excerpt .title {
+					    text-overflow: ellipsis;
+					    overflow: hidden;
+					    white-space: nowrap;
+					    font-size: 16px;
+					    max-height: none;
+					    height: auto;
+					}
+					.top-places .col-md-3 .post_excerpt .container-fluid {
+					    margin-top: 10px!important;
+					}
+	.spotter {
+    height: auto;
+    background-position: center;
+	}
+	section {
+    padding: 40px 20px;
+	}
+	.dotted {
+		display: none;
+	}
+	.spotter h1 {
+    width: 85%;
+    padding: 15px 20px;
+    margin-top: 15px;
+	}
+	.spotter p {
+    width: 100%;
+    margin: 0 auto;
+	}
+	.spotter .btn {
+    font-size: 14px;
+    margin-top: 45px;
+    padding: 20px;
+	}
+}

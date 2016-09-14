@@ -1,5 +1,5 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-// import { TopSpotsComponent } from './spots/top-spots/top-spots.component';
+import { TopSpotsComponent } from './spots/spots-top/spots-top.component';
 // import { SpotDetailComponent } from './spots/spot-detail/spot-detail.component';
 import { SpotsComponent } from './spots/spots.component';
 // import { SpottersComponent } from './spotters/spotters.component';
@@ -15,10 +15,10 @@ import { SpotsComponent } from './spots/spots.component';
 // import { LoggedInGuard } from './shared/logged-in.guard';
 
 export const routes: RouterConfig = [
-	// {
-	//   path: 'top-places',
-	//   component: TopSpotsComponent
-	// },
+	{
+	  path: 'top-places',
+	  component: TopSpotsComponent
+	},
     {
         path: '',
 		redirectTo: '/spots',

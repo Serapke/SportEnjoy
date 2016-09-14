@@ -5,11 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { appRouterProviders } from './app.routes';
-
+import { TopSpotsComponent } from './spots/spots-top/spots-top.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopSpotsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,283 @@
+section {
+		padding: 90px 0;
+}
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+    border: 4px solid #fff;
+    padding: 10px 20px;
+}
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin-top: 0;
+}
+a {
+	text-decoration: none;
+}
+
+.spotters {
+    zoom: 1;
+    padding: 60px 0 30px;
+}
+.spotters .col-md-2 {
+		height: 320px;
+		max-height: 320px;
+		background-color: #e2e9eb;
+		padding: 0;
+		margin: 0;
+		width: 20%;
+		-o-transition: background-color .5s ease-in-out;
+		-webkit-transition: background-color .5s ease-in-out;
+		transition: background-color .5s ease-in-out;
+		position: relative;
+}
+.spotters .col-md-2:nth-child(4n) {
+		margin-right: 0;
+}
+.spotters .col-md-2:hover {
+		background-color: #C8D50B;
+}
+.spotters > .col-md-2 > a {
+		display: block;
+}
+.spotters > .col-md-2 > a .img_overflow {
+		width: 100%;
+		overflow: hidden;
+		max-height: 180px;
+		height: 180px;
+}
+		.spotters > .col-md-2 > a .img_overflow > img {
+				-o-transition: all 30s linear;
+				-webkit-transition: all 30s linear;
+				transition: all 30s linear;
+				width: inherit;
+				-webkit-background-size: cover;
+				background-size: cover;
+				background-color: #b4c5cb;
+		}
+		.spotters .col-md-2 > a .spotter-info {
+				padding: 20px;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				text-align: center;
+		}
+				.spotters .col-md-2 > a .spotter-info .name {
+						color: #203a4c;
+						display: block;
+						max-height: 50px;
+						height: 50px;
+						line-height: 1.3;
+				}
+				.spotters .col-md-2 > a:hover .spotter-info .name {
+						text-decoration: none;
+				}
+						.spotters .col-md-2 > a .spotter-info .col-md-4 {
+								text-align: center;
+								height: 40px;
+								display: table;
+								background: #fff;
+								color: #627581;
+								color: rgba(32,58,76,.7);
+								font-weight: 700;
+								font-size: 12px;
+								border-right: 2px solid #e2e9eb;
+						}
+								.spotters > .col-md-2 > a .spotter-info .col-md-4 p {
+										display: table-cell;
+										vertical-align: middle;
+										margin: 0;
+										max-width: 45px;
+								}
+										.spotters > .col-md-2 > a .spotter-info .col-md-4 span {
+												padding-left: 3px;
+												line-height: 1;
+										}
+		.spotters .geo_link {
+				color: #007496;
+				font-size: 12px;
+				background-color: transparent;
+				text-align: center;
+				position: absolute;
+				left: 0;
+				bottom: 80px;
+				right: 0;
+				z-index: 1;
+				margin: auto 18%;
+				width: auto;
+				transition: 1s all;
+				text-transform: uppercase;
+		}
+		.spotters .geo_link:hover {
+			text-decoration:  underline;
+			color: #007496;
+		}
+
+		.spotter {
+		    background: url('app/assets/images/spotter-background.jpg') center center no-repeat;
+		    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
+		    height: 600px;
+		    text-align: center;
+		    -webkit-background-size: cover;
+		    background-size: cover;
+		    -ms-behavior: url(../images/backgroundsize.min.htc);
+				margin-top: 20px;
+		}
+				.spotter h1 {
+				    display: table;
+				    margin: 0 auto;
+				    position: relative;
+				    margin-bottom: 50px;
+				    color: #fff;
+				}
+				.spotter p {
+				    width: 50%;
+				    margin: 0 auto 85px;
+				}
+						.spotter .col-md-3 span {
+						    display: block;
+						    max-width: 180px;
+						    text-align: center;
+						    margin: 20px auto 0;
+						    font-weight: 700;
+						    text-transform: uppercase;
+						    font-size: 12px;
+						}
+						.arrow {
+							width: 12.5%;
+							padding-top: 30px;
+						}
+				.spotter .btn {
+				    text-transform: uppercase;
+				    font-weight: 700;
+				    margin-top: 70px;
+				}
+
+		.benefits {
+				padding: 60px 0;
+		}
+		.benefits h2 {
+				margin: 0;
+		}
+		.benefits .benefits-list {
+			margin: 0;
+		}
+		.benefits .benefits-list .list-group-item {
+			border-radius: 0;
+			cursor: pointer;
+			background: #eee;
+			min-height: 60px;
+		}
+		.benefits .benefits-list .list-group-item:hover {
+			background: #38b5aa;
+		}
+		.benefits .benefits-list .list-group-item:hover > h4 {
+			color: #fff;
+		}
+		.benefits .benefits-list .list-group-item:hover > p {
+			color: #ddd;
+		}
+		.benefits .benefits-list .list-group-item .addon {
+			float: left;
+			display: block;
+			text-align: center;
+			pointer-events: none;
+			padding: 12px 0px;
+			line-height: 1;
+			color: #fff;
+			text-align: center;
+			background-color: #38b5aa;
+			border-radius: 4px;
+			white-space: nowrap;
+			width: 40px;
+			margin-right: 10px;
+		}
+		.benefits .benefits-list .list-group-item:hover .addon {
+			color: #38b5aa;
+			background-color: #fff;
+		}
+
+@media (min-width: 992px) {
+ .geo_link {
+    margin: auto 10%;
+	}
+	.spotters .spotter-info .col-md-4 {
+    padding: 0;
+	}
+}
+@media (max-width: 535px) {
+	.benefits .benefits-list .list-group-item > h4 {
+		padding: 12px 0px;
+	}
+}
+@media (max-width: 992px) and (min-width: 768px) {
+	.spotters .col-md-2:nth-child(odd) {
+	    margin-left: 0!important;
+	}
+	.spotters .col-md-2:nth-child(4n) {
+	    margin-right: 0;
+	}
+	.spotters .col-md-2{
+	    width: 48.5%!important;
+	    margin: 0 0 20px 20px!important;
+	    float: left;
+	}
+}
+@media (max-width: 768px) {
+	.spotter {
+		margin: 0;
+		height: auto;
+		background-position: center;
+	}
+	section {
+		padding: 40px 20px;
+	}
+	.dotted {
+		display: none;
+	}
+	.spotter h1 {
+		width: 85%;
+		padding: 15px 20px;
+		margin-top: 15px;
+	}
+	.spotter p {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.spotter .btn {
+		font-size: 14px;
+		margin-top: 45px;
+		padding: 20px;
+	}
+	.benefits {
+		padding: 0;
+	}
+	.benefits > .container{
+		padding: 0;
+	}
+	.benefits .benefits-list .list-group-item > h4 {
+		padding: 12px 0px;
+	}
+}
+
+/* For tablets and smart phones */
+@media (max-width: 991px) {
+	.spotters .col-md-2 {
+		width: auto;
+	}
+}
+
+/* For smart phones */
+@media (max-width: 767px) {
+		.spotters {
+			padding: 0;
+		}
+}

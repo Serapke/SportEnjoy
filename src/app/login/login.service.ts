@@ -6,7 +6,7 @@ import { IUser } from '../users/user';
 
 @Injectable()
 export class LoginService {
-    private _loginUrl = 'http://localhost:3000/sessions';
+    private _loginUrl = 'https://sportenjoy-api.herokuapp.com/sessions';
     user: IUser = null;
     private loggedIn: boolean = false;
     redirectUrl: string;

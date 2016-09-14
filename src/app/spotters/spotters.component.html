@@ -1,0 +1,77 @@
+<div class="wrap container-fluid">
+	<div class="row content">
+		<h2 class="hidden-xs">Spotters</h2>
+		<div class="container spotters">
+			<div *ngFor='let spotter of spotters'  class="col-md-2">
+				<a>
+					<div class="img_overflow">
+						<img *ngIf="spotter.image.url" [src]="spotter.image.url" />
+						<img *ngIf="!spotter.image.url" [src]="defaultImage" />
+					</div>
+					<div class="spotter-info">
+						<span class="name">{{ spotter.name }}</span>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-4 col-xs-4"><p>{{ spotter.spotsMarked }}<span class="glyphicon glyphicon-map-marker"></span></p></div>
+								<div class="col-md-4 col-xs-4"><p>{{ spotter.beenHereCount }}<span class="glyphicon glyphicon-eye-open"></span></p></div>
+								<div class="col-md-4 col-xs-4"><p>{{ spotter.commentsCount }}<span class="glyphicon glyphicon-comment"></span></p></div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<a class="geo_link"><i class="gh_geopin"></i>{{ spotter.location }}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="spotter">
+	<div class="container">
+		<div class="row">
+			<h1>Join</h1>
+			<h3>Make spots yourself. It's easy.</h3>
+			<p>Get on active sport places and add spots to help others to find the best workout locations</p>
+			<div class="container dotted">
+				<div class="row">
+					<div class="col-md-3 col-xs-3">
+						<img src="app/assets/images/signup-icon.png" />
+						<span>Sign up</span>
+					</div>
+					<img class="arrow col-md-1 col-xs-1" src="app/assets/images/arrow.png" />
+					<div class="col-md-3 col-xs-3">
+						<img src="app/assets/images/find-icon.png" />
+						<span>Find a spot</span>
+					</div>
+					<img class="arrow col-md-1 col-xs-1" src="app/assets/images/arrow.png" />
+					<div class="col-md-3 col-xs-3">
+						<img src="app/assets/images/spot-icon.png" />
+						<span>Add the spot</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="benefits">
+	<div class="container">
+	  <h2>Benefits</h2>
+	  <div class="list-group benefits-list">
+	    <a class="list-group-item">
+				<span class="glyphicon glyphicon-link addon"></span>
+	      <h4 class="list-group-item-heading">Link spots with your account</h4>
+	      <p class="list-group-item-text hidden-xs">This way everyone will be able to see that you discovered the place!</p>
+	    </a>
+	    <a class="list-group-item">
+				<span class="glyphicon glyphicon-heart addon"></span>
+	      <h4 class="list-group-item-heading">Save your favorite spots</h4>
+	      <p class="list-group-item-text hidden-xs">It's a great way to remember all the places you exercise at</p>
+	    </a>
+	    <a class="list-group-item">
+				<span class="glyphicon glyphicon-thumbs-up addon"></span>
+	      <h4 class="list-group-item-heading">Be the best spotter</h4>
+	      <p class="list-group-item-text hidden-xs">Spot as many places you can to be the best spotter</p>
+	    </a>
+	  </div>
+	</div>
+</section>

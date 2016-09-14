@@ -6,11 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { appRouterProviders } from './app.routes';
 import { TopSpotsComponent } from './spots/spots-top/spots-top.component';
+import { SpottersComponent } from './spotters/spotters.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopSpotsComponent
+    TopSpotsComponent,
+    SpottersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

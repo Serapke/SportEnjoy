@@ -153,7 +153,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 				this.backgroundImage = '/testas/assets/images/spotter-background.jpg';
 				break;
 			case '/spots':
-				this.backgroundImage = 'testas/assets/images/spotter-background.jpg';
+				this.backgroundImage = '/assets/images/spotter-background.jpg';
 				break;
 			case '/spotters':
 				this.backgroundImage = '/assets/images/c6.jpg';

@@ -167,7 +167,7 @@ a {
 					-webkit-transition: all 30s linear;
 					transition: all 30s linear;
 					height: 100%;
-					background: url('assets/images/spotter-background.jpg') no-repeat center center;
+					background: url('/testas/assets/images/spotter-background.jpg') no-repeat center center;
 					-webkit-background-size: cover;
 					background-size: cover;
 					background-color: #b4c5cb;
@@ -200,7 +200,7 @@ a {
 	}
 
 	.spotter {
-	    background: url('assets/images/spotter-background.jpg') center center no-repeat;
+	    background: url('/testas/assets/images/spotter-background.jpg') center center no-repeat;
 	    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
 	    height: 700px;
 	    text-align: center;

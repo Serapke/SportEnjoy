@@ -31,7 +31,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	selectedCategory: string = '';
 	selectedSorting: string = '';
 	listFilter: string = '';
-	defaultImage: string = 'assets/images/spotter-background.jpg';
+	defaultImage: string = 'testas/assets/images/spotter-background.jpg';
 	lat: number = 54.9;
 	lng: number = 23.9;
 

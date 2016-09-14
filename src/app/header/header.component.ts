@@ -112,7 +112,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 		let t = document.body.scrollTop;
 		t > 15 ? this.navbarClass = true : this.navbarClass=false;
 		// if using mobile or tablet and opened menu hide brand
-        console.log(document.body.clientWidth);
 		if ((document.body.clientWidth < 990) && (this.overlayHeight == 100)) {
 			this.showBrand = false;
 		}

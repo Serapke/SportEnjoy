@@ -29,7 +29,7 @@ export class LoginService {
                             localStorage.setItem('auth_token', data.auth_token);
                             localStorage.setItem('user_name', data.name);
                             localStorage.setItem('user', JSON.stringify(data));
-                        this.loggedIn = true;
+                            this.loggedIn = true;
                         })
             .catch(this.handleError);
     }
@@ -46,7 +46,7 @@ export class LoginService {
     }
 
     isLoggedIn() {
-    return this.loggedIn;
+        return this.loggedIn;
     }
 
     isModerator() {

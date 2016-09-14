@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, Input, OnChanges, DoCheck } from '@angular/core';
-import { IUser } from '../user';
-import { UserService } from '../user.service';
-import { LoginService } from '../../login/login.service';
+import { IUser } from './user';
+import { UserService } from './user.service';
+import { LoginService } from '../login/login.service';
 import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-	templateUrl: 'app/users/user/user.component.html',
-	styleUrls: ['app/users/user/user.component.css']
+	templateUrl: './user.component.html',
+	styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, OnDestroy {
 	private sub: any;

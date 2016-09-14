@@ -23,7 +23,6 @@ import { UserService } from './users/user.service';
   providers: [
     SpotService,
     TextTransformService,
-    LoginService,
     UserService,
     FileService
   ]

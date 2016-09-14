@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { LoginService } from './login/login.service';
 
 import { AppComponent } from './app.component';
 import { appRouterProviders } from './app.routes';
@@ -13,6 +14,8 @@ import { SpotAddComponent } from './spots/spot-add/spot-add.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReviewComponent } from './review/review.component';
 import { SpotUpdateComponent } from './spots/spot-update/spot-update.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './users/user.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { SpotUpdateComponent } from './spots/spot-update/spot-update.component';
     SpotAddComponent,
     SpotUpdateComponent,
     ProfileComponent,
-    ReviewComponent
+    ReviewComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { SpotUpdateComponent } from './spots/spot-update/spot-update.component';
     })
   ],
   providers: [
-    appRouterProviders
+    appRouterProviders,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

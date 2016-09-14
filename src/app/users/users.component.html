@@ -1,0 +1,32 @@
+<div class="wrap container-fluid">
+	<div class="row">
+		<h2 class="hidden-xs">Vartotojai</h2>
+		<div id="review" class="col-md-offset-1 col-md-10">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Visi vartotojai</div>
+				<table class="table table-hover spots">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>El. paštas</th>
+							<th class="hidden-xs">Vieta</th>
+							<th class="hidden-xs">Pažymėjo vietų</th>
+							<th>Statusas</th>
+							<th class="hidden-xs">Prisiregistravo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let user of users"
+							[routerLink]="['/user', user.id]">
+							<td>{{ user.id }}</td>
+							<td>{{ user.email }}</td>
+							<td class="hidden-xs">{{ user.location }}</td>
+							<td class="hidden-xs">{{ user.spotsMarked }}</td>
+							<td>{{ userStatus(user) }}</td>
+							<td class="hidden-xs">{{ user.created_at | date:'mediumDate' }}</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>

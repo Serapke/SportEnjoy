@@ -9,8 +9,8 @@ import { ReviewComponent } from './review/review.component';
 import { SpotAddComponent } from './spots/spot-add/spot-add.component';
 import { SpotUpdateComponent } from './spots/spot-update/spot-update.component';
 import { ProfileComponent } from './profile/profile.component';
-// import { UsersComponent } from './users/users.component';
-// import { UserComponent } from './users/user/user.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './users/user.component';
 import { LoggedInGuard } from './shared/logged-in.guard';
 import { LoginService } from './login/login.service';
 
@@ -69,17 +69,17 @@ export const routes: RouterConfig = [
 		path: 'spot/:id/update',
 		component: SpotUpdateComponent,
 		canActivate: [LoggedInGuard]
+	},
+	{
+		path: 'users',
+		component: UsersComponent,
+		canActivate: [LoggedInGuard]
+	},
+	{
+		path: 'user/:id',
+		component: UserComponent,
+		canActivate: [LoggedInGuard]
 	}
-	// {
-	// 	path: 'users',
-	// 	component: UsersComponent,
-	// 	canActivate: [LoggedInGuard]
-	// },
-	// {
-	// 	path: 'user/:id',
-	// 	component: UserComponent,
-	// 	canActivate: [LoggedInGuard]
-	// }
 ];
 
 export const appRouterProviders = [

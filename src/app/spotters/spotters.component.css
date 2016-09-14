@@ -122,13 +122,12 @@ a {
 		}
 
 		.spotter {
-		    background: url('app/assets/images/spotter-background.jpg') center center no-repeat;
+		    background: url('/testas/assets/images/spotter-background.jpg') center center no-repeat;
 		    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
 		    height: 600px;
 		    text-align: center;
 		    -webkit-background-size: cover;
 		    background-size: cover;
-		    -ms-behavior: url(../images/backgroundsize.min.htc);
 				margin-top: 20px;
 		}
 				.spotter h1 {

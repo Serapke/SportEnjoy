@@ -19,7 +19,7 @@ h4 {
 }
 form {
     padding: 70px 50px;
-		background: url('app/assets/images/c4.jpg') top center no-repeat;
+		background: url('/testas/assets/images/c4.jpg') top center no-repeat;
 		background-size:cover;
 		color: #32353c;
 }

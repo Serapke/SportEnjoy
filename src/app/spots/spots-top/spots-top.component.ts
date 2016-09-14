@@ -12,7 +12,7 @@ import { SpotService } from '../spot.service';
 export class TopSpotsComponent {
 	spots: ISpot[];
 	errorMessage: string;
-	defaultImage: string = '/testas/app/assets/images/spotter-background.jpg';
+	defaultImage: string = '/testas/assets/images/spotter-background.jpg';
 
 	constructor(
 		private _spotService: SpotService,

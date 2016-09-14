@@ -5,7 +5,7 @@ import { Http, Response, Headers } from '@angular/http';
 import { TextTransformService } from '../shared/text-transform.service';
 // import { Location } from '../shared/location/location';
 // import { LocationService } from '../shared/location/location.service';
-// import { IUser } from '../users/user.ts';
+import { IUser } from '../users/user';
 
 @Injectable()
 export class SpotService {
@@ -42,18 +42,18 @@ export class SpotService {
             .do(data => console.log("Got top spots!"))
             .catch(this.handleError);
     }
-    // createUnapprovedSpot(spot: ISpot): Observable<ISpot> {
-    //   let user = <IUser> JSON.parse(localStorage.getItem('user'));
-    //   let url = `${this._userProductUrl}/${user.id}/spots`;
+    createUnapprovedSpot(spot: ISpot): Observable<ISpot> {
+      let user = <IUser> JSON.parse(localStorage.getItem('user'));
+      let url = `${this._userProductUrl}/${user.id}/spots`;
 
-    //   return this._http.post(url, spot, { headers: this.getHeaders()})
-    //         .map((response: Response) => <ISpot> response.json())
-    //         .do(data => {
-    //           console.log("Created a spot!");
-    //           console.log(data);
-    //         })
-    //         .catch(this.handleError);
-    // }
+      return this._http.post(url, spot, { headers: this.getHeaders()})
+            .map((response: Response) => <ISpot> response.json())
+            .do(data => {
+              console.log("Created a spot!");
+              console.log(data);
+            })
+            .catch(this.handleError);
+    }
     getCreatedSpots(): Observable<ISpot[]> {
       let url = `${this._publicProductUrl}/created_spots`;
       return this._http.get(url, { headers: this.getHeaders() })

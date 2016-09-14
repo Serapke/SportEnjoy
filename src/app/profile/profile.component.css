@@ -1,0 +1,41 @@
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+		color: #eee;
+    border: 4px solid #333;
+    padding: 30px 10px;
+		text-align: center;
+		width: auto;
+		background: #404040;
+		margin-top: 0;
+    margin-bottom: 0;
+}
+#profile {
+  padding-top: 20px;
+}
+#profile .panel,
+#profile .panel-heading,
+#profile .panel-footer {
+	border-radius: 0;
+}
+#profile .panel-footer {
+  color: #555;
+  text-align: center;
+}
+#profile .table.spots {
+	color: #444;
+	font-size: 14px;
+}
+#profile .table.spots tbody tr {
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	#profile {
+		padding: 0;
+	}
+  .panel {
+    border: 0;
+  }
+}

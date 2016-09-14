@@ -6,9 +6,9 @@ import { SpottersComponent } from './spotters/spotters.component';
 // import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 // import { ReviewComponent } from './review/review.component';
-// import { SpotAddComponent } from './spots/spot-add/spot-add.component';
+import { SpotAddComponent } from './spots/spot-add/spot-add.component';
 // import { SpotUpdateComponent } from './spots/spot-update/spot-update.component';
-// import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
 // import { UsersComponent } from './users/users.component';
 // import { UserComponent } from './users/user/user.component';
 import { LoggedInGuard } from './shared/logged-in.guard';
@@ -49,17 +49,17 @@ export const routes: RouterConfig = [
 		path: 'register',
 		component: LoginComponent,
 		canActivate: [LoggedInGuard]
+	},
+	{
+		path: 'add-spot',
+		component: SpotAddComponent,
+		canActivate: [LoggedInGuard]
+	},
+	{
+		path: 'profile',
+		component: ProfileComponent,
+		canActivate: [LoggedInGuard]
 	}
-	// {
-	// 	path: 'add-spot',
-	// 	component: SpotAddComponent,
-	// 	canActivate: [LoggedInGuard]
-	// },
-	// {
-	// 	path: 'profile',
-	// 	component: ProfileComponent,
-	// 	canActivate: [LoggedInGuard]
-	// },
 	// {
 	// 	path: 'review',
 	// 	component: ReviewComponent,

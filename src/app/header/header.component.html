@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" [ngStyle]="{'background-image':'url(' + backgroundImage + ')'}">
+<nav class="navbar navbar-default" [style.background-image]="'url(' + backgroundImage + ')'}">
 	<div *ngIf="showBrand" class="navbar-fixed-top navbar-header" [class.small]="navbarClass">
 		<div class="row navbar-brand">
 			<button class="navbar-toggle collapsed" (click)='showOverlay()'>

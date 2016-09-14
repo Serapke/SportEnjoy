@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ) {}
 
 	ngOnInit(): void {
-        console.log(document.body.clientWidth);
 		if ((document.body.clientWidth < 990) && (this.overlayHeight == 100)) {
 			this.showBrand = false;
 		}

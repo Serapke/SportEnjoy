@@ -9,9 +9,6 @@ export class LoggedInGuard implements CanActivate {
   constructor(private _loginService: LoginService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log("guard");
-    console.log(this._loginService.isLoggedIn());
-    console.log(state.url !== '/login');
     if (this._loginService.isAdmin()) {
       return true;
     }

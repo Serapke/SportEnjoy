@@ -48,7 +48,7 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	}
 
 	isModerator(): boolean {
-		return this._loginService.isModerator();
+		return this._loginService.isModerator() || this._loginService.isAdmin();
 	}
 
 	isReviewed(): boolean {

@@ -87,7 +87,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this._locationService.geocode(center)
 			.subscribe(position => {
 				console.log("got it");
-				console.log(position);
+				console.log(position[0].address_components[1].short_name);
+				console.log(position[0].address_components[2].long_name);
 			}, error => {
 				console.error("error");
 			});

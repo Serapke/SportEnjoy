@@ -46,7 +46,8 @@ export class SpotService {
     createSpot(spot: ISpot): Observable<ISpot> {
       let user = <IUser> JSON.parse(localStorage.getItem('user'));
       let url = `${this._userProductUrl}/${user.id}/spots`;
-  
+      
+      alert(spot.latitude + " " + spot.longitude + " (types: " + (typeof spot.latitude) + ", " + (typeof spot.longitude) + ")")
       this.center  = new google.maps.LatLng(spot.latitude, spot.longitude);
       
       return new Observable<ISpot>(observer => {

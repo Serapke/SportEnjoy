@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
 import { LocationService } from '../shared/location/location.service';
+import { MapService } from '../shared/map/map.service';
 import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
 import { ISpot } from './spot';
@@ -31,13 +32,49 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	defaultImage: string = '/testas/assets/images/spotter-background.jpg';
 	lat: number = 54.9;
 	lng: number = 23.9;
+	center: google.maps.LatLng;
+    
+    // MapOptions object specification.
+      
+    // The initial map zoom level. Required.
+    zoom: number;
+
+    disableDefaultUI: boolean;
+    disableDoubleClickZoom: boolean;
+    mapTypeId: google.maps.MapTypeId;
+    maxZoom: number;
+    minZoom: number;
+    styles: Array<google.maps.MapTypeStyle>;
 
 	constructor(
 		private _spotService: SpotService,
 		private _route: ActivatedRoute,
 		private _locationService: LocationService,
-	  private _router: Router) {
-		}
+	  	private _router: Router,
+		private _mapService: MapService
+	) {
+		this.center = new google.maps.LatLng(this.lat, this.lng);
+		this.zoom = 6;
+		this.disableDefaultUI = true;
+        this.disableDoubleClickZoom = false;
+		this.mapTypeId = google.maps.MapTypeId.ROADMAP;
+        this.maxZoom = 15;
+        this.minZoom = 4;
+        // Styled Maps: https://developers.google.com/maps/documentation/javascript/styling
+        // You can use the Styled Maps Wizard: http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html 
+        this.styles = [
+            {
+                featureType: 'landscape',
+                stylers: [
+                    { color: '#ffffff' }
+                ]
+            }
+        ];
+	}
+
+	spotPosition(lat, lng): google.maps.LatLng {
+		return new google.maps.LatLng(lat, lng);
+	}
 
 	toggleSearchProperties(): void {
 		if (this.showSearchProperties == 0) {

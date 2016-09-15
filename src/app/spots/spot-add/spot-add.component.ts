@@ -56,14 +56,15 @@ export class SpotAddComponent implements OnInit {
 				this._spotService.createSpot(this.spot).subscribe(
 					spot => {
 						console.log("was");
-						this.submitted = true;
 						this.spot = spot;
+						this.submitted = true;
 					},
 					error => {
 						this.errorMessage = <any>error;
 						console.error("error");
 					}
 		 		);
+				console.log("done");
 			});
 	}
 

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
 // import { Location } from '../shared/location/location';
-// import { LocationService } from '../shared/location/location.service';
+import { LocationService } from '../shared/location/location.service';
 import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
 import { ISpot } from './spot';
@@ -36,7 +36,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	constructor(
 		private _spotService: SpotService,
 		private _route: ActivatedRoute,
-		// private _locationService: LocationService,
+		private _locationService: LocationService,
 	  private _router: Router) {
 		}
 
@@ -78,12 +78,13 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	}
 
 	getLocalSpots(): void {
-		// this._locationService.getLocation()
-		// 	.subscribe(position => {
-		// 		console.log("User position is:\nLatitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
-		// 	}, error => {
-		// 		console.error("Error while trying to get user location");
-		// 	});
+		console.log("Get local spots started");
+		this._locationService.getLocation()
+			.subscribe(position => {
+				console.log("User position is:\nLatitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
+			}, error => {
+				console.error("Error while trying to get user location");
+			});
 	}
 
 	getParticularSpots(category: string, city: string) {
@@ -104,8 +105,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	ngOnInit(): void {
 		this.getAllSpots();
 
-		// this.getLocalSpots();
-  }
+		this.getLocalSpots();
+  	}
 
 	getParams():void {
 		this.sub = this._route

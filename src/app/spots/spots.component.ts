@@ -83,6 +83,12 @@ export class SpotsComponent implements OnInit, OnDestroy{
 			}, error => {
 				console.error("Error while trying to get user location");
 			});
+		this._locationService.getLocationByCoordinates()
+			.subscribe(position => {
+				console.log("got it");
+			}, error => {
+				console.error("error");
+			});
 	}
 
 	getParticularSpots(category: string, city: string) {

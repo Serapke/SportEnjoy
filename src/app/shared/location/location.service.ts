@@ -53,6 +53,7 @@ export class LocationService {
 
 	geocode(latLng: google.maps.LatLng): Observable<google.maps.GeocoderResult[]> {
 		console.log("getting location");
+		console.log(latLng);
         return new Observable<google.maps.GeocoderResult[]>((observer: Observer<google.maps.GeocoderResult[]>) => {
             // Invokes geocode method of Google Maps API geocoding.
             this.geocoder.geocode({ 'location': latLng }, (

@@ -42,6 +42,7 @@ export class SpotAddComponent implements OnInit {
 		console.log("submited");
 
 		this.center  = new google.maps.LatLng(this.spot.latitude, this.spot.longitude);
+		alert(this.spot.latitude + " " + this.spot.longitude + " (types: " + (typeof this.spot.latitude) + ", " + (typeof this.spot.longitude) + ")")
 
 		this._locationService.geocode(this.center).
 			subscribe(position => {

@@ -72,12 +72,13 @@
 					</div>
 				</div>
 			</div>
-			<google-map [center]="center" [zoom]="zoom"
+			<div id="map"></div>
+			<!--<google-map [center]="center" [zoom]="zoom"
 				[maxZoom]="maxZoom" [minZoom]="minZoom">
 				<!--this property is required: position-->
 				<google-map-marker *ngFor="let spot of particularSpots" [position]="spotPosition(spot.latitude, spot.longitude)" [title]="spot.title" [content]="spot.city + ', ' + spot.country">
 				</google-map-marker>
-			</google-map>
+			</google-map>-->
 			<!--<sebm-google-map *ngIf="particularSpots" [latitude]="lat" [longitude]="lng" [zoom]="6" [scrollwheel]="false">
 				<sebm-google-map-marker *ngFor="let spot of particularSpots" [latitude]="spot.latitude" [longitude]="spot.longitude"></sebm-google-map-marker>
 			</sebm-google-map>-->

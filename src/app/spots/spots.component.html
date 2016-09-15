@@ -73,7 +73,7 @@
 				</div>
 			</div>
 			<google-map [center]="center" [zoom]="zoom" [disableDefaultUI]="disableDefaultUI" [disableDoubleClickZoom]="disableDoubleClickZoom"
-				[mapTypeId]="mapTypeId" [maxZoom]="maxZoom" [minZoom]="minZoom" [styles]="styles">
+				[maxZoom]="maxZoom" [minZoom]="minZoom">
 				<!--this property is required: position-->
 				<google-map-marker *ngFor="let spot of particularSpots" [position]="spotPosition(spot.latitude, spot.longitude)" [title]="spot.title" [content]="spot.city + ', ' + spot.country">
 				</google-map-marker>

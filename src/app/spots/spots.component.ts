@@ -41,10 +41,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 
     disableDefaultUI: boolean;
     disableDoubleClickZoom: boolean;
-    mapTypeId: google.maps.MapTypeId;
     maxZoom: number;
     minZoom: number;
-    styles: Array<google.maps.MapTypeStyle>;
 
 	constructor(
 		private _spotService: SpotService,
@@ -57,19 +55,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.zoom = 6;
 		this.disableDefaultUI = true;
         this.disableDoubleClickZoom = false;
-		this.mapTypeId = google.maps.MapTypeId.ROADMAP;
         this.maxZoom = 15;
         this.minZoom = 4;
-        // Styled Maps: https://developers.google.com/maps/documentation/javascript/styling
-        // You can use the Styled Maps Wizard: http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html 
-        this.styles = [
-            {
-                featureType: 'landscape',
-                stylers: [
-                    { color: '#ffffff' }
-                ]
-            }
-        ];
 	}
 
 	spotPosition(lat, lng): google.maps.LatLng {

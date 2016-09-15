@@ -83,9 +83,11 @@ export class SpotsComponent implements OnInit, OnDestroy{
 			}, error => {
 				console.error("Error while trying to get user location");
 			});
-		this._locationService.getLocationByCoordinates()
+		let center = new google.maps.LatLng(54.922431, 23.875738);
+		this._locationService.geocode(center)
 			.subscribe(position => {
 				console.log("got it");
+				console.log(position);
 			}, error => {
 				console.error("error");
 			});

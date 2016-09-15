@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 import { Http, Response} from '@angular/http';
 
 const GEOLOCATION_ERRORS = {
@@ -15,9 +16,12 @@ export class LocationService {
 		apiKey: string = 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM';
 		location: Location;
 		errorMessage: string;
+		geocoder: google.maps.Geocoder;
 
     constructor(private _http: Http) {
+		this.geocoder = new google.maps.Geocoder();
     }
+
 
 	public getUserLocation(): Observable<any> {
 		return Observable.create(observer => {
@@ -47,15 +51,36 @@ export class LocationService {
 		});
 	}
 
-	public getLocationByCoordinates(): Observable<any> {
-		return this._http.get(this.url + this.apiKey)
-			.map((response: Response) =>  response.json())
-			.do(data => {
-				console.log("Got location!");
-				console.log(data);
-			})
-			.catch(this.handleError);
-	}
+	geocode(latLng: google.maps.LatLng): Observable<google.maps.GeocoderResult[]> {
+
+        return new Observable<google.maps.GeocoderResult[]>((observer: Observer<google.maps.GeocoderResult[]>) => {
+
+            // Invokes geocode method of Google Maps API geocoding.
+            this.geocoder.geocode({ 'location': latLng }, (
+                          
+                // Results & status.
+                (results: google.maps.GeocoderResult[], status: google.maps.GeocoderStatus) => {
+
+                    if (status === google.maps.GeocoderStatus.OK) {
+
+                        observer.next(results);
+                        observer.complete();
+
+                    } else {
+
+                        console.log('Geocoding service: geocoder failed due to: ' + status);
+
+                        observer.error(status);
+
+                    }
+
+                })
+
+            );
+
+        });
+
+    }
 
 	private handleError(error: Response) {
 		// in a real world app, we may send the server to some remote logging infrastructure

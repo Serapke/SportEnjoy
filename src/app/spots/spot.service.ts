@@ -14,6 +14,7 @@ export class SpotService {
     private _userProductUrl = 'https://sportenjoy-api.herokuapp.com/users';
     topSpotsCount: number = 4;
     errorMessage: string;
+    center: google.maps.LatLng;
     constructor(
       private _http: Http,
       private _textTransformService: TextTransformService,
@@ -45,12 +46,11 @@ export class SpotService {
     createSpot(spot: ISpot): Observable<ISpot> {
       let user = <IUser> JSON.parse(localStorage.getItem('user'));
       let url = `${this._userProductUrl}/${user.id}/spots`;
-
-      // this.getLocation(spot);   
-      let center = new google.maps.LatLng(spot.latitude, spot.longitude);
+  
+      this.center  = new google.maps.LatLng(spot.latitude, spot.longitude);
       
       return new Observable<ISpot>(observer => {
-        this._locationService.geocode(center).subscribe(position => {
+        this._locationService.geocode(this.center).subscribe(position => {
               console.log("got it");
               console.log(position[0].address_components[1].short_name);
               spot.city = position[0].address_components[2].long_name;
@@ -59,6 +59,7 @@ export class SpotService {
               console.log(position[0].address_components[5].long_name);
 
               observer.next(this.postSpot(url,spot));
+              observer.complete();
             }, error => {
               console.error("error");
             });
@@ -121,22 +122,6 @@ export class SpotService {
                     console.log(data);
                   })
                   .catch(this.handleError);
-    }
-
-    private getLocation(spot) {
-      let center = new google.maps.LatLng(spot.latitude, spot.longitude);
-      
-      this._locationService.geocode(center)
-          .subscribe(position => {
-            console.log("got it");
-            console.log(position[0].address_components[1].short_name);
-            spot.city = position[0].address_components[2].long_name;
-            console.log(position[0].address_components[2].long_name);
-            spot.country = position[0].address_components[5].long_name;
-            console.log(position[0].address_components[5].long_name);
-          }, error => {
-            console.error("error");
-          });
     }
 
     private getHeaders(): Headers {

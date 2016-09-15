@@ -52,34 +52,22 @@ export class LocationService {
 	}
 
 	geocode(latLng: google.maps.LatLng): Observable<google.maps.GeocoderResult[]> {
-
+		console.log("getting location");
         return new Observable<google.maps.GeocoderResult[]>((observer: Observer<google.maps.GeocoderResult[]>) => {
-
             // Invokes geocode method of Google Maps API geocoding.
             this.geocoder.geocode({ 'location': latLng }, (
-                          
                 // Results & status.
                 (results: google.maps.GeocoderResult[], status: google.maps.GeocoderStatus) => {
-
                     if (status === google.maps.GeocoderStatus.OK) {
-
                         observer.next(results);
                         observer.complete();
-
                     } else {
-
                         console.log('Geocoding service: geocoder failed due to: ' + status);
-
                         observer.error(status);
-
                     }
-
                 })
-
             );
-
         });
-
     }
 
 	private handleError(error: Response) {

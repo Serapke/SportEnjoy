@@ -118,17 +118,14 @@ h3 {
 		margin-bottom: 0;
 	}
 	.spot-images .image > img {
-		max-width: 200px;
-		max-height: 200px;
+		max-width: 400px;
+		max-height: 400px;
 	}
 }
 
 @media (max-width: 768px) {
 	h1, h2 {
     font-size: 22px;
-	}
-	.content {
-	    padding: 0;
 	}
 	.content .product_header {
     position: static;
@@ -149,6 +146,10 @@ h3 {
 	}
 	.content .product_header .geo_link a {
 	    padding-left: 0px;
+	}
+	.spot-images .image > img {
+		max-width: 200px;
+		max-height: 200px;
 	}
 }
 @media (max-width: 595px) {

@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
-// import { Location } from '../shared/location/location';
 import { LocationService } from '../shared/location/location.service';
 import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
@@ -56,17 +55,18 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this._spotService.getSpots()
          .subscribe(
            spots => {
-						this.allSpots = spots;
-						this.particularSpots = spots;
-						this.categories = this._spotService.getCategories(this.allSpots);
-						this.cities = this._spotService.getCities(this.allSpots);
-						this.getParams();
-					 },
-        	 error =>  {
-						 this.errorMessage = <any>error;
-						 console.log(this.errorMessage)
-					 }
-				 );
+				this.allSpots = spots;
+				this.particularSpots = spots;
+				this.categories = this._spotService.getCategories(this.allSpots);
+				this.cities = this._spotService.getCities(this.allSpots);
+				this.getParams();
+				console.log("Got all spots");
+			},
+			error =>  {
+				this.errorMessage = <any>error;
+				console.log(this.errorMessage);
+			}
+		);
 	}
 	getAllCategorySpots(): void {
 		this.selectedCategory = '';
@@ -104,7 +104,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 
 	ngOnInit(): void {
 		this.getAllSpots();
-
+		console.log("between all spots and local spots");
 		this.getLocalSpots();
   	}
 

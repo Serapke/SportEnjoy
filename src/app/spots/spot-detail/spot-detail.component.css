@@ -118,8 +118,8 @@ h3 {
 		margin-bottom: 0;
 	}
 	.spot-images .image > img {
-		width: 80%;
-		height: 200px;
+		max-width: 200px;
+		max-height: 200px;
 	}
 }
 

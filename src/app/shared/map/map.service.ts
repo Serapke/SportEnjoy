@@ -9,24 +9,7 @@ import {Injectable} from '@angular/core';
     constructor() { }
     
     initMap(el: HTMLElement, mapOptions: any) {
-
         this.map = new google.maps.Map(el, mapOptions);
-
-        window.addEventListener("resize", () => { this.resize(); });
-    }
-    
-    /**
-     * Resizes the map, updating its center.
-     */
-    private resize() {
-        // Saves the center.
-        var latLng: google.maps.LatLng = this.map.getCenter();
-        
-        // Triggers resize event.
-        google.maps.event.trigger(this.map, "resize");
-        
-        // Restores the center.
-        this.map.setCenter(latLng);
     }
     
     /**

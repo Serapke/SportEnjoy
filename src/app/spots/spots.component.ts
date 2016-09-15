@@ -50,13 +50,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		private _locationService: LocationService,
 	  	private _router: Router,
 		private _mapService: MapService
-	) {
-		var mapDiv = document.getElementById('map');
-		var map = new google.maps.Map(mapDiv, {
-			center: {lat: 44.540, lng: -78.546},
-			zoom: 8
-		});
-	
+	) {	
 		this.center = new google.maps.LatLng(this.lat, this.lng);
 		this.zoom = 6;
 		this.disableDefaultUI = true;

@@ -4,7 +4,7 @@ import { MapService } from './map.service';
 
 @Component({
     selector: 'google-map',
-    template: '<div id="map"></div>'
+    template: '<div id="map" style="width: 100%; height: 400px"></div>'
 })
 
 export class GoogleMapDirective implements OnInit, OnChanges {

@@ -72,7 +72,7 @@
 					</div>
 				</div>
 			</div>
-			<google-map [center]="center" [zoom]="zoom" [disableDefaultUI]="disableDefaultUI" [disableDoubleClickZoom]="disableDoubleClickZoom"
+			<google-map [center]="center" [zoom]="zoom"
 				[maxZoom]="maxZoom" [minZoom]="minZoom">
 				<!--this property is required: position-->
 				<google-map-marker *ngFor="let spot of particularSpots" [position]="spotPosition(spot.latitude, spot.longitude)" [title]="spot.title" [content]="spot.city + ', ' + spot.country">
@@ -81,7 +81,6 @@
 			<!--<sebm-google-map *ngIf="particularSpots" [latitude]="lat" [longitude]="lng" [zoom]="6" [scrollwheel]="false">
 				<sebm-google-map-marker *ngFor="let spot of particularSpots" [latitude]="spot.latitude" [longitude]="spot.longitude"></sebm-google-map-marker>
 			</sebm-google-map>-->
-			<div id="map"></div>
 			<div *ngFor='let spot of particularSpots | spotFilter:listFilter' class="col-md-3">
 				<a (click)="gotoDetail(spot)">
 					<div class="img_overflow">

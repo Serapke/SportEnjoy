@@ -36,7 +36,7 @@ export class SpotAddComponent implements OnInit {
   }
 
 	onSubmit() {
-		this._spotService.createUnapprovedSpot(this.spot)
+		this._spotService.createSpot(this.spot)
 			.subscribe(
 		   spot => {
 					this.submitted = true;

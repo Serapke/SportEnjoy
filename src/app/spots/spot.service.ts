@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { Http, Response, Headers } from '@angular/http';
 import { TextTransformService } from '../shared/text-transform.service';
 // import { Location } from '../shared/location/location';
-// import { LocationService } from '../shared/location/location.service';
+import { LocationService } from '../shared/location/location.service';
 import { IUser } from '../users/user';
 
 @Injectable()
@@ -16,8 +16,8 @@ export class SpotService {
     errorMessage: string;
     constructor(
       private _http: Http,
-      private _textTransformService: TextTransformService
-    //   private _locationService: LocationService
+      private _textTransformService: TextTransformService,
+      private _locationService: LocationService
     ) {
     }
     getSpots(): Observable<ISpot[]> {
@@ -42,17 +42,27 @@ export class SpotService {
             .do(data => console.log("Got top spots!"))
             .catch(this.handleError);
     }
-    createUnapprovedSpot(spot: ISpot): Observable<ISpot> {
+    createSpot(spot: ISpot): Observable<ISpot> {
       let user = <IUser> JSON.parse(localStorage.getItem('user'));
       let url = `${this._userProductUrl}/${user.id}/spots`;
 
-      return this._http.post(url, spot, { headers: this.getHeaders()})
-            .map((response: Response) => <ISpot> response.json())
-            .do(data => {
-              console.log("Created a spot!");
-              console.log(data);
-            })
-            .catch(this.handleError);
+      // this.getLocation(spot);   
+      let center = new google.maps.LatLng(spot.latitude, spot.longitude);
+      
+      return new Observable<ISpot>(observer => {
+        this._locationService.geocode(center).subscribe(position => {
+              console.log("got it");
+              console.log(position[0].address_components[1].short_name);
+              spot.city = position[0].address_components[2].long_name;
+              console.log(position[0].address_components[2].long_name);
+              spot.country = position[0].address_components[5].long_name;
+              console.log(position[0].address_components[5].long_name);
+
+              observer.next(this.postSpot(url,spot));
+            }, error => {
+              console.error("error");
+            });
+      });
     }
     getCreatedSpots(): Observable<ISpot[]> {
       let url = `${this._publicProductUrl}/created_spots`;
@@ -101,6 +111,32 @@ export class SpotService {
        // instead of just logging it to the console
        console.error(error);
        return Observable.throw(error.json().error || 'Server error');
+    }
+
+    private postSpot(url, spot): Observable<ISpot> {
+      return this._http.post(url, spot, { headers: this.getHeaders()})
+                  .map((response: Response) => <ISpot> response.json())
+                  .do(data => {
+                    console.log("Created a spot!");
+                    console.log(data);
+                  })
+                  .catch(this.handleError);
+    }
+
+    private getLocation(spot) {
+      let center = new google.maps.LatLng(spot.latitude, spot.longitude);
+      
+      this._locationService.geocode(center)
+          .subscribe(position => {
+            console.log("got it");
+            console.log(position[0].address_components[1].short_name);
+            spot.city = position[0].address_components[2].long_name;
+            console.log(position[0].address_components[2].long_name);
+            spot.country = position[0].address_components[5].long_name;
+            console.log(position[0].address_components[5].long_name);
+          }, error => {
+            console.error("error");
+          });
     }
 
     private getHeaders(): Headers {

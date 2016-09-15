@@ -123,52 +123,12 @@ h3 {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	h1, h2 {
     font-size: 22px;
-	}
-	.content .product_header {
-    position: static;
-    padding: 30px 20px;
-    margin-bottom: 20px;
-	}
-	.content .product_header h2 {
-    margin: 15px 0;
-	}
-	.content .product_header .container-fluid p {
-		display: block;
-	}
-	.content .product_header .col-md-4:first-child {
-    padding-left: 0;
-	}
-	.content .product_header .col-md-4:last-child {
-    padding-right: 0;
-	}
-	.content .product_header .geo_link a {
-	    padding-left: 0px;
 	}
 	.spot-images .image > img {
 		max-width: 200px;
 		max-height: 200px;
-	}
-}
-@media (max-width: 595px) {
-	.content .product_header .container-fluid {
-		padding-top: 20px;
-	}
-	.content .product_header .row .rate-spot {
-		padding-left: 0;
-	}
-	.content .product_header .row .rate-spot h4 {
-		margin-bottom: 0;
-	}
-	.content .product_header .row .rate-spot .btn {
-		width: 100%;
-	}
-	.content .product_header .col-md-4,
-	.content .product_header .col-md-3,
-  .content .product_header .col-md-5 {
-		width: 100%;
-		padding: 5px 0;
 	}
 }

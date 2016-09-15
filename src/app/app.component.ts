@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginService } from './login/login.service';
 import { UserService } from './users/user.service';
+import { LocationService } from './shared/location/location.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ import { UserService } from './users/user.service';
     SpotService,
     TextTransformService,
     UserService,
-    FileService
+    FileService,
+    LocationService
   ]
 })
 export class AppComponent {

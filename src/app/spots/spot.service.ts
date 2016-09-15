@@ -60,7 +60,6 @@ export class SpotService {
               console.log(position[0].address_components[5].long_name);
 
               observer = this.postSpot(url,spot);
-              observer.complete();
             }, error => {
               console.error("error");
             });

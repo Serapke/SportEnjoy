@@ -60,7 +60,6 @@ export class SpotsComponent implements OnInit, OnDestroy{
 				this.categories = this._spotService.getCategories(this.allSpots);
 				this.cities = this._spotService.getCities(this.allSpots);
 				this.getParams();
-				console.log("Got all spots");
 			},
 			error =>  {
 				this.errorMessage = <any>error;
@@ -78,8 +77,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	}
 
 	getLocalSpots(): void {
-		console.log("Get local spots started");
-		this._locationService.getLocation()
+		this._locationService.getUserLocation()
 			.subscribe(position => {
 				console.log("User position is:\nLatitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
 			}, error => {
@@ -104,7 +102,6 @@ export class SpotsComponent implements OnInit, OnDestroy{
 
 	ngOnInit(): void {
 		this.getAllSpots();
-		console.log("between all spots and local spots");
 		this.getLocalSpots();
   	}
 

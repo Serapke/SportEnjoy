@@ -32,36 +32,13 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	defaultImage: string = '/testas/assets/images/spotter-background.jpg';
 	lat: number = 54.9;
 	lng: number = 23.9;
-	center: google.maps.LatLng;
-    
-    // MapOptions object specification.
-      
-    // The initial map zoom level. Required.
-    zoom: number;
-
-    disableDefaultUI: boolean;
-    disableDoubleClickZoom: boolean;
-    maxZoom: number;
-    minZoom: number;
 
 	constructor(
 		private _spotService: SpotService,
 		private _route: ActivatedRoute,
 		private _locationService: LocationService,
-	  	private _router: Router,
-		private _mapService: MapService
+	  	private _router: Router
 	) {	
-		this.center = new google.maps.LatLng(this.lat, this.lng);
-		this.zoom = 6;
-		this.disableDefaultUI = true;
-        this.disableDoubleClickZoom = false;
-        this.maxZoom = 15;
-        this.minZoom = 4;
-	}
-	
-
-	spotPosition(lat, lng): google.maps.LatLng {
-		return new google.maps.LatLng(lat, lng);
 	}
 
 	toggleSearchProperties(): void {

@@ -38,10 +38,10 @@ import { UserComponent } from './users/user.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM'
-    // })
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM'
+    })
   ],
   providers: [
     appRouterProviders,

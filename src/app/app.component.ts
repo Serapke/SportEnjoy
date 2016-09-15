@@ -8,9 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginService } from './login/login.service';
 import { UserService } from './users/user.service';
 import { LocationService } from './shared/location/location.service';
-import { MapService } from './shared/map/map.service';
-import { GoogleMapDirective } from './shared/map/map.directive';
-import { GoogleMapMarkerDirective } from './shared/map/map-marker.directive';
 
 @Component({
   selector: 'app-root',
@@ -22,17 +19,14 @@ import { GoogleMapMarkerDirective } from './shared/map/map-marker.directive';
   directives: [
     HeaderComponent,
     FooterComponent,
-    ROUTER_DIRECTIVES,
-    GoogleMapDirective, 
-    GoogleMapMarkerDirective
+    ROUTER_DIRECTIVES
   ],
   providers: [
     SpotService,
     TextTransformService,
     UserService,
     FileService,
-    LocationService,
-    MapService
+    LocationService
   ]
 })
 export class AppComponent {

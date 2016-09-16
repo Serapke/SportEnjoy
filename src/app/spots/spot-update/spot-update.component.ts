@@ -19,6 +19,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 	submitted: boolean = false;
 	image: string;
 	file: string = "";
+	center: google.maps.LatLng;
 
 	constructor(
 		private _spotService: SpotService,

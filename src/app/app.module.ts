@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AgmCoreModule } from 'angular2-google-maps/core';
+import { AgmCoreModule, MapsAPILoader, NoOpMapsAPILoader } from 'angular2-google-maps/core';
 import { LoginService } from './login/login.service';
 
 import { AppComponent } from './app.component';
@@ -45,6 +45,7 @@ import { UserComponent } from './users/user.component';
   ],
   providers: [
     appRouterProviders,
+    {provide: MapsAPILoader, useClass: NoOpMapsAPILoader},
     LoginService
   ],
   bootstrap: [AppComponent]

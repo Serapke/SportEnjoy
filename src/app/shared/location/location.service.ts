@@ -10,7 +10,6 @@ const GEOLOCATION_ERRORS = {
 	'errors.location.positionUnavailable': 'Unable to determine your location',
 	'errors.location.timeout': 'Service timeout has been reached'
 };
-declare var google: any;
 
 @Injectable()
 export class LocationService {
@@ -19,8 +18,10 @@ export class LocationService {
 		location: Location;
 		errorMessage: string;
 		latlng: any;
+		geocoder: google.maps.Geocoder;
 
     constructor(private _http: Http, private _loader: MapsAPILoader) {
+		this.geocoder = new google.maps.Geocoder();
     }
 
 
@@ -57,28 +58,25 @@ export class LocationService {
 		console.log(latitude);
 		console.log(longitude);
 		this.latlng = {lat: latitude, lng: longitude};
-        return new Observable<any>((observer: Observer<any>) => {
+		return new Observable<any>((observer: Observer<any>) => {
 			console.log("in observer");
-			this._loader.load().then(() => {
-				let geocoder: google.maps.Geocoder = new google.maps.Geocoder;
-				// Invokes geocode method of Google Maps API geocoding.
-				geocoder.geocode({'location': this.latlng }, (
-					// Results & status.
-					(results: any, status: any) => {
-						console.log("was");
-						console.log(status);
-						if (status === "OK") {
-							console.log(results);
-							observer.next(results);
-							observer.complete();
-						} else {
-							alert('Geocoding service: geocoder failed due to: ' + status);
-							observer.error(status);
-						}
-					})
-            	);
-			});
-        });
+			// Invokes geocode method of Google Maps API geocoding.
+			this.geocoder.geocode({'location': this.latlng }, (
+				// Results & status.
+				(results: any, status: any) => {
+					console.log("was");
+					console.log(status);
+					if (status === "OK") {
+						console.log(results);
+						observer.next(results);
+						observer.complete();
+					} else {
+						alert('Geocoding service: geocoder failed due to: ' + status);
+						observer.error(status);
+					}
+				})
+			);
+		});
 		
     }
 

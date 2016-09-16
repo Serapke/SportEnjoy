@@ -30,12 +30,12 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		if (!this.spot) {
-      this.sub = this._route.params.subscribe(params => {
-          let id = +params['id'];
-          this.getSpot(id);
-      });
-    }
-  }
+			this.sub = this._route.params.subscribe(params => {
+				let id = +params['id'];
+				this.getSpot(id);
+			});
+    	}
+  	}
 
 	onSubmit() {
 		this.center  = new google.maps.LatLng(this.spot.latitude, this.spot.longitude);

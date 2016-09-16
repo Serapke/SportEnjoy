@@ -43,7 +43,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 
 		this._locationService.geocode(this.center).
 			subscribe(position => {
-				console.log("got it");
+				console.log("Update");
 				console.log(position[0].address_components[1].short_name);
 				this.spot.city = position[0].address_components[2].long_name;
 				console.log(position[0].address_components[2].long_name);
@@ -58,7 +58,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 						},
 						error => this.errorMessage = <any>error
 					);
-				console.log("done");
+				console.log("Done");
 			});
 	}
 

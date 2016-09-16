@@ -17,6 +17,7 @@ export class LocationService {
 		location: Location;
 		errorMessage: string;
 		geocoder: google.maps.Geocoder;
+		latlng;
 
     constructor(private _http: Http) {
 		this.geocoder = new google.maps.Geocoder();
@@ -55,10 +56,10 @@ export class LocationService {
 		console.log("getting location");
 		console.log(latitude);
 		console.log(longitude);
-		let latlng = {lat: latitude, lng: longitude};
+		this.latlng = {lat: latitude, lng: longitude};
         return new Observable<any>((observer: Observer<any>) => {
             // Invokes geocode method of Google Maps API geocoding.
-            this.geocoder.geocode({ 'location': latlng }, (
+            this.geocoder.geocode({'location': this.latlng }, (
                 // Results & status.
                 (results: any, status: any) => {
                     if (status === "OK") {
@@ -66,7 +67,7 @@ export class LocationService {
                         observer.next(results);
                         observer.complete();
                     } else {
-                        console.log('Geocoding service: geocoder failed due to: ' + status);
+                        alert('Geocoding service: geocoder failed due to: ' + status);
                         observer.error(status);
                     }
                 })

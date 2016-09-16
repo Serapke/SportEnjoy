@@ -40,7 +40,6 @@ import { UserComponent } from './users/user.component';
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM'
     })
   ],
   providers: [

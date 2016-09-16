@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
 import { ISpot } from '../spot';
 import { SpotService } from '../spot.service';
 import { FileService } from '../../shared/file.service';
-import { FileService } from '../../shared/location/location.service';
+import { LocationService } from '../../shared/location/location.service';
 
 @Component({
 	selector: 'ng-topPlaces',

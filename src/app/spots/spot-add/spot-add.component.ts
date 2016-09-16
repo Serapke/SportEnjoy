@@ -69,8 +69,10 @@ export class SpotAddComponent implements OnInit {
 	}
 
 	findAddressPart(position: any, part: string, version: string): string {
+		console.log("looking for " + part);
 		let address = position[0].address_components;
 		for (var item of address) {
+			console.log(item);
 			if (item.types.indexOf(part) != -1)  {
 				if (version == "long") {
 					return item.long_name;

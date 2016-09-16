@@ -19,7 +19,6 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 	submitted: boolean = false;
 	image: string;
 	file: string = "";
-	center: google.maps.LatLng;
 
 	constructor(
 		private _spotService: SpotService,
@@ -38,10 +37,9 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
   	}
 
 	onSubmit() {
-		this.center  = new google.maps.LatLng(this.spot.latitude, this.spot.longitude);
 		alert(this.spot.latitude + " " + this.spot.longitude + " (types: " + (typeof this.spot.latitude) + ", " + (typeof this.spot.longitude) + ")")
 
-		this._locationService.geocode(this.center).
+		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log("Update");
 				console.log(position[0].address_components[1].short_name);

@@ -40,11 +40,9 @@ export class SpotAddComponent implements OnInit {
 
 	onSubmit() {
 		console.log("submited");
-
-		this.center  = new google.maps.LatLng(this.spot.latitude, this.spot.longitude);
 		alert(this.spot.latitude + " " + this.spot.longitude + " (types: " + (typeof this.spot.latitude) + ", " + (typeof this.spot.longitude) + ")")
 
-		this._locationService.geocode(this.center).
+		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log("got it");
 				console.log(position[0].address_components[1].short_name);

@@ -18,7 +18,6 @@ export class SpotAddComponent implements OnInit {
 	submitted: boolean = false;
 	image: string = "";
 	file: string = "";
-	center: google.maps.LatLng;
 
 	constructor(
 		private _spotService: SpotService,
@@ -45,11 +44,11 @@ export class SpotAddComponent implements OnInit {
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log("got it");
-				console.log(position[0].address_components[1].short_name);
-				this.spot.city = position[0].address_components[2].long_name;
+				console.log(findAddressPart(position, "route", "short"));
+				this.spot.city = findAddressPart(position, "locality", "long");
 				console.log(position[0].address_components[2].long_name);
-				this.spot.country = position[0].address_components[5].long_name;
-				console.log(position[0].address_components[5].long_name);
+				this.spot.country = findAddressPart(position, "country", "long");
+				console.log(position[0].address_components[6].long_name);
 				console.log(this.spot);
 				this._spotService.createSpot(this.spot).subscribe(
 					spot => {
@@ -63,7 +62,26 @@ export class SpotAddComponent implements OnInit {
 					}
 		 		);
 				console.log("done");
+			}, error => {
+				this.spot.city = "undefined";
+				this.spot.country = "undefined";
 			});
+	}
+
+	findAddressPart(position: any, part: string, version: string): string {
+		let address = position[0].address_components;
+		for (var item of address) {
+			if (item.types.indexOf(part) != -1)  {
+				if (version == "long") {
+					return item.long_name;
+				}
+				else {
+					return item.short_name;
+				}
+			}
+				
+		}
+		return "";
 	}
 
 	isModerator() {

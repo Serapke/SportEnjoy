@@ -44,10 +44,10 @@ export class SpotAddComponent implements OnInit {
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log("got it");
-				console.log(findAddressPart(position, "route", "short"));
-				this.spot.city = findAddressPart(position, "locality", "long");
+				console.log(this.findAddressPart(position, "route", "short"));
+				this.spot.city = this.findAddressPart(position, "locality", "long");
 				console.log(position[0].address_components[2].long_name);
-				this.spot.country = findAddressPart(position, "country", "long");
+				this.spot.country = this.findAddressPart(position, "country", "long");
 				console.log(position[0].address_components[6].long_name);
 				console.log(this.spot);
 				this._spotService.createSpot(this.spot).subscribe(

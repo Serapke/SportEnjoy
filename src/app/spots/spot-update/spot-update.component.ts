@@ -42,10 +42,10 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log("Update");
-				console.log(position[0].address_components[1].short_name);
-				this.spot.city = position[0].address_components[2].long_name;
+				console.log(this.findAddressPart(position, "route", "short"));
+				this.spot.city = this.findAddressPart(position, "locality", "long");
 				console.log(position[0].address_components[2].long_name);
-				this.spot.country = position[0].address_components[5].long_name;
+				this.spot.country = this.findAddressPart(position, "country", "long");
 				console.log(position[0].address_components[5].long_name);
 				console.log(this.spot);
 				this._spotService.updateSpot(this.spot)
@@ -58,6 +58,22 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 					);
 				console.log("Done");
 			});
+	}
+
+	findAddressPart(position: any, part: string, version: string): string {
+		let address = position[0].address_components;
+		for (var item of address) {
+			if (item.types.indexOf(part) != -1)  {
+				if (version == "long") {
+					return item.long_name;
+				}
+				else {
+					return item.short_name;
+				}
+			}
+				
+		}
+		return "";
 	}
 
 	changeListener($event) : void {

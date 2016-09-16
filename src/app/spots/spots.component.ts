@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
 import { LocationService } from '../shared/location/location.service';
-import { MapService } from '../shared/map/map.service';
 import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
 import { ISpot } from './spot';

@@ -10,7 +10,7 @@ import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
 })
 export class SpotDetailComponent implements OnInit, OnDestroy {
 	private sub: any;
-  spot: ISpot;
+  	spot: ISpot;
 	mainImage : string;
 	reviewed: boolean = false;
 	errorMessage: string;
@@ -27,10 +27,10 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	// }
 
 	ngOnInit() {
-    this.sub = this._route.params.subscribe(params => {
-        let id = +params['id'];
-        this.getSpot(id);
-    });
+		this.sub = this._route.params.subscribe(params => {
+			let id = +params['id'];
+			this.getSpot(id);
+		});
 	}
 
 	getSpot(id: number) {
@@ -52,7 +52,6 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	}
 
 	isReviewed(): boolean {
-		console.log(this.reviewed);
 		return this.reviewed;
 	}
 

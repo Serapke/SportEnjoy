@@ -46,9 +46,9 @@ export class SpotAddComponent implements OnInit {
 				console.log("got it");
 				console.log(this.findAddressPart(position, "route", "short"));
 				this.spot.city = this.findAddressPart(position, "locality", "long");
-				console.log(position[0].address_components[2].long_name);
+				console.log(this.findAddressPart(position, "locality", "long"));
 				this.spot.country = this.findAddressPart(position, "country", "long");
-				console.log(position[0].address_components[6].long_name);
+				console.log(this.findAddressPart(position, "country", "long"));
 				console.log(this.spot);
 				this._spotService.createSpot(this.spot).subscribe(
 					spot => {

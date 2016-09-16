@@ -51,17 +51,18 @@ export class LocationService {
 		});
 	}
 
-	geocode(latitude: number, longitude: number): Observable<google.maps.GeocoderResult[]> {
+	geocode(latitude: number, longitude: number): Observable<any> {
 		console.log("getting location");
 		console.log(latitude);
 		console.log(longitude);
 		let latlng = {lat: latitude, lng: longitude};
-        return new Observable<google.maps.GeocoderResult[]>((observer: Observer<google.maps.GeocoderResult[]>) => {
+        return new Observable<any>((observer: Observer<any>) => {
             // Invokes geocode method of Google Maps API geocoding.
             this.geocoder.geocode({ 'location': latlng }, (
                 // Results & status.
-                (results: google.maps.GeocoderResult[], status: google.maps.GeocoderStatus) => {
-                    if (status === google.maps.GeocoderStatus.OK) {
+                (results: any, status: any) => {
+                    if (status === "OK") {
+						console.log(results);
                         observer.next(results);
                         observer.complete();
                     } else {

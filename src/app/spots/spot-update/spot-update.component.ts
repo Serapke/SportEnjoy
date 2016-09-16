@@ -35,14 +35,28 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
   }
 
 	onSubmit() {
-		this._spotService.updateSpot(this.spot)
-			.subscribe(
-        spot => {
-					this.submitted = true;
-          this.spot = spot;
-        },
-        error => this.errorMessage = <any>error
-      );
+		this.center  = new google.maps.LatLng(this.spot.latitude, this.spot.longitude);
+		alert(this.spot.latitude + " " + this.spot.longitude + " (types: " + (typeof this.spot.latitude) + ", " + (typeof this.spot.longitude) + ")")
+
+		this._locationService.geocode(this.center).
+			subscribe(position => {
+				console.log("got it");
+				console.log(position[0].address_components[1].short_name);
+				this.spot.city = position[0].address_components[2].long_name;
+				console.log(position[0].address_components[2].long_name);
+				this.spot.country = position[0].address_components[5].long_name;
+				console.log(position[0].address_components[5].long_name);
+				console.log(this.spot);
+				this._spotService.updateSpot(this.spot)
+					.subscribe(
+						spot => {
+							this.spot = spot;
+							this.submitted = true;
+						},
+						error => this.errorMessage = <any>error
+					);
+				console.log("done");
+			});
 	}
 
 	changeListener($event) : void {

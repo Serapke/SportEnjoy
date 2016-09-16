@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
 import { ISpot } from '../spot';
 import { SpotService } from '../spot.service';
 import { FileService } from '../../shared/file.service';
+import { FileService } from '../../shared/location/location.service';
 
 @Component({
 	selector: 'ng-topPlaces',
@@ -23,6 +24,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 		private _spotService: SpotService,
 		private _route: ActivatedRoute,
 		private _fileService: FileService,
+		private _locationService: LocationService,
 		private _router: Router) {}
 
 	ngOnInit(): void {

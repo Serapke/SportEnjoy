@@ -60,7 +60,7 @@ export class LocationService {
         return new Observable<any>((observer: Observer<any>) => {
 			console.log("in observer");
 			this._loader.load().then(() => {
-				let geocoder: google.maps.Geocoder;
+				let geocoder: google.maps.Geocoder = new google.maps.Geocoder;
 				// Invokes geocode method of Google Maps API geocoding.
 				geocoder.geocode({'location': this.latlng }, (
 					// Results & status.

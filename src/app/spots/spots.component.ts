@@ -44,10 +44,16 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	) {	
 	}
 
-	@HostListener('window:resize', ['$event'])
-	onResize(event) {
-		this.mapDraggable = event.target.innerWidth > 480 ? true : false;
+	makeMapUndraggable(): void {
+		console.log("undraggable");
+		this.mapDraggable = false;
 	}
+
+	makeMapDraggable(): void {
+		console.log("draggable");
+	}
+
+
 
 	toggleSearchProperties(): void {
 		if (this.showSearchProperties == 0) {

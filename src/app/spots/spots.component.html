@@ -76,7 +76,7 @@
 		</div>
 	</div>
 	<div class="row spots">
-		<sebm-google-map *ngIf="particularSpots" [latitude]="lat" [longitude]="lng" [zoom]="6" [scrollwheel]="false" [mapDraggable]="mapDraggable">
+		<sebm-google-map *ngIf="particularSpots" (click)="makeMapDraggable()" (touchend)="makeMapUndraggable()" [latitude]="lat" [longitude]="lng" [zoom]="6" [scrollwheel]="false" [mapDraggable]="mapDraggable">
 			<sebm-google-map-marker 
 				*ngFor="let spot of particularSpots" 
 				[latitude]="spot.latitude" 

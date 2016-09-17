@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<h2 class="hidden-xs">Paieškos rezultatai</h2>
+		<h2 *ngIf="particularSpots" class="hidden-xs">Paieškos rezultatai - {{ particularSpots.length }}</h2>
 	</div>
 	<div class="row spots">
 		<div class="spots-dropdown hidden-xs">
@@ -10,14 +10,10 @@
 			</a>
 			<div class="dropdown-content" [style.height.px]="showSearchProperties">
 				<div class="container-fluid">
-					<div class="col-md-8">
+					<div class="col-sm-8">
 						<h4>Filtravimas</h4>
 						<div class="filter-by-text">
-							<label>Pagal pavadinimą</label>
-							<input type="text" placeholder="Įveskite filtravimo raktažodį" [(ngModel)]='listFilter'>
-						</div>
-						<div class="filter-by-text">
-							<label>Pagal vietą</label>
+							<label>Filtras</label>
 							<input type="text" placeholder="Įveskite filtravimo raktažodį" [(ngModel)]='listFilter'>
 						</div>
 						<!--<div class="col-md-6">
@@ -51,18 +47,18 @@
 							</ul>
 						</div>-->
 					</div>
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<h4>Rūšiavimas</h4>
 						<ul class="list-group">
-							<li (click)="sortSpotsByAlphabet()"
-										class="list-group-item"
-										[class.active]="selectedSorting==='alphabet'">
-										<a>Pagal abėcėlę</a>
-							</li>
 							<li (click)="sortSpotsByRating()"
 										class="list-group-item"
 										[class.active]="selectedSorting==='rating'">
 										<a>Reitingas</a>
+							</li>
+							<li (click)="sortSpotsByAlphabet()"
+										class="list-group-item"
+										[class.active]="selectedSorting==='alphabet'">
+										<a>Pagal abėcėlę</a>
 							</li>
 							<li (click)="sortSpotsByBeenHere()"
 										class="list-group-item"
@@ -76,15 +72,29 @@
 		</div>
 	</div>
 	<div class="row spots">
-		<sebm-google-map *ngIf="particularSpots" (click)="makeMapDraggable()" (touchend)="makeMapUndraggable()" [latitude]="lat" [longitude]="lng" [zoom]="6" [scrollwheel]="false" [mapDraggable]="mapDraggable">
+		<button (click)="toggleDraggability()" type="button" class="btn-map visible-xs visible-sm"><span [class.pinned]="!mapDraggable" class="glyphicon glyphicon-pushpin"></span></button>
+		<sebm-google-map 
+			*ngIf="particularSpots" 
+			[latitude]="lat" 
+			[longitude]="lng"
+			[zoom]="zoom" 
+			[scrollwheel]="false" 
+			[mapDraggable]="mapDraggable"
+			[disableDefaultUI]="true"
+			[zoomControl]="false">
 			<sebm-google-map-marker 
 				*ngFor="let spot of particularSpots" 
 				[latitude]="spot.latitude" 
 				[longitude]="spot.longitude"
 				(markerClick)="clickedMarker(spot.id)">
 				<sebm-google-map-info-window>
-					<strong>{{ spot.title }}</strong>
-					<p>{{ spot.city }}, {{ spot.country }}</p>
+					<div class="col-xs-3 padding-0">
+						<span class="glyphicon glyphicon-info-sign"></span>
+					</div>
+					<div class="col-xs-9">
+						<strong>{{ spot.title }}</strong>
+						<p>{{ spot.city }}, {{ spot.country }}</p>
+					</div>
 				</sebm-google-map-info-window>
 			</sebm-google-map-marker>
 		</sebm-google-map>
@@ -107,8 +117,8 @@
 	<div class="row spots">
 		<div 
 			*ngFor='let spot of particularSpots | spotFilter:listFilter'
-			class="col-md-3" 
-			[class.selected]="selectedSpot==spot.id">
+			class="col-md-3 spot" 
+			[class.selected]="selectedSpot==spot">
 			<a (click)="gotoDetail(spot)">
 				<div class="img_overflow">
 					<div *ngIf="spot.images.url" [style.background-image]="'url(' + spot.images.url + ')'"></div>
@@ -122,7 +132,7 @@
 						</div>
 					</div>
 				</div>
-				<span class="location">{{ spot.title }}</span>
+				<span class="title">{{ spot.title }}</span>
 			</a>
 		</div>
 		<div *ngIf="particularSpots == ''">

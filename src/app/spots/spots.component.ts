@@ -31,9 +31,10 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	defaultImage: string = '/testas/assets/images/spotter-background.jpg';
 	lat: number = 54.8;
 	lng: number = 23.9;
-	mapDraggable: boolean = false;
+	zoom: number = 6;
+	mapDraggable: boolean;
 	showSortProperties: boolean = false;
-	selectedSpot: number = -1;
+	selectedSpot: ISpot;
 	
 
 	constructor(
@@ -42,22 +43,17 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		private _locationService: LocationService,
 	  	private _router: Router
 	) {	
+		this.mapDraggable = document.body.clientWidth < 992 ? false : true;
 	}
 
-	makeMapUndraggable(): void {
-		console.log("undraggable");
-		this.mapDraggable = false;
+	@HostListener('window:resize', ['$event'])
+	onResize(event) {
+		this.mapDraggable = event.target.innerWidth < 992 ? false : true;
 	}
-
-	makeMapDraggable(): void {
-		console.log("draggable");
-	}
-
-
 
 	toggleSearchProperties(): void {
 		if (this.showSearchProperties == 0) {
-			this.showSearchProperties = this.searchPropertiesHeight();
+			this.showSearchProperties = 189;
 			this.rotatedSearchPropertiesArrow = !this.rotatedSearchPropertiesArrow;
 			return;
 		}
@@ -65,7 +61,23 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.showSearchProperties = 0;
 	}
 	clickedMarker(id: number): void {
-		this.selectedSpot = id;
+		this.selectedSpot = this.allSpots.filter(x => x.id == id)[0];
+		this.lat = this.selectedSpot.latitude;
+		this.lng = this.selectedSpot.longitude;
+		let spots = this.particularSpots;
+		let sortedSpotters = spots.sort((a, b) => {
+			if (a.id == this.selectedSpot.id) {
+				return -1;
+			}
+			if (b.id == this.selectedSpot.id) {
+				return 1;
+			}
+			return 0;
+		});
+		this.particularSpots = sortedSpotters;
+	}
+	toggleDraggability(): void {
+		this.mapDraggable = !this.mapDraggable;
 	}
 	toggleSortProperties(): boolean {
 		return this.showSortProperties = !this.showSortProperties;
@@ -81,6 +93,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 				this.particularSpots = spots;
 				this.categories = this._spotService.getCategories(this.allSpots);
 				this.cities = this._spotService.getCities(this.allSpots);
+				this.sortSpotsByRating();
+				this.selectedSorting = 'rating';
 				this.getParams();
 			},
 			error =>  {
@@ -154,6 +168,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.selectedSorting = 'alphabet';
 		let spots = this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
+			if (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id)
+				return 0;
 			if (a.title > b.title) {
 				return 1;
 			}
@@ -169,6 +185,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.selectedSorting = 'rating';
 		let spots = this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
+			if (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id)
+				return 0;
 			if (a.rating < b.rating) {
 				return 1;
 			}
@@ -184,6 +202,8 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.selectedSorting = 'beenHere';
 		let spots = this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
+			if (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id)
+				return 0;
 			if (a.beenHere < b.beenHere) {
 				return 1;
 			}
@@ -193,13 +213,6 @@ export class SpotsComponent implements OnInit, OnDestroy{
 			return 0;
 		});
 		this.particularSpots = sortedSpotters;
-	}
-
-	searchPropertiesHeight(): number {
-		if (window.innerWidth > 990) {
-			return 283;
-		}
-		return 710;
 	}
 
 	gotoSpotters() {

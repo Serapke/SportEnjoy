@@ -26,6 +26,21 @@ h2 {
 		padding: 15px;
 		border-radius: 0;
 }
+.btn-map {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  margin: 10px;
+  padding: 7px 7px 4px;
+  background: #172935;
+  border-color: white;
+}
+.btn-map > .pinned {
+  -ms-transform: rotate(-45deg); /* IE 9 */
+  -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+  transform: rotate(-45deg);
+  transition: all 1s;
+}
 .btn {
   border-radius: 0;
 }

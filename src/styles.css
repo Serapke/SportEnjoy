@@ -32,6 +32,10 @@ h2 {
 .btn.btn-dark:hover {
 		background-color: #182c3a;
 }
+.padding-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

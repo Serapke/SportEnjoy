@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
 import { LocationService } from '../shared/location/location.service';
@@ -31,6 +31,10 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	defaultImage: string = '/testas/assets/images/spotter-background.jpg';
 	lat: number = 54.8;
 	lng: number = 23.9;
+	mapDraggable: boolean = false;
+	showSortProperties: boolean = false;
+	selectedSpot: number = -1;
+	
 
 	constructor(
 		private _spotService: SpotService,
@@ -38,6 +42,11 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		private _locationService: LocationService,
 	  	private _router: Router
 	) {	
+	}
+
+	@HostListener('window:resize', ['$event'])
+	onResize(event) {
+		this.mapDraggable = event.target.innerWidth > 480 ? true : false;
 	}
 
 	toggleSearchProperties(): void {
@@ -49,9 +58,15 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.rotatedSearchPropertiesArrow = !this.rotatedSearchPropertiesArrow;
 		this.showSearchProperties = 0;
 	}
+	clickedMarker(id: number): void {
+		this.selectedSpot = id;
+	}
+	toggleSortProperties(): boolean {
+		return this.showSortProperties = !this.showSortProperties;
+	}
 	gotoDetail(spot: ISpot) {
-    this._router.navigate(['/spot', spot.id]);
-  }
+		this._router.navigate(['/spot', spot.id]);
+	}
 	getAllSpots(): void {
 		this._spotService.getSpots()
          .subscribe(

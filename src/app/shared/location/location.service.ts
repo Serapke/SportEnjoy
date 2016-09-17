@@ -13,15 +13,13 @@ const GEOLOCATION_ERRORS = {
 
 @Injectable()
 export class LocationService {
-		url: string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=';
-		apiKey: string = 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM';
 		location: Location;
 		errorMessage: string;
 		latlng: any;
-		geocoder: google.maps.Geocoder;
+		// geocoder: google.maps.Geocoder;
 
     constructor(private _http: Http, private _loader: MapsAPILoader) {
-		this.geocoder = new google.maps.Geocoder();
+		// this.geocoder = new google.maps.Geocoder();
     }
 
 
@@ -58,25 +56,26 @@ export class LocationService {
 		console.log(latitude);
 		console.log(longitude);
 		this.latlng = {lat: latitude, lng: longitude};
-		return new Observable<any>((observer: Observer<any>) => {
-			console.log("in observer");
-			// Invokes geocode method of Google Maps API geocoding.
-			this.geocoder.geocode({'location': this.latlng }, (
-				// Results & status.
-				(results: any, status: any) => {
-					console.log("was");
-					console.log(status);
-					if (status === "OK") {
-						console.log(results);
-						observer.next(results);
-						observer.complete();
-					} else {
-						alert('Geocoding service: geocoder failed due to: ' + status);
-						observer.error(status);
-					}
-				})
-			);
-		});
+		return new Observable<any>();
+		// return new Observable<any>((observer: Observer<any>) => {
+		// 	console.log("in observer");
+		// 	// Invokes geocode method of Google Maps API geocoding.
+		// 	this.geocoder.geocode({'location': this.latlng }, (
+		// 		// Results & status.
+		// 		(results: any, status: any) => {
+		// 			console.log("was");
+		// 			console.log(status);
+		// 			if (status === "OK") {
+		// 				console.log(results);
+		// 				observer.next(results);
+		// 				observer.complete();
+		// 			} else {
+		// 				alert('Geocoding service: geocoder failed due to: ' + status);
+		// 				observer.error(status);
+		// 			}
+		// 		})
+		// 	);
+		// });
 		
     }
 

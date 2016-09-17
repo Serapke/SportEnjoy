@@ -1,10 +1,6 @@
-section {
-		padding: 90px 0;
-}
 .sebm-google-map-container {
-  height: 300px;
+  	height: 300px;
 	top: 0;
-
 }
 h1 {
     font-weight: 700;
@@ -33,12 +29,48 @@ a {
 	border-radius: 0;
 	text-align: center;
 }
-
+.selected a .img_overflow > div  {
+	background: red!important;
+}
 
 .spots {
     zoom: 1;
     padding: 60px 0 30px;
-}
+}	
+	.search-properties .filter {
+		padding: 10px;
+		width: 100%;
+    	color: #444;
+		border: 0;
+		font-size: 18px;
+	}
+	.search-properties .sort {
+		width: 100%;
+		color: white;
+		background: #172935;
+		line-height: 46px;
+		padding: 0;
+		margin: 0;
+		font-size: 23px;
+		border: 0;
+	}
+	.search-properties .sort span {
+		top: 2px;
+	}
+	.search-properties .sortProperties {
+		background: #172935;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	.search-properties .sortProperty {
+		padding: 15px;
+		font-size: 18px;
+		border-bottom: 1px solid #fff;
+	}
+	.search-properties .sortProperty span {
+		margin-right: 15px;
+	}
 	.spots .spots-dropdown {
 		transition: 1s all;
 	}
@@ -90,10 +122,10 @@ a {
 			width: 100%;
 			padding: 0 0 20px 10px;
 		}
-		.spots .spots-dropdown .dropdown-content label {
+		.dropdown-content label {
 			color: #203a4c;
 		}
-		.spots .spots-dropdown .dropdown-content input {
+		.dropdown-content input {
 			width: 300px;
 			border: 1px solid #203a4c;
 			padding: 5px;
@@ -145,9 +177,6 @@ a {
 			background-color: #e2e9eb;
 			padding: 0;
 			margin: 0;
-			-o-transition: background-color .5s ease-in-out;
-			-webkit-transition: background-color .5s ease-in-out;
-			transition: background-color .5s ease-in-out;
 			cursor: pointer;
 	}
 	.spots .col-md-3:hover {
@@ -163,16 +192,13 @@ a {
 			height: 100%;
 	}
 			.spots > .col-md-3 > a .img_overflow > div {
-					-o-transition: all 30s linear;
-					-webkit-transition: all 30s linear;
-					transition: all 30s linear;
 					height: 100%;
 					background: url('/testas/assets/images/spotter-background.jpg') no-repeat center center;
 					-webkit-background-size: cover;
 					background-size: cover;
 					background-color: #b4c5cb;
 			}
-	.spots > .col-md-3 > a .post_excerpt {
+	.post_excerpt {
 			transition: 1s all;
 			position: absolute;
 			top: -30;
@@ -292,9 +318,13 @@ a {
 		.spots {
 		    padding: 0!important;
 		}
-					.spots .spots-dropdown .dropdown-content input {
-						width: 80%;
-					}
+			.dropdown-content input {
+				width: 100%;
+			}
+			.dropdown-content input {
+				width: 80%;
+				margin-left: 0;
+			}
 				.spots .spots-dropdown .dropdown-content .col-md-4 {
 					border-left: 0;
 					border-top: 1px solid #203a4c;
@@ -312,9 +342,12 @@ a {
 								max-height: 200px;
 								height: 200px;
 						}
-						.spots .col-md-3 > a .post_excerpt {
-								top: 0;
-								border-top: 1px solid #fff;
+						.spots .post_excerpt {
+							top: 0;
+							border-top: 0;
+						}
+						.spots .post_excerpt ~ .post_excerpt {
+							border-top: 1px solid #fff;
 						}
 						.spots .col-md-3 .post_excerpt .title {
 						    text-overflow: ellipsis;

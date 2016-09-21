@@ -41,12 +41,9 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
-				console.log("Update");
 				console.log(this.findAddressPart(position, "route", "short"));
 				this.spot.city = this.findAddressPart(position, "locality", "long");
-				console.log(this.findAddressPart(position, "locality", "long"));
 				this.spot.country = this.findAddressPart(position, "country", "long");
-				console.log(this.findAddressPart(position, "country", "long"));
 				console.log(this.spot);
 				this._spotService.updateSpot(this.spot)
 					.subscribe(

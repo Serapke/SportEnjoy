@@ -38,21 +38,13 @@ export class SpotAddComponent implements OnInit {
   }
 
 	onSubmit() {
-		console.log("submited");
-		alert(this.spot.latitude + " " + this.spot.longitude + " (types: " + (typeof this.spot.latitude) + ", " + (typeof this.spot.longitude) + ")")
-
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
-				console.log("got it");
 				console.log(this.findAddressPart(position, "route", "short"));
 				this.spot.city = this.findAddressPart(position, "locality", "long");
-				console.log(this.findAddressPart(position, "locality", "long"));
 				this.spot.country = this.findAddressPart(position, "country", "long");
-				console.log(this.findAddressPart(position, "country", "long"));
-				console.log(this.spot);
 				this._spotService.createSpot(this.spot).subscribe(
 					spot => {
-						console.log("was");
 						this.spot = spot;
 						this.submitted = true;
 					},

@@ -168,7 +168,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.selectedSorting = 'alphabet';
 		let spots = this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
-			if (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id)
+			if (this.selectedSpot && (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id))
 				return 0;
 			if (a.title > b.title) {
 				return 1;
@@ -185,7 +185,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.selectedSorting = 'rating';
 		let spots = this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
-			if (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id)
+			if (this.selectedSpot && (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id))
 				return 0;
 			if (a.rating < b.rating) {
 				return 1;
@@ -202,7 +202,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.selectedSorting = 'beenHere';
 		let spots = this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
-			if (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id)
+			if (this.selectedSpot && (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id))
 				return 0;
 			if (a.beenHere < b.beenHere) {
 				return 1;

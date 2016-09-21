@@ -49,6 +49,10 @@ export class LoginService {
         return this.loggedIn;
     }
 
+    getCurrentUser(): IUser {
+        return <IUser> JSON.parse(localStorage.getItem('user'));
+    }
+
     isModerator() {
         let user = <IUser> JSON.parse(localStorage.getItem('user'));
         if (this.isLoggedIn() && user.moderator)

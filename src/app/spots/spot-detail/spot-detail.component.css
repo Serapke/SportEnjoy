@@ -18,14 +18,12 @@ h3 {
 	box-shadow: 1px 1px 1px #444;
 	padding: 15px 60px;
 }
-.spot-detail {
-	padding: 20px 0px;
-}
 .spot-detail .spot-title {
 	color: #203a4c;
-	text-shadow: none;
-	margin: 5px 0 15px;
-	text-align: left;
+    text-shadow: none;
+    padding: 5px 0 15px;
+    text-align: left;
+    margin: 0;
 }
 .spot-detail .geo_link a {
 	padding-left: 17px;
@@ -33,10 +31,10 @@ h3 {
 	font-size: 16px;
 }
 .spot-detail .sidebar {
-  color: #798994;
-  font-weight: 700;
-  padding-top: 45px;
-  text-align: center;
+	color: #798994;
+	font-weight: 700;
+	padding-top: 45px;
+	text-align: center;
 	border-left: 1px solid #dee3ea;
 }
 .spot-detail .sidebar .beenHere {
@@ -92,19 +90,31 @@ h3 {
 
 /* For tablets and smart phones */
 @media (max-width: 992px) {
-	.spot-detail {
-		padding: 20px 0 0;
+	.spot-detail .main {
+		background: #ecf0f1;
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+	.spot-detail .geo_link {
+		float: right;
 	}
 	.spot-detail .sidebar {
 		border-left: 0;
-		border-top: 1px solid #666;
-		padding: 20px 0 0;
+		padding: 0;
 		text-align: center;
-		margin-top: 20px;
+		color: white;
 	}
 	.spot-detail .sidebar .beenHere {
 		border: 0;
-		border-bottom: 1px solid #666;
+		padding-top: 20px;
+		border-top: 3px solid #172935;
+		background: #f39c12;
+	}
+	.spot-detail .sidebar .spot-stats {
+    	background: #172935;
+	}
+	.spot-detail .sidebar .spot-stats p  {
+    	color: white;
 	}
 	.spot-images h3 {
 		padding-left: 20px;
@@ -116,6 +126,11 @@ h3 {
 	}
 	.spot-detail .sidebar .spot-stats p {
 		margin-bottom: 0;
+	}
+	.spot-images {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		background: #ecf0f1;
 	}
 	.spot-images .image > img {
 		max-width: 400px;

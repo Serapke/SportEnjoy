@@ -89,7 +89,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 				spot => {
 					this.spot = spot;
 					this.oldSpot = spot;
-					this.image = this.spot.images.url;
+					this.image = this.spot.images;
 				},
 				error => this.errorMessage = <any>error
 			);

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { ISpot } from '../spots/spot';
+import { IUser } from '../users/user';
 import { SpotService } from '../spots/spot.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
 	selector: 'ng-topPlaces',
@@ -10,16 +12,19 @@ import { SpotService } from '../spots/spot.service';
 	directives: [ROUTER_DIRECTIVES]
 })
 export class ProfileComponent {
+	user: IUser;
 	spots: ISpot[];
 	errorMessage: string;
 
 	constructor(
 		private _spotService: SpotService,
+		private _loginService: LoginService,
 		private _router: Router) {}
 
 	ngOnInit(): void {
 		this.getCreatedSpots();
-  }
+		this.user = this._loginService.getCurrentUser();		
+  	}
 
 	getCreatedSpots() {
 		this._spotService.getCreatedSpots()

@@ -121,8 +121,8 @@
 			[class.selected]="selectedSpot==spot">
 			<a (click)="gotoDetail(spot)">
 				<div class="img_overflow">
-					<div *ngIf="spot.images.url" [style.background-image]="'url(' + spot.images.url + ')'"></div>
-					<div *ngIf="!spot.images.url" [style.background-image]="'url(' + defaultImage + ')'"></div>
+					<div *ngIf="spot.images" [style.background-image]="'url(' + spot.images + ')'"></div>
+					<div *ngIf="!spot.images" [style.background-image]="'url(' + defaultImage + ')'"></div>
 				</div>
 				<div class="post_excerpt">
 					<div class="container-fluid">
@@ -137,7 +137,7 @@
 		</div>
 		<div *ngIf="particularSpots == ''">
 			<div class="alert alert-danger">
-				We're sorry. We couldn't find any spots satisfying your query.
+				Atsiprašome. Deja, neradome nei vienos vietos pagal pateiktus paieškos parametrus.
 			</div>
 		</div>
 	</div>

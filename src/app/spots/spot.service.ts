@@ -15,7 +15,7 @@ export class SpotService {
     errorMessage: string;
     constructor(
       private _http: Http,
-      private _textTransformService: TextTransformService,
+      private _textTransformService: TextTransformService
     ) {
     }
     getSpots(): Observable<ISpot[]> {

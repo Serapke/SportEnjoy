@@ -21,6 +21,11 @@
 				</a>
 				<a class="geo_link"><i class="gh_geopin"></i>{{ spotter.location }}</a>
 			</div>
+			<div *ngIf="spotters == ''">
+				<div class="alert alert-danger">
+					Atsiprašome. Įvyko klaida.
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

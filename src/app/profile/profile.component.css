@@ -13,12 +13,9 @@ h2 {
 }
 #profile {
   padding-top: 20px;
+  color: #444;
 }
-#profile .panel,
-#profile .panel-heading,
-#profile .panel-footer {
-	border-radius: 0;
-}
+
 #profile .panel-footer {
   color: #555;
   text-align: center;
@@ -31,11 +28,23 @@ h2 {
 	cursor: pointer;
 }
 
+.info {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.info .btn {
+  width: 200px;
+  margin-top: 10px;
+}
+.info p {
+  text-align: left;
+}
+
 @media (max-width: 768px) {
-	#profile {
-		padding: 0;
-	}
-  .panel {
+  .spots .panel {
     border: 0;
+  }
+  .spots .panel-heading {
+    background: #f39c12;
   }
 }

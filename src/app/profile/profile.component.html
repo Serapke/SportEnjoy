@@ -1,9 +1,45 @@
-<div class="container-fluid">
+<div class="container-fluid" id="profile">
 	<div class="row">
 		<h2 class="hidden-xs">Profilis</h2>
 	</div>
-	<div class="row">
-		<div id="profile" class="col-md-offset-1 col-md-10">
+	<div class="row info text-center">
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Vartotojo informacija
+				</div>
+				<div class="panel-body">
+					<div class="col-md-5">
+						<img *ngIf="user.image" [src]="user.image" class="img-thumbnail user-image"/>
+						<div *ngIf="!user.image" class="alert alert-info">
+							<p>Vartotojas nėra pateikęs savo nuotraukos</p>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<p><strong>El. paštas:</strong> {{ user.email }}</p>
+						<p><strong>Vieta:</strong> {{ user.location }}</p>
+						<p><strong>Prisiregistravo:</strong> {{ user.created_at | date:'mediumDate'}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">Vartotojo aktyvumas</h4>
+				</div>
+				<div class="panel-body">
+					<p>{{ user.name || 'Vartotojas' }} pažymėjo <span class="badge">{{ user.spotsMarked }}</span> vietas.</p>
+					<p>{{ user.name || 'Vartotojas' }} buvo <span class="badge">{{ user.beenHereCount }}</span> vietose.</p>
+					<p>{{ user.name || 'Vartotojas' }} parašė <span class="badge">{{ user.commentsCount }}</span> komentarus.</p>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-dark">Atnaujinti</button>
+		<button class="btn btn-dark">Pakeisti slaptažodį</button>
+	</div>
+	<div class="row spots">
+		<div class="col-md-offset-1 col-md-10 padding-0">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Pažymėtos vietos</div>
 				<table class="table table-hover spots">
@@ -32,6 +68,7 @@
 					</tbody>
 				</table>
 				<div *ngIf="spots && spots.length == 0" class="panel-footer">Dar nepažymėjote jokios vietos</div>
+			</div>
 		</div>
 	</div>
 </div>

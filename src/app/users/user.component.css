@@ -24,16 +24,6 @@ h2 {
 		background: #404040;
 		margin: 0;
 }
-.panel {
-	border-radius: 0;
-}
-.panel .panel-heading {
-	border-radius: 0;
-}
-.alert {
-	border-radius: 0;
-}
-
 .content {
     position: static;
     float: none!important;

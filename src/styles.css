@@ -20,6 +20,51 @@ h2 {
     font-weight: 700;
     text-align: center;
 }
+.btn-default,
+.alert-default,
+.panel-default > .panel-heading {
+  background: #2ecc71;
+  border-color: #2ecc71;
+  color: #fff;
+}
+.panel-default {
+  border-color: #2ecc71;
+}
+.btn-info,
+.alert-info,
+.panel-info > .panel-heading {
+  background: #ecf0f1;
+  border-color: #ecf0f1;
+  color: #444;
+}
+.panel-info {
+  border-color: #ecf0f1;
+}
+.btn-primary,
+.alert-primary,
+.panel-primary > .panel-heading {
+  background: #f39c12;
+  border-color: #f39c12;
+}
+.panel-primary {
+  border-color: #f39c12;
+}
+.btn-danger,
+.alert-danger,
+.panel-danger > .panel-heading {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: #fff;
+}
+.panel-danger {
+  border-color: #e74c3c;
+}
+.panel,
+.panel-heading,
+.panel-footer,
+.alert {
+	border-radius: 0;
+}
 .btn.btn-dark {
 		color: #fff;
 		background-color: #203a4c;

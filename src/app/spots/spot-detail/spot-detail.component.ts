@@ -39,7 +39,7 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 					 spot => {
 						 this.spot = spot;
 						 this.reviewed = spot.reviewed;
-						 this.mainImage = spot.images.url;
+						 this.mainImage = spot.images;
 					 },
 					 error => this.errorMessage = <any>error);
 	 }

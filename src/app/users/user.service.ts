@@ -7,7 +7,7 @@ import { IUser } from './user.ts';
 export class UserService {
     private _userUrl = 'https://sportenjoy-api.herokuapp.com/users';
     errorMessage: string;
-    count: number = 5;
+    count: number = 4;
 
     constructor(
       private _http: Http

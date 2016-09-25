@@ -234,13 +234,11 @@ a {
 	    text-align: center;
 	    -webkit-background-size: cover;
 	    background-size: cover;
-			margin-top: 20px;
 	}
 			.spotter h1 {
 			    display: table;
-			    margin: 0 auto;
+			    margin: 25px auto;
 			    position: relative;
-			    margin-bottom: 50px;
 			    color: #fff;
 			}
 			.spotter p {

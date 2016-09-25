@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
 import { ISpot } from '../spot';
 import { SpotService } from '../spot.service';
@@ -17,6 +17,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 	oldSpot: ISpot;
 	errorMessage: string;
 	submitted: boolean = false;
+	submitting: boolean = false;
 	image: string;
 	file: string = "";
 
@@ -25,6 +26,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 		private _route: ActivatedRoute,
 		private _fileService: FileService,
 		private _locationService: LocationService,
+		private _ngZone: NgZone,
 		private _router: Router) {}
 
 	ngOnInit(): void {
@@ -37,23 +39,29 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
   	}
 
 	onSubmit() {
-		alert(this.spot.latitude + " " + this.spot.longitude + " (types: " + (typeof this.spot.latitude) + ", " + (typeof this.spot.longitude) + ")")
-
+		this.submitting = true;
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log(this.findAddressPart(position, "route", "short"));
 				this.spot.city = this.findAddressPart(position, "locality", "long");
 				this.spot.country = this.findAddressPart(position, "country", "long");
-				console.log(this.spot);
-				this._spotService.updateSpot(this.spot)
+				let sub = this._spotService.updateSpot(this.spot)
 					.subscribe(
-						spot => {
-							this.spot = spot;
-							this.submitted = true;
+						() => {
+							this._ngZone.run(() => {
+								this.submitted = true;
+								console.log(this.submitted);
+								this.submitting = false;
+							});
 						},
-						error => this.errorMessage = <any>error
+						error => {
+							this.errorMessage = <any>error;
+							console.error("error");
+						}
 					);
-				console.log("Done");
+			}, error => {
+				this.spot.city = "undefined";
+				this.spot.country = "undefined";
 			});
 	}
 

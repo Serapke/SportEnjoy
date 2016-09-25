@@ -4,12 +4,16 @@
 		<h2 *ngIf="isUpdating()" class="hidden-xs">Papildyti - {{ spot.title }}</h2>
 	</div>
 	<!-- <div class="row"> -->
-			<form *ngIf="!submitted" class="row" (ngSubmit)="onSubmit()">
+			<form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
 				<div class="col-md-6 section">
 					<h4>Aprašymas</h4>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Įveskite vietos pavadinimą" required
 							[(ngModel)]="spot.title" name="title">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Įveskite vietos kategoriją" required
+							[(ngModel)]="spot.category" name="category">
 					</div>
 					<div class="form-group">
 						<textarea type="text" class="form-control" rows="4" placeholder="Įveskite vietos aprašymą"
@@ -18,10 +22,6 @@
 				</div>
 				<div class="col-md-6 section">
 					<h4>Vietovė</h4>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Įveskite vietos kategoriją" required
-							[(ngModel)]="spot.category" name="category">
-					</div>
 					<div class="row">
 						<div class="form-group col-md-6 col-xs-6">
 							<input type="number" step="0.000001" class="form-control" placeholder="Latitude" required
@@ -41,7 +41,9 @@
 								style="outline: none; white-space: nowrap; display: inline-block;">
 							<label *ngIf="file" class="hidden-xs file-name">{{ file }}</label>
 						</div>
-						<img *ngIf="image" [src]="image" class="col-md-6 col-xs-12" alt="Nuotraukos peržiūra...">
+						<div class="col-md-6 col-xs-12 text-center">
+							<img *ngIf="image" [src]="image"  alt="Nuotraukos peržiūra...">
+						</div>
 					</div>
 				</div>
 				<div class="col-md-offset-3 col-md-6 section">
@@ -50,7 +52,7 @@
 					</div>
 				</div>
 			</form>
-			<div *ngIf="submitted" class="panel panel-success">
+			<div *ngIf="submitted" class="panel panel-success submitted">
 				<div class="panel-heading">
 					Jūsų užklausa sėkmingai išsiųsta!
 				</div>
@@ -63,6 +65,10 @@
 						<p *ngIf="!isModerator()">Jūsų užklausa dėl naujos vietos pažymėjimo sėkmingai nusiųsta mūsų moderatoriams. Dėkojame!</p>
 					</div>
 				</div>
+			</div>
+			<div *ngIf="submitting" class="loading">
+				<div class="loader"></div>
+				<div class="alert alert-info">Jūsų pažymėta vieta įkeliama. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame</div>
 			</div>
 	<!-- </div> -->
 </div>

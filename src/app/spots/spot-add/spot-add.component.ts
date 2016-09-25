@@ -16,6 +16,7 @@ export class SpotAddComponent implements OnInit {
 	spot: ISpot;
 	errorMessage: string;
 	submitted: boolean = false;
+	submitting: boolean = false;
 	image: string = "";
 	file: string = "";
 
@@ -38,6 +39,7 @@ export class SpotAddComponent implements OnInit {
   }
 
 	onSubmit() {
+		this.submitting = true;
 		this._locationService.geocode(this.spot.latitude, this.spot.longitude).
 			subscribe(position => {
 				console.log(this.findAddressPart(position, "route", "short"));
@@ -47,13 +49,13 @@ export class SpotAddComponent implements OnInit {
 					spot => {
 						this.spot = spot;
 						this.submitted = true;
+						this.submitting = false;
 					},
 					error => {
 						this.errorMessage = <any>error;
 						console.error("error");
 					}
 		 		);
-				console.log("done");
 			}, error => {
 				this.spot.city = "undefined";
 				this.spot.country = "undefined";
@@ -61,10 +63,8 @@ export class SpotAddComponent implements OnInit {
 	}
 
 	findAddressPart(position: any, part: string, version: string): string {
-		console.log("looking for " + part);
 		let address = position[0].address_components;
 		for (var item of address) {
-			console.log(item);
 			if (item.types.indexOf(part) != -1)  {
 				if (version == "long") {
 					return item.long_name;

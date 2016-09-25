@@ -19,6 +19,7 @@ h2 {
     font-size: 41.4px;
     font-weight: 700;
     text-align: center;
+    margin: 0 auto;
 }
 .btn-default,
 .alert-default,
@@ -49,21 +50,13 @@ h2 {
 .panel-primary {
   border-color: #f39c12;
 }
-.btn-danger,
-.alert-danger,
-.panel-danger > .panel-heading {
-  background: #e74c3c;
-  border-color: #e74c3c;
-  color: #fff;
-}
-.panel-danger {
-  border-color: #e74c3c;
-}
 .panel,
 .panel-heading,
+.panel-body,
 .panel-footer,
 .alert {
 	border-radius: 0;
+  color: #555;
 }
 .btn.btn-dark {
 		color: #fff;
@@ -107,6 +100,24 @@ input:-webkit-autofill:active {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #203a4c;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Form */

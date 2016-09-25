@@ -52,20 +52,13 @@ export class LocationService {
 	}
 
 	geocode(latitude: number, longitude: number): Observable<any> {
-		console.log("getting location");
-		console.log(latitude);
-		console.log(longitude);
 		this.latlng = {lat: latitude, lng: longitude};
 		return new Observable<any>((observer: Observer<any>) => {
-			console.log("in observer");
 			// Invokes geocode method of Google Maps API geocoding.
 			this.geocoder.geocode({'location': this.latlng }, (
 				// Results & status.
 				(results: any, status: any) => {
-					console.log("was");
-					console.log(status);
 					if (status === "OK") {
-						console.log(results);
 						observer.next(results);
 						observer.complete();
 					} else {

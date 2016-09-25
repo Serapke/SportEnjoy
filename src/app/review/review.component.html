@@ -29,7 +29,8 @@
 						</tr>
 					</tbody>
 				</table>
-				<div *ngIf="spots && spots.length == 0" class="panel-footer">Šiuo metu neperžiūrėtų vietų nėra</div>
+				<div *ngIf="spots && !spots.length" class="panel-footer">Šiuo metu neperžiūrėtų vietų nėra</div>
+			</div>
 		</div>
 	</div>
 </div>

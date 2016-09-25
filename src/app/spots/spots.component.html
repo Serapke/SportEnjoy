@@ -83,20 +83,22 @@
 			[disableDefaultUI]="true"
 			[zoomControl]="false">
 			<sebm-google-map-marker 
-				*ngFor="let spot of particularSpots" 
+				*ngFor="let spot of particularSpots; let i = index" 
 				[latitude]="spot.latitude" 
 				[longitude]="spot.longitude"
-				(markerClick)="clickedMarker(spot.id)">
-				<sebm-google-map-info-window>
+				(markerClick)="clickedMarker(spot, i, infowindow)">
+				<sebm-google-map-info-window #infowindow [disableAutoPan]="true">
 					<div class="col-xs-3 padding-0">
 						<span class="glyphicon glyphicon-info-sign"></span>
 					</div>
 					<div class="col-xs-9">
-						<strong>{{ spot.title }}</strong>
-						<p>{{ spot.city }}, {{ spot.country }}</p>
+						<strong>{{ selectedSpot?.title }}</strong>
+						<p>{{ selectedSpot?.city }}, {{ selectedSpot?.country }}</p>
 					</div>
 				</sebm-google-map-info-window>
 			</sebm-google-map-marker>
+			
+			
 		</sebm-google-map>
 	</div>
 	<div class="row search-properties visible-xs">

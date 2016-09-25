@@ -8,7 +8,6 @@
 	padding-top: 8px;
 }
 .sebm-google-map-container p{
-	margin: 0;
 	text-align: right;
 }
 h1 {
@@ -288,7 +287,7 @@ a {
 	}
 	/* For tablets */
 	@media (max-width: 992px) and (min-width: 767px) {
-		.spots .col-md-3{
+		.spots .spot {
 		    width: 50%!important;
 		    margin: 0;
 		    float: left;

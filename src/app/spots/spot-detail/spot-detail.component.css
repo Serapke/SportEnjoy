@@ -33,7 +33,7 @@ h3 {
 .spot-detail .sidebar {
 	color: #798994;
 	font-weight: 700;
-	padding-top: 45px;
+	padding-top: 25px;
 	text-align: center;
 	border-left: 1px solid #dee3ea;
 }
@@ -88,6 +88,13 @@ h3 {
 	padding-left: 20px;
 }
 
+/* For desktops */
+@media (min-width: 993px) {
+	.spot-detail {
+		padding-top:20px;
+	}
+}
+
 /* For tablets and smart phones */
 @media (max-width: 992px) {
 	.spot-detail .main {
@@ -138,6 +145,7 @@ h3 {
 	}
 }
 
+/* For smart phones */
 @media (max-width: 767px) {
 	h1, h2 {
     font-size: 22px;

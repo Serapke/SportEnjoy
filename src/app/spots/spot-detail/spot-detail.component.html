@@ -44,7 +44,8 @@
 			</div>
       <div class="row spot-description">
         <h3>Aprašymas</h3>
-        <p>{{ spot?.description }}</p>
+        <p>{{ spot.description }}</p>
+        <p *ngIf="!spot.description" class="alert alert-info">Deja! Ši vieta neturi aprašymo.</p>
       </div>
 			<div class="row spot-images">
 				<h3>Galerija</h3>
@@ -57,7 +58,7 @@
           <img [src]="spot.images[1].url" [alt]="spot.images[2].title" [title]="spot.images[2].title" [style.width.px]="200"> -->
 				</div>
         <div *ngIf="!spot.images" class="alert alert-info">
-            Oh no! This spot has no pictures yet.
+            Deja! Ši vieta neturi nuotraukos.
             <!-- <a href="#" class="alert-link">Click here to Login and add a picture</a> -->
             <!-- <a *ngIf="isModerator()" (click)="gotoUpdate()" class="alert-link">Click here to login and add a picture</a> -->
         </div>

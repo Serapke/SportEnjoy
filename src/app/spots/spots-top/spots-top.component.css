@@ -1,15 +1,7 @@
 section {
 		padding: 90px 0;
 }
-h1 {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 40px;
-    border: 4px solid #fff;
-    padding: 10px 20px;
-}
 h2 {
-    font-weight: 700;
     text-transform: uppercase;
     font-size: 40px;
 		color: #eee;
@@ -18,7 +10,6 @@ h2 {
 		text-align: center;
 		width: auto;
 		background: #404040;
-		margin-top: 0;
 }
 a {
 	text-decoration: none;
@@ -30,24 +21,24 @@ a {
     zoom: 1;
     padding: 60px 0 30px;
 }
-		.top-places .col-md-3 {
-				height: 350px;
-				max-height: 350px;
-				background-color: #e2e9eb;
-				padding: 0;
-				margin: 0 2.65% 60px 0;
-				width: 23%;
-				-o-transition: background-color .5s ease-in-out;
-				-webkit-transition: background-color .5s ease-in-out;
-				transition: background-color .5s ease-in-out;
-				position: relative;
-		}
-		.top-places .col-md-3:nth-child(4n) {
-		    margin-right: 0;
-		}
-		.top-places .col-md-3:hover {
-		    background-color: #C8D50B;
-		}
+.top-places .col-md-3 {
+	height: 350px;
+	max-height: 350px;
+	background-color: #e2e9eb;
+	padding: 0;
+	margin: 0 2.65% 60px 0;
+	width: 23%;
+	-o-transition: background-color .5s ease-in-out;
+	-webkit-transition: background-color .5s ease-in-out;
+	transition: background-color .5s ease-in-out;
+	position: relative;
+}
+.top-places .col-md-3:nth-child(4n) {
+	margin-right: 0;
+}
+.top-places .col-md-3:hover {
+	background-color: #C8D50B;
+}
 				.top-places > .col-md-3 > a {
 				    display: block;
 				}
@@ -57,57 +48,55 @@ a {
 				    max-height: 180px;
 				    height: 180px;
 				}
-						.top-places > .col-md-3 > a .img_overflow > div {
-						    -o-transition: all 30s linear;
-						    -webkit-transition: all 30s linear;
-						    transition: all 30s linear;
-						    height: 180px;
-						    background: url(../images/placeholder-560.jpg) no-repeat center center;
-						    -webkit-background-size: cover;
-						    background-size: cover;
-						    -ms-behavior: url(../images/backgroundsize.min.htc);
-						    background-color: #b4c5cb;
-						}
+				.top-places > .col-md-3 > a .img_overflow > div {
+					-o-transition: all 30s linear;
+					-webkit-transition: all 30s linear;
+					transition: all 30s linear;
+					height: 180px;
+					-webkit-background-size: cover;
+					background-size: cover;
+					background-color: #b4c5cb;
+				}
 				.top-places .col-md-3 > a .post_excerpt {
 				    padding: 20px;
 				    -webkit-box-sizing: border-box;
 				    box-sizing: border-box;
 				    text-align: center;
 				}
-						.top-places .col-md-3 > a .post_excerpt .title {
-						    color: #203a4c;
-						    display: block;
-						    max-height: 50px;
-						    height: 50px;
-						    line-height: 1.3;
-						}
-						.top-places .col-md-3 > a:hover .post_excerpt .title {
-						    text-decoration: none;
-						}
-						.top-places .col-md-3 > a .post_excerpt .container-fluid {
-						    margin-top: 40px;
-						}
-								.top-places .col-md-3 > a .post_excerpt .col-md-4 {
-								    text-align: center;
-								    height: 40px;
-								    display: table;
-								    background: #fff;
-								    color: #627581;
-								    color: rgba(32,58,76,.7);
-								    font-weight: 700;
-								    font-size: 12px;
-								    border-right: 2px solid #e2e9eb;
-								}
-										.top-places > .col-md-3 > a .post_excerpt .col-md-4 p {
-										    display: table-cell;
-										    vertical-align: middle;
-										    margin: 0;
-										    max-width: 45px;
-										}
-												.top-places > .col-md-3 > a .post_excerpt .col-md-4 span {
-												    padding-left: 7px;
-														line-height: 1;
-												}
+				.top-places .col-md-3 > a .post_excerpt .title {
+					color: #203a4c;
+					display: block;
+					max-height: 50px;
+					height: 50px;
+					line-height: 1.3;
+				}
+				.top-places .col-md-3 > a:hover .post_excerpt .title {
+					text-decoration: none;
+				}
+				.top-places .col-md-3 > a .post_excerpt .container-fluid {
+					margin-top: 40px;
+				}
+				.top-places .col-md-3 > a .post_excerpt .col-md-4 {
+					text-align: center;
+					height: 40px;
+					display: table;
+					background: #fff;
+					color: #627581;
+					color: rgba(32,58,76,.7);
+					font-weight: 700;
+					font-size: 12px;
+					border-right: 2px solid #e2e9eb;
+				}
+				.top-places > .col-md-3 > a .post_excerpt .col-md-4 p {
+					display: table-cell;
+					vertical-align: middle;
+					margin: 0;
+					max-width: 45px;
+				}
+				.top-places > .col-md-3 > a .post_excerpt .col-md-4 span {
+					padding: 2px 0 0 7px;
+					line-height: 1;
+				}
 				.top-places .geo_link {
 				    color: #007496;
 				    font-size: 12px;

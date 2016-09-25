@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, NgZone } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
 import { LocationService } from '../shared/location/location.service';
@@ -6,13 +6,15 @@ import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
 import { ISpot } from './spot';
 import { SpotFilterPipe } from './spot-filter.pipe';
+import { SebmGoogleMapInfoWindow, SebmGoogleMap} from 'angular2-google-maps/core';
 
 @Component({
 	templateUrl: './spots.component.html',
 	styleUrls: ['./spots.component.css'],
 	pipes: [SpotFilterPipe],
 	directives: [
-		ROUTER_DIRECTIVES
+		ROUTER_DIRECTIVES,
+		SebmGoogleMap
 	]
 })
 export class SpotsComponent implements OnInit, OnDestroy{
@@ -35,12 +37,14 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	mapDraggable: boolean;
 	showSortProperties: boolean = false;
 	selectedSpot: ISpot;
+	openInfoWindow: SebmGoogleMapInfoWindow;
 	
 
 	constructor(
 		private _spotService: SpotService,
 		private _route: ActivatedRoute,
 		private _locationService: LocationService,
+		private _ngZone: NgZone,
 	  	private _router: Router
 	) {	
 		this.mapDraggable = document.body.clientWidth < 992 ? false : true;
@@ -60,21 +64,17 @@ export class SpotsComponent implements OnInit, OnDestroy{
 		this.rotatedSearchPropertiesArrow = !this.rotatedSearchPropertiesArrow;
 		this.showSearchProperties = 0;
 	}
-	clickedMarker(id: number): void {
-		this.selectedSpot = this.allSpots.filter(x => x.id == id)[0];
+	clickedMarker(spot: ISpot, i, infoWindow): void {
+		console.log(infoWindow);
+		this.selectedSpot = spot;
 		this.lat = this.selectedSpot.latitude;
 		this.lng = this.selectedSpot.longitude;
-		let spots = this.particularSpots;
-		let sortedSpotters = spots.sort((a, b) => {
-			if (a.id == this.selectedSpot.id) {
-				return -1;
-			}
-			if (b.id == this.selectedSpot.id) {
-				return 1;
-			}
-			return 0;
-		});
-		this.particularSpots = sortedSpotters;
+		this.makeSelectedSpotFirst(i);
+
+		if (this.openInfoWindow && this.openInfoWindow !== infoWindow){
+			this.openInfoWindow.close();
+		}
+		this.openInfoWindow = infoWindow;
 	}
 	toggleDraggability(): void {
 		this.mapDraggable = !this.mapDraggable;
@@ -166,7 +166,7 @@ export class SpotsComponent implements OnInit, OnDestroy{
 
 	sortSpotsByAlphabet(): void {
 		this.selectedSorting = 'alphabet';
-		let spots = this.particularSpots;
+		let spots = this.selectedSpot ? this.particularSpots.slice(1) : this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
 			if (this.selectedSpot && (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id))
 				return 0;
@@ -179,11 +179,12 @@ export class SpotsComponent implements OnInit, OnDestroy{
 			return 0;
 		});
 		this.particularSpots = sortedSpotters;
+		if (this.selectedSpot) this.particularSpots.unshift(this.selectedSpot);
 	}
 
 	sortSpotsByRating(): void {
 		this.selectedSorting = 'rating';
-		let spots = this.particularSpots;
+		let spots = this.selectedSpot ? this.particularSpots.slice(1) : this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
 			if (this.selectedSpot && (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id))
 				return 0;
@@ -196,14 +197,13 @@ export class SpotsComponent implements OnInit, OnDestroy{
 			return 0;
 		});
 		this.particularSpots = sortedSpotters;
+		if (this.selectedSpot) this.particularSpots.unshift(this.selectedSpot);
 	}
 
 	sortSpotsByBeenHere(): void {
 		this.selectedSorting = 'beenHere';
-		let spots = this.particularSpots;
+		let spots = this.selectedSpot ? this.particularSpots.slice(1) : this.particularSpots;
 		let sortedSpotters = spots.sort((a, b) => {
-			if (this.selectedSpot && (a.id == this.selectedSpot.id || b.id == this.selectedSpot.id))
-				return 0;
 			if (a.beenHere < b.beenHere) {
 				return 1;
 			}
@@ -213,6 +213,13 @@ export class SpotsComponent implements OnInit, OnDestroy{
 			return 0;
 		});
 		this.particularSpots = sortedSpotters;
+		if (this.selectedSpot) this.particularSpots.unshift(this.selectedSpot);
+	}
+
+	makeSelectedSpotFirst(i) {
+		let first = this.particularSpots[0];
+		this.particularSpots[0] = this.selectedSpot;
+		this.particularSpots[i] = first;
 	}
 
 	gotoSpotters() {

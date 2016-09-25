@@ -1,12 +1,12 @@
-<div class="wrap container-fluid">
+<div class="container-fluid">
 	<div class="content row">
 		<h2 class="hidden-xs">Populiariausios vietos</h2>
 		<div class="container top-places">
 			<div *ngFor="let spot of spots" class="col-md-3">
 				<a [routerLink]="['/spot/' + spot.id]">
 					<div class="img_overflow">
-						<div *ngIf="spot.images.url" [style.background-image]="'url(' + spot.images.url + ')'"></div>
-						<div *ngIf="!spot.images.url" [style.background-image]="'url(' + defaultImage + ')'"></div>
+						<div *ngIf="spot.images" [style.background-image]="'url(' + spot.images+ ')'"></div>
+						<div *ngIf="!spot.images" [style.background-image]="'url(' + defaultImage + ')'"></div>
 					</div>
 					<div class="post_excerpt">
 						<span class="title">{{ spot.title }}</span>

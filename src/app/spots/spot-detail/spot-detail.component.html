@@ -17,7 +17,7 @@
 				<div class="col-md-9 main">
 					<h3 class="spot-title">{{ spot.title }}</h3>
 					<div class="geo_link">
-						<a href="#"><img src="/testas/assets/images/geo-link-icon.png" />{{ spot.city }}, {{ spot.country}}</a>
+						<a href="#"><img src="/sportenjoy/assets/images/geo-link-icon.png" />{{ spot.city }}, {{ spot.country}}</a>
 					</div>
           <sebm-google-map 
             [latitude]="spot.latitude" 
@@ -38,7 +38,7 @@
           <div class="spot-stats">
 						<div class="col-md-4 col-xs-4"><p>{{ spot.rating }}<span class="glyphicon glyphicon-star"></span></p></div>
 						<div class="col-md-4 col-xs-4"><p>{{ spot.beenHere }}<span class="glyphicon glyphicon-eye-open"></span></p></div>
-            <div class="col-md-4 col-xs-4"><img [src]="'/testas/assets/images/' + spot.category + '.png'" /></div>
+            <div class="col-md-4 col-xs-4"><img [src]="'/sportenjoy/assets/images/' + spot.category + '.png'" /></div>
 					</div>
 				</div>
 			</div>

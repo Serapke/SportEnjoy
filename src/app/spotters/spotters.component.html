@@ -1,65 +1,53 @@
-<div class="wrap container-fluid">
-	<div class="row content">
-		<h2 class="hidden-xs">Spotters</h2>
-		<div class="container spotters">
-			<div *ngFor='let spotter of spotters'  class="col-md-2">
-				<a>
-					<div class="img_overflow">
-						<img *ngIf="spotter.image.url" [src]="spotter.image.url" />
-						<img *ngIf="!spotter.image.url" [src]="defaultImage" />
+<div class="container-fluid">
+	<div class="row hidden-xs">
+		<h2>Spotters</h2>
+	</div>
+	<div class="row spotters">
+		<div *ngFor='let spotter of spotters'  class="col-md-3 col-sm-6 spotter">
+				<div class="row img_overflow">
+						<div *ngIf="spotter.image" [style.background-image]="'url(' + spotter.images + ')'"></div>
+						<div *ngIf="!spotter.image" [style.background-image]="'url(' + defaultImage + ')'"></div>
+				</div>
+				<div class="row info">
+					<span class="name">{{ spotter.name }}</span>
+					<h4 class="geo_link"><i class="gh_geopin"></i>{{ spotter.location }}</h4>
+					<div class="col-md-12">
+						<div class="col-md-4 col-xs-4"><p>{{ spotter.spotsMarked }}<span class="glyphicon glyphicon-map-marker"></span></p></div>
+						<div class="col-md-4 col-xs-4"><p>{{ spotter.beenHereCount }}<span class="glyphicon glyphicon-eye-open"></span></p></div>
+						<div class="col-md-4 col-xs-4"><p>{{ spotter.commentsCount }}<span class="glyphicon glyphicon-comment"></span></p></div>
 					</div>
-					<div class="spotter-info">
-						<span class="name">{{ spotter.name }}</span>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-md-4 col-xs-4"><p>{{ spotter.spotsMarked }}<span class="glyphicon glyphicon-map-marker"></span></p></div>
-								<div class="col-md-4 col-xs-4"><p>{{ spotter.beenHereCount }}<span class="glyphicon glyphicon-eye-open"></span></p></div>
-								<div class="col-md-4 col-xs-4"><p>{{ spotter.commentsCount }}<span class="glyphicon glyphicon-comment"></span></p></div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a class="geo_link"><i class="gh_geopin"></i>{{ spotter.location }}</a>
+				</div>
+		</div>
+		<div *ngIf="spotters == ''">
+			<div class="alert alert-danger">
+				Atsiprašome. Įvyko klaida.
 			</div>
-			<div *ngIf="spotters == ''">
-				<div class="alert alert-danger">
-					Atsiprašome. Įvyko klaida.
+		</div>
+	</div>
+	<div class="row" id="spotter">
+		<h1>Join</h1>
+		<h3>Make spots yourself. It's easy.</h3>
+		<p>Get on active sport places and add spots to help others to find the best workout locations</p>
+		<div class="container dotted">
+			<div class="row">
+				<div class="col-md-3 col-xs-3">
+					<img src="/testas/assets/images/signup-icon.png" />
+					<span>Sign up</span>
+				</div>
+				<img class="arrow col-md-1 col-xs-1" src="/testas/assets/images/arrow.png" />
+				<div class="col-md-3 col-xs-3">
+					<img src="/testas/assets/images/find-icon.png" />
+					<span>Find a spot</span>
+				</div>
+				<img class="arrow col-md-1 col-xs-1" src="/testas/assets/images/arrow.png" />
+				<div class="col-md-3 col-xs-3">
+					<img src="/testas/assets/images/spot-icon.png" />
+					<span>Add the spot</span>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-<section class="spotter">
-	<div class="container">
-		<div class="row">
-			<h1>Join</h1>
-			<h3>Make spots yourself. It's easy.</h3>
-			<p>Get on active sport places and add spots to help others to find the best workout locations</p>
-			<div class="container dotted">
-				<div class="row">
-					<div class="col-md-3 col-xs-3">
-						<img src="/testas/assets/images/signup-icon.png" />
-						<span>Sign up</span>
-					</div>
-					<img class="arrow col-md-1 col-xs-1" src="/testas/assets/images/arrow.png" />
-					<div class="col-md-3 col-xs-3">
-						<img src="/testas/assets/images/find-icon.png" />
-						<span>Find a spot</span>
-					</div>
-					<img class="arrow col-md-1 col-xs-1" src="/testas/assets/images/arrow.png" />
-					<div class="col-md-3 col-xs-3">
-						<img src="/testas/assets/images/spot-icon.png" />
-						<span>Add the spot</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="benefits">
-	<div class="container">
+	<div class="row benefits">
 	  <h2>Benefits</h2>
 	  <div class="list-group benefits-list">
 	    <a class="list-group-item">
@@ -79,4 +67,4 @@
 	    </a>
 	  </div>
 	</div>
-</section>
+</div>

@@ -12,7 +12,7 @@ import { IUser } from '../users/user';
 export class SpottersComponent implements OnInit {
 	spotters: IUser[];
 	errorMessage: string;
-	defaultImage: string = '/testas/assets/images/p1.jpg';
+	defaultImage: string = '/testas/assets/images/spotter-logo.png';
 
 	constructor(private _userService: UserService) {
 	}

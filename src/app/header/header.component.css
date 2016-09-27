@@ -228,6 +228,7 @@
                     padding-right: 50px;
                 }
                 .category-dropdown ul {
+                    cursor: pointer;
                     max-height: 220px;
                     width: 100%;
                     margin: 0;
@@ -240,6 +241,9 @@
                 .category-dropdown ul li {
                     border-bottom:  1px solid #eee;
                 }
+                .category-dropdown ul li:hover {
+                    border-bottom:  1px solid #101d26;
+                }
                 .category-dropdown ul li a {
                     color: #32353c;
                     text-decoration: none;
@@ -248,6 +252,10 @@
                     font-size: 14px;
                     display: block;
                     background: #fff;
+                }
+                .category-dropdown ul li a:hover {
+                    color: #fff;
+                    background: rgba(23,41,53,.7);                    
                 }
                 .category-dropdown .recap {
                     display: block;

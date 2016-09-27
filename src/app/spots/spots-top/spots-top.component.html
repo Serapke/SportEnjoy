@@ -1,6 +1,8 @@
 <div class="container-fluid">
-	<div class="content row">
+	<div class="row">
 		<h2 class="hidden-xs">Populiariausios vietos</h2>
+	</div>
+	<div class="row">
 		<div class="container top-places">
 			<div *ngFor="let spot of spots" class="col-md-3">
 				<a [routerLink]="['/spot/' + spot.id]">
@@ -23,33 +25,28 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<section class="spotter">
-	<div class="container">
-		<div class="row">
-			<h1>Spotters</h1>
-			<h3>Become a part. Be a spotter.</h3>
-			<p>Get on active sport places and add spots to help others to find the best workout locations</p>
-			<div class="container dotted">
-				<div class="row">
-					<div class="col-md-3 col-xs-3">
-						<img src="/sportenjoy/assets/images/signup-icon.png" />
-						<span>Sign up</span>
-					</div>
-					<img class="arrow col-md-1 col-xs-1" src="/sportenjoy/assets/images/arrow.png" />
-					<div class="col-md-3 col-xs-3">
-						<img src="/sportenjoy/assets/images/find-icon.png" />
-						<span>Find a spot</span>
-					</div>
-					<img class="arrow col-md-1 col-xs-1" src="/sportenjoy/assets/images/arrow.png" />
-					<div class="col-md-3 col-xs-3">
-						<img src="/sportenjoy/assets/images/spot-icon.png" />
-						<span>Add the spot</span>
-					</div>
+	<div class="row spotter">
+		<h1>Narystė</h1>
+		<h3>Tapk dalimi sporto bendruomenės. Prisjunk prie mūsų!</h3>
+		<p>Pažymėk savo mėgstamiausią sporto aikštelę taip padėdamas ją atrasti kitiems.</p>
+		<div class="container dotted">
+			<div class="row">
+				<div class="col-md-3 col-xs-3">
+					<img src="/sportenjoy/assets/images/signup-icon.png" />
+					<span>Registruokis</span>
+				</div>
+				<img class="arrow col-md-1 col-xs-1" src="/sportenjoy/assets/images/arrow.png" />
+				<div class="col-md-3 col-xs-3">
+					<img src="/sportenjoy/assets/images/find-icon.png" />
+					<span>Atrask</span>
+				</div>
+				<img class="arrow col-md-1 col-xs-1" src="/sportenjoy/assets/images/arrow.png" />
+				<div class="col-md-3 col-xs-3">
+					<img src="/sportenjoy/assets/images/spot-icon.png" />
+					<span>Pasidalink</span>
 				</div>
 			</div>
-			<a [routerLink]="['/spotters']" routerLinkActive="active" class="btn btn-dark">Find out the advantages</a>
 		</div>
+		<a [routerLink]="['/spotters']" routerLinkActive="active" class="btn btn-dark">Narystės privalumai</a>
 	</div>
-</section>
+</div>

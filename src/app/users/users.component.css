@@ -10,6 +10,9 @@ h2 {
 		background: #404040;
 		margin-top: 0;
 }
+#review {
+	padding-top: 20px;
+}
 #review .panel,
 #review .panel-heading {
 	border-radius: 0;

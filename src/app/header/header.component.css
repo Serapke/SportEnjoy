@@ -285,9 +285,6 @@
       border-radius: 0;
       font-size: 18px;
     }
-    .login form .btn {
-      border: 1px solid #007496;
-    }
     .overlay {
         height: 0;
         width: 100%;

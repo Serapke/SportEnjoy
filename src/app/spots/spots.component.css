@@ -229,15 +229,14 @@ a {
 
 	.spotter {
 	    background: url('/sportenjoy/assets/images/spotter-background.jpg') center center no-repeat;
-	    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
-	    height: 700px;
 	    text-align: center;
 	    -webkit-background-size: cover;
 	    background-size: cover;
+		padding: 60px 20px;
 	}
 			.spotter h1 {
 			    display: table;
-			    margin: 25px auto;
+			    margin: 0 auto 25px;
 			    position: relative;
 			    color: #fff;
 			}

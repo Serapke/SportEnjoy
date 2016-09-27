@@ -13,7 +13,7 @@
 				<ul class="nav navbar-nav">
 					<li><a [routerLink]="['/spots']">Paieška</a></li>
 					<li *ngIf="!isModerator() && !isAdmin()"><a [routerLink]="['/top-places']">Top10</a></li>
-					<li *ngIf="!isModerator()  && !isAdmin()"><a [routerLink]="['/spotters']">Spotters</a></li>
+					<li *ngIf="!isModerator()  && !isAdmin()"><a [routerLink]="['/spotters']">Nariai</a></li>
 					<li *ngIf="isLoggedIn() && isAdmin()"><a [routerLink]="['/users']">Vartotojai</a></li>
 					<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())"><a [routerLink]="['/review']">Peržiūrėti</a></li>
 					<!-- <li><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
@@ -46,7 +46,7 @@
 	    <ul class="nav navbar-nav">
 			<li (click)="hideOverlay()"><a [routerLink]="['/spots']" routerLinkActive="active">Paieška</a></li>
 			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/top-places']" routerLinkActive="active">Top10</a></li>
-			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/spotters']" routerLinkActive="active">Spotters</a></li>
+			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/spotters']" routerLinkActive="active">Nariai</a></li>
 			<li *ngIf="isLoggedIn() && isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/users']">Vartotojai</a></li>
 			<!-- <li (click)="hideOverlay()"><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
 			<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())" (click)="hideOverlay()"><a [routerLink]="['/review']">Peržiūrėti</a></li>

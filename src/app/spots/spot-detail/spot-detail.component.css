@@ -145,6 +145,21 @@ h3 {
 	}
 }
 
+/* For tablets and smart phones */
+@media (max-width: 992px) {
+	.container {
+		width: auto;
+	}
+	.sebm-google-map-container {
+		width: 100%;
+	}
+	.spot-detail .sidebar .spot-stats img {
+		background: white;
+		padding: 4px;
+		border-radius: 20px;
+	}
+}
+
 /* For smart phones */
 @media (max-width: 767px) {
 	h1, h2 {

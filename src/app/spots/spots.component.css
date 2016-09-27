@@ -378,12 +378,6 @@ a {
 		.spots .spot.selected .post_excerpt .container-fluid {
 			margin-top: 10px!important;
 		}
-		/* Spotter ad */
-		.spotter {
-			margin: 0;
-	    height: auto;
-	    background-position: center;
-		}
 		section {
 	    padding: 40px 20px;
 		}

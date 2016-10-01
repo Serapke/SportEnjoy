@@ -2,13 +2,13 @@
     <div class="container-fluid">
       <div *ngIf="isModerator()" class="row spot-review">
         <div class="col-md-4">
-          <button *ngIf="!isReviewed()" (click)="approve()" type="button" class="btn btn-success">Patvirtinti</button>
+          <button *ngIf="!isReviewed()" (click)="approve()" type="button" class="btn btn-success">{{ 'SPOT.APPROVE' | translate }}</button>
         </div>
         <div class="col-md-4">
-          <button (click)="update()" type="button" class="btn btn-info">Papildyti</button>
+          <button (click)="update()" type="button" class="btn btn-info">{{ 'SPOT.UPDATE' | translate }}</button>
         </div>
         <div class="col-md-4">
-          <button  *ngIf="!isReviewed()" (click)="decline()" type="button" class="btn btn-danger">Atmesti</button>
+          <button  *ngIf="!isReviewed()" (click)="decline()" type="button" class="btn btn-danger">{{ 'SPOT.DECLINE' | translate }}</button>
         </div>
       </div>
     </div>
@@ -31,9 +31,9 @@
 				</div>
 				<div class="col-md-3 sidebar">
           <div class="beenHere">
-  					<h4>Buvai šioje vietoje?</h4>
-  					<p>Įvertink!</p>
-  					<a (click)="gotoLogin()" class="btn btn-dark">Buvau</a>
+  					<h4>{{ 'SPOT.BEEN_HERE' | translate }}?</h4>
+  					<p>{{ 'SPOT.RATE_IT' | translate }}!</p>
+  					<a (click)="gotoLogin()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
           </div>
           <div class="spot-stats">
 						<div class="col-md-4 col-xs-4"><p>{{ spot.rating }}<span class="glyphicon glyphicon-star"></span></p></div>
@@ -43,12 +43,12 @@
 				</div>
 			</div>
       <div class="row spot-description">
-        <h3>Aprašymas</h3>
+        <h3>{{ 'SPOT.DESCRIPTION' | translate }}</h3>
         <p>{{ spot.description }}</p>
-        <p *ngIf="!spot.description" class="alert alert-info">Deja! Ši vieta neturi aprašymo.</p>
+        <p *ngIf="!spot.description" class="alert alert-info">{{ 'SPOT.NO_DESCRIPTION' | translate }}</p>
       </div>
 			<div class="row spot-images">
-				<h3>Galerija</h3>
+				<h3>{{ 'SPOT.GALLERY' | translate }}</h3>
 				<div *ngIf="spot.images">
           <div class="image">
             <img [src]="mainImage">
@@ -58,7 +58,7 @@
           <img [src]="spot.images[1].url" [alt]="spot.images[2].title" [title]="spot.images[2].title" [style.width.px]="200"> -->
 				</div>
         <div *ngIf="!spot.images" class="alert alert-info">
-            Deja! Ši vieta neturi nuotraukos.
+            {{ 'SPOT.NO_IMAGES' | translate }}
             <!-- <a href="#" class="alert-link">Click here to Login and add a picture</a> -->
             <!-- <a *ngIf="isModerator()" (click)="gotoUpdate()" class="alert-link">Click here to login and add a picture</a> -->
         </div>

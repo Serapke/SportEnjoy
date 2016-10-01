@@ -1,22 +1,22 @@
 <div *ngIf="spot" class="container-fluid">
 	<div class="row">
-		<h2 *ngIf="isAdding()" class="hidden-xs">Add New Spot</h2>
-		<h2 *ngIf="isUpdating()" class="hidden-xs">Papildyti - {{ spot.title }}</h2>
+		<h2 *ngIf="isAdding()" class="hidden-xs">{{ 'TITLES.ADD_SPOT' | translate }}</h2>
+		<h2 *ngIf="isUpdating()" class="hidden-xs">{{ 'TITLES.EDIT_SPOTS' | translate }} - {{ spot.title }}</h2>
 	</div>
 	<!-- <div class="row"> -->
 			<form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
 				<div class="col-md-6 section">
-					<h4>Aprašymas</h4>
+					<h4>{{ 'SPOT_FORM.DESCRIPTION' | translate }}</h4>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Įveskite vietos pavadinimą" required
+						<input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.TITLE_PLACEHOLDER' | translate }}" required
 							[(ngModel)]="spot.title" name="title">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Įveskite vietos kategoriją" required
+						<input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CATEGORY_PLACEHOLDER' | translate }}" required
 							[(ngModel)]="spot.category" name="category">
 					</div>
 					<div class="form-group">
-						<textarea type="text" class="form-control" rows="4" placeholder="Įveskite vietos aprašymą"
+						<textarea type="text" class="form-control" rows="4" placeholder="{{ 'SPOT_FORM.DESCRIPTION_PLACEHOLDER' | translate }}"
 							[(ngModel)]="spot.description" name="description"></textarea>
 					</div>
 				</div>
@@ -24,17 +24,17 @@
 					<h4>Vietovė</h4>
 					<div class="row">
 						<div class="form-group col-md-6 col-xs-6">
-							<input type="number" step="0.000001" class="form-control" placeholder="Platuma" required
+							<input type="number" step="0.000001" class="form-control" placeholder="{{ 'SPOT_FORM.LATITUDE' | translate }}" required
 								[(ngModel)]="spot.latitude" name="latitude">
 						</div>
 						<div class="form-group col-md-6 col-xs-6">
-							<input type="number" step="0.000001" class="form-control" placeholder="Ilguma" required
+							<input type="number" step="0.000001" class="form-control" placeholder="{{ 'SPOT_FORM.LONGITUDE' | translate }}" required
 								[(ngModel)]="spot.longitude" name="longitude">
 						</div>
 					</div>
 				</div>
 				<div class="col-md-offset-3 col-md-6 section">
-					<h4>Nuotraukos</h4>
+					<h4>{{ 'SPOT_FORM.PHOTOS' | translate }}</h4>
 					<div class="row">
 						<div class="col-md-6 text-center">
 							<input class="file-input" type="file" accept="image/*" multiple (change)="changeListener($event)"
@@ -48,27 +48,27 @@
 				</div>
 				<div class="col-md-offset-3 col-md-6 section">
 					<div class="form-group submit">
-						<input type="submit" value="Siųsti" class="btn btn-dark">
+						<input type="submit" value="{{ 'SPOT_FORM.SUBMIT' | translate }}" class="btn btn-dark">
 					</div>
 				</div>
 			</form>
 			<div *ngIf="submitted" class="panel panel-success submitted">
 				<div class="panel-heading">
-					Jūsų užklausa sėkmingai išsiųsta!
+					{{ 'SPOT_FORM.SUCCESSFUL_SUBMISSION' | translate }}
 				</div>
 				<div class="panel-body">
 					<div *ngIf="isUpdating()">
-						<a [routerLink]="['/spot/' + spot.id]" class="panel-link">Pakeitimus galite peržiūrėti čia.</a>
+						<a [routerLink]="['/spot/' + spot.id]" class="panel-link">{{ 'SPOT_FORM.SHOW_UPDATES' | translate }}</a>
 					</div>
 					<div *ngIf="isAdding()">
-						<p *ngIf="isModerator()">Jūs sėkmingai pažymėjote naują vietą. Dėkojame!</p>
-						<p *ngIf="!isModerator()">Jūsų užklausa dėl naujos vietos pažymėjimo sėkmingai nusiųsta mūsų moderatoriams. Dėkojame!</p>
+						<p *ngIf="isModerator()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED' | translate }}</p>
+						<p *ngIf="!isModerator()">{{ 'SPOT_FORM.SUCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
 					</div>
 				</div>
 			</div>
 			<div *ngIf="submitting" class="loading">
 				<div class="loader"></div>
-				<div class="alert alert-info">Jūsų pažymėta vieta įkeliama. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame</div>
+				<div class="alert alert-info">{{ 'SPOT_FORM.PROCESSING' | translate }}</div>
 			</div>
 	<!-- </div> -->
 </div>

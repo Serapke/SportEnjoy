@@ -88,6 +88,16 @@
         "POPULARITY": "Popularity"
     },
     "SPOT": {
+        "APPROVE": "Approve",
+        "UPDATE": "Update",
+        "DECLINE": "Decline",
+        "BEEN_HERE": "Have you been in this spot",
+        "RATE_IT": "Rate it",
+        "BEEN": "Been Here",
+        "DESCRIPTION": "Aprašymas",
+        "NO_DESCRIPTION": "We're sorry. This spot doesn't have descripriton.",
+        "GALLERY": "Galerija",
+        "NO_IMAGES": "We're sorry. This spot doesn't have images.",
         "TITLE": "Title",
         "CITY": "City",
         "LOCATION": "Location",

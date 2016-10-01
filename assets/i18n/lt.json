@@ -79,6 +79,16 @@
         "POPULARITY": "Lankomumas"
     },
     "SPOT": {
+        "APPROVE": "Patvirtinti",
+        "UPDATE": "Papildyti",
+        "DECLINE": "Atmesti",
+        "BEEN_HERE": "Buvai šioje vietoje",
+        "RATE_IT": "Įvertink",
+        "BEEN": "Buvau",
+        "DESCRIPTION": "Aprašymas",
+        "NO_DESCRIPTION": "Deja! Ši vieta neturi aprašymo.",
+        "GALLERY": "Galerija",
+        "NO_IMAGES": "Deja! Ši vieta neturi nuotraukos.",
         "TITLE": "Pavadinimas",
         "CITY": "Miestas",
         "LOCATION": "Vieta",

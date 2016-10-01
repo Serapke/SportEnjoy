@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, HostListener, NgZone } from '@angular/cor
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/Rx';
 import { LocationService } from '../shared/location/location.service';
+import { SpottersJoinDirective } from '../shared/spotters-join/spotters-join.directive'; 
 import { SpotService } from './spot.service';
 import { Observable } from 'rxjs/Observable';
 import { ISpot } from './spot';
@@ -14,7 +15,8 @@ import { SebmGoogleMapInfoWindow, SebmGoogleMap} from 'angular2-google-maps/core
 	pipes: [SpotFilterPipe],
 	directives: [
 		ROUTER_DIRECTIVES,
-		SebmGoogleMap
+		SebmGoogleMap,
+		SpottersJoinDirective
 	]
 })
 export class SpotsComponent implements OnInit, OnDestroy{

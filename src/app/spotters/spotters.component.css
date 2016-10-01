@@ -73,42 +73,6 @@ h2 {
 .spotter .geo_link:hover {
 	color: #007496;
 }
-		#spotter {
-		    background: url('/sportenjoy/assets/images/spotter-background.jpg') center center no-repeat;
-		    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(56,181,170,.5)),color-stop(100%,rgba(0,116,150,.5))),url(../images/home_bg2.jpg) no-repeat;*/
-		    height: 600px;
-		    text-align: center;
-		    -webkit-background-size: cover;
-		    background-size: cover;
-		}
-				#spotter h1 {
-				    display: table;
-				    margin: 25px auto;
-				    position: relative;
-				    color: #fff;
-				}
-				#spotter p {
-				    width: 50%;
-				    margin: 0 auto 85px;
-				}
-						#spotter .col-md-3 span {
-						    display: block;
-						    max-width: 180px;
-						    text-align: center;
-						    margin: 20px auto 0;
-						    font-weight: 700;
-						    text-transform: uppercase;
-						    font-size: 12px;
-						}
-						.arrow {
-							width: 12.5%;
-							padding-top: 30px;
-						}
-				#spotter .btn {
-				    text-transform: uppercase;
-				    font-weight: 700;
-				    margin-top: 70px;
-				}
 		.benefits h2 {
 				margin: 0;
 		}

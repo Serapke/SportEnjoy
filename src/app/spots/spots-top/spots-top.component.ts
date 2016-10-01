@@ -2,12 +2,16 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { ISpot } from '../spot';
 import { SpotService } from '../spot.service';
+import { SpottersJoinDirective } from '../../shared/spotters-join/spotters-join.directive';
 
 @Component({
 	selector: 'ng-topPlaces',
 	templateUrl: './spots-top.component.html',
 	styleUrls: ['./spots-top.component.css'],
-	directives: [ROUTER_DIRECTIVES]
+	directives: [
+		ROUTER_DIRECTIVES,
+		SpottersJoinDirective
+	]
 })
 export class TopSpotsComponent {
 	spots: ISpot[];

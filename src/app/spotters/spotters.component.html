@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row hidden-xs">
-		<h2>Aktyviausi nariai</h2>
+		<h2>{{ 'TITLES.SPOTTERS' | translate }}</h2>
 	</div>
 	<div class="row spotters">
 		<div *ngFor='let spotter of spotters'  class="col-md-3 col-sm-6 spotter">
@@ -24,29 +24,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" id="spotter">
-		<h1>Prisijunk</h1>
-		<h3>Pasidalink vietomis ir tu. Tai paprasta!</h3>
-		<p>Pažymėk savo mėgstamiausią sporto aikštelę taip padėdamas ją atrasti kitiems.</p>
-		<div class="container dotted">
-			<div class="row">
-				<div class="col-md-3 col-xs-3">
-					<img src="/sportenjoy/assets/images/signup-icon.png" />
-					<span>Registruokis</span>
-				</div>
-				<img class="arrow col-md-1 col-xs-1" src="/sportenjoy/assets/images/arrow.png" />
-				<div class="col-md-3 col-xs-3">
-					<img src="/sportenjoy/assets/images/find-icon.png" />
-					<span>Atrask</span>
-				</div>
-				<img class="arrow col-md-1 col-xs-1" src="/sportenjoy/assets/images/arrow.png" />
-				<div class="col-md-3 col-xs-3">
-					<img src="/sportenjoy/assets/images/spot-icon.png" />
-					<span>Pasidalink</span>
-				</div>
-			</div>
-		</div>
-	</div>
+	<spotters-join></spotters-join>
 	<div class="row benefits">
 	  <h2>Narystės privalumai</h2>
 	  <div class="list-group benefits-list">

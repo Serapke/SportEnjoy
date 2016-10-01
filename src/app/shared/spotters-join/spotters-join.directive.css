@@ -1,0 +1,35 @@
+#spotter {
+    background: url('/sportenjoy/assets/images/spotter-background.jpg') center center no-repeat;
+    text-align: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 60px 20px;
+}
+#spotter h1 {
+    display: table;
+    margin: 0 auto 25px;
+    position: relative;
+    color: #fff;
+}
+#spotter p {
+    width: 50%;
+    margin: 0 auto 85px;
+}
+#spotter .col-md-3 span {
+    display: block;
+    max-width: 180px;
+    text-align: center;
+    margin: 20px auto 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.arrow {
+    width: 12.5%;
+    padding-top: 30px;
+}
+#spotter .btn {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 70px;
+}

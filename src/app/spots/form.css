@@ -39,7 +39,7 @@ form {
   visibility: hidden;
 }
 .file-input::before {
-  content: 'Pasirinkite failą';
+  content: "Choose file";
   margin-right: 0;
   margin-bottom: 20px;
   display: inline-block;

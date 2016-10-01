@@ -4,6 +4,7 @@ import { ISpot } from '../spots/spot';
 import { IUser } from '../users/user';
 import { SpotService } from '../spots/spot.service';
 import { LoginService } from '../login/login.service';
+import { TextTransformService } from '../shared/text-transform.service';
 
 @Component({
 	selector: 'ng-topPlaces',
@@ -19,6 +20,7 @@ export class ProfileComponent {
 	constructor(
 		private _spotService: SpotService,
 		private _loginService: LoginService,
+		private _textTransformService: TextTransformService,
 		private _router: Router) {}
 
 	ngOnInit(): void {
@@ -37,6 +39,10 @@ export class ProfileComponent {
 					console.log(this.errorMessage)
 				}
 			);
+	}
+
+	prettify(word: string): string {
+		return this._textTransformService.capitalize(word);
 	}
 
 	spotStatus(approved: boolean, reviewed: boolean): string {

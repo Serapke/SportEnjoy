@@ -1,24 +1,24 @@
 <div class="container-fluid" id="profile">
 	<div class="row">
-		<h2 class="hidden-xs">Profilis</h2>
+		<h2 class="hidden-xs">{{ 'TITLES.PROFILE' | translate }}</h2>
 	</div>
 	<div class="row info text-center">
 		<div class="col-md-8">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					Vartotojo informacija
+					{{ 'PROFILE.USER_INFO' | translate }}
 				</div>
 				<div class="panel-body">
 					<div class="col-md-5">
 						<img *ngIf="user.image" [src]="user.image" class="img-thumbnail user-image"/>
 						<div *ngIf="!user.image" class="alert alert-info">
-							<p>Vartotojas nėra pateikęs savo nuotraukos</p>
+							<p>{{ 'USER.NO_PICTURE' | translate }}</p>
 						</div>
 					</div>
 					<div class="col-md-7">
-						<p><strong>El. paštas:</strong> {{ user.email }}</p>
-						<p><strong>Vieta:</strong> {{ user.location }}</p>
-						<p><strong>Prisiregistravo:</strong> {{ user.created_at | date:'mediumDate'}}</p>
+						<p><strong>{{ 'USER.EMAIL' | translate }}:</strong> {{ user.email }}</p>
+						<p><strong>{{ 'USER.LOCATION' | translate }}:</strong> {{ user.location }}</p>
+						<p><strong>{{ 'USER.REGISTRATION_DATE' | translate }}:</strong> {{ user.created_at | date:'mediumDate'}}</p>
 					</div>
 				</div>
 			</div>
@@ -26,33 +26,35 @@
 		<div class="col-md-4">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h4 class="panel-title">Vartotojo aktyvumas</h4>
+					{{ 'PROFILE.USER_ACTIVITY' | translate }}
 				</div>
 				<div class="panel-body">
-					<p>{{ user.name || 'Vartotojas' }} pažymėjo <span class="badge">{{ user.spotsMarked }}</span> vietas.</p>
-					<p>{{ user.name || 'Vartotojas' }} buvo <span class="badge">{{ user.beenHereCount }}</span> vietose.</p>
-					<p>{{ user.name || 'Vartotojas' }} parašė <span class="badge">{{ user.commentsCount }}</span> komentarus.</p>
+					<p>{{ 'PROFILE.SPOTTED' | translate }} <span class="badge">{{ user.spotsMarked }}</span> {{ 'PROFILE.SPOTS' | translate }}.</p>
+					<p>{{ 'PROFILE.BEEN' | translate }} <span class="badge">{{ user.beenHereCount }}</span> {{ 'PROFILE.SPOTS' | translate }}.</p>
+					<p>{{ 'PROFILE.WROTE' | translate }} <span class="badge">{{ user.commentsCount }}</span> {{ 'PROFILE.COMMENTS' | translate }}.</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-12">
-			<button class="btn btn-dark">Atnaujinti</button>
-			<button class="btn btn-dark">Pakeisti slaptažodį</button>
+			<button class="btn btn-dark">{{ 'OTHER.UPDATE' | translate }}</button>
+			<button class="btn btn-dark">{{ 'OTHER.CHANGE_PASSWORD' | translate }}</button>
 		</div>
 	</div>
 	<div class="row spots">
 		<div class="col-md-offset-1 col-md-10 padding-0">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Pažymėtos vietos</div>
+				<div class="panel-heading">
+					{{ 'PROFILE.SPOTTED_PLACES' | translate }}
+				</div>
 				<table class="table table-hover spots">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Pavadinimas</th>
-							<th class="hidden-xs">Kategorija</th>
-							<th class="hidden-xs">Vieta</th>
-							<th class="hidden-xs">Sukurta</th>
-							<th>Statusas</th>
+							<th>{{ 'SPOT.TITLE' | translate }}</th>
+							<th class="hidden-xs">{{ 'SPOT.CATEGORY' | translate }}</th>
+							<th class="hidden-xs">{{ 'SPOT.LOCATION' | translate }}</th>
+							<th class="hidden-xs">{{ 'SPOT.CREATED' | translate }}</th>
+							<th>{{ 'SPOT.STATUS' | translate }}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -62,14 +64,14 @@
 							[routerLink]="['/spot', spot.id]">
 							<td>{{ spot.id }}</td>
 							<td>{{ spot.title }}</td>
-							<td class="hidden-xs">{{ spot.category }}</td>
+							<td class="hidden-xs">{{ prettify(spot.category) | translate }}</td>
 							<td class="hidden-xs">{{ spot.city }}, {{ spot.country }}</td>
 							<td class="hidden-xs">{{ spot.created_at | date:'mediumDate' }}</td>
-							<td>{{ spotStatus(spot.approved, spot.reviewed) }}</td>
+							<td>{{ spotStatus(spot.approved, spot.reviewed) | translate }}</td>
 						</tr>
 					</tbody>
 				</table>
-				<div *ngIf="spots && spots.length == 0" class="panel-footer">Dar nepažymėjote jokios vietos</div>
+				<div *ngIf="spots && spots.length == 0" class="panel-footer">{{ 'PROFILE.NO_SPOTS_SPOTTED' | translate }}</div>
 			</div>
 		</div>
 	</div>

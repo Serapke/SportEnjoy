@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { AgmCoreModule, MapsAPILoader, NoOpMapsAPILoader } from 'angular2-google-maps/core';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 import { LoginService } from './login/login.service';
 
 import { AppComponent } from './app.component';
@@ -41,6 +42,11 @@ import { UserComponent } from './users/user.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM'
+    }),
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '../assets/i18n', '.json'),
+      deps: [Http]
     })
   ],
   providers: [

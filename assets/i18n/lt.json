@@ -1,0 +1,133 @@
+{
+    "NAVIGATION": {
+        "SEARCH": "Paieška",
+        "TOP10": "TOP10",
+        "SPOTTERS": "Nariai",
+        "USERS": "Vartotojai",
+        "REVIEW": "Peržiūrėti",
+        "ADD_SPOT": "+ Vietą",
+        "PROFILE": "Profilis"
+    },
+    "AUTH": {
+        "LOGIN": "Prisijunk",
+        "REGISTER": "Registruokis",
+        "SIGNUP": "Registruokis",
+        "LOGOUT": "Atsijungti",
+        "DONT_HAVE_PROFILE": "Neturi SportEnjoy paskyros?",
+        "EMAIL": "El. paštas",
+        "PASSWORD": "Slaptažodis",
+        "PASSWORD_CONFIRMATION": "Slaptažodžio patvirtinimas"
+    },
+    "HEADER": {
+        "TITLE": "Sporto vieta tau",
+        "SEARCH_PARAMETERS": "Jūsų paieškos parametrai",
+        "LOCATION": "Vieta",
+        "CATEGORY": "Kategorija",
+        "FIND": "Ieškoti",
+        "FOLLOW_US": "Sekite mus"
+    },
+    "SPOTTERS": {
+        "ADVANTAGES": "Narystės privalumai",
+        "CONNECT_SPOT_WITH_YOU": "Susiek vietą su savo paskyra",
+        "CONNECT_SPOT_WITH_YOU_COMMENT": "Tokiu būdų visi galės pamatyti, jog tu pasidalinai šia vieta",
+        "SAVE_YOUR_FAVORITE_SPOTS": "Išsaugok savo mėgstamiausias vietas",
+        "SAVE_YOUR_FAVORITE_SPOTS_COMMENT": "Puikus būdas prisiminti geriausias sporto vietas rajone ar mieste.",
+        "BE_THE_BEST": "Būk geriausias",
+        "BE_THE_BEST_COMMENT": "Žymėk vietas ir atsidurk tarp geriausių narių"
+    },
+    "LOGIN": {
+        "LOGIN_WITH": "Prisijunk su",
+        "FORGOT_PASSWORD": "Pamiršai slaptažodį"
+    },
+    "FOOTER": {
+        "ABOUT_US": "Apie mus",
+        "PRESS": "Spaudai",
+        "TERMS": "Sąlygos",
+        "CONTACT_US": "Susisiekite"  
+    },
+    "PROFILE": {
+        "USER_INFO": "Vartotojo informacija",
+        "USER_ACTIVITY": "Vartotojo aktyvumas",
+        "SPOTTED": "Pažymėjai",
+        "BEEN": "Buvai",
+        "WROTE": "Parašei",
+        "SPOTS": "vietas(-ų)",
+        "COMMENTS": "komentarus",
+        "SPOTTED_PLACES": "Pažymėtos vietos",
+        "NO_SPOTS_SPOTTED": "Dar nepažymėjai jokios vietos"
+    },
+    "REVIEW": {
+        "UNREVIEWED_SPOTS": "Neperžiūrėtos vietos",
+        "NO_UNREVIEWED_SPOTS": "Šiuo metu neperžiūrėtų vietų nėra"
+    },
+    "SPOTTERS_JOIN": {
+        "JOIN": "Prisijunk",
+        "BECOME_PART": "Tapk dalimi sporto bendruomenės. Prisjunk prie mūsų!",
+        "SHARE_SPOTS": "Pažymėk savo mėgstamiausią sporto aikštelę taip padėdamas ją atrasti kitiems.",
+        "SIGN_UP": "Registruokis",
+        "DISCOVER": "Atrask",
+        "SHARE": "Pasidalink"
+    },
+    "SPOTS": {
+        "SEARCH_PARAMETERS": "Paieškos parinktys",
+        "FILTERING": "Filtravimas",
+        "FILTER": "Filtras",
+        "FILTER_PLACEHOLDER": "Įveskite filtravimo raktažodį",
+        "SORTING": "Rūšiavimas",
+        "RATING": "Reitingas",
+        "ALPHABETICALLY": "Pagal abėcėlę",
+        "POPULARITY": "Lankomumas"
+    },
+    "SPOT": {
+        "TITLE": "Pavadinimas",
+        "CITY": "Miestas",
+        "LOCATION": "Vieta",
+        "CATEGORY": "Kategorija",
+        "CREATED": "Sukurta",
+        "STATUS": "Statusas",
+        "SPOTTER": "Narys"
+    },
+    "SPOT_FORM": {
+        "DESCRIPTION": "Aprašymas",
+        "LOCATION": "Vietovė",
+        "PHOTOS": "Nuotraukos",
+        "TITLE_PLACEHOLDER": "Įvesk vietos pavadinimą",
+        "CATEGORY_PLACEHOLDER": "Įvesk vietos kategoriją",
+        "DESCRIPTION_PLACEHOLDER": "Įvesk vietos aprašymą",
+        "LATITUDE": "Platuma",
+        "LONGITUDE": "Ilguma",
+        "SUBMIT": "Siųsti",
+        "SUCCESSFUL_SUBMISSION": "Tavo užklausa sėkmingai išsiųsta!",
+        "SHOW_UPDATES": "Pakeitimus gali peržiūrėti čia",
+        "SUCCESSFULLY_ADDED": "Sėkmingai pažymėjai naują vietą. Dėkojame!",
+        "SUCESSFULLY_ADDED_TO_QUEUE": "Tavo užklausa dėl naujos vietos pažymėjimo sėkmingai nusiųsta mūsų moderatoriams. Dėkojame!",
+        "PROCESSING": "Jūsų pažymėta vieta įkeliama. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame"
+    },
+    "USERS": {
+        "ALL_USERS": "Visi vartotojai",
+        "SPOTS_MARKED": "Pažymėjo vietų",
+        "NO_USERS": "Nepavyko gauti nei vieno vartotojo"
+    },
+    "USER": {
+        "NO_PICTURE": "Vartotojas nėra pateikęs savo nuotraukos",
+        "EMAIL": "Email",
+        "LOCATION": "Vieta",
+        "REGISTRATION_DATE": "Prisiregistravo",
+        "STATUS": "Statusas"
+    },
+    "TITLES": {
+        "SPOTTERS": "Aktyviausi nariai",
+        "PROFILE": "Profilis",
+        "ADD_SPOT": "Pridėti naują vietą",
+        "EDIT_SPOT": "Papildyti",
+        "REVIEW": "Peržiūrėti",
+        "SEARCH_RESULTS": "Paieškos rezultatai",
+        "USERS": "Vartotojai"
+    },
+    "OTHER": {
+        "ERROR": "Klaida!",
+        "OR": "Arba",
+        "UPDATE": "Atnaujinti",
+        "CHANGE_PASSWORD": "Pakeisti slaptažodį"
+    }
+}

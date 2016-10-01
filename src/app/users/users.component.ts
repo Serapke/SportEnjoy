@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
 		if (user.moderator)
 			return "Moderatorius"
 		else
-			return "Narys"
+			return "Vartotojas"
 	}
 
 }

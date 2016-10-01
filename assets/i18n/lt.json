@@ -1,142 +1,133 @@
 {
-    "Patvirtinta": "Approved",
-    "Peržiūrėta": "Reviewed",
-    "Krepšinis": "Basketball",
-    "Futbolas": "Football",
-    "Tinklinis": "Volleyball",
-    "Lauko treniruokliai": "Outside sport facilities",
-    "Vartotojas": "User",
-    "Moderatorius" : "Moderator",
-    "Administratorius": "Admin",
     "NAVIGATION": {
-        "SEARCH": "Search",
+        "SEARCH": "Paieška",
         "TOP10": "TOP10",
-        "SPOTTERS": "Spotters",
-        "USERS": "Users",
-        "REVIEW": "Review",
-        "ADD_SPOT": "+ Spot",
-        "PROFILE": "Profile"
+        "SPOTTERS": "Nariai",
+        "USERS": "Vartotojai",
+        "REVIEW": "Peržiūrėti",
+        "ADD_SPOT": "+ Vietą",
+        "PROFILE": "Profilis"
     },
     "AUTH": {
-        "LOGIN": "Login",
-        "REGISTER": "Register",
-        "SIGNUP": "Sign up",
-        "LOGOUT": "Log out",
-        "DONT_HAVE_PROFILE": "Don't have SportEnjoy profile?",
-        "EMAIL": "Email",
-        "PASSWORD": "Password",
-        "PASSWORD_CONFIRMATION": "Password confirmation"
+        "LOGIN": "Prisijunk",
+        "REGISTER": "Registruokis",
+        "SIGNUP": "Registruokis",
+        "LOGOUT": "Atsijungti",
+        "DONT_HAVE_PROFILE": "Neturi SportEnjoy paskyros?",
+        "EMAIL": "El. paštas",
+        "PASSWORD": "Slaptažodis",
+        "PASSWORD_CONFIRMATION": "Slaptažodžio patvirtinimas"
     },
     "HEADER": {
-        "TITLE": "Spots for you",
-        "SEARCH_PARAMETERS": "Search query parameters",
-        "LOCATION": "Location",
-        "CATEGORY": "Category",
-        "FIND": "Find",
-        "FOLLOW_US": "Follow us"
+        "TITLE": "Sporto vieta tau",
+        "SEARCH_PARAMETERS": "Jūsų paieškos parametrai",
+        "LOCATION": "Vieta",
+        "CATEGORY": "Kategorija",
+        "FIND": "Ieškoti",
+        "FOLLOW_US": "Sekite mus"
     },
     "SPOTTERS": {
-        "ADVANTAGES": "Your benefits",
-        "CONNECT_SPOT_WITH_YOU": "Connect spots with your profile",
-        "CONNECT_SPOT_WITH_YOU_COMMENT": "This way everybody can see that YOU located the spot",
-        "SAVE_YOUR_FAVORITE_SPOTS": "Save your favorite spots",
-        "SAVE_YOUR_FAVORITE_SPOTS_COMMENT": "Best way to remember best spots in the area",
-        "BE_THE_BEST": "Be the best spotter",
-        "BE_THE_BEST_COMMENT": "Spot best workout places and be amongst the best spotters"
+        "ADVANTAGES": "Narystės privalumai",
+        "CONNECT_SPOT_WITH_YOU": "Susiek vietą su savo paskyra",
+        "CONNECT_SPOT_WITH_YOU_COMMENT": "Tokiu būdų visi galės pamatyti, jog tu pasidalinai šia vieta",
+        "SAVE_YOUR_FAVORITE_SPOTS": "Išsaugok savo mėgstamiausias vietas",
+        "SAVE_YOUR_FAVORITE_SPOTS_COMMENT": "Puikus būdas prisiminti geriausias sporto vietas rajone ar mieste.",
+        "BE_THE_BEST": "Būk geriausias",
+        "BE_THE_BEST_COMMENT": "Žymėk vietas ir atsidurk tarp geriausių narių"
     },
     "LOGIN": {
-        "LOGIN_WITH": "Login with",
-        "FORGOT_PASSWORD": "Forgot password"
+        "LOGIN_WITH": "Prisijunk su",
+        "FORGOT_PASSWORD": "Pamiršai slaptažodį"
     },
     "FOOTER": {
-        "ABOUT_US": "About us",
-        "PRESS": "Press",
-        "TERMS": "Terms",
-        "CONTACT_US": "Contact us"  
+        "ABOUT_US": "Apie mus",
+        "PRESS": "Spaudai",
+        "TERMS": "Sąlygos",
+        "CONTACT_US": "Susisiekite"  
     },
     "PROFILE": {
-        "USER_INFO": "User information",
-        "USER_ACTIVITY": "User activity",
-        "SPOTTED": "Spotted",
-        "BEEN": "Been in",
-        "WROTE": "Wrote",
-        "SPOTS": "spots",
-        "COMMENTS": "comments",
-        "SPOTTED_PLACES": "Spotted places",
-        "NO_SPOTS_SPOTTED": "You haven't spotted any spots yet"
+        "USER_INFO": "Vartotojo informacija",
+        "USER_ACTIVITY": "Vartotojo aktyvumas",
+        "SPOTTED": "Pažymėjai",
+        "BEEN": "Buvai",
+        "WROTE": "Parašei",
+        "SPOTS": "vietas(-ų)",
+        "COMMENTS": "komentarus",
+        "SPOTTED_PLACES": "Pažymėtos vietos",
+        "NO_SPOTS_SPOTTED": "Dar nepažymėjai jokios vietos"
     },
     "REVIEW": {
-        "UNREVIEWED_SPOTS": "Unreviewed spots",
-        "NO_UNREVIEWED_SPOTS": "There are no unreviewed spots at this time"
+        "UNREVIEWED_SPOTS": "Neperžiūrėtos vietos",
+        "NO_UNREVIEWED_SPOTS": "Šiuo metu neperžiūrėtų vietų nėra"
     },
     "SPOTTERS_JOIN": {
-        "JOIN": "Join",
-        "BECOME_PART": "Become a part of sport society. Join us!",
-        "SHARE_SPOTS": "Share you favorite spots so that others could find it.",
-        "SIGN_UP": "Sign up",
-        "DISCOVER": "Discover",
-        "SHARE": "Share"
+        "JOIN": "Prisijunk",
+        "BECOME_PART": "Tapk dalimi sporto bendruomenės. Prisjunk prie mūsų!",
+        "SHARE_SPOTS": "Pažymėk savo mėgstamiausią sporto aikštelę taip padėdamas ją atrasti kitiems.",
+        "SIGN_UP": "Registruokis",
+        "DISCOVER": "Atrask",
+        "SHARE": "Pasidalink"
     },
     "SPOTS": {
-        "SEARCH_PARAMETERS": "Search parameters",
-        "FILTERING": "Filtering",
-        "FILTER": "Filter",
-        "FILTER_PLACEHOLDER": "Filter",
-        "SORTING": "Sorting",
-        "RATING": "Rating",
-        "ALPHABETICALLY": "Alphabetically",
-        "POPULARITY": "Popularity"
+        "SEARCH_PARAMETERS": "Paieškos parinktys",
+        "FILTERING": "Filtravimas",
+        "FILTER": "Filtras",
+        "FILTER_PLACEHOLDER": "Įveskite filtravimo raktažodį",
+        "SORTING": "Rūšiavimas",
+        "RATING": "Reitingas",
+        "ALPHABETICALLY": "Pagal abėcėlę",
+        "POPULARITY": "Lankomumas"
     },
     "SPOT": {
-        "TITLE": "Title",
-        "CITY": "City",
-        "LOCATION": "Location",
-        "CATEGORY": "Category",
-        "CREATED": "Created",
-        "STATUS": "Status",
-        "SPOTTER": "Spotter"
+        "TITLE": "Pavadinimas",
+        "CITY": "Miestas",
+        "LOCATION": "Vieta",
+        "CATEGORY": "Kategorija",
+        "CREATED": "Sukurta",
+        "STATUS": "Statusas",
+        "SPOTTER": "Narys"
     },
     "SPOT_FORM": {
-        "DESCRIPTION": "Description",
-        "LOCATION": "Location",
-        "PHOTOS": "Photos",
-        "TITLE_PLACEHOLDER": "Title",
-        "CATEGORY_PLACEHOLDER": "Category",
-        "DESCRIPTION_PLACEHOLDER": "Description",
-        "LATITUDE": "Latitude",
-        "LONGITUDE": "Longitude",
-        "SUBMIT": "Submit",
-        "SUCCESSFUL_SUBMISSION": "Your spot was successfully submitted!",
-        "SHOW_UPDATES": "You can see the changes here",
-        "SUCCESSFULLY_ADDED": "You have successfully added a new spot. Cheers!",
-        "SUCESSFULLY_ADDED_TO_QUEUE": "Your new spot was sent to our moderators to review. Cheers!",
-        "PROCESSING": "Your spot is being uploaded. This shouldn't take more than 1 minute. Cheers!"
+        "DESCRIPTION": "Aprašymas",
+        "LOCATION": "Vietovė",
+        "PHOTOS": "Nuotraukos",
+        "TITLE_PLACEHOLDER": "Įvesk vietos pavadinimą",
+        "CATEGORY_PLACEHOLDER": "Įvesk vietos kategoriją",
+        "DESCRIPTION_PLACEHOLDER": "Įvesk vietos aprašymą",
+        "LATITUDE": "Platuma",
+        "LONGITUDE": "Ilguma",
+        "SUBMIT": "Siųsti",
+        "SUCCESSFUL_SUBMISSION": "Tavo užklausa sėkmingai išsiųsta!",
+        "SHOW_UPDATES": "Pakeitimus gali peržiūrėti čia",
+        "SUCCESSFULLY_ADDED": "Sėkmingai pažymėjai naują vietą. Dėkojame!",
+        "SUCESSFULLY_ADDED_TO_QUEUE": "Tavo užklausa dėl naujos vietos pažymėjimo sėkmingai nusiųsta mūsų moderatoriams. Dėkojame!",
+        "PROCESSING": "Jūsų pažymėta vieta įkeliama. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame"
     },
     "USERS": {
-        "ALL_USERS": "All users",
-        "SPOTS_MARKED": "Spots marked",
-        "NO_USERS": "Couldn't retrieve any users"
+        "ALL_USERS": "Visi vartotojai",
+        "SPOTS_MARKED": "Pažymėjo vietų",
+        "NO_USERS": "Nepavyko gauti nei vieno vartotojo"
     },
     "USER": {
-        "NO_PICTURE": "User hasn't provided any photo",
+        "NO_PICTURE": "Vartotojas nėra pateikęs savo nuotraukos",
         "EMAIL": "Email",
-        "LOCATION": "Location",
-        "REGISTRATION_DATE": "Registered",
-        "STATUS": "Status"
+        "LOCATION": "Vieta",
+        "REGISTRATION_DATE": "Prisiregistravo",
+        "STATUS": "Statusas"
     },
     "TITLES": {
-        "SPOTTERS": "Best spotters",
-        "PROFILE": "Profile",
-        "ADD_SPOT": "Add new spot",
-        "EDIT_SPOT": "Edit",
-        "REVIEW": "Review",
-        "SEARCH_RESULTS": "Search results",
-        "USERS": "Users"
+        "SPOTTERS": "Aktyviausi nariai",
+        "PROFILE": "Profilis",
+        "ADD_SPOT": "Pridėti naują vietą",
+        "EDIT_SPOT": "Papildyti",
+        "REVIEW": "Peržiūrėti",
+        "SEARCH_RESULTS": "Paieškos rezultatai",
+        "USERS": "Vartotojai"
     },
     "OTHER": {
-        "ERROR": "Error!",
-        "OR": "Or",
-        "UPDATE": "Update",
-        "CHANGE_PASSWORD": "Change password"
+        "ERROR": "Klaida!",
+        "OR": "Arba",
+        "UPDATE": "Atnaujinti",
+        "CHANGE_PASSWORD": "Pakeisti slaptažodį"
     }
 }

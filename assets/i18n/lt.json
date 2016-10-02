@@ -1,4 +1,8 @@
 {
+    "basketball": "krepšinis",
+    "football": "futbolas",
+    "volleyball": "tinklinis",
+    "outside sport facilities": "lauko treniruokliai",
     "NAVIGATION": {
         "SEARCH": "Paieška",
         "TOP10": "TOP10",

@@ -9,6 +9,7 @@ import { LoginService } from './login/login.service';
 import { AppComponent } from './app.component';
 import { appRouterProviders } from './app.routes';
 import { SpotsComponent } from './spots/spots.component';
+import { ContactComponent } from './contact/contact.component';
 import { SpotDetailComponent } from './spots/spot-detail/spot-detail.component';
 import { TopSpotsComponent } from './spots/spots-top/spots-top.component';
 import { SpottersComponent } from './spotters/spotters.component';
@@ -19,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReviewComponent } from './review/review.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user.component';
+import { SearchFormComponent } from './header/search-form/search-form.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { UserComponent } from './users/user.component';
     ReviewComponent,
     UsersComponent,
     UserComponent,
+    ContactComponent,
     SpotDetailComponent,
     SpotsComponent
   ],

@@ -1,3 +1,14 @@
+.container {
+    height: 270px;
+    max-height: 270px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 2;
+}
 .ng-valid, .ng-invalid {
   border: 0;
 }
@@ -16,7 +27,6 @@ h2 {
 }
 .login .btn {
     margin-bottom: 0px;
-    width: 100%!important;
 }
 .login {
       padding: 0 50px;
@@ -43,6 +53,14 @@ h2 {
 
 /* For tablets and smart phones */
 @media (max-width: 991px) {
+    .container {
+        position: static;
+        height: auto;
+        max-height: none;
+    }
+    .login .btn {
+        width: 100%!important;
+    }
     form {
         padding: 40px;
     }
@@ -61,7 +79,14 @@ h2 {
 
 /* For smart phones */
 @media (max-width: 767px) {
-  .login form input[type=email] {
-    border-bottom: 1px solid #f5f5f5;
-  }
+    .login form input[type=email] {
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .login {
+        padding: 0px;
+    }
+    #register {
+        padding: 25px;
+        font-size: 15px;
+    }
 }

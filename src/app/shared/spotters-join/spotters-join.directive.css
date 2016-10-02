@@ -33,3 +33,11 @@
     font-weight: 700;
     margin-top: 70px;
 }
+
+/* For tablets and smart phones */
+@media (max-width: 991px) {
+    #spotter p {
+        width: 100%;
+        margin: 0;
+    }
+}

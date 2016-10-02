@@ -1,3 +1,14 @@
+.container {
+    height: 270px;
+    max-height: 270px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 2;
+}
 .btn {
     padding: 15px 20px;
     vertical-align: inherit;
@@ -36,8 +47,13 @@ h2 {
 
 /* For tablets and smart phones */
 @media (max-width: 991px) {
+    .container {
+        position: static;
+        height: auto;
+        max-height: none;
+    }
     .register {
-        margin-bottom: 20px;
+        padding: 0;
     }
     form {
         padding: 40px;

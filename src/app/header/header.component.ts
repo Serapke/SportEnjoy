@@ -4,13 +4,23 @@ import { SpotService } from '../spots/spot.service';
 import { LoginService } from '../login/login.service';
 import { UserService } from '../users/user.service';
 import { ISpot } from '../spots/spot';
-import { SearchResult } from './search-results';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { SocialMediaDirective } from './social-media/social-media.directive';
+
 
 @Component({
 	selector: 'ng-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.css'],
-	directives: [ROUTER_DIRECTIVES]
+	directives: [
+		ROUTER_DIRECTIVES,
+		SearchFormComponent,
+		LoginFormComponent,
+		RegisterFormComponent,
+		SocialMediaDirective
+	]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 	sub: any;
@@ -18,19 +28,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	navbarClass: boolean = false;
 	showBrand: boolean = true;
 	overlayHeight: number = 0;
-	rotatedDropdownArrow: boolean = false;
 	backgroundImage: string;
 	categories: string[];
-	cities: string[];
-	spots: ISpot[];
-	category: string = '';
-	city: string;
-	email: string;
-	password: string;
-	passwordConfirmation: string;
 	errorMessage: string;
-
-	model = new SearchResult('', '');
+	category: string = '';
+    city: string = '';
 
 	constructor(
 		private _router: Router,
@@ -47,7 +49,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 		else {
 			this.showBrand = true;
 		}
-		this.getSpots();
 		this._router.events.subscribe((event: Event) => {
 			if(event instanceof NavigationEnd ){
 			    console.log(event.url);
@@ -64,39 +65,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	parseParams(path: string): void {
 		let buff = path.substring(path.indexOf('=')+1);
 		this.city = buff.substring(0, buff.indexOf(';'));
-		buff = buff.substring(path.indexOf('=')+1).replace(/%20/g, ' ');
+		buff = buff.substring(buff.indexOf('=')+1).replace(/%20/g, ' ');
 		this.category = buff.replace(/%C5%A1/g, 'š');
 		console.log(this.city + " " + this.category);
 	}
 
-	onSubmit() {
-		this.city = this.model.location;
-		this._router.navigate(['/spots',  { location: this.city, category: this.category }]);
-	}
-	onLogin() {
-		this._loginService.login(this.email, this.password)
-				.subscribe(
-					result => {
-				      if (result) {
-				        this._router.navigate(['/profile']);
-				      }
-					},
-					error => this.errorMessage = error
-				);
-	}
-	onRegister() {
-		this._userService.createUser(this.email, this.password, this.passwordConfirmation)
-				.subscribe(
-					result => {
-						if (result) {
-							this.onLogin();
-						}
-					},
-					error => {
-							this.errorMessage = error
-					}
-				)
-	}
 	onLogout() {
 		this._loginService.logout();
 		this._router.navigate(['/spots']);
@@ -117,26 +90,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 		else {
 			this.showBrand = true;
 		}
-	}
-
-	getSpots(): void {
-		this._spotService.getSpots()
-				 .subscribe(
-					 spots => {
-						 this.spots = spots;
-						 this.categories = this._spotService.getCategories(this.spots);
-						 this.cities = this._spotService.getCities(this.spots);
-					 },
-					 error =>  this.errorMessage = <any>error);
-	}
-	toggleCategories(): void {
-		this.rotatedDropdownArrow = !this.rotatedDropdownArrow;
-	}
-
-	saveCategory(category: string): void {
-		this.category = category;
-		this.model.category = this.category.toLowerCase();
-		this.rotatedDropdownArrow = !this.rotatedDropdownArrow;
 	}
 
 	checkBgImage() {

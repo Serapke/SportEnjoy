@@ -1,0 +1,30 @@
+<div class="container">
+	<h2>{{ 'HEADER.TITLE' | translate }} !</h2>
+	<div class="row">
+		<div class="tab-content">
+			<div class="tab-pane active">
+                <form class="search-form form-inline" (ngSubmit)="onSubmit()">
+                    <div class="category-dropdown" id="city">
+                        <div class="inner-addon right-addon">
+                            <i [class.rotate]="rotatedCityDropdownArrow" class="glyphicon glyphicon-menu-down"></i>
+                            <input type="text" placeholder="{{ 'HEADER.LOCATION' | translate }}" (click)="showCities()" (blur)="hideCities()" [(ngModel)]="model.location" name="location" autocomplete="off">
+                        </div>
+                        <ul *ngIf="rotatedCityDropdownArrow" class="dropdown-content">
+                            <li *ngFor="let city of cities | locationFilter:model.location" (mousedown)="saveCity(city)"><a>{{ prettify(city) | translate }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-dropdown" id="category">
+                        <div class="inner-addon right-addon">
+                            <i [class.rotate]="rotatedCategoryDropdownArrow" class="glyphicon glyphicon-menu-down"></i>                            
+                            <input type="text" placeholder="{{ 'HEADER.CATEGORY' | translate }}" (click)="showCategories()" (blur)="hideCategories()" [(ngModel)]="model.category" name="category" autocomplete="off">
+                        </div>
+                        <ul *ngIf="rotatedCategoryDropdownArrow" class="dropdown-content">
+                            <li *ngFor="let category of categories | locationFilter:model.category" (mousedown)="saveCategory(category)"><a>{{ prettify(category) }}</a></li>
+                        </ul>
+                    </div>
+                    <button type="submit" class="search-submit btn btn-primary" [disabled]="disabledSubmit()">{{ 'HEADER.FIND' | translate }}</button>
+                </form>
+			</div>
+		</div>
+	</div>
+</div>

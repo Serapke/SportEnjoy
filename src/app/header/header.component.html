@@ -59,100 +59,13 @@
 		</div>
 	</div>
 
-  <div *ngIf="showSearch()" class="container">
-	<h2>{{ 'HEADER.TITLE' | translate }} !</h2>
-	<div class="row">
-		<div class="tab-content">
-			<div class="tab-pane active">
-			<form class="search-form form-inline" (ngSubmit)="onSubmit()">
-				<input type="search" value="" placeholder="{{ 'HEADER.LOCATION' | translate }}" required
-						[(ngModel)]="model.location" name="location">
-				<div class="category-dropdown">
-					<button (click)="toggleCategories()" class="btn btn-secondary" type="button">
-						<span *ngIf="category" class="recap">{{ category | translate }}</span>
-						<span *ngIf="!category" class="recap">{{ 'HEADER.CATEGORY' | translate }}</span>
-						<span [class.rotate]="rotatedDropdownArrow" class="glyphicon glyphicon-menu-down"></span>
-					</button>
-					<ul *ngIf="rotatedDropdownArrow" class="dropdown-content">
-						<li *ngFor="let category of categories" (click)="saveCategory(category)"><a>{{ category | translate }}</a></li>
-					</ul>
-				</div>
-				<button type="submit" class="search-submit btn btn-primary" [disabled]="category == ''">{{ 'HEADER.FIND' | translate }}</button>
-			</form>
-			</div>
-		</div>
-	</div>
-  </div>
+	<search-form *ngIf="showSearch()"></search-form>
+	<login-form *ngIf="showLogin()"></login-form>
+	<register-form *ngIf="showRegister()"></register-form>
+	<social-media *ngIf="showSocialMedia()" ></social-media>
 
+	
 
-
-	<div *ngIf="showSocialMedia()" class="container">
-	  <h2>{{ 'HEADER.FOLLOW_US' | translate }}!</h2>
-		<div class="row">
-			<div class="social-media">
-				<div class="col-md-offset-2 col-md-2 col-xs-3">
-					<a><img src="app/assets/images/facebook-logo.png" /></a>
-				</div>
-				<div class="col-md-offset-1 col-md-2 col-xs-3">
-					<a><img src="app/assets/images/twitter-logo.png" /></a>
-				</div>
-				<div class="col-md-offset-1 col-md-2 col-xs-3">
-					<a><img src="app/assets/images/instagram-logo.png" /></a>
-				</div>
-			</div>
-		</div>
-  </div>
-
-	<div *ngIf="showLogin()" class="container">
-			<h2>{{ 'AUTH.LOGIN' | translate }}</h2>
-			<div class="row">
-				<div class="login">
-					<form class="form-inline" (ngSubmit)="onLogin()">
-						<div class="col-md-5">
-							<label class="sr-only" for="email">El. paštas</label>
-							<input type="email" class="form-control" name="email" placeholder="Email" required
-								[(ngModel)]="email">
-						</div>
-						<div class="col-md-5">
-							<label class="sr-only" for="password">Slaptažodis</label>
-							<input type="password" class="form-control" name="password" placeholder="Password" required
-									[(ngModel)]="password">
-						</div>
-						<button type="submit" class="btn btn-primary col-md-2">{{ 'AUTH.LOGIN' | translate }}</button>
-					</form>
-				</div>
-			</div>
-			<div class="row">
-				<div *ngIf="errorMessage" class="alert alert-danger">
-					Klaida! {{ errorMessage }}
-				</div>
-			</div>
-			<div class="row" id="register">
-				<p>{{ 'AUTH.DONT_HAVE_PROFILE' | translate }} <a [routerLink]="['/register']" class="link">{{ 'AUTH.SIGNUP' | translate }}</a></p>
-			</div>
-	</div>
-
-	<div *ngIf="showRegister()" class="container">
-			<h2>{{ 'AUTH.REGISTER' | translate }}</h2>
-			<div class="row">
-				<div class="col-md-offset-3 col-md-6 register">
-					<div *ngIf="errorMessage" class="alert alert-danger">
-						{{ 'OTHER.ERROR' | translate }} {{ errorMessage.email || errorMessage.password || errorMessage.password_confirmation }}
-					</div>
-					<form class="form" (ngSubmit)="onRegister()">
-							<label class="sr-only" for="email">{{ 'AUTH.EMAIL' | translate }}</label>
-							<input type="email" class="form-control" placeholder="{{ 'AUTH.EMAIL' | translate }}" required
-								[(ngModel)]="email" name="email">
-							<label class="sr-only" for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
-							<input type="password" class="form-control" placeholder="{{ 'AUTH.PASSWORD' | translate }}" required
-									[(ngModel)]="password" name="password">
-							<label class="sr-only" for="password-confirmation">{{ 'AUTH.PASSWORD_CONFIRMATION' | translate }}</label>
-							<input type="password" class="form-control" placeholder="{{ 'AUTH.PASSWORD_CONFIRMATION' | translate }}" autocomplete="off" autofill="off" required
-									[(ngModel)]="passwordConfirmation" name="password-confirmation">
-							<button type="submit" class="btn btn-primary">{{ 'AUTH.SIGNUP' | translate }}</button>
-					</form>
-				</div>
-			</div>
-	</div>
+	
 
 </nav>

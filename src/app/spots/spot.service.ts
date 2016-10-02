@@ -33,6 +33,20 @@ export class SpotService {
             .do(data => console.log("Got a spot!"))
             .catch(this.handleError);
     }
+    getCategories(): Observable<string[]> {
+      let url = `${this._publicProductUrl}/categories`;
+      return this._http.get(url)
+            .map((response: Response) => <string[]> response.json())
+            .do(data => console.log("Got categories"))
+            .catch(this.handleError);
+    }
+    getCities(): Observable<string[]> {
+      let url = `${this._publicProductUrl}/cities`;
+      return this._http.get(url)
+            .map((response: Response) => <string[]> response.json())
+            .do(data => console.log("Got cities"))
+            .catch(this.handleError);
+    }
     getTopSpots(): Observable<ISpot[]> {
       let url = `${this._publicProductUrl}/top/${this.topSpotsCount}`;
       return this._http.get(url)
@@ -117,29 +131,5 @@ export class SpotService {
       filter = filter ? filter.toLocaleLowerCase() : null;
       return filter ? spots.filter((spot: ISpot) =>
           spot.city.toLocaleLowerCase().indexOf(filter) !== -1) : spots;
-    }
-
-    getCategories(spots: ISpot[]): string[] {
-      var categories: string[] = [];
-      var flags: boolean[] = [];
-      // get distinct categories
-      for (let i = 0; i < spots.length; i++) {
-        if (flags[spots[i].category]) continue;
-        flags[spots[i].category] = true;
-        categories.push(this._textTransformService.capitalize(spots[i].category));
-      }
-      return categories;
-    }
-
-    getCities(spots: ISpot[]): string[] {
-      var cities: string[] = [];
-      var flags: boolean[] = [];
-      // get distinct categories
-      for (let i = 0; i < spots.length; i++) {
-        if (flags[spots[i].city]) continue;
-        flags[spots[i].city] = true;
-        cities.push(this._textTransformService.capitalize(spots[i].city));
-      }
-      return cities;
-    }
+    }    
 }

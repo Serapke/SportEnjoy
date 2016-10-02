@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>{{ 'AUTH.REGISTER' | translate }}</h2>
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6 register">
+            <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ 'OTHER.ERROR' | translate }} {{ errorMessage.email || errorMessage.password || errorMessage.password_confirmation }}
+            </div>
+            <form class="form" (ngSubmit)="onRegister()">
+                <label class="sr-only" for="email">{{ 'AUTH.EMAIL' | translate }}</label>
+                <input type="email" class="form-control" placeholder="{{ 'AUTH.EMAIL' | translate }}" required
+                    [(ngModel)]="email" name="email">
+                <label class="sr-only" for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
+                <input type="password" class="form-control" placeholder="{{ 'AUTH.PASSWORD' | translate }}" required
+                        [(ngModel)]="password" name="password">
+                <label class="sr-only" for="password-confirmation">{{ 'AUTH.PASSWORD_CONFIRMATION' | translate }}</label>
+                <input type="password" class="form-control" placeholder="{{ 'AUTH.PASSWORD_CONFIRMATION' | translate }}" autocomplete="off" autofill="off" required
+                        [(ngModel)]="passwordConfirmation" name="password-confirmation">
+                <button type="submit" class="btn btn-primary">{{ 'AUTH.SIGNUP' | translate }}</button>
+            </form>
+        </div>
+    </div>
+</div>

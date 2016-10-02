@@ -1,0 +1,182 @@
+.container {
+    height: 270px;
+    max-height: 270px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 2;
+}
+.inner-addon {
+    position: relative;
+}
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 20px;
+    pointer-events: none;
+}
+.right-addon .glyphicon {
+    right: 0px;
+}
+.right-addon input {
+    padding-right: 30px;
+}
+h2 {
+    margin: 0 0 60px;
+}
+.btn {
+    padding: 15px 20px;
+    vertical-align: inherit;
+    border-radius: 0;
+    border: none;
+    font-size: 18px;
+    -o-transition: background-color .3s ease;
+    -webkit-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+.tab-content {
+    background-color: #172935;
+    background-color: rgba(23,41,53,.8);
+    padding: 40px;
+    margin-top: -2px;
+}
+.tab-content input {
+    height: 54px;
+    font-size: 15px;
+    padding: 10px 15px;
+    color: #101d26;
+    border: 0;
+}
+.tab-content #city input {
+    background: white;
+}
+.tab-content #city .glyphicon {
+    color: #444;
+}
+.tab-content #category input {
+    color: #fff;
+    background-color: #38b5aa;
+}
+.tab-content #category input::-webkit-input-placeholder {
+    color: #fff;    
+}
+.category-dropdown#city {
+    width: 55.5%;
+}
+.tab-content .category-dropdown,
+.tab-content .tab-pane > .btn {
+    float: left;
+}
+.tab-content .category-dropdown, .tab-content .category-dropdown {
+    margin-left: 1px;
+}
+.tab-content .category-dropdown .btn, .tab-content .category-dropdown .btn {
+    position: relative;
+    margin: 0;
+    font-size: 15px;
+    padding: 17px 40px 16px 20px;
+}
+.category-dropdown .btn {
+    width: 100%;
+    text-align: left;
+    padding-right: 50px;
+}
+.category-dropdown#category {
+    width: 25%;
+}
+.category-dropdown ul {
+    cursor: pointer;
+    max-height: 220px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow-y: scroll;
+    z-index: 999;
+    border-radius: 0;
+}
+.category-dropdown ul li {
+    border-bottom:  1px solid #eee;
+}
+.category-dropdown ul li:hover {
+    border-bottom:  1px solid #101d26;
+}
+.category-dropdown ul li a {
+    color: #32353c;
+    text-decoration: none;
+    padding: 10px 20px;
+    white-space: inherit;
+    font-size: 14px;
+    display: block;
+    background: #fff;
+}
+.category-dropdown ul li a:hover {
+    color: #fff;
+    background: rgba(23,41,53,.7);                    
+}
+.category-dropdown .recap {
+    display: block;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 700;
+}
+.tab-content form > .btn {
+    margin-top: 0;
+    width: 19%;
+    font-size: 15px;
+    padding: 17px 20px 16px;
+}
+
+/* For tablets and smart phones */
+@media (max-width: 991px) {
+    .container {
+        position: static;
+        height: auto;
+        max-height: none;
+    }
+    h2 {
+        margin: 110px 0 0;
+        padding: 0 20px;
+    }
+    .tab-content {
+        background: none;
+        padding: 40px;
+        margin: 0;
+    }
+    .tab-content input, .tab-content .category-dropdown {
+        width: 100%!important;
+        margin-bottom: 2px;
+        margin-left: 0;
+        float: none;
+    }
+    .tab-content .btn {
+        text-transform: none;
+        font-weight: 400;
+        font-size: 18px;
+        position: relative;
+    }
+    .tab-content .search-submit {
+        margin-bottom: 0px;
+        width: 100%!important;
+    }
+}
+
+/* For tablets */
+@media (max-width: 991px) and (min-width: 767px) {
+    .tab-content {
+        margin: 40px auto!important;
+    }
+}
+
+/* For smart phones */
+@media (max-width: 767px) {
+  .category-dropdown ul {
+    max-height: 160px;
+  }
+  h2 {
+      font-size: 22px;
+  }
+}

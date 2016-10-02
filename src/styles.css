@@ -21,6 +21,14 @@ h2 {
     text-align: center;
     margin: 0 auto;
 }
+.btn.btn-primary {
+    color: #fff;
+    background-color: #007496;
+}
+.btn.btn-secondary {
+    color: #fff;
+    background-color: #38b5aa;
+}
 .btn-default,
 .alert-default,
 .panel-default > .panel-heading {

@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>{{ 'AUTH.LOGIN' | translate }}</h2>
+    <div class="row">
+        <div class="login">
+            <form class="form-inline" (ngSubmit)="onLogin()">
+                <div class="col-md-5">
+                    <label class="sr-only" for="email">El. paštas</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email" required
+                        [(ngModel)]="email">
+                </div>
+                <div class="col-md-5">
+                    <label class="sr-only" for="password">Slaptažodis</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required
+                            [(ngModel)]="password">
+                </div>
+                <button type="submit" class="btn btn-primary col-md-2">{{ 'AUTH.LOGIN' | translate }}</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ 'OTHER.ERROR' | translate }} {{ errorMessage }}
+        </div>
+    </div>
+    <div class="row" id="register">
+        <p>{{ 'AUTH.DONT_HAVE_PROFILE' | translate }} <a [routerLink]="['/register']" class="link">{{ 'AUTH.SIGNUP' | translate }}</a></p>
+    </div>
+</div>

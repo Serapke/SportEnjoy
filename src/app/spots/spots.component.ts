@@ -25,8 +25,6 @@ export class SpotsComponent implements OnInit, OnDestroy{
 	rotatedSearchPropertiesArrow: boolean = false;
 	allSpots: ISpot[];
 	particularSpots: ISpot[];
-	categories: string[];
-	cities: string[];
 	errorMessage: string;
 	selectedCity: string = '';
 	selectedCategory: string = '';
@@ -93,8 +91,6 @@ export class SpotsComponent implements OnInit, OnDestroy{
            spots => {
 				this.allSpots = spots;
 				this.particularSpots = spots;
-				this.categories = this._spotService.getCategories(this.allSpots);
-				this.cities = this._spotService.getCities(this.allSpots);
 				this.sortSpotsByRating();
 				this.selectedSorting = 'rating';
 				this.getParams();

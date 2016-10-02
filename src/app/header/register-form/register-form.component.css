@@ -1,0 +1,49 @@
+.btn {
+    padding: 15px 20px;
+    vertical-align: inherit;
+    border-radius: 0;
+    border: none;
+    font-size: 18px;
+    -o-transition: background-color .3s ease;
+    -webkit-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+h2 {
+    margin: 0 0 60px;
+}
+.alert.alert-danger {
+  border-radius: 0;
+  margin: 0 50px;
+}
+.ng-valid, .ng-invalid {
+  border: 0;
+}
+
+.register .alert.alert-danger{
+    margin: 0;
+}
+.register .form-control {
+    width: 100%;
+    padding: 15px 20px;
+    height: auto;
+    background: #fff;
+    border-radius: 0;
+    font-size: 18px;
+}
+.register .btn {
+    width: 100%;
+}
+
+/* For tablets and smart phones */
+@media (max-width: 991px) {
+    .register {
+        margin-bottom: 20px;
+    }
+    form {
+        padding: 40px;
+    }
+    h2 {
+        margin: 110px 0 0;
+        padding: 0 20px;
+    }
+}

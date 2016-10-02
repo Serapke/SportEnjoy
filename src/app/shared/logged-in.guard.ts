@@ -9,7 +9,7 @@ export class LoggedInGuard implements CanActivate {
   constructor(private _loginService: LoginService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this._loginService.isAdmin()) {
+    if (this._loginService.isAdmin() && state.url !== '/login') {
       return true;
     }
     else if (this._loginService.isModerator() && this.showForModerator(state.url)) {
@@ -51,7 +51,8 @@ export class LoggedInGuard implements CanActivate {
   }
 
   private showForModerator(url: string): boolean {
-    if (url === '/users' || url.indexOf('user') > -1) {
+    if (url === '/users' || url.indexOf('user') > -1 ||
+        url === '/login') {
       return false;
     }
     return true;

@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<!-- Show 'Search results' only if has query parameters -->
-		<h2 *ngIf="!showingLocalSpots && spots" class="hidden-xs">{{ 'TITLES.SEARCH_RESULTS' | translate }} - {{ spots.length }}</h2>		
+		<h2 *ngIf="!showingLocalSpots && spots" class="hidden-xs">{{ 'TITLES.SEARCH_RESULTS' | translate }} - {{ spots.length }}</h2>
 		<!-- Show 'Nearby spots' otherwise -->
 		<h2 *ngIf="showingLocalSpots && spots" class="hidden-xs">{{ 'TITLES.NEARBY_SPOTS' | translate }} - {{ spots.length }}</h2>
 	</div>
@@ -45,32 +45,32 @@
 		</div>
 	</div>
 	<div class="row spots">
-		<button 
-			(click)="toggleDraggability()" 
-			type="button" 
+		<button
+			(click)="toggleDraggability()"
+			type="button"
 			class="btn-map visible-xs visible-sm">
-			<span 
-				[class.pinned]="!mapDraggable" 
+			<span
+				[class.pinned]="!mapDraggable"
 				class="glyphicon glyphicon-pushpin">
 			</span>
 		</button>
-		<sebm-google-map 
-			*ngIf="spots" 
-			[latitude]="centerLat" 
+		<sebm-google-map
+			*ngIf="spots"
+			[latitude]="centerLat"
 			[longitude]="centerLng"
-			[zoom]="zoom" 
-			[scrollwheel]="false" 
+			[zoom]="zoom"
+			[scrollwheel]="false"
 			[mapDraggable]="mapDraggable"
 			[disableDefaultUI]="true"
 			[zoomControl]="false">
-			<sebm-google-map-marker 
-				[latitude]="userLat" 
-				[longitude]="userLng" 
+			<sebm-google-map-marker
+				[latitude]="userLat"
+				[longitude]="userLng"
 				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/iconmonstr-location-5-48-2.png'">
 			</sebm-google-map-marker>
-			<sebm-google-map-marker 
-				*ngFor="let spot of spots; let i = index" 
-				[latitude]="spot.latitude" 
+			<sebm-google-map-marker
+				*ngFor="let spot of spots; let i = index"
+				[latitude]="spot.latitude"
 				[longitude]="spot.longitude"
 				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/iconmonstr-location-1-48.png'"
 				(markerClick)="clickedMarker(spot, i, infowindow)">
@@ -88,23 +88,32 @@
 	</div>
 	<div class="row search-properties visible-xs">
 		<div class="col-xs-10 padding-0">
-			<input class="filter" type="text" placeholder="Įveskite filtravimo raktažodį" [(ngModel)]='listFilter'> 
+			<input class="filter" type="text" placeholder="{{ 'SPOTS.FILTER_PLACEHOLDER' | translate }}" [(ngModel)]='listFilter'>
 		</div>
 		<div class="col-xs-2 padding-0">
 			<button type="button" (click)="toggleSortProperties()" class="sort"><span class="glyphicon glyphicon-sort"></span></button>
 		</div>
 		<div *ngIf="showSortProperties" class="col-xs-12 padding-0">
 			<ul (click)="toggleSortProperties()" class="sortProperties">
-				<li (click)="sortSpotsByAlphabet()" class="sortProperty"><span class="glyphicon glyphicon-sort-by-alphabet"></span>Pagal abėcėlę</li>
-				<li (click)="sortSpotsByRating()" class="sortProperty"><span class="glyphicon glyphicon-sort-by-order"></span>Reitingas</li>
-				<li (click)="sortSpotsByBeenHere()" class="sortProperty"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>Lankomumas</li>
+				<li (click)="sortSpotsByAlphabet()" class="sortProperty">
+					<span class="glyphicon glyphicon-sort-by-alphabet"></span>
+					{{ 'SPOTS.RATING' | translate }}
+				</li>
+				<li (click)="sortSpotsByRating()" class="sortProperty">
+					<span class="glyphicon glyphicon-sort-by-order"></span>
+					{{ 'SPOTS.ALPHABETICALLY' | translate }}
+				</li>
+				<li (click)="sortSpotsByBeenHere()" class="sortProperty">
+					<span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+					{{ 'SPOTS.POPULARITY' | translate }}
+				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="row spots">
-		<div 
+		<div
 			*ngFor='let spot of spots | spotFilter:listFilter'
-			class="col-md-3 spot" 
+			class="col-md-3 spot"
 			[class.selected]="selectedSpot==spot">
 			<a (click)="gotoDetail(spot)">
 				<div class="img_overflow">

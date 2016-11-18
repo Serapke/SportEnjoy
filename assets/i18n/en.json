@@ -1,13 +1,19 @@
 {
-    "Patvirtinta": "Approved",
-    "Peržiūrėta": "Reviewed",
     "krepšinis": "basketball",
     "futbolas": "football",
     "tinklinis": "volleyball",
+    "tenisas": "tennis",
     "lauko treniruokliai": "outside sport facilities",
-    "Vartotojas": "User",
-    "Moderatorius" : "Moderator",
-    "Administratorius": "Admin",
+
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "UNREVIEWD": "Unreviewed",
+
+    "USER_TITLE": "User",
+    "MODERATOR_TITLE" : "Moderator",
+    "ADMIN_TITLE": "Admin",
+
+    "Neteisingas el. paštas arba slaptažodis": "Incorrect email or password",
     "NAVIGATION": {
         "SEARCH": "Search",
         "TOP10": "TOP10",
@@ -52,7 +58,7 @@
         "ABOUT_US": "About us",
         "PRESS": "Press",
         "TERMS": "Terms",
-        "CONTACT_US": "Contact us"  
+        "CONTACT_US": "Contact us"
     },
     "PROFILE": {
         "USER_INFO": "User information",
@@ -85,7 +91,8 @@
         "SORTING": "Sorting",
         "RATING": "Rating",
         "ALPHABETICALLY": "Alphabetically",
-        "POPULARITY": "Popularity"
+        "POPULARITY": "Popularity",
+        "NO_SPOTS": "We're sorry. We couldn't find any spots matching your search parameters."
     },
     "SPOT": {
         "APPROVE": "Approve",
@@ -94,9 +101,9 @@
         "BEEN_HERE": "Have you been in this spot",
         "RATE_IT": "Rate it",
         "BEEN": "Been Here",
-        "DESCRIPTION": "Aprašymas",
+        "DESCRIPTION": "Description",
         "NO_DESCRIPTION": "We're sorry. This spot doesn't have descripriton.",
-        "GALLERY": "Galerija",
+        "GALLERY": "Gallery",
         "NO_IMAGES": "We're sorry. This spot doesn't have images.",
         "TITLE": "Title",
         "CITY": "City",
@@ -141,6 +148,7 @@
         "EDIT_SPOT": "Edit",
         "REVIEW": "Review",
         "SEARCH_RESULTS": "Search results",
+        "NEARBY_SPOTS": "Nearby spots",
         "USERS": "Users"
     },
     "OTHER": {

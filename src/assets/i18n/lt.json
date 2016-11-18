@@ -2,7 +2,17 @@
     "basketball": "krepšinis",
     "football": "futbolas",
     "volleyball": "tinklinis",
+    "tennis": "tenisas",
     "outside sport facilities": "lauko treniruokliai",
+
+    "APPROVED": "Patvirtinta",
+    "REJECTED": "Atmesta",
+    "UNREVIEWD": "Neperžiūrėta",
+
+    "USER_TITLE": "Vartotojas",
+    "MODERATOR_TITLE" : "Moderatorius",
+    "ADMIN_TITLE": "Administratorius",
+
     "NAVIGATION": {
         "SEARCH": "Paieška",
         "TOP10": "TOP10",
@@ -47,7 +57,7 @@
         "ABOUT_US": "Apie mus",
         "PRESS": "Spaudai",
         "TERMS": "Sąlygos",
-        "CONTACT_US": "Susisiekite"  
+        "CONTACT_US": "Susisiekite"
     },
     "PROFILE": {
         "USER_INFO": "Vartotojo informacija",
@@ -80,7 +90,8 @@
         "SORTING": "Rūšiavimas",
         "RATING": "Reitingas",
         "ALPHABETICALLY": "Pagal abėcėlę",
-        "POPULARITY": "Lankomumas"
+        "POPULARITY": "Lankomumas",
+        "NO_SPOTS": "Atsiprašome. Deja, neradome nei vienos vietos pagal pateiktus paieškos parametrus."
     },
     "SPOT": {
         "APPROVE": "Patvirtinti",
@@ -136,6 +147,7 @@
         "EDIT_SPOT": "Papildyti",
         "REVIEW": "Peržiūrėti",
         "SEARCH_RESULTS": "Paieškos rezultatai",
+        "NEARBY_SPOTS": "Artimiausios sporto vietos",
         "USERS": "Vartotojai"
     },
     "OTHER": {

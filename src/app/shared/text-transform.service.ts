@@ -10,4 +10,11 @@ export class TextTransformService {
 		}
 		return word;
 	}
+	escapeCharacters(word :string): string {
+		if (word != null) {
+			word = word.replace(/%C5%A1/g, 'š');
+			word = word.replace(/g%20/g, ' ');
+		}
+		return word;
+	}
 }

@@ -1,9 +1,8 @@
 <div *ngIf="spot" class="container-fluid">
 	<div class="row">
 		<h2 *ngIf="isAdding()" class="hidden-xs">{{ 'TITLES.ADD_SPOT' | translate }}</h2>
-		<h2 *ngIf="isUpdating()" class="hidden-xs">{{ 'TITLES.EDIT_SPOTS' | translate }} - {{ spot.title }}</h2>
+		<h2 *ngIf="isUpdating()" class="hidden-xs">{{ 'TITLES.EDIT_SPOT' | translate }} - {{ spot.title }}</h2>
 	</div>
-	<!-- <div class="row"> -->
 			<form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
 				<div class="col-md-6 section">
 					<h4>{{ 'SPOT_FORM.DESCRIPTION' | translate }}</h4>
@@ -70,5 +69,4 @@
 				<div class="loader"></div>
 				<div class="alert alert-info">{{ 'SPOT_FORM.PROCESSING' | translate }}</div>
 			</div>
-	<!-- </div> -->
 </div>

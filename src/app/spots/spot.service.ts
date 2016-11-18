@@ -3,7 +3,6 @@ import { ISpot } from './spot';
 import { Observable } from 'rxjs/Rx';
 import { Http, Response, Headers } from '@angular/http';
 import { TextTransformService } from '../shared/text-transform.service';
-// import { Location } from '../shared/location/location';
 import { IUser } from '../users/user';
 
 @Injectable()
@@ -13,11 +12,13 @@ export class SpotService {
     private _userProductUrl = 'https://sportenjoy-api.herokuapp.com/users';
     topSpotsCount: number = 4;
     errorMessage: string;
+    
     constructor(
       private _http: Http,
       private _textTransformService: TextTransformService
     ) {
     }
+
     getSpots(): Observable<ISpot[]> {
       return this._http.get(this._publicProductUrl)
             .map((response: Response) => <ISpot[]> response.json())
@@ -26,11 +27,28 @@ export class SpotService {
             })
             .catch(this.handleError);
     }
+    getParticularSpots(city: string, category: string, page: number): Observable<ISpot[]> {
+      let url = `${this._publicProductUrl}/particularSpots?city=${city}&category=${category}&page=${page}`;
+      return this._http.get(url)
+        .map((response: Response) => <ISpot[]> response.json())
+        .do(data => {
+          console.log("Got particular spots!");
+        })
+        .catch(this.handleError);
+
+    }
     getSpot(id: number): Observable<ISpot> {
       let url = `${this._publicProductUrl}/${id}`;
       return this._http.get(url, {headers: this.getHeaders()})
             .map((response: Response) => <ISpot> response.json())
             .do(data => console.log("Got a spot!"))
+            .catch(this.handleError);
+    }
+    getLocalSpots(coordinates: any): Observable<ISpot[]> {
+      let url = `${this._publicProductUrl}/localSpots?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}`
+      return this._http.get(url)
+            .map((response: Response) => <ISpot[]> response.json())
+            .do(data => console.log("Got local spots!"))
             .catch(this.handleError);
     }
     getCategories(): Observable<string[]> {
@@ -57,7 +75,7 @@ export class SpotService {
     createSpot(spot: ISpot){
       let user = <IUser> JSON.parse(localStorage.getItem('user'));
       let url = `${this._userProductUrl}/${user.id}/spots`;
-      
+
       return this._http.post(url, spot, { headers: this.getHeaders()})
                   .map((response: Response) => <ISpot> response.json())
                   .do(data => {
@@ -119,17 +137,4 @@ export class SpotService {
       let auth_token = localStorage.getItem('auth_token');
       return new Headers({'Authorization': auth_token});
     }
-
-    getParticularCategorySpots(spots: ISpot[], filter: string): ISpot[] {
-      filter = filter ? filter.toLocaleLowerCase() : null;
-      if (!spots) return spots;
-      return (typeof spots !== "undefined" && filter) ? spots.filter((spot: ISpot) =>
-          spot.category.toLocaleLowerCase().indexOf(filter) !== -1) : spots;
-    }
-
-    getParticularCitySpots(spots: ISpot[], filter: string): ISpot[] {
-      filter = filter ? filter.toLocaleLowerCase() : null;
-      return filter ? spots.filter((spot: ISpot) =>
-          spot.city.toLocaleLowerCase().indexOf(filter) !== -1) : spots;
-    }    
 }

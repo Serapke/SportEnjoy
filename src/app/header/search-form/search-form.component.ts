@@ -17,7 +17,7 @@ export class SearchFormComponent implements OnInit {
     rotatedCityDropdownArrow: boolean = false;
     category: string = '';
     location: string = '';
-	model = new SearchResult('', '');
+    model = new SearchResult('', '');
     cities: string[];
     categories: string[];
     errorMessage: string;
@@ -45,7 +45,7 @@ export class SearchFormComponent implements OnInit {
 					 error =>  this.errorMessage = <any>error
             );
     }
-    
+
     prettify(word: string): string {
         return this._textTransformService.capitalize(word);
     }
@@ -54,7 +54,7 @@ export class SearchFormComponent implements OnInit {
         this._translate.use('lt');
         this._translate.get(this.category).subscribe((translation: string) => {
             this.category = translation;
-            this._router.navigate(['/spots',  { location: this.location, category: this.category }]);
+            this._router.navigate(['/spots',  { location: this.location, category: this.category, page: 1 }]);
         });
 	}
 
@@ -81,7 +81,6 @@ export class SearchFormComponent implements OnInit {
     getTranslations(categories: string[]): void {
         this.categories = new Array();
         this._translate.get(categories).subscribe((translations: string[]) => {
-            console.log(translations);
             for (let key in translations) {
                 if (translations.hasOwnProperty(key)) {
                     this.categories.push(translations[key]);

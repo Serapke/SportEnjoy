@@ -1,8 +1,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<!-- Show 'Search results' only if has query parameters -->
+		<h2 *ngIf="!showingLocalSpots && spots" class="hidden-xs">{{ 'TITLES.SEARCH_RESULTS' | translate }} - {{ spots.length }}</h2>		
 		<!-- Show 'Nearby spots' otherwise -->
-		<h2 *ngIf="particularSpots" class="hidden-xs">{{ 'TITLES.SEARCH_RESULTS' | translate }} - {{ particularSpots.length }}</h2>
+		<h2 *ngIf="showingLocalSpots && spots" class="hidden-xs">{{ 'TITLES.NEARBY_SPOTS' | translate }} - {{ spots.length }}</h2>
 	</div>
 	<div class="row spots">
 		<div class="spots-dropdown hidden-xs">
@@ -18,36 +19,6 @@
 							<label>{{ 'SPOTS.FILTER' | translate }}</label>
 							<input type="text" placeholder="{{ 'SPOTS.FILTER_PLACEHOLDER' | translate }}" [(ngModel)]='listFilter'>
 						</div>
-						<!--<div class="col-md-6">
-							<ul class="list-group">
-								<li (click)="getAllCategorySpots()"
-										[class.active]="selectedCategory===''"
-										class="list-group-item">
-										<a>Visi</a>
-								</li>
-								<li *ngFor="let category of categories"
-										(click)="getParticularSpots(category, '')"
-										[class.active]="selectedCategory===category"
-										class="list-group-item">
-										<a>{{ category }}</a>
-								</li>
-							</ul>
-						</div>-->
-						<!--<div class="col-md-6">
-							<ul class="list-group">
-								<li (click)="getAllCitySpots()"
-										[class.active]="selectedCity===''"
-										class="list-group-item">
-										<a>Visi</a>
-								</li>
-								<li *ngFor="let city of cities"
-										(click)="getParticularSpots('', city)"
-										[class.active]="selectedCity===city"
-										class="list-group-item">
-										<a>{{ city }}</a>
-								</li>
-							</ul>
-						</div>-->
 					</div>
 					<div class="col-sm-4">
 						<h4>{{ 'SPOTS.SORTING' | translate }}</h4>
@@ -74,20 +45,34 @@
 		</div>
 	</div>
 	<div class="row spots">
-		<button (click)="toggleDraggability()" type="button" class="btn-map visible-xs visible-sm"><span [class.pinned]="!mapDraggable" class="glyphicon glyphicon-pushpin"></span></button>
+		<button 
+			(click)="toggleDraggability()" 
+			type="button" 
+			class="btn-map visible-xs visible-sm">
+			<span 
+				[class.pinned]="!mapDraggable" 
+				class="glyphicon glyphicon-pushpin">
+			</span>
+		</button>
 		<sebm-google-map 
-			*ngIf="particularSpots" 
-			[latitude]="lat" 
-			[longitude]="lng"
+			*ngIf="spots" 
+			[latitude]="centerLat" 
+			[longitude]="centerLng"
 			[zoom]="zoom" 
 			[scrollwheel]="false" 
 			[mapDraggable]="mapDraggable"
 			[disableDefaultUI]="true"
 			[zoomControl]="false">
 			<sebm-google-map-marker 
-				*ngFor="let spot of particularSpots; let i = index" 
+				[latitude]="userLat" 
+				[longitude]="userLng" 
+				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/iconmonstr-location-5-48-2.png'">
+			</sebm-google-map-marker>
+			<sebm-google-map-marker 
+				*ngFor="let spot of spots; let i = index" 
 				[latitude]="spot.latitude" 
 				[longitude]="spot.longitude"
+				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/iconmonstr-location-1-48.png'"
 				(markerClick)="clickedMarker(spot, i, infowindow)">
 				<sebm-google-map-info-window #infowindow [disableAutoPan]="true">
 					<div class="col-xs-3 padding-0">
@@ -99,8 +84,6 @@
 					</div>
 				</sebm-google-map-info-window>
 			</sebm-google-map-marker>
-			
-			
 		</sebm-google-map>
 	</div>
 	<div class="row search-properties visible-xs">
@@ -120,7 +103,7 @@
 	</div>
 	<div class="row spots">
 		<div 
-			*ngFor='let spot of particularSpots | spotFilter:listFilter'
+			*ngFor='let spot of spots | spotFilter:listFilter'
 			class="col-md-3 spot" 
 			[class.selected]="selectedSpot==spot">
 			<a (click)="gotoDetail(spot)">
@@ -139,9 +122,9 @@
 				<span class="title">{{ spot.title }}</span>
 			</a>
 		</div>
-		<div *ngIf="particularSpots == ''">
+		<div *ngIf="spots == ''">
 			<div class="alert alert-danger">
-				Atsiprašome. Deja, neradome nei vienos vietos pagal pateiktus paieškos parametrus.
+				{{ 'SPOTS.NO_SPOTS' | translate }}
 			</div>
 		</div>
 	</div>

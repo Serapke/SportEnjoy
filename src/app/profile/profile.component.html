@@ -1,78 +1,78 @@
 <div class="container-fluid" id="profile">
-	<div class="row">
-		<h2 class="hidden-xs">{{ 'TITLES.PROFILE' | translate }}</h2>
-	</div>
-	<div class="row info text-center">
-		<div class="col-md-8">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					{{ 'PROFILE.USER_INFO' | translate }}
-				</div>
-				<div class="panel-body">
-					<div class="col-md-5">
-						<img *ngIf="user.image" [src]="user.image" class="img-thumbnail user-image"/>
-						<div *ngIf="!user.image" class="alert alert-info">
-							<p>{{ 'USER.NO_PICTURE' | translate }}</p>
-						</div>
-					</div>
-					<div class="col-md-7">
-						<p><strong>{{ 'USER.EMAIL' | translate }}:</strong> {{ user.email }}</p>
-						<p><strong>{{ 'USER.LOCATION' | translate }}:</strong> {{ user.location }}</p>
-						<p><strong>{{ 'USER.REGISTRATION_DATE' | translate }}:</strong> {{ user.created_at | date:'mediumDate'}}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					{{ 'PROFILE.USER_ACTIVITY' | translate }}
-				</div>
-				<div class="panel-body">
-					<p>{{ 'PROFILE.SPOTTED' | translate }} <span class="badge">{{ user.spotsMarked }}</span> {{ 'PROFILE.SPOTS' | translate }}.</p>
-					<p>{{ 'PROFILE.BEEN' | translate }} <span class="badge">{{ user.beenHereCount }}</span> {{ 'PROFILE.SPOTS' | translate }}.</p>
-					<p>{{ 'PROFILE.WROTE' | translate }} <span class="badge">{{ user.commentsCount }}</span> {{ 'PROFILE.COMMENTS' | translate }}.</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<button class="btn btn-dark">{{ 'OTHER.UPDATE' | translate }}</button>
-			<button class="btn btn-dark">{{ 'OTHER.CHANGE_PASSWORD' | translate }}</button>
-		</div>
-	</div>
-	<div class="row spots">
-		<div class="col-md-offset-1 col-md-10 padding-0">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					{{ 'PROFILE.SPOTTED_PLACES' | translate }}
-				</div>
-				<table class="table table-hover spots">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>{{ 'SPOT.TITLE' | translate }}</th>
-							<th class="hidden-xs">{{ 'SPOT.CATEGORY' | translate }}</th>
-							<th class="hidden-xs">{{ 'SPOT.LOCATION' | translate }}</th>
-							<th class="hidden-xs">{{ 'SPOT.CREATED' | translate }}</th>
-							<th>{{ 'SPOT.STATUS' | translate }}</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let spot of spots"
-							[class.success]="spotStatus(spot.approved, spot.reviewed) == 'Patvirtinta'"
-							[class.danger]="spotStatus(spot.approved, spot.reviewed) == 'Atmesta'"
-							[routerLink]="['/spot', spot.id]">
-							<td>{{ spot.id }}</td>
-							<td>{{ spot.title }}</td>
-							<td class="hidden-xs">{{ prettify(spot.category) | translate }}</td>
-							<td class="hidden-xs">{{ spot.city }}, {{ spot.country }}</td>
-							<td class="hidden-xs">{{ spot.created_at | date:'mediumDate' }}</td>
-							<td>{{ spotStatus(spot.approved, spot.reviewed) | translate }}</td>
-						</tr>
-					</tbody>
-				</table>
-				<div *ngIf="spots && spots.length == 0" class="panel-footer">{{ 'PROFILE.NO_SPOTS_SPOTTED' | translate }}</div>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <h2 class="hidden-xs">{{ 'TITLES.PROFILE' | translate }}</h2>
+  </div>
+  <div class="row info text-center">
+    <div class="col-md-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{ 'PROFILE.USER_INFO' | translate }}
+        </div>
+        <div class="panel-body">
+          <div class="col-md-5">
+            <img *ngIf="user.image" [src]="user.image" class="img-thumbnail user-image"/>
+            <div *ngIf="!user.image" class="alert alert-info">
+              <p>{{ 'USER.NO_PICTURE' | translate }}</p>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <p><strong>{{ 'USER.EMAIL' | translate }}:</strong> {{ user.email }}</p>
+            <p><strong>{{ 'USER.LOCATION' | translate }}:</strong> {{ user.location }}</p>
+            <p><strong>{{ 'USER.REGISTRATION_DATE' | translate }}:</strong> {{ user.created_at | date:'mediumDate'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{ 'PROFILE.USER_ACTIVITY' | translate }}
+        </div>
+        <div class="panel-body">
+          <p>{{ 'PROFILE.SPOTTED' | translate }} <span class="badge">{{ user.spotsMarked }}</span> {{ 'PROFILE.SPOTS' | translate }}.</p>
+          <p>{{ 'PROFILE.BEEN' | translate }} <span class="badge">{{ user.beenHereCount }}</span> {{ 'PROFILE.SPOTS' | translate }}.</p>
+          <p>{{ 'PROFILE.WROTE' | translate }} <span class="badge">{{ user.commentsCount }}</span> {{ 'PROFILE.COMMENTS' | translate }}.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-dark">{{ 'OTHER.UPDATE' | translate }}</button>
+      <button class="btn btn-dark">{{ 'OTHER.CHANGE_PASSWORD' | translate }}</button>
+    </div>
+  </div>
+  <div class="row spots">
+    <div class="col-md-offset-1 col-md-10 padding-0">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{ 'PROFILE.SPOTTED_PLACES' | translate }}
+        </div>
+        <table class="table table-hover spots">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>{{ 'SPOT.TITLE' | translate }}</th>
+              <th class="hidden-xs">{{ 'SPOT.CATEGORY' | translate }}</th>
+              <th class="hidden-xs">{{ 'SPOT.LOCATION' | translate }}</th>
+              <th class="hidden-xs">{{ 'SPOT.CREATED' | translate }}</th>
+              <th>{{ 'SPOT.STATUS' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let spot of spots"
+              [class.success]="spotStatus(spot.approved, spot.reviewed) == 'Patvirtinta'"
+              [class.danger]="spotStatus(spot.approved, spot.reviewed) == 'Atmesta'"
+              [routerLink]="['/spot', spot.id]">
+              <td>{{ spot.id }}</td>
+              <td>{{ spot.title }}</td>
+              <td class="hidden-xs">{{ spot.category | translate }}</td>
+              <td class="hidden-xs">{{ spot.city }}, {{ spot.country }}</td>
+              <td class="hidden-xs">{{ spot.created_at | date:'mediumDate' }}</td>
+              <td>{{ spotStatus(spot.approved, spot.reviewed) | translate }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="spots && spots.length == 0" class="panel-footer">{{ 'PROFILE.NO_SPOTS_SPOTTED' | translate }}</div>
+      </div>
+    </div>
+  </div>
 </div>

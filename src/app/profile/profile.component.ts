@@ -7,54 +7,50 @@ import { LoginService } from '../login/login.service';
 import { TextTransformService } from '../shared/text-transform.service';
 
 @Component({
-	selector: 'ng-topPlaces',
-	templateUrl: './profile.component.html',
-	styleUrls: ['./profile.component.css'],
-	directives: [ROUTER_DIRECTIVES]
+  selector: 'ng-topPlaces',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
+  directives: [ROUTER_DIRECTIVES]
 })
 export class ProfileComponent {
-	user: IUser;
-	spots: ISpot[];
-	errorMessage: string;
+  user: IUser;
+  spots: ISpot[];
+  errorMessage: string;
 
-	constructor(
-		private _spotService: SpotService,
-		private _loginService: LoginService,
-		private _textTransformService: TextTransformService,
-		private _router: Router) {}
+  constructor(
+    private _spotService: SpotService,
+    private _loginService: LoginService,
+    private _textTransformService: TextTransformService,
+    private _router: Router) {}
 
-	ngOnInit(): void {
-		this.getCreatedSpots();
-		this.user = this._loginService.getCurrentUser();		
-  	}
+  ngOnInit(): void {
+    this.getCreatedSpots();
+    this.user = this._loginService.getCurrentUser();
+  }
 
-	getCreatedSpots() {
-		this._spotService.getCreatedSpots()
-			.subscribe(
-				spots => {
-					this.spots = spots;
-				},
-				error =>  {
-					this.errorMessage = <any>error;
-					console.log(this.errorMessage)
-				}
-			);
-	}
+  getCreatedSpots() {
+    this._spotService.getCreatedSpots()
+      .subscribe(
+        spots => {
+          this.spots = spots;
+        },
+        error =>  {
+          this.errorMessage = <any>error;
+          console.log(this.errorMessage)
+        }
+      );
+  }
 
-	prettify(word: string): string {
-		return this._textTransformService.capitalize(word);
-	}
+  prettify(word: string): string {
+    return this._textTransformService.capitalize(word);
+  }
 
-	spotStatus(approved: boolean, reviewed: boolean): string {
-		if (reviewed && approved) {
-			return "Patvirtinta";
-		}
-		else if (reviewed && !approved) {
-			return "Atmesta";
-		}
-		else {
-			return "Neperžiūrėta";
-		}
-	}
-
+  spotStatus(approved: boolean, reviewed: boolean): string {
+    if (reviewed && approved) {
+      return "approved".toUpperCase();
+    } else if (reviewed) {
+      return "rejected".toUpperCase();
+    }
+    return "unreviewed".toUpperCase();
+  }
 }

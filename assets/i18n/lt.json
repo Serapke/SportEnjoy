@@ -4,6 +4,9 @@
     "volleyball": "tinklinis",
     "tennis": "tenisas",
     "outside sport facilities": "lauko treniruokliai",
+    "gym": "sporto klubas",
+    "swimming pool": "baseinas",
+    "skatepark": "riedlenčių parkas",
 
     "APPROVED": "Patvirtinta",
     "REJECTED": "Atmesta",
@@ -121,6 +124,7 @@
         "DESCRIPTION_PLACEHOLDER": "Įvesk vietos aprašymą",
         "LATITUDE": "Platuma",
         "LONGITUDE": "Ilguma",
+        "USE_CURRENT_LOCATION": "Naudoti dabartinę vietą",
         "SUBMIT": "Siųsti",
         "SUCCESSFUL_SUBMISSION": "Tavo užklausa sėkmingai išsiųsta!",
         "SHOW_UPDATES": "Pakeitimus gali peržiūrėti čia",

@@ -3,8 +3,10 @@
 		<h2 *ngIf="isAdding()" class="hidden-xs">{{ 'TITLES.ADD_SPOT' | translate }}</h2>
 		<h2 *ngIf="isUpdating()" class="hidden-xs">{{ 'TITLES.EDIT_SPOT' | translate }} - {{ spot.title }}</h2>
 	</div>
-  <div *ngIf="errorMessage" class="row text-center alert alert-danger" role="alert">
-    <strong>{{ 'OTHER.ERROR' | translate }}</strong> {{ errorMessage }}
+  <div *ngIf="!submitted && !submitting && errorMessage" class="row">
+    <div class="alert alert-info text-center" role="alert">
+      <strong>{{ 'OTHER.NOTE' | translate }}</strong> {{ 'OTHER.ENABLE_LOCATION' | translate }}
+    </div>
   </div>
     <form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
       <div class="col-md-6 section">

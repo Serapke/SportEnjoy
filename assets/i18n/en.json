@@ -157,6 +157,8 @@
     },
     "OTHER": {
         "ERROR": "Error!",
+        "NOTE": "Note!",
+        "ENABLE_LOCATION": "Enable location services to improve experience with SportEnjoy.",
         "OR": "Or",
         "UPDATE": "Update",
         "CHANGE_PASSWORD": "Change password"

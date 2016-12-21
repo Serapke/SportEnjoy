@@ -29,6 +29,9 @@ h2 {
     color: #fff;
     background-color: #38b5aa;
 }
+.alert {
+  margin: 0;
+}
 .btn-default,
 .alert-default,
 .panel-default > .panel-heading {

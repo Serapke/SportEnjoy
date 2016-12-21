@@ -21,6 +21,10 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
   image: string;
   file: string = "";
 
+  centerLat: number = 54.8;
+  centerLng: number = 23.9;
+  zoom: number = 16;
+
   constructor(
     private _spotService: SpotService,
     private _route: ActivatedRoute,
@@ -36,6 +40,11 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
         this.getSpot(id);
       });
     }
+  }
+
+  mapClicked($event: any) {
+    this.spot.latitude = $event.coords.lat;
+    this.spot.longitude = $event.coords.lng;
   }
 
   onSubmit() {
@@ -90,6 +99,8 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
           this.spot = spot;
           this.oldSpot = spot;
           this.image = this.spot.images;
+          this.centerLat = spot.latitude;
+          this.centerLng = spot.longitude;
         },
         error => this.errorMessage = <any>error
       );

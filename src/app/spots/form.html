@@ -3,70 +3,83 @@
 		<h2 *ngIf="isAdding()" class="hidden-xs">{{ 'TITLES.ADD_SPOT' | translate }}</h2>
 		<h2 *ngIf="isUpdating()" class="hidden-xs">{{ 'TITLES.EDIT_SPOT' | translate }} - {{ spot.title }}</h2>
 	</div>
-			<form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
-				<div class="col-md-6 section">
-					<h4>{{ 'SPOT_FORM.DESCRIPTION' | translate }}</h4>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.TITLE_PLACEHOLDER' | translate }}" required
-							[(ngModel)]="spot.title" name="title">
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CATEGORY_PLACEHOLDER' | translate }}" required
-							[(ngModel)]="spot.category" name="category">
-					</div>
-					<div class="form-group">
-						<textarea type="text" class="form-control" rows="4" placeholder="{{ 'SPOT_FORM.DESCRIPTION_PLACEHOLDER' | translate }}"
-							[(ngModel)]="spot.description" name="description"></textarea>
-					</div>
-				</div>
-				<div class="col-md-6 section">
-					<h4>Vietovė</h4>
-					<div class="row">
-						<div class="form-group col-md-6 col-xs-6">
-							<input type="number" step="0.000001" class="form-control" placeholder="{{ 'SPOT_FORM.LATITUDE' | translate }}" required
-								[(ngModel)]="spot.latitude" name="latitude">
-						</div>
-						<div class="form-group col-md-6 col-xs-6">
-							<input type="number" step="0.000001" class="form-control" placeholder="{{ 'SPOT_FORM.LONGITUDE' | translate }}" required
-								[(ngModel)]="spot.longitude" name="longitude">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-offset-3 col-md-6 section">
-					<h4>{{ 'SPOT_FORM.PHOTOS' | translate }}</h4>
-					<div class="row">
-						<div class="col-md-6 text-center">
-							<input class="file-input" type="file" accept="image/*" multiple (change)="changeListener($event)"
-								style="outline: none; white-space: nowrap; display: inline-block;">
-							<label *ngIf="file" class="hidden-xs file-name">{{ file }}</label>
-						</div>
-						<div class="col-md-6 col-xs-12 text-center">
-							<img *ngIf="image" [src]="image"  alt="Nuotraukos peržiūra...">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-offset-3 col-md-6 section">
-					<div class="form-group submit">
-						<input type="submit" value="{{ 'SPOT_FORM.SUBMIT' | translate }}" class="btn btn-dark">
-					</div>
-				</div>
-			</form>
-			<div *ngIf="submitted" class="panel panel-success submitted">
-				<div class="panel-heading">
-					{{ 'SPOT_FORM.SUCCESSFUL_SUBMISSION' | translate }}
-				</div>
-				<div class="panel-body">
-					<div *ngIf="isUpdating()">
-						<a [routerLink]="['/spot/' + spot.id]" class="panel-link">{{ 'SPOT_FORM.SHOW_UPDATES' | translate }}</a>
-					</div>
-					<div *ngIf="isAdding()">
-						<p *ngIf="isModerator()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED' | translate }}</p>
-						<p *ngIf="!isModerator()">{{ 'SPOT_FORM.SUCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
-					</div>
-				</div>
-			</div>
-			<div *ngIf="submitting" class="loading">
-				<div class="loader"></div>
-				<div class="alert alert-info">{{ 'SPOT_FORM.PROCESSING' | translate }}</div>
-			</div>
+  <div *ngIf="errorMessage" class="row text-center alert alert-danger" role="alert">
+    <strong>{{ 'OTHER.ERROR' | translate }}</strong> {{ errorMessage }}
+  </div>
+    <form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
+      <div class="col-md-6 section">
+        <h4>{{ 'SPOT_FORM.DESCRIPTION' | translate }}</h4>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.TITLE_PLACEHOLDER' | translate }}" required
+            [(ngModel)]="spot.title" name="title">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CATEGORY_PLACEHOLDER' | translate }}" required
+            [(ngModel)]="spot.category" name="category">
+        </div>
+        <div class="form-group">
+          <textarea type="text" class="form-control" rows="6" placeholder="{{ 'SPOT_FORM.DESCRIPTION_PLACEHOLDER' | translate }}"
+            [(ngModel)]="spot.description" name="description"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6 section">
+        <h4>{{ 'SPOT_FORM.LOCATION' | translate }}</h4>
+        <sebm-google-map
+         [latitude]="centerLat"
+         [longitude]="centerLng"
+         [zoom]="zoom"
+         (mapClick)="mapClicked($event)">
+          <sebm-google-map-marker
+            [latitude]="spot.latitude"
+            [longitude]="spot.longitude">
+          </sebm-google-map-marker>
+        </sebm-google-map>
+        <div class="visible-xs">
+          <p class="text-light text-center">{{ 'OTHER.OR' | translate }}</p>
+          <div class="text-center">
+            <button type="button"
+                   class="btn btn-light"
+                   (click)="setMarkerOnCurrentLocation()">
+              {{'SPOT_FORM.USE_CURRENT_LOCATION' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-offset-3 col-md-6 section">
+        <h4>{{ 'SPOT_FORM.PHOTOS' | translate }}</h4>
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <input class="file-input" type="file" accept="image/*" multiple (change)="changeListener($event)"
+              style="outline: none; white-space: nowrap; display: inline-block;">
+            <label *ngIf="file" class="hidden-xs file-name">{{ file }}</label>
+          </div>
+          <div class="col-md-6 col-xs-12 text-center">
+            <img *ngIf="image" [src]="image"  alt="Nuotraukos peržiūra...">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-offset-3 col-md-6 section">
+        <div class="form-group submit">
+          <input type="submit" value="{{ 'SPOT_FORM.SUBMIT' | translate }}" class="btn btn-dark">
+        </div>
+      </div>
+    </form>
+    <div *ngIf="submitted" class="panel panel-success submitted">
+      <div class="panel-heading">
+        {{ 'SPOT_FORM.SUCCESSFUL_SUBMISSION' | translate }}
+      </div>
+      <div class="panel-body">
+        <div *ngIf="isUpdating()">
+          <a [routerLink]="['/spot/' + spot.id]" class="panel-link">{{ 'SPOT_FORM.SHOW_UPDATES' | translate }}</a>
+        </div>
+        <div *ngIf="isAdding()">
+          <p *ngIf="isModerator()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED' | translate }}</p>
+          <p *ngIf="!isModerator()">{{ 'SPOT_FORM.SUCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="submitting" class="loading">
+      <div class="loader"></div>
+      <div class="alert alert-info">{{ 'SPOT_FORM.PROCESSING' | translate }}</div>
+    </div>
 </div>

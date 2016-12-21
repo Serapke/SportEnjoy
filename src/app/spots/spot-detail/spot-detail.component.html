@@ -19,14 +19,18 @@
 					<div class="geo_link">
 						<a href="#"><img src="/sportenjoy/assets/images/geo-link-icon.png" />{{ spot.city }}, {{ spot.country}}</a>
 					</div>
-          <sebm-google-map 
-            [latitude]="spot.latitude" 
-            [longitude]="spot.longitude" 
-            [zoom]="15" 
+          <sebm-google-map
+            [latitude]="spot.latitude"
+            [longitude]="spot.longitude"
+            [zoom]="15"
             [scrollwheel]="false"
             [mapDraggable]="false"
             [disableDefaultUI]="true">
-    				<sebm-google-map-marker [latitude]="spot.latitude" [longitude]="spot.longitude"></sebm-google-map-marker>
+    				<sebm-google-map-marker
+              [latitude]="spot.latitude"
+              [longitude]="spot.longitude"
+              [iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/spot-marker'">
+            </sebm-google-map-marker>
     			</sebm-google-map>
 				</div>
 				<div class="col-md-3 sidebar">

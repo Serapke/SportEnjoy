@@ -61,18 +61,12 @@
 			[zoom]="zoom"
 			[scrollwheel]="false"
 			[mapDraggable]="mapDraggable"
-			[disableDefaultUI]="true"
-			[zoomControl]="false">
-			<sebm-google-map-marker
-				[latitude]="userLat"
-				[longitude]="userLng"
-				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/iconmonstr-location-5-48-2.png'">
-			</sebm-google-map-marker>
+			[disableDefaultUI]="false">
 			<sebm-google-map-marker
 				*ngFor="let spot of spots; let i = index"
 				[latitude]="spot.latitude"
 				[longitude]="spot.longitude"
-				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/iconmonstr-location-1-48.png'"
+				[iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/spot-marker'"
 				(markerClick)="clickedMarker(spot, i, infowindow)">
 				<sebm-google-map-info-window #infowindow [disableAutoPan]="true">
 					<div class="col-xs-3 padding-0">
@@ -84,6 +78,11 @@
 					</div>
 				</sebm-google-map-info-window>
 			</sebm-google-map-marker>
+      <sebm-google-map-marker
+        [latitude]="userLat"
+        [longitude]="userLng"
+        [iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/user-location-marker'">
+      </sebm-google-map-marker>
 		</sebm-google-map>
 	</div>
 	<div class="row search-properties visible-xs">
@@ -118,8 +117,10 @@
 			<a (click)="gotoDetail(spot)">
 				<div class="img_overflow">
 					<div *ngIf="spot.images" [style.background-image]="'url(' + spot.images + ')'"></div>
-					<div *ngIf="!spot.images" [style.background-image]="'url(' + defaultImage + ')'"></div>
-				</div>
+					<div *ngIf="!spot.images" class="text-center">
+              <img id="no-image" [src]="noImage">
+          </div>
+        </div>
 				<div class="post_excerpt">
 					<div class="container-fluid">
 						<div class="row">

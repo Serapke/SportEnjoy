@@ -20,6 +20,11 @@ export class SpotAddComponent implements OnInit {
   image: string = "";
   file: string = "";
 
+  userPosition: any;
+  centerLat: number = 54.8;
+  centerLng: number = 23.9;
+  zoom: number = 1;
+
   constructor(
     private _spotService: SpotService,
     private _loginService: LoginService,
@@ -30,6 +35,25 @@ export class SpotAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.spot = new ISpot();
+    this.getUserLocation();
+  }
+
+  setMarkerOnCurrentLocation(): void {
+    this.spot.latitude = this.userPosition.coords.latitude;
+    this.spot.longitude = this.userPosition.coords.longitude;
+  }
+
+  getUserLocation(): void {
+    this._locationService.getUserLocation()
+      .subscribe(position => {
+        this.userPosition = position;
+        this.centerLat = this.userPosition.coords.latitude;
+        this.centerLng = this.userPosition.coords.longitude;
+
+        this.zoom = 14;
+      }, error => {
+        this.errorMessage = error;
+      });
   }
 
   changeListener($event) : void {
@@ -37,6 +61,11 @@ export class SpotAddComponent implements OnInit {
       this._fileService.read($event.target, this.spot).subscribe(
       data => { this.image = data; }
     );
+  }
+
+  mapClicked($event: any) {
+    this.spot.latitude = $event.coords.lat;
+    this.spot.longitude = $event.coords.lng;
   }
 
   onSubmit() {
@@ -50,7 +79,6 @@ export class SpotAddComponent implements OnInit {
           .subscribe(() => {
             this._ngZone.run(() => {
               this.submitted = true;
-              console.log(this.submitted);
               this.submitting = false;
             });
           },
@@ -88,5 +116,4 @@ export class SpotAddComponent implements OnInit {
   isUpdating() {
     return false;
   }
-
 }

@@ -67,10 +67,19 @@ h2 {
   color: #555;
 }
 .btn.btn-dark {
-		color: #fff;
-		background-color: #203a4c;
-		padding: 15px;
-		border-radius: 0;
+  color: #fff;
+  background-color: #203a4c;
+  padding: 15px;
+  border-radius: 0;
+}
+.btn.btn-light {
+  color: #555;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.text-light {
+  color: #fff;
 }
 .btn-map {
   position: absolute;

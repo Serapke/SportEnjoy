@@ -1,5 +1,5 @@
 .sebm-google-map-container {
-  	height: 300px;
+  height: 300px;
 	top: 0;
 	color: #444;
 }
@@ -10,20 +10,23 @@
 .sebm-google-map-container p{
 	text-align: right;
 }
+#no-image {
+  margin-top: 100px;
+}
 h1 {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 40px;
-    border: 4px solid #fff;
-    padding: 10px 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 40px;
+  border: 4px solid #fff;
+  padding: 10px 20px;
 }
 h2 {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 40px;
 	color: #eee;
-    border: 4px solid #333;
-    padding: 30px 10px;
+  border: 4px solid #333;
+  padding: 30px 10px;
 	text-align: center;
 	width: auto;
 	background: #404040;
@@ -41,7 +44,7 @@ a {
 	.search-properties .filter {
 		padding: 10px;
 		width: 100%;
-    	color: #444;
+    color: #444;
 		border: 0;
 		font-size: 18px;
 	}
@@ -196,10 +199,9 @@ a {
 	}
 			.spots > .spot > a .img_overflow > div {
 					height: 100%;
-					background: url('/sportenjoy/assets/images/spotter-background.jpg') no-repeat center center;
 					-webkit-background-size: cover;
 					background-size: cover;
-					background-color: #b4c5cb;
+					background-color: #dee3ea;
 			}
 	.post_excerpt {
 			transition: 1s all;
@@ -238,6 +240,9 @@ a {
 	}
 	/* For tablets */
 	@media (max-width: 992px) and (min-width: 767px) {
+    #no-image {
+      margin-top: 70px;
+    }
 		.spots .spot {
 		    width: 50%!important;
 		    margin: 0;
@@ -254,7 +259,6 @@ a {
 		}
 		.spots > .col-md-3 {
 			height: auto;
-			max-height: auto;
 		}
 		.spots > .col-md-3 > a .img_overflow {
 			max-height: 250px;
@@ -282,7 +286,7 @@ a {
 		.spots .spot {
 			height: auto;
 		}
-		.spots .spot .title { 
+		.spots .spot .title {
 			line-height: 20px;
 			font-size: 16px;
 			position: relative;

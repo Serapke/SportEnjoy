@@ -34,7 +34,7 @@ export class SpotsComponent implements OnInit {
   selectedPage: number;
   selectedSorting: string = '';
   listFilter: string = '';
-  defaultImage: string = '/sportenjoy/assets/images/spotter-background.jpg';
+  noImage: string = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/defaults/test.png';
 
   // Map params
   centerLat: number = 54.8;
@@ -89,6 +89,10 @@ export class SpotsComponent implements OnInit {
     this._spotService.getParticularSpots(city, category, page)
       .subscribe(spots => {
         this.spots = spots;
+        if (spots[0])
+        this.centerLat = this.spots[0].latitude;
+        this.centerLng = this.spots[0].longitude;
+        this.zoom = 10;
       });
   }
 

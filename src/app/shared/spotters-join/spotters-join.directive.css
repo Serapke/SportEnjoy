@@ -1,5 +1,5 @@
 #spotter {
-    background: url('/sportenjoy/assets/images/spotter-background.jpg') center center no-repeat;
+    background: url('https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/background-images/spotter-background.jpg') center center no-repeat;
     text-align: center;
     -webkit-background-size: cover;
     background-size: cover;

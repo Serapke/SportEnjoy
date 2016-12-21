@@ -1,25 +1,26 @@
 section {
-		padding: 90px 0;
+  padding: 90px 0;
 }
 h2 {
-    text-transform: uppercase;
-    font-size: 40px;
-		color: #eee;
-    border: 4px solid #333;
-    padding: 30px 10px;
-		text-align: center;
-		width: auto;
-		background: #404040;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #eee;
+  border: 4px solid #333;
+  padding: 30px 10px;
+  text-align: center;
+  width: auto;
+  background: #404040;
 }
 a {
 	text-decoration: none;
 }
-
-
+#no-image {
+  margin-top: 50px;
+}
 
 .top-places {
-    zoom: 1;
-    padding: 60px 0 30px;
+  zoom: 1;
+  padding: 60px 0 30px;
 }
 .top-places .col-md-3 {
 	height: 350px;
@@ -114,7 +115,7 @@ a {
 					text-decoration:  underline;
 					color: #007496;
 				}
-				
+
 @media (min-width: 992px) {
  .geo_link {
     margin: auto 10%;

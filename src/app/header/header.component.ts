@@ -107,10 +107,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.backgroundImage = '/sportenjoy/assets/images/c2.jpg';
         break;
       case '/spot':
-        this.backgroundImage = '/sportenjoy/assets/images/spotter-background.jpg';
+        this.backgroundImage = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/background-images/main-background.jpg';
         break;
       case '/spots':
-        this.backgroundImage = '/sportenjoy/assets/images/spotter-background.jpg';
+        this.backgroundImage = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/background-images/main-background.jpg';
         break;
       case '/spotters':
         this.backgroundImage = '/sportenjoy/assets/images/c6.jpg';

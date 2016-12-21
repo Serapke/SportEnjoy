@@ -4,11 +4,13 @@
 	</div>
 	<div class="row">
 		<div class="container top-places">
-			<div *ngFor="let spot of spots" class="col-md-3">
+			<div *ngFor="let spot of spots | reverse" class="col-md-3">
 				<a [routerLink]="['/spot/' + spot.id]">
 					<div class="img_overflow">
 						<div *ngIf="spot.images" [style.background-image]="'url(' + spot.images+ ')'"></div>
-						<div *ngIf="!spot.images" [style.background-image]="'url(' + defaultImage + ')'"></div>
+						<div *ngIf="!spot.images" class="text-center">
+              <img id="no-image" [src]="noImage">
+            </div>
 					</div>
 					<div class="post_excerpt">
 						<span class="title">{{ spot.title }}</span>

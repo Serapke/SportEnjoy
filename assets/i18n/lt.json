@@ -156,6 +156,8 @@
     },
     "OTHER": {
         "ERROR": "Klaida!",
+        "NOTE": "Patarimas!",
+        "ENABLE_LOCATION": "Įjungę vietovės bendrinimą pagerinsite paieškos tikslumą bei kitas funkcijas.",
         "OR": "Arba",
         "UPDATE": "Atnaujinti",
         "CHANGE_PASSWORD": "Pakeisti slaptažodį"

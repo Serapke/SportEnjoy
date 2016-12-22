@@ -138,6 +138,11 @@
         "NO_USERS": "Nepavyko gauti nei vieno vartotojo"
     },
     "USER": {
+        "MAKE_ADMIN": "Paskirti adminu",
+        "MAKE_MODERATOR": "Paskirti moderatoriu",
+        "MAKE_SPOTTER": "Paskirti nariu",
+        "BLOCK": "Blokuoti",
+        "UNBLOCK": "Atblokuoti",
         "NO_PICTURE": "Vartotojas nėra pateikęs savo nuotraukos",
         "EMAIL": "Email",
         "LOCATION": "Vieta",

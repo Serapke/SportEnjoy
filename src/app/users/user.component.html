@@ -1,17 +1,41 @@
 <div class="container-fluid content" *ngIf="user">
 	<div class="row review">
 		<div class="col-md-3">
-			<button (click)="makeAdmin()" type="button" class="btn btn-success">Paskirti adminu</button>
+			<button (click)="makeAdmin()" type="button" class="btn btn-success">{{ 'USER.MAKE_ADMIN' | translate }}</button>
 		</div>
 		<div class="col-md-3">
-			<button *ngIf="!user.moderator" (click)="makeModerator()" type="button" class="btn btn-info">Paskirti moderatoriu</button>
+			<button
+        *ngIf="!user.moderator"
+        (click)="makeModerator()"
+        type="button"
+        class="btn btn-info">
+          {{ 'USER.MAKE_MODERATOR' | translate}}
+      </button>
 		</div>
 		<div class="col-md-3">
-			<button *ngIf="user.moderator || user.admin" (click)="makeSpotter()" type="button" class="btn btn-primary">Paskirti spotteriu</button>
+			<button
+        *ngIf="user.moderator || user.admin"
+        (click)="makeSpotter()"
+        type="button"
+        class="btn btn-primary">
+          {{ 'USER.MAKE_SPOTTER' | translate}}
+      </button>
 		</div>
 		<div class="col-md-3">
-			<button *ngIf="!user.banned" (click)="ban(true)" type="button" class="btn btn-danger">Blokuoti</button>
-			<button *ngIf="user.banned" (click)="ban(false)" type="button" class="btn btn-danger">Atblokuoti</button>
+			<button
+        *ngIf="!user.banned"
+        (click)="ban(true)"
+        type="button"
+        class="btn btn-danger">
+          {{ 'USER.BLOCK' | translate }}
+      </button>
+			<button
+        *ngIf="user.banned"
+        (click)="ban(false)"
+        type="button"
+        class="btn btn-danger">
+          {{ 'USER.UNBLOCK' | translate }}
+      </button>
 		</div>
 	</div>
 	<div class="row user-details">

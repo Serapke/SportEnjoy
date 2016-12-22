@@ -87,6 +87,12 @@ form .section img {
   margin-top: 20px;
 }
 @media (max-width: 768px) {
+  .sebm-google-map-container {
+    height: 243px;
+  }
+  .btn {
+    width: 100%;
+  }
 	form .form-group.submit {
 		margin-top: 20px;
 	}

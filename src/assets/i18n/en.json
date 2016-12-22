@@ -139,6 +139,11 @@
         "NO_USERS": "Couldn't retrieve any users"
     },
     "USER": {
+        "MAKE_ADMIN": "Make admin",
+        "MAKE_MODERATOR": "Make moderator",
+        "MAKE_SPOTTER": "Make spotter",
+        "BLOCK": "Block",
+        "UNBLOCK": "Unblock",
         "NO_PICTURE": "User hasn't provided any photo",
         "EMAIL": "Email",
         "LOCATION": "Location",

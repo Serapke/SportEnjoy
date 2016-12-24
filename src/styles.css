@@ -192,3 +192,62 @@ form textarea.ng-valid {
 	width: 50%;
 	float: left;
 }
+.dropdown-list .inner-addon {
+  position: relative;
+}
+.right-addon .glyphicon {
+  right: 0px;
+}
+.right-addon input {
+  padding-right: 30px;
+}
+.dropdown-list .inner-addon .glyphicon {
+  position: absolute;
+  padding: 17px;
+  pointer-events: none;
+  color: #444;
+}
+.dropdown-list input {
+  height: 54px;
+  padding: 10px 15px;
+}
+.dropdown-list ul {
+  text-align: center;
+  cursor: pointer;
+  max-height: 220px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow-y: scroll;
+  z-index: 999;
+  border-radius: 0;
+}
+.dropdown-list ul li {
+  border-bottom:  1px solid #eee;
+}
+.dropdown-list ul li:hover {
+  border-bottom:  1px solid #101d26;
+}
+.dropdown-list ul li a {
+  color: #32353c;
+  text-decoration: none;
+  padding: 10px 20px;
+  white-space: inherit;
+  font-size: 14px;
+  display: block;
+  background: #fff;
+}
+.dropdown-list ul li a:hover {
+  color: #fff;
+  background: rgba(23,41,53,.7);
+}
+
+@media (max-width: 991px) {
+  .dropdown-list input {
+    width: 100%!important;
+    margin-bottom: 2px;
+    margin-left: 0;
+    float: none;
+  }
+}

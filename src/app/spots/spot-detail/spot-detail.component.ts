@@ -3,22 +3,28 @@ import { ISpot } from '../spot';
 import { SpotService } from '../spot.service';
 import { LoginService } from '../../login/login.service';
 import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
+import {TextTransformService} from "../../shared/text-transform.service";
+import {TranslateService} from "ng2-translate";
 
 @Component({
 	templateUrl: './spot-detail.component.html',
 	styleUrls: ['./spot-detail.component.css']
 })
 export class SpotDetailComponent implements OnInit, OnDestroy {
+  rotatedCategoryDropdownArrow: boolean = false;
 	private sub: any;
-  	spot: ISpot;
+  spot: ISpot;
 	mainImage : string;
 	reviewed: boolean = false;
 	errorMessage: string;
+  categories: string[];
 
 	constructor(
 		private _spotService: SpotService,
 		private _loginService: LoginService,
 		private _router: Router,
+    private _translate: TranslateService,
+    private _textTransformService: TextTransformService,
 		private _route: ActivatedRoute) {
 	}
 
@@ -31,7 +37,42 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 			let id = +params['id'];
 			this.getSpot(id);
 		});
+    this._spotService.getCategories()
+      .subscribe(categories => {
+          this.getTranslations(categories);
+          console.log("got translations");
+        },
+        error =>  this.errorMessage = <any>error
+      );
 	}
+
+  getTranslations(categories: string[]): void {
+    this.categories = new Array();
+    this._translate.get(categories).subscribe((translations: string[]) => {
+      for (let key in translations) {
+        if (translations.hasOwnProperty(key)) {
+          this.categories.push(translations[key]);
+        }
+      }
+    });
+  }
+
+  showCategories(): void {
+    this.rotatedCategoryDropdownArrow = true;
+  }
+
+  hideCategories(): void {
+    this.rotatedCategoryDropdownArrow = false;
+  }
+
+  prettify(word: string): string {
+    return this._textTransformService.capitalize(word);
+  }
+
+  saveCategory(category: string): void {
+    this.spot.category = this.prettify(category.toLowerCase());
+    this.rotatedCategoryDropdownArrow = !this.rotatedCategoryDropdownArrow;
+  }
 
 	getSpot(id: number) {
 			 this._spotService.getSpot(id)

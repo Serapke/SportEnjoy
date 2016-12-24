@@ -60,7 +60,7 @@ h2 {
     background-color: #38b5aa;
 }
 .tab-content #category input::-webkit-input-placeholder {
-    color: #fff;    
+    color: #fff;
 }
 .category-dropdown#city {
     width: 55.5%;
@@ -69,10 +69,10 @@ h2 {
 .tab-content .tab-pane > .btn {
     float: left;
 }
-.tab-content .category-dropdown, .tab-content .category-dropdown {
+.category-dropdown {
     margin-left: 1px;
 }
-.tab-content .category-dropdown .btn, .tab-content .category-dropdown .btn {
+.category-dropdown .btn {
     position: relative;
     margin: 0;
     font-size: 15px;
@@ -114,7 +114,7 @@ h2 {
 }
 .category-dropdown ul li a:hover {
     color: #fff;
-    background: rgba(23,41,53,.7);                    
+    background: rgba(23,41,53,.7);
 }
 .category-dropdown .recap {
     display: block;

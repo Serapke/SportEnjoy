@@ -58,13 +58,13 @@ export class SearchFormComponent implements OnInit {
         });
 	}
 
-    showCategories(): void {
-        this.rotatedCategoryDropdownArrow = true;
+  showCategories(): void {
+    this.rotatedCategoryDropdownArrow = true;
 	}
 
-    hideCategories(): void {
-        this.rotatedCategoryDropdownArrow = false;
-    }
+  hideCategories(): void {
+    this.rotatedCategoryDropdownArrow = false;
+  }
 
     showCities(): void {
 		this.rotatedCityDropdownArrow = true;
@@ -95,11 +95,11 @@ export class SearchFormComponent implements OnInit {
 		this.rotatedCategoryDropdownArrow = !this.rotatedCategoryDropdownArrow;
 	}
 
-    saveCity(city: string): void {
-        this.location = city;
-		this.model.location = this.prettify(this.location.toLowerCase());
-		this.rotatedCityDropdownArrow = !this.rotatedCityDropdownArrow;
-    }
+  saveCity(city: string): void {
+    this.location = city;
+    this.model.location = this.prettify(this.location.toLowerCase());
+    this.rotatedCityDropdownArrow = !this.rotatedCityDropdownArrow;
+  }
 
     parseParams(path: string): void {
 		let buff = path.substring(path.indexOf('=')+1);

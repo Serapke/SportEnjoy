@@ -15,10 +15,19 @@
           <input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.TITLE_PLACEHOLDER' | translate }}" required
             [(ngModel)]="spot.title" name="title">
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CATEGORY_PLACEHOLDER' | translate }}" required
-            [(ngModel)]="spot.category" name="category">
+        <div class="dropdown-list form-group" id="category">
+          <div class="inner-addon right-addon">
+            <i [class.rotate]="rotatedCategoryDropdownArrow" class="glyphicon glyphicon-menu-down"></i>
+            <input type="text" placeholder="{{ 'HEADER.CATEGORY' | translate }}" (click)="showCategories()" (blur)="hideCategories()" [(ngModel)]="spot.category" name="category" autocomplete="off">
+          </div>
+          <ul *ngIf="rotatedCategoryDropdownArrow" class="dropdown-content">
+            <li *ngFor="let category of categories | locationFilter:spot.category" (mousedown)="saveCategory(category)"><a>{{ prettify(category) }}</a></li>
+          </ul>
         </div>
+        <!--<div class="form-group">-->
+          <!--<input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CATEGORY_PLACEHOLDER' | translate }}" required-->
+            <!--[(ngModel)]="spot.category" name="category">-->
+        <!--</div>-->
         <div class="form-group">
           <textarea type="text" class="form-control" rows="6" placeholder="{{ 'SPOT_FORM.DESCRIPTION_PLACEHOLDER' | translate }}"
             [(ngModel)]="spot.description" name="description"></textarea>

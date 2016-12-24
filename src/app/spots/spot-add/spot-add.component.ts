@@ -5,6 +5,8 @@ import { SpotService } from '../spot.service';
 import { LoginService } from '../../login/login.service';
 import { FileService } from '../../shared/file.service';
 import { LocationService } from '../../shared/location/location.service';
+import {TranslateService} from "ng2-translate";
+import {TextTransformService} from "../../shared/text-transform.service";
 
 @Component({
   selector: 'ng-topPlaces',
@@ -13,12 +15,14 @@ import { LocationService } from '../../shared/location/location.service';
   directives: [ROUTER_DIRECTIVES]
 })
 export class SpotAddComponent implements OnInit {
+  rotatedCategoryDropdownArrow: boolean = false;
   spot: ISpot;
   errorMessage: string;
   submitted: boolean = false;
   submitting: boolean = false;
   image: string = "";
   file: string = "";
+  categories: string[];
 
   userPosition: any;
   centerLat: number = 54.8;
@@ -31,11 +35,31 @@ export class SpotAddComponent implements OnInit {
     private _fileService: FileService,
     private _locationService: LocationService,
     private _ngZone: NgZone,
+    private _translate: TranslateService,
+    private _textTransformService: TextTransformService,
     private _router: Router) {}
 
   ngOnInit(): void {
     this.spot = new ISpot();
     this.getUserLocation();
+    this._spotService.getCategories()
+      .subscribe(categories => {
+        this.getTranslations(categories);
+        console.log("got translations");
+      },
+        error =>  this.errorMessage = <any>error
+      );
+  }
+
+  getTranslations(categories: string[]): void {
+    this.categories = new Array();
+    this._translate.get(categories).subscribe((translations: string[]) => {
+      for (let key in translations) {
+        if (translations.hasOwnProperty(key)) {
+          this.categories.push(translations[key]);
+        }
+      }
+    });
   }
 
   setMarkerOnCurrentLocation(): void {
@@ -54,6 +78,23 @@ export class SpotAddComponent implements OnInit {
       }, error => {
         this.errorMessage = error;
       });
+  }
+
+  showCategories(): void {
+    this.rotatedCategoryDropdownArrow = true;
+  }
+
+  hideCategories(): void {
+    this.rotatedCategoryDropdownArrow = false;
+  }
+
+  prettify(word: string): string {
+    return this._textTransformService.capitalize(word);
+  }
+
+  saveCategory(category: string): void {
+    this.spot.category = this.prettify(category.toLowerCase());
+    this.rotatedCategoryDropdownArrow = !this.rotatedCategoryDropdownArrow;
   }
 
   changeListener($event) : void {

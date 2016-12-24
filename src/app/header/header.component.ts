@@ -116,7 +116,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.backgroundImage = '/sportenjoy/assets/images/c6.jpg';
         break;
       case '/login':
-        this.backgroundImage = '/sportenjoy/assets/images/c3.jpg';
+        this.backgroundImage = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/background-images/login-background.jpg';
         break;
       default:
         this.backgroundImage = '/sportenjoy/assets/images/header-background.jpg';

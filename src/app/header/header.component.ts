@@ -3,12 +3,12 @@ import { ROUTER_DIRECTIVES, ActivatedRoute, Router, Event, NavigationEnd } from 
 import { SpotService } from '../spots/spot.service';
 import { LoginService } from '../login/login.service';
 import { UserService } from '../users/user.service';
-import { ISpot } from '../spots/spot';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { SocialMediaDirective } from './social-media/social-media.directive';
 import { TextTransformService } from '../shared/text-transform.service';
+import { FacebookService } from "../shared/facebook.service";
 
 
 @Component({
@@ -38,10 +38,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private _router: Router,
-        private _spotService: SpotService,
+    private _spotService: SpotService,
     private _route: ActivatedRoute,
     private _userService: UserService,
     private _textTransformService: TextTransformService,
+    private _fb: FacebookService,
     private _loginService: LoginService
     ) {}
 
@@ -78,6 +79,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLogout() {
+    this._fb.logout();
     this._loginService.logout();
     this._router.navigate(['/spots']);
   }
@@ -119,7 +121,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.backgroundImage = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/background-images/login-background.jpg';
         break;
       default:
-        this.backgroundImage = '/sportenjoy/assets/images/header-background.jpg';
+        this.backgroundImage = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/background-images/main-background.jpg';
     }
   }
 
@@ -137,11 +139,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAdmin(): boolean {
     return this._loginService.isAdmin();
   }
-  showMap(): boolean {
-    if (this.path == '/spots')
-      return true;
-    return false;
-  }
+
   showParams(): boolean {
     if (this.path &&
       this.path.includes('/spots') &&

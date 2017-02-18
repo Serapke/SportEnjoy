@@ -17,6 +17,7 @@ a {
 .login-item {
 		text-align: center;
 		background: #203a4c;
+    cursor: pointer;
 }
 .login-item#fb {
 		background: #3b5998;

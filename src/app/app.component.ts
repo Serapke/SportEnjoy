@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginService } from './login/login.service';
 import { UserService } from './users/user.service';
 import { LocationService } from './shared/location/location.service';
+import {FacebookService} from "./shared/facebook.service";
 
 @Component({
   selector: 'app-root',
@@ -27,14 +28,15 @@ import { LocationService } from './shared/location/location.service';
     TextTransformService,
     UserService,
     FileService,
-    LocationService
+    LocationService,
+    FacebookService
   ]
 })
 export class AppComponent {
   constructor(translate: TranslateService) {
     translate.addLangs(["en", "lt"]);
     translate.setDefaultLang('en');
-    
+
     let browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|lt/) ? browserLang : 'lt');
   }

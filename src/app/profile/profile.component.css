@@ -39,6 +39,10 @@ h2 {
   text-align: left;
 }
 
+.user-image {
+  width: 50%;
+}
+
 @media (max-width: 768px) {
   .spots .panel {
     border: 0;

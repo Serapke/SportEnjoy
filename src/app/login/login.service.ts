@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { TextTransformService } from '../shared/text-transform.service';
 import { IUser } from '../users/user';
 
 @Injectable()
@@ -9,7 +8,6 @@ export class LoginService {
     private _loginUrl = 'https://sportenjoy-api.herokuapp.com/sessions';
     user: IUser = null;
     private loggedIn: boolean = false;
-    redirectUrl: string;
 
     constructor(
       private _http: Http
@@ -22,11 +20,20 @@ export class LoginService {
       return this._http.post(this._loginUrl, JSON.stringify({email, password}), {headers: headers})
         .map((response: Response) => <IUser> response.json())
         .do(data => {
-            console.log("Succcesfully logged in! User: " + data.email);
-            localStorage.setItem('auth_token', data.auth_token);
-            localStorage.setItem('user_name', data.name);
-            localStorage.setItem('user', JSON.stringify(data));
-            this.loggedIn = true;
+            console.log("Successfully logged in! User: " + data.email);
+            this.setUserToLocalStorage(data);
+        })
+        .catch(this.handleError);
+    }
+
+    loginSocialUser(email: string, facebook_id: string, name: string, photoUrl: string) {
+      let user = {'email': email, 'facebook_id': facebook_id, 'name': name,'image': photoUrl};
+      let url = `${this._loginUrl}/facebook`;
+      return this._http.post(url, user)
+        .map((response: Response) => <IUser> response.json())
+        .do(data => {
+          console.log("Successfully logged in! User: " + data.email);
+          this.setUserToLocalStorage(data);
         })
         .catch(this.handleError);
     }
@@ -40,6 +47,13 @@ export class LoginService {
       localStorage.removeItem('user_name');
       localStorage.removeItem('user');
       this.loggedIn = false;
+    }
+
+    setUserToLocalStorage(data) {
+      localStorage.setItem('auth_token', data.auth_token);
+      localStorage.setItem('user_name', data.name);
+      localStorage.setItem('user', JSON.stringify(data));
+      this.loggedIn = true;
     }
 
     isLoggedIn() {

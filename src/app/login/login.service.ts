@@ -26,9 +26,14 @@ export class LoginService {
         .catch(this.handleError);
     }
 
-    loginSocialUser(email: string, facebook_id: string, name: string, photoUrl: string) {
-      let user = {'email': email, 'facebook_id': facebook_id, 'name': name,'image': photoUrl};
-      let url = `${this._loginUrl}/facebook`;
+    loginSocialUser(email: string, social_id: string, name: string, photoUrl: string, social_media: string) {
+      let user = {'email': email, 'social_id': social_id, 'name': name,'image': photoUrl};
+      let url;
+      if (social_media === 'facebook') {
+        url = `${this._loginUrl}/facebook`;
+      } else {
+        url = `${this._loginUrl}/google`;
+      }
       return this._http.post(url, user)
         .map((response: Response) => <IUser> response.json())
         .do(data => {
@@ -66,15 +71,13 @@ export class LoginService {
 
     isModerator() {
       let user = <IUser> JSON.parse(localStorage.getItem('user'));
-      if (this.isLoggedIn() && user.moderator)
-        return true;
-      return false;
+      return this.isLoggedIn() && user.moderator;
+
     }
     isAdmin() {
       let user = <IUser> JSON.parse(localStorage.getItem('user'));
-      if (this.isLoggedIn() && user.admin)
-        return true;
-      return false;
+      return this.isLoggedIn() && user.admin;
+
     }
 
     private handleError(error: Response) {

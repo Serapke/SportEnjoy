@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 
-declare var FB: any;
+declare let FB: any;
 
 @Injectable()
 export class FacebookService {
   public static STATUS_CONNECTED = 'connected';
   public static STATUS_NOT_AUTHORIZED = 'not_authorized';
+
+  public static SOCIAL_MEDIA_NAME = 'facebook';
 
 
   /**

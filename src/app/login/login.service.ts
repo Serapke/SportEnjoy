@@ -66,16 +66,16 @@ export class LoginService {
     }
 
     getCurrentUser(): IUser {
-      return <IUser> JSON.parse(localStorage.getItem('user'));
+      return <IUser> JSON.parse(JSON.stringify(localStorage.getItem('user')));
     }
 
     isModerator() {
-      let user = <IUser> JSON.parse(localStorage.getItem('user'));
+      let user = <IUser> JSON.parse(JSON.stringify(localStorage.getItem('user')));
       return this.isLoggedIn() && user.moderator;
 
     }
     isAdmin() {
-      let user = <IUser> JSON.parse(localStorage.getItem('user'));
+      let user = <IUser> JSON.parse(JSON.stringify(localStorage.getItem('user')));
       return this.isLoggedIn() && user.admin;
 
     }

@@ -37,7 +37,17 @@
           <div class="beenHere">
   					<h4>{{ 'SPOT.BEEN_HERE' | translate }}?</h4>
   					<p>{{ 'SPOT.RATE_IT' | translate }}!</p>
-  					<a (click)="gotoLogin()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
+            <a *ngIf="!isLoggedIn()" (click)="gotoLogin()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
+            <div *ngIf="isLoggedIn()" class="row">
+              <a *ngIf="!beenHere" (click)="showRating()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
+              <div *ngIf="beenHere" id="rating" style="text-align: center">
+                <span (click)="rate(index)"
+                      *ngFor="let index of [5,4,3,2,1]"
+                      [class.selected-stars]="colorStar(index)"
+                      class="glyphicon glyphicon-star"></span>
+              </div>
+              <span class="row">Your rating: {{ user_rating }}</span>
+            </div>
           </div>
           <div class="spot-stats">
 						<div class="col-md-4 col-xs-4"><p>{{ spot.rating }}<span class="glyphicon glyphicon-star"></span></p></div>

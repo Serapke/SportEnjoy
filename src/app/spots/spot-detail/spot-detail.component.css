@@ -38,11 +38,26 @@ h3 {
 	border-left: 1px solid #dee3ea;
 }
 .spot-detail .sidebar .beenHere {
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 	border-bottom: 1px solid #dee3ea;
 }
 .spot-detail .sidebar .beenHere .btn {
 	width: 80%;
+}
+.spot-detail .sidebar .beenHere #rating {
+  display: inline-block;
+}
+.spot-detail .sidebar .beenHere #rating span.selected-stars {
+  color: #ffd700;
+}
+.spot-detail .sidebar .beenHere #rating span {
+  font-size: 25px;
+  float: right;
+  color: #798994;
+}
+.spot-detail .sidebar .beenHere #rating span:hover,
+.spot-detail .sidebar .beenHere #rating span:hover ~ span{
+  color: #ffd700;
 }
 .spot-detail .sidebar .spot-stats {
 	display: inline-block;

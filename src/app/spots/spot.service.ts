@@ -12,7 +12,7 @@ export class SpotService {
     private _userProductUrl = 'https://sportenjoy-api.herokuapp.com/users';
     topSpotsCount: number = 4;
     errorMessage: string;
-    
+
     constructor(
       private _http: Http,
       private _textTransformService: TextTransformService
@@ -104,7 +104,7 @@ export class SpotService {
     }
     reviewSpot(spotID: number, review: boolean): Observable<ISpot> {
       let approved = {'spot': {'approved': review}};
-      let url =  `${this._publicProductUrl}/${spotID}/review`;
+      let url = `${this._publicProductUrl}/${spotID}/review`;
 
       return this._http.put(url, approved, { headers: this.getHeaders()})
             .map((response: Response) => <ISpot> response.json())
@@ -114,6 +114,30 @@ export class SpotService {
             })
             .catch(this.handleError);
     }
+    rateSpot(spotID: number, value: number): Observable<ISpot> {
+      let rate = { 'value': value };
+      let url = `${this._publicProductUrl}/${spotID}/rate`;
+
+      return this._http.post(url, rate, { headers: this.getHeaders()})
+        .map((response: Response) => <ISpot> response.json())
+        .do(data => {
+          console.log("Rated a spot with value: " + value);
+          console.log(data);
+        })
+        .catch(this.handleError);
+    }
+
+    getSpotRating(spotID: number): Observable<number> {
+      let url = `${this._publicProductUrl}/${spotID}/rating`;
+
+      return this._http.get(url, { headers: this.getHeaders()})
+        .map((response: Response) => <number> response.json())
+        .do(data => {
+          console.log("Got spot rating!");
+        })
+        .catch(this.handleError);
+    }
+
     updateSpot(spot: ISpot): Observable<ISpot> {
       let url = `${this._userProductUrl}/${spot.user_id}/spots/${spot.id}`;
 

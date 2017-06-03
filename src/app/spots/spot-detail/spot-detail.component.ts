@@ -16,6 +16,8 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
   spot: ISpot;
 	mainImage : string;
 	reviewed: boolean = false;
+	beenHere: boolean;
+	user_rating: number;
 	errorMessage: string;
   categories: string[];
 
@@ -36,6 +38,7 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 		this.sub = this._route.params.subscribe(params => {
 			let id = +params['id'];
 			this.getSpot(id);
+			this.getSpotRating(id);
 		});
     this._spotService.getCategories()
       .subscribe(categories => {
@@ -43,7 +46,7 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
           console.log("got translations");
         },
         error =>  this.errorMessage = <any>error
-      );
+    );
 	}
 
   getTranslations(categories: string[]): void {
@@ -75,18 +78,34 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
   }
 
 	getSpot(id: number) {
-			 this._spotService.getSpot(id)
-					 .subscribe(
-					 spot => {
-						 this.spot = spot;
-						 this.reviewed = spot.reviewed;
-						 this.mainImage = spot.images;
-					 },
-					 error => this.errorMessage = <any>error);
-	 }
+    this._spotService.getSpot(id)
+     .subscribe(
+      spot => {
+        this.spot = spot;
+        this.reviewed = spot.reviewed;
+        this.mainImage = spot.images;
+      },
+      error => this.errorMessage = <any>error
+    );
+	}
+
+	getSpotRating(id: number) {
+    this._spotService.getSpotRating(id)
+      .subscribe(rating => {
+        this.user_rating = rating;
+        this.beenHere = this.user_rating != null;
+      },
+      error => this.errorMessage = <any> error
+    );
+  }
+
 	ngOnDestroy() {
 	  this.sub.unsubscribe();
 	}
+
+	isLoggedIn(): boolean {
+	  return this._loginService.isLoggedIn();
+  }
 
 	isModerator(): boolean {
 		return this._loginService.isModerator() || this._loginService.isAdmin();
@@ -98,23 +117,45 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 
 	approve() {
 		this._spotService.reviewSpot(this.spot.id, true)
-					.subscribe(
-					spot => {
-						this.spot = spot;
-						this.reviewed = true;
-					},
-					error => this.errorMessage = <any>error);
+      .subscribe(
+      spot => {
+        this.spot = spot;
+        this.reviewed = true;
+      },
+      error => this.errorMessage = <any>error);
 	}
 
 	decline() {
 		this._spotService.reviewSpot(this.spot.id, false)
-					.subscribe(
-						spot => {
-							this.spot = spot;
-							this.reviewed = true;
-						}
-					)
+      .subscribe(
+        spot => {
+          this.spot = spot;
+          this.reviewed = true;
+        }
+      )
 	}
+
+	rate(rating) {
+	  this.user_rating = rating;
+	  this._spotService.rateSpot(this.spot.id, this.user_rating)
+      .subscribe(
+        spot => {
+          this.spot.beenHere = spot.beenHere;
+          this.spot.rating = spot.rating;
+        }
+      )
+  }
+
+  colorStar(index):boolean {
+	  if (index <= this.user_rating) {
+	    return true;
+    }
+    return false;
+  }
+
+	showRating() {
+	  this.beenHere = true;
+  }
 
 	update() {
 		this._router.navigate(['/spot/' + this.spot.id + '/update']);

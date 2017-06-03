@@ -10,7 +10,7 @@
 
     "APPROVED": "Approved",
     "REJECTED": "Rejected",
-    "UNREVIEWD": "Unreviewed",
+    "UNREVIEWED": "Unreviewed",
 
     "USER_TITLE": "User",
     "MODERATOR_TITLE" : "Moderator",

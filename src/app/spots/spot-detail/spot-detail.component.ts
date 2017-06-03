@@ -92,8 +92,10 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	getSpotRating(id: number) {
     this._spotService.getSpotRating(id)
       .subscribe(rating => {
-        this.user_rating = rating;
-        this.beenHere = this.user_rating != null;
+        if (!isNaN(rating)) {
+          this.user_rating = rating;
+          this.beenHere = true;
+        }
       },
       error => this.errorMessage = <any> error
     );

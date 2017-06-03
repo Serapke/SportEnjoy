@@ -134,6 +134,7 @@ export class SpotService {
         .map((response: Response) => <number> response.json())
         .do(data => {
           console.log("Got spot rating!");
+          console.log(data);
         })
         .catch(this.handleError);
     }

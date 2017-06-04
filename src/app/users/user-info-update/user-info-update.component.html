@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <h2 class="hidden-xs">{{ 'TITLES.EDIT_USER' | translate }}</h2>
+  </div>
+  <form *ngIf="!submitted && !submitting" class="row" (ngSubmit)="onSubmit()">
+    <div class="col-md-6 col-md-offset-3 section">
+      <h4>{{ 'USER_FORM.CHANGE_INFO' | translate }}</h4>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="{{ 'USER_FORM.NAME' | translate }}"
+               [(ngModel)]="user.name" name="name">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="{{ 'USER_FORM.LOCATION' | translate }}"
+               [(ngModel)]="user.location" name="location">
+      </div>
+    </div>
+    <div class="col-md-offset-3 col-md-6 section">
+      <div class="form-group submit">
+        <input type="submit" value="{{ 'OTHER.SUBMIT' | translate }}" class="btn btn-dark">
+      </div>
+    </div>
+  </form>
+  <div *ngIf="submitted" class="panel panel-success submitted">
+    <div class="panel-heading">
+      {{ 'USER_FORM.SUCCESSFUL_SUBMISSION' | translate }}
+    </div>
+  </div>
+  <div *ngIf="submitting" class="loading">
+    <div class="loader"></div>
+    <div class="alert alert-info">{{ 'USER_FORM.PROCESSING' | translate }}</div>
+  </div>
+</div>

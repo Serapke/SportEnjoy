@@ -1,0 +1,40 @@
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #eee;
+  border: 4px solid #333;
+  padding: 30px 10px;
+  text-align: center;
+  width: auto;
+  background: #404040;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+form {
+  padding: 70px 50px;
+  background: top center no-repeat #2ecc71;
+  background-size:cover;
+  color: #32353c;
+}
+
+.btn {
+  width: 48%;
+}
+.btn.btn-dark {
+  width: 200px;
+}
+
+.loading {
+  text-align: center;
+}
+.loading .loader {
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -250px;
+}
+.loading .alert {
+  margin-top: 350px;
+}

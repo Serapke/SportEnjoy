@@ -22,6 +22,7 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user.component';
 import { SearchFormComponent } from './header/search-form/search-form.component';
 import { UserPasswordUpdateComponent } from "./users/user-password-update/user-password-update.component";
+import { UserInfoUpdateComponent } from "./users/user-info-update/user-info-update.component";
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { UserPasswordUpdateComponent } from "./users/user-password-update/user-p
     ReviewComponent,
     UsersComponent,
     UserComponent,
-    UserUpdateComponent,
+    UserInfoUpdateComponent,
     UserPasswordUpdateComponent,
     ContactComponent,
     SpotDetailComponent,

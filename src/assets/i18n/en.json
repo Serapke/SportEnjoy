@@ -155,10 +155,13 @@
         "STATUS": "Status"
     },
     "USER_FORM": {
+      "NAME": "Name",
+      "LOCATION": "Location",
       "CURRENT_PASSWORD": "Current password",
       "PASSWORD": "New password",
       "PASSWORD_CONFIRMATION": "Password confirmation",
       "CHANGE_PASSWORD": "Change password",
+      "CHANGE_INFO": "Change info",
       "SUCCESSFUL_SUBMISSION": "User information was successfully updated!"
     },
     "TITLES": {

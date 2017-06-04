@@ -13,7 +13,8 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user.component';
 import { LoggedInGuard } from './shared/logged-in.guard';
 import { LoginService } from './login/login.service';
-import {UserInfoUpdateComponent, UserPasswordUpdateComponent} from "./users/user-password-update/user-password-update.component";
+import { UserPasswordUpdateComponent } from "./users/user-password-update/user-password-update.component";
+import {UserInfoUpdateComponent} from "./users/user-info-update/user-info-update.component";
 
 export const routes: RouterConfig = [
 	{

@@ -154,10 +154,13 @@
         "STATUS": "Statusas"
     },
     "USER_FORM": {
+      "NAME": "Vardas",
+      "LOCATION": "Vieta",
       "CURRENT_PASSWORD": "Dabartinis slaptažodis",
       "PASSWORD": "Naujas slaptažodis",
       "PASSWORD_CONFIRMATION": "Slaptažodžio patvirtinimas",
       "CHANGE_PASSWORD": "Slaptažodžio keitimas",
+      "CHANGE_INFO": "Informacijos keitimas",
       "SUCCESSFUL_SUBMISSION": "Vartotojo informacija sėkmingai atnaujinta!"
     },
     "TITLES": {

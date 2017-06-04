@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="col-md-12">
-      <button class="btn btn-dark">{{ 'OTHER.UPDATE' | translate }}</button>
+      <button (click)="changeInfo()" class="btn btn-dark">{{ 'OTHER.UPDATE' | translate }}</button>
       <button (click)="changePassword()" class="btn btn-dark">{{ 'OTHER.CHANGE_PASSWORD' | translate }}</button>
     </div>
   </div>

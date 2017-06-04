@@ -10,7 +10,7 @@ export class SpotService {
     location: Location[];
     private _publicProductUrl = 'https://sportenjoy-api.herokuapp.com/spots';
     private _userProductUrl = 'https://sportenjoy-api.herokuapp.com/users';
-    topSpotsCount: number = 4;
+    topSpotsCount: number = 8;
     errorMessage: string;
 
     constructor(

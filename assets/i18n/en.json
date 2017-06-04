@@ -131,7 +131,6 @@
         "LATITUDE": "Latitude",
         "LONGITUDE": "Longitude",
         "USE_CURRENT_LOCATION": "Use current location",
-        "SUBMIT": "Submit",
         "SUCCESSFUL_SUBMISSION": "Your spot was successfully submitted!",
         "SHOW_UPDATES": "You can see the changes here",
         "SUCCESSFULLY_ADDED": "You have successfully added a new spot. Cheers!",
@@ -155,6 +154,16 @@
         "REGISTRATION_DATE": "Registered",
         "STATUS": "Status"
     },
+    "USER_FORM": {
+      "NAME": "Name",
+      "LOCATION": "Location",
+      "CURRENT_PASSWORD": "Current password",
+      "PASSWORD": "New password",
+      "PASSWORD_CONFIRMATION": "Password confirmation",
+      "CHANGE_PASSWORD": "Change password",
+      "CHANGE_INFO": "Change info",
+      "SUCCESSFUL_SUBMISSION": "User information was successfully updated!"
+    },
     "TITLES": {
         "SPOTTERS": "Best spotters",
         "PROFILE": "Profile",
@@ -163,7 +172,8 @@
         "REVIEW": "Review",
         "SEARCH_RESULTS": "Search results",
         "NEARBY_SPOTS": "Nearby spots",
-        "USERS": "Users"
+        "USERS": "Users",
+        "EDIT_USER": "Edit"
     },
     "OTHER": {
         "ERROR": "Error!",
@@ -171,6 +181,7 @@
         "ENABLE_LOCATION": "Enable location services to improve experience with SportEnjoy.",
         "OR": "Or",
         "UPDATE": "Update",
-        "CHANGE_PASSWORD": "Change password"
+        "CHANGE_PASSWORD": "Change password",
+        "SUBMIT": "Submit"
     }
 }

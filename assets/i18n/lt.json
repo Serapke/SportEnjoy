@@ -7,6 +7,10 @@
     "gym": "sporto klubas",
     "swimming pool": "baseinas",
     "skatepark": "riedlenčių parkas",
+    "squash": "skvošas",
+    "karting": "kartingai",
+    "venue": "pramogų vieta",
+    "water park": "vandens parkas",
 
     "APPROVED": "Patvirtinta",
     "REJECTED": "Atmesta",
@@ -121,6 +125,7 @@
         "PHOTOS": "Nuotraukos",
         "TITLE_PLACEHOLDER": "Įvesk vietos pavadinimą",
         "CATEGORY_PLACEHOLDER": "Įvesk vietos kategoriją",
+        "CITY_PLACEHOLDER": "Įvesk vietos miestą",
         "DESCRIPTION_PLACEHOLDER": "Įvesk vietos aprašymą",
         "LATITUDE": "Platuma",
         "LONGITUDE": "Ilguma",

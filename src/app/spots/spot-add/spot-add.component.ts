@@ -116,6 +116,8 @@ export class SpotAddComponent implements OnInit {
         console.log(this.findAddressPart(position, "route", "short"));
         this.spot.city = this.findAddressPart(position, "locality", "long");
         this.spot.country = this.findAddressPart(position, "country", "long");
+        if (this.spot.city == null)       // in case the spot is not in the city
+          this.spot.city = "undefined"
         this._spotService.createSpot(this.spot)
           .subscribe(() => {
             this._ngZone.run(() => {
@@ -149,6 +151,10 @@ export class SpotAddComponent implements OnInit {
 
   isModerator() {
     return this._loginService.isModerator();
+  }
+
+  isAdmin() {
+    return this._loginService.isAdmin();
   }
 
   isAdding() {

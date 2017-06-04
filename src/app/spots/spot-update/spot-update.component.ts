@@ -52,9 +52,12 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
     this._locationService.geocode(this.spot.latitude, this.spot.longitude).
       subscribe(position => {
         console.log(this.findAddressPart(position, "route", "short"));
+        let manual_city_value = this.spot.city;
         this.spot.city = this.findAddressPart(position, "locality", "long");
         this.spot.country = this.findAddressPart(position, "country", "long");
-        let sub = this._spotService.updateSpot(this.spot)
+        if (this.spot.city == null)
+          this.spot.city = manual_city_value;
+        this._spotService.updateSpot(this.spot)
           .subscribe(() => {
             this._ngZone.run(() => {
               this.submitted = true;

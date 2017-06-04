@@ -24,10 +24,10 @@
             <li *ngFor="let category of categories | locationFilter:spot.category" (mousedown)="saveCategory(category)"><a>{{ prettify(category) }}</a></li>
           </ul>
         </div>
-        <!--<div class="form-group">-->
-          <!--<input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CATEGORY_PLACEHOLDER' | translate }}" required-->
-            <!--[(ngModel)]="spot.category" name="category">-->
-        <!--</div>-->
+        <div *ngIf="isUpdating()" class="form-group">
+          <input type="text" class="form-control" placeholder="{{ 'SPOT_FORM.CITY_PLACEHOLDER' | translate }}" required
+                 [(ngModel)]="spot.city" name="city">
+        </div>
         <div class="form-group">
           <textarea type="text" class="form-control" rows="6" placeholder="{{ 'SPOT_FORM.DESCRIPTION_PLACEHOLDER' | translate }}"
             [(ngModel)]="spot.description" name="description"></textarea>
@@ -84,8 +84,8 @@
           <a [routerLink]="['/spot/' + spot.id]" class="panel-link">{{ 'SPOT_FORM.SHOW_UPDATES' | translate }}</a>
         </div>
         <div *ngIf="isAdding()">
-          <p *ngIf="isModerator()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED' | translate }}</p>
-          <p *ngIf="!isModerator()">{{ 'SPOT_FORM.SUCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
+          <p *ngIf="isModerator() || isAdmin()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED' | translate }}</p>
+          <p *ngIf="!isModerator() && !isAdmin()">{{ 'SPOT_FORM.SUCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
         </div>
       </div>
     </div>

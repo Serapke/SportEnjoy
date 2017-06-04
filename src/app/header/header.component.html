@@ -12,7 +12,7 @@
 			<div class="col-md-9">
 				<ul class="nav navbar-nav">
 					<li><a [routerLink]="['/spots']">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
-					<li *ngIf="!isModerator() && !isAdmin()"><a [routerLink]="['/top-places']">{{ 'NAVIGATION.TOP10' | translate }}</a></li>
+					<li *ngIf="!isModerator() && !isAdmin()"><a [routerLink]="['/top-places']">{{ 'NAVIGATION.TOP8' | translate }}</a></li>
 					<li *ngIf="!isModerator()  && !isAdmin()"><a [routerLink]="['/spotters']">{{ 'NAVIGATION.SPOTTERS' | translate }}</a></li>
 					<li *ngIf="isLoggedIn() && isAdmin()"><a [routerLink]="['/users']">{{ 'NAVIGATION.USERS' | translate }}</a></li>
 					<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())"><a [routerLink]="['/review']">{{ 'NAVIGATION.REVIEW' | translate }}</a></li>

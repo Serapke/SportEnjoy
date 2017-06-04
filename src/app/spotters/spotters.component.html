@@ -3,7 +3,7 @@
 		<h2>{{ 'TITLES.SPOTTERS' | translate }}</h2>
 	</div>
 	<div class="row spotters">
-		<div *ngFor='let spotter of spotters'  class="col-md-3 col-sm-6 spotter">
+		<div *ngFor='let spotter of spotters | reverse'  class="col-md-3 col-sm-6 spotter">
 				<div class="row img_overflow">
 						<div *ngIf="spotter.image" [style.background-image]="'url(' + spotter.images + ')'"></div>
 						<div *ngIf="!spotter.image" [style.background-image]="'url(' + defaultImage + ')'"></div>

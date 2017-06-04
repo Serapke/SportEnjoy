@@ -41,6 +41,14 @@ export class ProfileComponent {
       );
   }
 
+  changePassword() {
+    this._router.navigate(['/user/update_password']);
+  }
+
+  changeInfo() {
+    this._router.navigate(['/user/update_info']);
+  }
+
   prettify(word: string): string {
     return this._textTransformService.capitalize(word);
   }

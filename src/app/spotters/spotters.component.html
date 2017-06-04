@@ -5,7 +5,7 @@
 	<div class="row spotters">
 		<div *ngFor='let spotter of spotters | reverse'  class="col-md-3 col-sm-6 spotter">
 				<div class="row img_overflow">
-						<div *ngIf="spotter.image" [style.background-image]="'url(' + spotter.images + ')'"></div>
+						<div *ngIf="spotter.image" [style.background-image]="'url(' + spotter.image + ')'"></div>
 						<div *ngIf="!spotter.image" [style.background-image]="'url(' + defaultImage + ')'"></div>
 				</div>
 				<div class="row info">

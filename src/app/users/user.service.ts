@@ -54,6 +54,17 @@ export class UserService {
             .catch(this.handleError);
     }
 
+    updateUserPassword(current_password: string, password: string, password_confirmation: string): Observable<IUser> {
+      let user = {'user': {'current_password': current_password,
+        'password': password, 'password_confirmation': password_confirmation}};
+      console.log("here");
+      let url = `${this._userUrl}/update_password`;
+      return this._http.patch(url, user, { headers: this.getHeaders()})
+        .map((response: Response) => <IUser> response.json())
+        .do(data => console.log("Updated user password!"))
+        .catch(this.handleError);
+    }
+
     banUser(id: number, banned: boolean): Observable<IUser> {
       let ban = {'user': {'banned': banned}};
       let url = `${this._userUrl}/${id}/ban`;

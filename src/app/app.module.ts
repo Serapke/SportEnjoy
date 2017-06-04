@@ -21,6 +21,7 @@ import { ReviewComponent } from './review/review.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user.component';
 import { SearchFormComponent } from './header/search-form/search-form.component';
+import { UserPasswordUpdateComponent } from "./users/user-password-update/user-password-update.component";
 
 
 @NgModule({
@@ -35,6 +36,8 @@ import { SearchFormComponent } from './header/search-form/search-form.component'
     ReviewComponent,
     UsersComponent,
     UserComponent,
+    UserUpdateComponent,
+    UserPasswordUpdateComponent,
     ContactComponent,
     SpotDetailComponent,
     SpotsComponent
@@ -48,8 +51,8 @@ import { SearchFormComponent } from './header/search-form/search-form.component'
     }),
     TranslateModule.forRoot({
       provide: TranslateLoader,
-      useFactory: (http: Http) => new TranslateStaticLoader(http, '/sportenjoy/assets/i18n', '.json'),
-      // useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
+      // useFactory: (http: Http) => new TranslateStaticLoader(http, '/sportenjoy/assets/i18n', '.json'),
+      useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
       deps: [Http]
     })
   ],

@@ -130,7 +130,6 @@
         "LATITUDE": "Platuma",
         "LONGITUDE": "Ilguma",
         "USE_CURRENT_LOCATION": "Naudoti dabartinę vietą",
-        "SUBMIT": "Siųsti",
         "SUCCESSFUL_SUBMISSION": "Tavo užklausa sėkmingai išsiųsta!",
         "SHOW_UPDATES": "Pakeitimus gali peržiūrėti čia",
         "SUCCESSFULLY_ADDED": "Sėkmingai pažymėjai naują vietą. Dėkojame!",
@@ -154,6 +153,13 @@
         "REGISTRATION_DATE": "Prisiregistravo",
         "STATUS": "Statusas"
     },
+    "USER_FORM": {
+      "CURRENT_PASSWORD": "Dabartinis slaptažodis",
+      "PASSWORD": "Naujas slaptažodis",
+      "PASSWORD_CONFIRMATION": "Slaptažodžio patvirtinimas",
+      "CHANGE_PASSWORD": "Slaptažodžio keitimas",
+      "SUCCESSFUL_SUBMISSION": "Vartotojo informacija sėkmingai atnaujinta!"
+    },
     "TITLES": {
         "SPOTTERS": "Aktyviausi nariai",
         "PROFILE": "Profilis",
@@ -162,7 +168,8 @@
         "REVIEW": "Peržiūrėti",
         "SEARCH_RESULTS": "Paieškos rezultatai",
         "NEARBY_SPOTS": "Artimiausios sporto vietos",
-        "USERS": "Vartotojai"
+        "USERS": "Vartotojai",
+        "EDIT_USER": "Atnaujinti"
     },
     "OTHER": {
         "ERROR": "Klaida!",
@@ -170,6 +177,7 @@
         "ENABLE_LOCATION": "Įjungę vietovės bendrinimą pagerinsite paieškos tikslumą bei kitas funkcijas.",
         "OR": "Arba",
         "UPDATE": "Atnaujinti",
-        "CHANGE_PASSWORD": "Pakeisti slaptažodį"
+        "CHANGE_PASSWORD": "Pakeisti slaptažodį",
+        "SUBMIT": "Siųsti"
     }
 }

@@ -13,6 +13,7 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user.component';
 import { LoggedInGuard } from './shared/logged-in.guard';
 import { LoginService } from './login/login.service';
+import {UserInfoUpdateComponent, UserPasswordUpdateComponent} from "./users/user-password-update/user-password-update.component";
 
 export const routes: RouterConfig = [
 	{
@@ -75,6 +76,16 @@ export const routes: RouterConfig = [
 		component: UsersComponent,
 		canActivate: [LoggedInGuard]
 	},
+  {
+    path: 'user/update_password',
+    component: UserPasswordUpdateComponent,
+    canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'user/update_info',
+    component: UserInfoUpdateComponent,
+    canActivate: [LoggedInGuard]
+  },
 	{
 		path: 'user/:id',
 		component: UserComponent,

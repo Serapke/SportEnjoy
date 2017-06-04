@@ -55,7 +55,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
         let manual_city_value = this.spot.city;
         this.spot.city = this.findAddressPart(position, "locality", "long");
         this.spot.country = this.findAddressPart(position, "country", "long");
-        if (this.spot.city == null)
+        if (!this.spot.city || this.spot.city.length === 0)
           this.spot.city = manual_city_value;
         this._spotService.updateSpot(this.spot)
           .subscribe(() => {

@@ -42,11 +42,11 @@ export class ProfileComponent {
   }
 
   changePassword() {
-    this._router.navigate(['/user/update_password']);
+    this._router.navigate(['/user/update-password']);
   }
 
   changeInfo() {
-    this._router.navigate(['/user/update_info']);
+    this._router.navigate(['/user/update-info']);
   }
 
   prettify(word: string): string {

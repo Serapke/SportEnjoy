@@ -33,9 +33,11 @@ export class LoggedInGuard implements CanActivate {
   }
 
   private showForLoggedInUser(url: string): boolean {
+    let spot_update_url = /spot\/\d+\/update/g;
+    let user_url = /user\/\d+/g;
     if (url === '/login' || url === '/review' ||
-        url.indexOf('update') > -1 || url === '/users' ||
-        url.indexOf('user') >-1) {
+        url.match(spot_update_url) !== null || url === '/users' ||
+        url.match(user_url) !== null) {
       return false;
     }
     return true;

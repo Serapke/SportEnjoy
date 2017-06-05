@@ -45,7 +45,7 @@
 		<div class="overlay-content">
 	    <ul class="nav navbar-nav">
 			<li (click)="hideOverlay()"><a [routerLink]="['/spots']" routerLinkActive="active">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
-			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/top-places']" routerLinkActive="active">{{ 'NAVIGATION.TOP10' | translate }}</a></li>
+			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/top-places']" routerLinkActive="active">{{ 'NAVIGATION.TOP8' | translate }}</a></li>
 			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/spotters']" routerLinkActive="active">{{ 'NAVIGATION.SPOTTERS' | translate }}</a></li>
 			<li *ngIf="isLoggedIn() && isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/users']">{{ 'NAVIGATION.USERS' | translate }}</a></li>
 			<!-- <li (click)="hideOverlay()"><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->

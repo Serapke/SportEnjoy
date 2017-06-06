@@ -82,6 +82,9 @@ h3 {
 .spot-detail .sidebar .spot-stats img {
 	height: 24px;
 	margin-top: 6px;
+  background: #172935;
+  border-radius: 20px;
+  padding: 4px;
 }
 .spot-images > div {
 	width: 100%;
@@ -169,9 +172,7 @@ h3 {
 		width: 100%;
 	}
 	.spot-detail .sidebar .spot-stats img {
-		background: white;
 		padding: 4px;
-		border-radius: 20px;
 	}
 }
 

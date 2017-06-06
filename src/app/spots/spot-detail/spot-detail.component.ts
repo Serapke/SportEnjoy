@@ -166,4 +166,9 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	gotoLogin() {
 		this._router.navigate(['/login']);
 	}
+
+	decode(s: string): string {
+	  s = s.replace(/\s/g, "_");
+	  return s;
+  }
 }

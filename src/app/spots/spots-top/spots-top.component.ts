@@ -40,4 +40,9 @@ export class TopSpotsComponent {
        );
 	}
 
+	decode(s: string): string {
+	  s = s.replace(/\s/g, "_");
+	  return s;
+  }
+
 }

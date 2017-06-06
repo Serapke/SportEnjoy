@@ -54,6 +54,7 @@ export class SearchFormComponent implements OnInit {
         this._translate.use('en');
         this._translate.get(this.category).subscribe((translation: string) => {
             this.category = translation;
+            this.category = this.category.replace(/\s/g, '-');
             this._router.navigate(['/spots',  { location: this.location, category: this.category, page: 1 }]);
         });
 	}

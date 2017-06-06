@@ -85,14 +85,16 @@ export class SpotsComponent implements OnInit {
   }
 
   getParticularSpots(category: string, city: string, page: number) {
+    category = category.replace(/-/g, ' ');
     console.log("Get particular spots: "  + category + " " + city);
     this._spotService.getParticularSpots(city, category, page)
       .subscribe(spots => {
         this.spots = spots;
-        if (spots[0])
-        this.centerLat = this.spots[0].latitude;
-        this.centerLng = this.spots[0].longitude;
-        this.zoom = 10;
+        if (spots[0]) {
+          this.centerLat = this.spots[0].latitude;
+          this.centerLng = this.spots[0].longitude;
+          this.zoom = 10;
+        }
       });
   }
 

@@ -59,7 +59,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.category = this._textTransformService.escapeCharacters(buff.substring(0, buff.indexOf(';')));
     buff = buff.substring(buff.indexOf('=')+1);
     this.page = parseInt(buff);
-    console.log(this.city + " " + this.category + " " + this.page);
   }
 
   onLogout() {
@@ -90,7 +89,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   showSearch(): boolean {
-    return this.path == '/' || this.path == '/top-places' || this.path == '/spotters' || this.path == '/spots';
+    return this.path == '/' || this.path == '/top-places' || this.path == '/spotters' || this.path == '/spots'
+                            || this.path.includes('spots');
 
   }
   isLoggedIn(): boolean {
@@ -103,13 +103,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this._loginService.isAdmin();
   }
 
-  showParams(): boolean {
-    return !!(this.path &&
-    this.path.includes('/spots') &&
-    this.path.includes('location') &&
-    this.path.includes('category'));
 
-  }
   showLogin(): boolean {
     return this.path == '/login';
 

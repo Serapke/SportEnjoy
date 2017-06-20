@@ -1,0 +1,9 @@
+td {
+  cursor: pointer;
+}
+#ok:hover {
+  color: #42A948;
+}
+#remove:hover {
+  color: #a94442;
+}

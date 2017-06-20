@@ -19,13 +19,13 @@
 					</thead>
 					<tbody>
 						<tr *ngFor="let spot of spots"
-							[routerLink]="['/spot', spot.id]">
+							[routerLink]="['/spot/', spot.id]">
 							<td>{{ spot.id }}</td>
 							<td>{{ spot.title }}</td>
 							<td>{{ prettify(spot.category) | translate }}</td>
 							<td class="hidden-xs">{{ spot.city }}, {{ spot.country }}</td>
 							<td class="hidden-xs">{{ spot.created_at | date:'mediumDate' }}</td>
-							<td>{{ spot.user_id }}</td>
+							<td>{{ spot.author.email }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -33,4 +33,8 @@
 			</div>
 		</div>
 	</div>
+  <div class="row">
+    <ng-FlaggedComments></ng-FlaggedComments>
+  </div>
 </div>
+

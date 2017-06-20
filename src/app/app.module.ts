@@ -23,6 +23,9 @@ import { UserComponent } from './users/user.component';
 import { SearchFormComponent } from './header/search-form/search-form.component';
 import { UserPasswordUpdateComponent } from "./users/user-password-update/user-password-update.component";
 import { UserInfoUpdateComponent } from "./users/user-info-update/user-info-update.component";
+import { SpotCommentComponent } from "./spots/spot-comment/spot-comment.component";
+import { MomentModule } from "angular2-moment";
+import {FlaggedCommentsComponent} from "./review/flagged-comments.component";
 
 
 @NgModule({
@@ -41,11 +44,14 @@ import { UserInfoUpdateComponent } from "./users/user-info-update/user-info-upda
     UserPasswordUpdateComponent,
     ContactComponent,
     SpotDetailComponent,
-    SpotsComponent
+    SpotCommentComponent,
+    SpotsComponent,
+    FlaggedCommentsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    MomentModule,
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBGMkgxkPh9OchfxtnYFAB2m_SqnuKI5dM'

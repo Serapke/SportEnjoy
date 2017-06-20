@@ -20,6 +20,10 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	user_rating: number;
 	errorMessage: string;
   categories: string[];
+  currentPage: number = 1;
+  leftBound: number = 1;
+  rightBound: number = 1;
+  commentsPerPage: number = 3;
 
 	constructor(
 		private _spotService: SpotService,
@@ -28,11 +32,7 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
     private _translate: TranslateService,
     private _textTransformService: TextTransformService,
 		private _route: ActivatedRoute) {
-	}
-
-	// changeMainImage(_image : IImage) {
-	// 	this.mainImage = _image.url;
-	// }
+  }
 
 	ngOnInit() {
 		this.sub = this._route.params.subscribe(params => {
@@ -60,6 +60,31 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  firstPage(): boolean {
+	  return this.currentPage == 1;
+  }
+
+  lastPage(): boolean {
+	  return this.currentPage == Math.round(this.spot.original_comments.length/this.commentsPerPage);
+  }
+
+  pageArray() {
+    var x=[];
+    var i=1;
+    while(x.push(i++) < this.spot.original_comments.length/this.commentsPerPage) {};
+    return x;
+  }
+
+  changePage(i: number) {
+	  this.currentPage = i;
+    this.leftBound = (this.currentPage-1) * this.commentsPerPage+1;
+    if ((this.currentPage * this.commentsPerPage) < this.spot.original_comments.length) {
+      this.rightBound = this.currentPage * this.commentsPerPage;
+    } else {
+      this.rightBound = this.spot.original_comments.length;
+    }
+  }
+
   showCategories(): void {
     this.rotatedCategoryDropdownArrow = true;
   }
@@ -84,6 +109,11 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
         this.spot = spot;
         this.reviewed = spot.reviewed;
         this.mainImage = spot.images;
+        if ((this.currentPage * this.commentsPerPage) < this.spot.original_comments.length) {
+          this.rightBound = this.currentPage * this.commentsPerPage;
+        } else {
+          this.rightBound = this.spot.original_comments.length;
+        }
       },
       error => this.errorMessage = <any>error
     );
@@ -144,6 +174,22 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
         spot => {
           this.spot.beenHere = spot.beenHere;
           this.spot.rating = spot.rating;
+        }
+      )
+  }
+
+  newComment(commentID?: number) {
+	  if (commentID == null)
+	    this._router.navigate(['/spot/' + this.spot.id + '/comment']);
+	  else
+      this._router.navigate(['/spot/' + this.spot.id + '/comment/' + commentID]);
+  }
+
+  reportComment(commentID: number) {
+    this._spotService.reportComment(this.spot.id, commentID)
+      .subscribe(
+        spot => {
+          this.spot = spot;
         }
       )
   }

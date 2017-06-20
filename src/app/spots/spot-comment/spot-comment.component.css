@@ -1,0 +1,55 @@
+.spot-details {
+  padding: 50px 30px;
+  color: #444;
+}
+h4 {
+  margin-bottom: 0;
+}
+.spot-details .spot-image,
+.spot-details .no-image {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+}
+.geo_link:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.category img {
+  background: #909090;
+  border: 1px solid #808080;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+form {
+  padding: 50px 30px;
+  background: top center no-repeat #2ecc71;
+  background-size:cover;
+  color: #32353c;
+}
+.btn {
+  width: 48%;
+}
+.btn.btn-dark {
+  width: 200px;
+}
+.submit {
+  margin-top: 20px;
+}
+.loading {
+  text-align: center;
+}
+.loading .loader {
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -200px;
+}
+.loading .alert {
+  margin-top: 300px;
+}
+.submitted {
+  margin-top: 120px;
+}

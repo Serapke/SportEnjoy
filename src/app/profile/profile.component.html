@@ -59,8 +59,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let spot of spots"
-              [class.success]="spotStatus(spot.approved, spot.reviewed) == 'Patvirtinta'"
-              [class.danger]="spotStatus(spot.approved, spot.reviewed) == 'Atmesta'"
+              [class.success]="spotStatus(spot.approved, spot.reviewed) == 'APPROVED'"
+              [class.danger]="spotStatus(spot.approved, spot.reviewed) == 'REJECTED'"
               [routerLink]="['/spot', spot.id]">
               <td>{{ spot.id }}</td>
               <td>{{ spot.title }}</td>

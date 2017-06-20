@@ -5,7 +5,6 @@ import { SpotService } from '../spots/spot.service';
 import { TextTransformService } from '../shared/text-transform.service';
 
 @Component({
-	selector: 'ng-topPlaces',
 	templateUrl: './review.component.html',
 	styleUrls: ['./review.component.css'],
 	directives: [ROUTER_DIRECTIVES]

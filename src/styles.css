@@ -8,6 +8,9 @@ body {
 a {
   text-decoration: none;
 }
+p {
+  word-break: break-all;
+}
 h1 {
     font-weight: 700;
     text-transform: uppercase;

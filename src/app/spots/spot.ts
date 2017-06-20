@@ -1,5 +1,8 @@
 /* Defines the spot entity */
 
+import {IUser} from "../users/user";
+import {ISpotComment} from "./spot-comment";
+
 export class ISpot {
     id: number;
     title: string;
@@ -14,7 +17,7 @@ export class ISpot {
     images: any;
     approved: boolean;
     reviewed: boolean;
-    user_id: number;
     created_at: string;
-    updated_at: string;
+    author: IUser;
+    original_comments: ISpotComment[];
 }

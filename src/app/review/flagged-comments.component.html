@@ -1,0 +1,30 @@
+ <div id="review" class="col-md-offset-1 col-md-10">
+  <div class="panel panel-primary">
+    <div class="panel-heading">{{ 'REVIEW.FLAGGED_COMMENTS' | translate }}</div>
+    <table class="table table-hover spots">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>{{ 'COMMENT.CONTENT' | translate }}</th>
+        <th>{{ 'COMMENT.USER' | translate }}</th>
+        <th>{{ 'COMMENT.REPLIES' | translate }}</th>
+        <th>{{ 'COMMENT.FLAGGED' | translate }}</th>
+        <th class="text-center">{{ 'COMMENT.UNFLAG' | translate }}</th>
+        <th class="text-center">{{ 'COMMENT.REMOVE' | translate }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment.id }}</td>
+        <td (click)="toggleFullContent()">{{ comment.content | truncate : contentSize }}</td>
+        <td>{{ comment.user.email }}</td>
+        <td>{{ comment.replies_count }}</td>
+        <td>{{ comment.updated_at | date:'mediumDate' }}</td>
+        <td class="text-center" id="ok" (click)="unflag(comment.id)"><span class="glyphicon glyphicon-ok"></span></td>
+        <td class="text-center" id="remove" (click)="remove(comment.id)"><span class="glyphicon glyphicon-remove"></span></td>
+      </tr>
+      </tbody>
+    </table>
+    <div *ngIf="spots && !spots.length" class="panel-footer">{{ 'REVIEW.NO_FLAGGED_COMMENTS' | translate }}</div>
+  </div>
+</div>

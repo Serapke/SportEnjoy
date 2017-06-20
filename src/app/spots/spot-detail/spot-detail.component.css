@@ -9,6 +9,20 @@ h3 {
 	height: 200px;
 	width: 98%;
 }
+.thumbnail {
+  padding: 0px;
+}
+.thumbnail > img {
+  min-height: 100px;
+  max-height: 150px;
+  width: 100%;
+}
+.btn-round {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px 15px;
+  border-radius: 4px;
+}
 .spot-review{
     background: #172935;
     padding: 20px;
@@ -86,6 +100,9 @@ h3 {
   border-radius: 20px;
   padding: 4px;
 }
+.spot-images {
+  padding-bottom: 40px;
+}
 .spot-images > div {
 	width: 100%;
 	text-align: center;
@@ -105,6 +122,78 @@ h3 {
 .spot-description p {
 	padding-left: 20px;
 }
+.comments-showing {
+  color: #444;
+  width: 100%;
+  text-align: right;
+}
+.panel {
+  position: relative;
+  border-color: #f9f9f9;
+  border-radius: 4px;
+}
+.panel-default {
+  border-color: #ddd;
+}
+.panel-heading {
+  background: #f5f5f5;
+  border-color: #ddd;
+  color: #333;
+}
+.panel-heading a:hover,
+.panel-heading a:focus {
+  cursor: pointer;
+}
+.panel > .panel-heading:after,
+.panel > .panel-heading:before{
+  position: absolute;
+  top: 11px;
+  left: -16px;
+  right: 100%;
+  width: 0;
+  height: 0;
+  display: block;
+  content: " ";
+  border-color: transparent;
+  border-style: solid solid outset;
+  pointer-events: none;
+}
+.panel > .panel-heading:after{
+  border-width: 7px;
+  border-right-color: #f7f7f7;
+  margin-top: 1px;
+  margin-left: 2px;
+}
+.panel > .panel-heading:before{
+  border-right-color: #ddd;
+  border-width: 8px;
+}
+.reply {
+  padding-left: 30px;
+}
+.pagination {
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  padding: 10px 15px 0;
+}
+.pagination > li {
+  display: inline-block;
+}
+.pagination > li a {
+  border-radius: 4px;
+  color: #444;
+  background: #ecf0f1;
+  border-color: #ddd;
+}
+.pagination > li a:hover,
+.pagination > li a:focus {
+  cursor: pointer;
+  color: #fff;
+  background: #5bc0de;
+  border-color: #46b8da;
+}
+
 
 /* For desktops */
 @media (min-width: 993px) {

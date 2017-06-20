@@ -80,8 +80,10 @@
         "NO_SPOTS_SPOTTED": "You haven't spotted any spots yet"
     },
     "REVIEW": {
-        "UNREVIEWED_SPOTS": "Unreviewed spots",
-        "NO_UNREVIEWED_SPOTS": "There are no unreviewed spots at this time"
+      "UNREVIEWED_SPOTS": "Unreviewed spots",
+      "NO_UNREVIEWED_SPOTS": "There are no unreviewed spots at this time",
+      "FLAGGED_COMMENTS": "Flagged comments",
+      "NO_FLAGGED_COMMENTS": "No flagged comments"
     },
     "SPOTTERS_JOIN": {
         "JOIN": "Join",
@@ -110,9 +112,12 @@
         "RATE_IT": "Rate it",
         "BEEN": "Been Here",
         "DESCRIPTION": "Description",
-        "NO_DESCRIPTION": "We're sorry. This spot doesn't have descripriton.",
+        "NO_DESCRIPTION": "We're sorry. This spot doesn't have a description.",
         "GALLERY": "Gallery",
         "NO_IMAGES": "We're sorry. This spot doesn't have images.",
+        "NO_COMMENTS": "This spot doesn't have any comments yet. Been here? How was it?",
+        "COMMENTS": "Comments",
+        "WRITE_COMMENT": "Write a Comment",
         "TITLE": "Title",
         "CITY": "City",
         "LOCATION": "Location",
@@ -120,6 +125,14 @@
         "CREATED": "Created",
         "STATUS": "Status",
         "SPOTTER": "Spotter"
+    },
+    "COMMENT": {
+      "CONTENT": "Content",
+      "USER": "User",
+      "FLAGGED": "Flagged",
+      "REPLIES": "Replies",
+      "UNFLAG": "Unflag",
+      "REMOVE": "Remove"
     },
     "SPOT_FORM": {
         "DESCRIPTION": "Description",
@@ -131,12 +144,16 @@
         "DESCRIPTION_PLACEHOLDER": "Description",
         "LATITUDE": "Latitude",
         "LONGITUDE": "Longitude",
+        "COMMENT": "Comment",
         "USE_CURRENT_LOCATION": "Use current location",
         "SUCCESSFUL_SUBMISSION": "Your spot was successfully submitted!",
+        "SUCCESSFUL_COMMENT_SUBMISSION": "Your comment was successfully submitted!",
         "SHOW_UPDATES": "You can see the changes here",
+        "SHOW_COMMENT": "You can see your comment here",
         "SUCCESSFULLY_ADDED": "You have successfully added a new spot. Cheers!",
         "SUCESSFULLY_ADDED_TO_QUEUE": "Your new spot was sent to our moderators to review. Cheers!",
-        "PROCESSING": "Your spot is being uploaded. This shouldn't take more than 1 minute. Cheers!"
+        "PROCESSING": "Your spot is being uploaded. This shouldn't take more than 1 minute. Cheers!",
+        "PROCESSING_COMMENT": "Your comment is being uploaded. This shouldn't take more than 1 minute. Cheers!"
     },
     "USERS": {
         "ALL_USERS": "All users",
@@ -183,6 +200,8 @@
         "OR": "Or",
         "UPDATE": "Update",
         "CHANGE_PASSWORD": "Change password",
-        "SUBMIT": "Submit"
+        "SUBMIT": "Submit",
+        "NEXT": "Next",
+        "PREVIOUS": "Previous"
     }
 }

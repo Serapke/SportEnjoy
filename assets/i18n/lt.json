@@ -117,6 +117,7 @@
         "NO_COMMENTS": "Ši vieta dar neturi komentarų. Buvai čia? Pasidalink savo nuomone!",
         "COMMENTS": "Komentarai",
         "WRITE_COMMENT": "Komentuoti",
+        "ADD_IMAGES": "Pridėti nuotrauką",
         "TITLE": "Pavadinimas",
         "CITY": "Miestas",
         "LOCATION": "Vieta",
@@ -147,12 +148,15 @@
         "USE_CURRENT_LOCATION": "Naudoti dabartinę vietą",
         "SUCCESSFUL_SUBMISSION": "Tavo užklausa sėkmingai išsiųsta!",
         "SUCCESSFUL_COMMENT_SUBMISSION": "Tavo užklausa sėkmingai išsiustą!",
+        "SUCCESSFUL_IMAGES_SUBMISSION": "Tavo užklausa sėkmingai išsiustą!",
         "SHOW_UPDATES": "Pakeitimus gali peržiūrėti čia",
         "SHOW_COMMENT": "Pakeitimus gali peržiūrėti čia",
+        "SHOW_IMAGES": "Pakeitimus gali peržiūrėti čia",
         "SUCCESSFULLY_ADDED": "Sėkmingai pažymėjai naują vietą. Dėkojame!",
-        "SUCESSFULLY_ADDED_TO_QUEUE": "Tavo užklausa dėl naujos vietos pažymėjimo sėkmingai nusiųsta mūsų moderatoriams. Dėkojame!",
+        "SUCCESSFULLY_ADDED_TO_QUEUE": "Tavo užklausa dėl naujos vietos pažymėjimo sėkmingai nusiųsta mūsų moderatoriams. Dėkojame!",
         "PROCESSING": "Jūsų pažymėta vieta įkeliama. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame",
-        "PROCESSING_COMMENT": "Jūsų komentaras įkeliamas. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame"
+        "PROCESSING_COMMENT": "Jūsų komentaras įkeliamas. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame",
+        "PROCESSING_IMAGES": "Jūsų nuotraukos įkeliamos. Įkėlimas neturėtų užtrukti ilgiau nei 1 min. Dėkojame"
     },
     "USERS": {
         "ALL_USERS": "Visi vartotojai",

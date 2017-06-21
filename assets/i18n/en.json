@@ -118,6 +118,7 @@
         "NO_COMMENTS": "This spot doesn't have any comments yet. Been here? How was it?",
         "COMMENTS": "Comments",
         "WRITE_COMMENT": "Write a Comment",
+        "ADD_IMAGES": "Add images",
         "TITLE": "Title",
         "CITY": "City",
         "LOCATION": "Location",
@@ -148,12 +149,15 @@
         "USE_CURRENT_LOCATION": "Use current location",
         "SUCCESSFUL_SUBMISSION": "Your spot was successfully submitted!",
         "SUCCESSFUL_COMMENT_SUBMISSION": "Your comment was successfully submitted!",
+        "SUCCESSFUL_IMAGES_SUBMISSION": "Your images were successfully uploaded!",
         "SHOW_UPDATES": "You can see the changes here",
         "SHOW_COMMENT": "You can see your comment here",
+        "SHOW_IMAGES": "You can see your images here",
         "SUCCESSFULLY_ADDED": "You have successfully added a new spot. Cheers!",
-        "SUCESSFULLY_ADDED_TO_QUEUE": "Your new spot was sent to our moderators to review. Cheers!",
+        "SUCCESSFULLY_ADDED_TO_QUEUE": "Your new spot was sent to our moderators to review. Cheers!",
         "PROCESSING": "Your spot is being uploaded. This shouldn't take more than 1 minute. Cheers!",
-        "PROCESSING_COMMENT": "Your comment is being uploaded. This shouldn't take more than 1 minute. Cheers!"
+        "PROCESSING_COMMENT": "Your comment is being uploaded. This shouldn't take more than 1 minute. Cheers!",
+        "PROCESSING_IMAGES": "Your images are being uploaded. This shouldn't take more than 1 minute. Cheers!"
     },
     "USERS": {
         "ALL_USERS": "All users",

@@ -5,14 +5,16 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class FileService {
 
-	read(inputValue: any, spot: ISpot): Observable<string> {
+	read(inputValue: any, spot?: ISpot): Observable<string> {
 		return new Observable<string>(observer => {
-			var file:File = inputValue.files[0];
+			var file:File = inputValue;
 	    var myReader:FileReader = new FileReader();
 
 	    myReader.onloadend = (e) => {
 				var image = myReader.result;
-				spot.images = image;
+				if (spot != null) {
+				  spot.main_image = image;
+        }
 				observer.next(image);
 				observer.complete();
 	    }

@@ -7,8 +7,8 @@
 			<div *ngFor="let spot of spots | reverse" class="col-md-3">
 				<a [routerLink]="['/spot/' + spot.id]">
 					<div class="img_overflow">
-						<div *ngIf="spot.images" [style.background-image]="'url(' + spot.images+ ')'"></div>
-						<div *ngIf="!spot.images" class="text-center">
+						<div *ngIf="spot.main_image" [style.background-image]="'url(' + spot.main_image+ ')'"></div>
+						<div *ngIf="!spot.main_image" class="text-center">
               <img id="no-image" [src]="noImage">
             </div>
 					</div>

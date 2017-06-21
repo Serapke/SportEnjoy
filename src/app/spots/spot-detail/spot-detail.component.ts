@@ -25,6 +25,9 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
   rightBound: number = 1;
   commentsPerPage: number = 3;
 
+  modalShowing: string = "none";
+  slideIndex: number = 1;
+
 	constructor(
 		private _spotService: SpotService,
 		private _loginService: LoginService,
@@ -35,10 +38,10 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
   }
 
 	ngOnInit() {
-		this.sub = this._route.params.subscribe(params => {
+    this.sub = this._route.params.subscribe(params => {
 			let id = +params['id'];
-			this.getSpot(id);
-			this.getSpotRating(id);
+      this.getSpot(id);
+      this.getSpotRating(id);
 		});
     this._spotService.getCategories()
       .subscribe(categories => {
@@ -108,7 +111,7 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
       spot => {
         this.spot = spot;
         this.reviewed = spot.reviewed;
-        this.mainImage = spot.images;
+        this.mainImage = spot.main_image;
         if ((this.currentPage * this.commentsPerPage) < this.spot.original_comments.length) {
           this.rightBound = this.currentPage * this.commentsPerPage;
         } else {
@@ -118,6 +121,42 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
       error => this.errorMessage = <any>error
     );
 	}
+
+  changeMainImage(image) {
+	  this.mainImage = image;
+  }
+
+  showLightBox() {
+	  this.openModal();
+    this.showSlides();
+  }
+
+  openModal() {
+	  this.modalShowing = "block";
+  }
+
+  closeModal() {
+	  console.log("none");
+	  this.modalShowing = "none";
+  }
+
+  plusSlides(n) {
+    this.slideIndex += n;
+	  this.showSlides();
+  }
+
+  showSlides() {
+	  var i;
+    let slides: any = document.getElementsByClassName("mySlides");
+    let captionText: any = document.getElementById("caption");
+    if (this.slideIndex > slides.length) { this.slideIndex = 1 }
+    if (this.slideIndex < 1) { this.slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[this.slideIndex-1].style.display = "block";
+    captionText.innerHTML = slides[this.slideIndex-1].childNodes[3].alt;
+  }
 
 	getSpotRating(id: number) {
     this._spotService.getSpotRating(id)
@@ -183,6 +222,10 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	    this._router.navigate(['/spot/' + this.spot.id + '/comment']);
 	  else
       this._router.navigate(['/spot/' + this.spot.id + '/comment/' + commentID]);
+  }
+
+  addImages() {
+	  this._router.navigate(['/spot/' + this.spot.id + '/add-images']);
   }
 
   reportComment(commentID: number) {

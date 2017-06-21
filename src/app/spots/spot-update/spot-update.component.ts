@@ -131,7 +131,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
 
   changeListener($event) : void {
     this.file = $event.target.files[0].name;
-    this._fileService.read($event.target, this.spot).subscribe(
+    this._fileService.read($event.target.files[0], this.spot).subscribe(
       data => { this.image = data; }
     );
   }
@@ -142,7 +142,7 @@ export class SpotUpdateComponent implements OnInit, OnDestroy {
         spot => {
           this.spot = spot;
           this.oldSpot = spot;
-          this.image = this.spot.images;
+          this.image = this.spot.main_image;
           this.centerLat = spot.latitude;
           this.centerLng = spot.longitude;
         },

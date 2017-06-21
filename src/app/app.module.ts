@@ -26,6 +26,7 @@ import { UserInfoUpdateComponent } from "./users/user-info-update/user-info-upda
 import { SpotCommentComponent } from "./spots/spot-comment/spot-comment.component";
 import { MomentModule } from "angular2-moment";
 import {FlaggedCommentsComponent} from "./review/flagged-comments.component";
+import {SpotAddImagesComponent} from "./spots/spot-add-images/spot-add-images.component";
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {FlaggedCommentsComponent} from "./review/flagged-comments.component";
     SpotDetailComponent,
     SpotCommentComponent,
     SpotsComponent,
-    FlaggedCommentsComponent
+    FlaggedCommentsComponent,
+    SpotAddImagesComponent
   ],
   imports: [
     BrowserModule,

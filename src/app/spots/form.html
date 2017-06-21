@@ -60,7 +60,7 @@
         <h4>{{ 'SPOT_FORM.PHOTOS' | translate }}</h4>
         <div class="row">
           <div class="col-md-6 text-center">
-            <input class="file-input" type="file" accept="image/*" multiple (change)="changeListener($event)"
+            <input class="file-input" type="file" accept="image/*" (change)="changeListener($event)"
               style="outline: none; white-space: nowrap; display: inline-block;">
             <label *ngIf="file" class="hidden-xs file-name">{{ file }}</label>
           </div>
@@ -85,7 +85,7 @@
         </div>
         <div *ngIf="isAdding()">
           <p *ngIf="isModerator() || isAdmin()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED' | translate }}</p>
-          <p *ngIf="!isModerator() && !isAdmin()">{{ 'SPOT_FORM.SUCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
+          <p *ngIf="!isModerator() && !isAdmin()">{{ 'SPOT_FORM.SUCCESSFULLY_ADDED_TO_QUEUE' | translate }}</p>
         </div>
       </div>
     </div>

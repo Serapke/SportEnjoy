@@ -44,7 +44,10 @@ export class SpotService {
       let url = `${this._publicProductUrl}/${id}`;
       return this._http.get(url, {headers: this.getHeaders()})
             .map((response: Response) => <ISpot> response.json())
-            .do(data => console.log("Got a spot!"))
+            .do(data => {
+              console.log("Got a spot!");
+              console.log(data);
+            })
             .catch(this.handleError);
     }
     getLocalSpots(coordinates: any): Observable<ISpot[]> {
@@ -186,6 +189,18 @@ export class SpotService {
         .map((response: Response) => <ISpotComment[]> response.json())
         .do(data => {
           console.log("Removed comment with comment id: " + commentID);
+          console.log(data);
+        })
+        .catch(this.handleError);
+    }
+    addImages(spotID: number, images: any[]): Observable<ISpot> {
+      let payload = { 'images': images };
+      let url = `${this._publicProductUrl}/${spotID}/upload_images`;
+
+      return this._http.post(url, payload, { headers: this.getHeaders() })
+        .map((response: Response) => <ISpot> response.json())
+        .do(data => {
+          console.log("Added images to spot with id: " + spotID);
           console.log(data);
         })
         .catch(this.handleError);

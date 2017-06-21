@@ -68,21 +68,43 @@
         <p *ngIf="!spot.description" class="alert alert-info">{{ 'SPOT.NO_DESCRIPTION' | translate }}</p>
       </div>
 			<div class="row spot-images">
-				<h3>{{ 'SPOT.GALLERY' | translate }}</h3>
-				<div *ngIf="spot.images">
-          <div class="image">
-            <img [src]="mainImage">
+        <div class="col-sm-12">
+          <h3>{{ 'SPOT.GALLERY' | translate }}</h3>
+          <button (click)="addImages()" class="btn btn-dark pull-right" style="padding: 10px 15px;">{{ 'SPOT.ADD_IMAGES' | translate }}</button>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3">
+          <div *ngIf="mainImage">
+            <img [src]="mainImage" class="img-responsive" (click)="showLightBox()">
           </div>
-          <!-- <img *ngFor="let image of spot.images" [src]="image.url" (click)="changeMainImage(image)" [style.width.px]="200" class="thumbnail image-thumbnail"> -->
-          <!-- <img [src]="spot.images[0].url" [alt]="spot.images[1].title" [title]="spot.images[1].title" [style.width.px]="200">
-          <img [src]="spot.images[1].url" [alt]="spot.images[2].title" [title]="spot.images[2].title" [style.width.px]="200"> -->
-				</div>
-        <div *ngIf="!spot.images" class="alert alert-info">
+        </div>
+        <div class="col-sm-12 all-images">
+          <img [src]="spot.main_image" (click)="changeMainImage(spot.main_image)" [style.width.px]="200"><img *ngFor="let image of spot.images" [src]="image.url" (click)="changeMainImage(image.url)" [style.width.px]="200">
+        </div>
+        <div *ngIf="!mainImage" class="alert alert-info">
             {{ 'SPOT.NO_IMAGES' | translate }}
-            <!-- <a href="#" class="alert-link">Click here to Login and add a picture</a> -->
-            <!-- <a *ngIf="isModerator()" (click)="gotoUpdate()" class="alert-link">Click here to login and add a picture</a> -->
         </div>
 			</div>
+
+      <div id="myModal" class="modal" [style.display]="modalShowing">
+        <span class="close cursor" (click)="closeModal()">&times;</span>
+        <div class="modal-content">
+          <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img [src]="spot.main_image" style="width: 100%">
+          </div>
+          <div *ngFor="let image of spot.images; let i = index" class="mySlides">
+            <div class="numbertext">{{ i + 2 }} / 4</div>
+            <img [src]="image.url" style="width: 100%" alt="{{image.title}}">
+          </div>
+        </div>
+        <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+        <a class="next" (click)="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+      </div>
+
       <div class="col-md-12">
         <h3 class="pull-left">{{ 'SPOT.COMMENTS' | translate }}</h3>
         <button (click)="newComment()" class="btn btn-dark pull-right" style="padding: 10px 15px;">{{ 'SPOT.WRITE_COMMENT' | translate }}</button>

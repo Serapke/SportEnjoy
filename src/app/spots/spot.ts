@@ -14,7 +14,8 @@ export class ISpot {
     description: string;
     beenHere: number;
     rating: number;
-    images: any;
+    main_image: any;
+    images: any[];
     approved: boolean;
     reviewed: boolean;
     created_at: string;

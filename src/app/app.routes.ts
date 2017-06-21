@@ -17,6 +17,7 @@ import { UserPasswordUpdateComponent } from "./users/user-password-update/user-p
 import { UserInfoUpdateComponent } from "./users/user-info-update/user-info-update.component";
 import {SpotCommentComponent} from "./spots/spot-comment/spot-comment.component";
 import {FlaggedCommentsComponent} from "./review/flagged-comments.component";
+import {SpotAddImagesComponent} from "./spots/spot-add-images/spot-add-images.component";
 
 export const routes: RouterConfig = [
 	{
@@ -82,6 +83,11 @@ export const routes: RouterConfig = [
   {
     path: 'spot/:id/comment/:original_message_id',
     component: SpotCommentComponent,
+    canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'spot/:id/add-images',
+    component: SpotAddImagesComponent,
     canActivate: [LoggedInGuard]
   },
 	{

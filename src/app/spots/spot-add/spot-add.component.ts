@@ -99,7 +99,7 @@ export class SpotAddComponent implements OnInit {
 
   changeListener($event) : void {
     this.file = $event.target.files[0].name;
-      this._fileService.read($event.target, this.spot).subscribe(
+      this._fileService.read($event.target.files[0], this.spot).subscribe(
       data => { this.image = data; }
     );
   }

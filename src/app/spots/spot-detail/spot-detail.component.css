@@ -331,6 +331,9 @@ h3 {
 	.spot-images {
 		background: #ecf0f1;
 	}
+  .write-comment {
+    margin: 20px 0;
+  }
 }
 
 /* For tablets and smart phones */

@@ -27,7 +27,7 @@
         "SPOTTERS": "Nariai",
         "USERS": "Vartotojai",
         "REVIEW": "Peržiūrėti",
-        "ADD_SPOT": "+ Vietą",
+        "ADD_SPOT": "Vietą",
         "PROFILE": "Profilis"
     },
     "AUTH": {
@@ -118,12 +118,14 @@
         "COMMENTS": "Komentarai",
         "WRITE_COMMENT": "Komentuoti",
         "ADD_IMAGES": "Pridėti nuotrauką",
+        "MAY_ALSO_LIKE": "Tau taip pat gali patikti",
         "TITLE": "Pavadinimas",
         "CITY": "Miestas",
         "LOCATION": "Vieta",
         "CATEGORY": "Kategorija",
         "CREATED": "Sukurta",
         "STATUS": "Statusas",
+        "VISIT": "Peržiūrėti",
         "SPOTTER": "Narys"
     },
     "COMMENT": {
@@ -132,7 +134,9 @@
       "FLAGGED": "Pažymėta",
       "REPLIES": "Atsakymų",
       "UNFLAG": "Atžymėti",
-      "REMOVE": "Pašalinti"
+      "REMOVE": "Pašalinti",
+      "COMMENTED": "pakomentavo",
+      "REPLY": "Atsakyti"
     },
     "SPOT_FORM": {
         "DESCRIPTION": "Aprašymas",
@@ -194,7 +198,8 @@
         "SEARCH_RESULTS": "Paieškos rezultatai",
         "NEARBY_SPOTS": "Artimiausios sporto vietos",
         "USERS": "Vartotojai",
-        "EDIT_USER": "Atnaujinti"
+        "EDIT_USER": "Atnaujinti",
+        "TOP_SPOTS": "Populiariausios sporto vietos"
     },
     "OTHER": {
         "ERROR": "Klaida!",
@@ -205,6 +210,7 @@
         "CHANGE_PASSWORD": "Pakeisti slaptažodį",
         "SUBMIT": "Siųsti",
         "NEXT": "Kitas",
-        "PREVIOUS": "Ankstesnis"
+        "PREVIOUS": "Ankstesnis",
+        "OF": "iš"
     }
 }

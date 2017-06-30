@@ -16,6 +16,8 @@ export class ProfileComponent {
   user: IUser;
   spots: ISpot[];
   errorMessage: string;
+  contentSize: number = 50;
+  CONTENT_SIZE_MIN: number = 50;
 
   constructor(
     private _spotService: SpotService,
@@ -24,6 +26,10 @@ export class ProfileComponent {
     private _router: Router) {}
 
   ngOnInit(): void {
+    if (document.body.clientWidth < 450) {
+      this.CONTENT_SIZE_MIN = 15;
+      this.contentSize = this.CONTENT_SIZE_MIN;
+    }
     this.getCreatedSpots();
     this.user = this._loginService.getCurrentUser();
   }
@@ -51,6 +57,10 @@ export class ProfileComponent {
 
   prettify(word: string): string {
     return this._textTransformService.capitalize(word);
+  }
+
+  toggleFullContent() {
+    this.contentSize = this.contentSize == this.CONTENT_SIZE_MIN ? 0 : this.CONTENT_SIZE_MIN;
   }
 
   spotStatus(approved: boolean, reviewed: boolean): string {

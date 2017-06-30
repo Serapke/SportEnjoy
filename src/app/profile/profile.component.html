@@ -55,19 +55,22 @@
               <th class="hidden-xs">{{ 'SPOT.LOCATION' | translate }}</th>
               <th class="hidden-xs">{{ 'SPOT.CREATED' | translate }}</th>
               <th>{{ 'SPOT.STATUS' | translate }}</th>
+              <th>{{ 'SPOT.VISIT' | translate }}</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let spot of spots"
               [class.success]="spotStatus(spot.approved, spot.reviewed) == 'APPROVED'"
-              [class.danger]="spotStatus(spot.approved, spot.reviewed) == 'REJECTED'"
-              [routerLink]="['/spot', spot.id]">
+              [class.danger]="spotStatus(spot.approved, spot.reviewed) == 'REJECTED'">
               <td>{{ spot.id }}</td>
-              <td>{{ spot.title }}</td>
+              <td (click)="toggleFullContent()">{{ spot.title | truncate : contentSize }}</td>
               <td class="hidden-xs">{{ spot.category | translate }}</td>
               <td class="hidden-xs">{{ spot.city }}, {{ spot.country }}</td>
               <td class="hidden-xs">{{ spot.created_at | date:'mediumDate' }}</td>
               <td>{{ spotStatus(spot.approved, spot.reviewed) | translate }}</td>
+              <td class="text-center" [routerLink]="['/spot', spot.id]">
+                <span class="glyphicon glyphicon-eye-open"></span>
+              </td>
             </tr>
           </tbody>
         </table>

@@ -28,7 +28,7 @@
         "SPOTTERS": "Spotters",
         "USERS": "Users",
         "REVIEW": "Review",
-        "ADD_SPOT": "+ Spot",
+        "ADD_SPOT": "Spot",
         "PROFILE": "Profile"
     },
     "AUTH": {
@@ -119,12 +119,14 @@
         "COMMENTS": "Comments",
         "WRITE_COMMENT": "Write a Comment",
         "ADD_IMAGES": "Add images",
+        "MAY_ALSO_LIKE": "You May Also Like",
         "TITLE": "Title",
         "CITY": "City",
         "LOCATION": "Location",
         "CATEGORY": "Category",
         "CREATED": "Created",
         "STATUS": "Status",
+        "VISIT": "Visit",
         "SPOTTER": "Spotter"
     },
     "COMMENT": {
@@ -133,7 +135,9 @@
       "FLAGGED": "Flagged",
       "REPLIES": "Replies",
       "UNFLAG": "Unflag",
-      "REMOVE": "Remove"
+      "REMOVE": "Remove",
+      "COMMENTED": "commented",
+      "REPLY": "Reply"
     },
     "SPOT_FORM": {
         "DESCRIPTION": "Description",
@@ -195,7 +199,8 @@
         "SEARCH_RESULTS": "Search results",
         "NEARBY_SPOTS": "Nearby spots",
         "USERS": "Users",
-        "EDIT_USER": "Edit"
+        "EDIT_USER": "Edit",
+        "TOP_SPOTS": "Top spots"
     },
     "OTHER": {
         "ERROR": "Error!",
@@ -206,6 +211,7 @@
         "CHANGE_PASSWORD": "Change password",
         "SUBMIT": "Submit",
         "NEXT": "Next",
-        "PREVIOUS": "Previous"
+        "PREVIOUS": "Previous",
+        "OF": "of"
     }
 }

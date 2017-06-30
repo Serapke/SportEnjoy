@@ -6,7 +6,6 @@ import { TextTransformService } from './shared/text-transform.service';
 import { FileService } from './shared/file.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginService } from './login/login.service';
 import { UserService } from './users/user.service';
 import { LocationService } from './shared/location/location.service';
 import {FacebookService} from "./shared/facebook.service";
@@ -29,7 +28,7 @@ import {FacebookService} from "./shared/facebook.service";
     UserService,
     FileService,
     LocationService,
-    FacebookService
+    FacebookService,
   ]
 })
 export class AppComponent {

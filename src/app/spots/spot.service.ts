@@ -205,7 +205,16 @@ export class SpotService {
         })
         .catch(this.handleError);
     }
+    getRecentlyViewedSpots(): Observable<ISpot[]> {
+      let url = `${this._publicProductUrl}/recently_viewed`;
 
+      return this._http.get(url, { headers: this.getHeaders() })
+        .map((response: Response) => <ISpot[]> response.json())
+        .do(data => {
+          console.log("Got recently viewed spots");
+          console.log(data);
+        })
+    }
     getSpotRating(spotID: number): Observable<number> {
       let url = `${this._publicProductUrl}/${spotID}/rating`;
 

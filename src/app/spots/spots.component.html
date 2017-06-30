@@ -129,7 +129,7 @@
 						</div>
 					</div>
 				</div>
-				<span class="title">{{ spot.title }}</span>
+				<span class="title">{{ spot.title | truncate : contentSize }}</span>
 			</a>
 		</div>
 		<div *ngIf="spots == ''">

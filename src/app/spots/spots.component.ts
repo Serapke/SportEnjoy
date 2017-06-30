@@ -36,6 +36,9 @@ export class SpotsComponent implements OnInit {
   listFilter: string = '';
   noImage: string = 'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/defaults/test.png';
 
+  contentSize: number = 50;
+  CONTENT_SIZE_MIN: number = 50;
+
   // Map params
   centerLat: number = 54.8;
   centerLng: number = 23.9;
@@ -61,6 +64,10 @@ export class SpotsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (document.body.clientWidth < 450) {
+      this.CONTENT_SIZE_MIN = 35;
+      this.contentSize = this.CONTENT_SIZE_MIN;
+    }
     this.getSpots();
   }
 

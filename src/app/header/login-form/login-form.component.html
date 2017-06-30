@@ -2,18 +2,20 @@
     <h2>{{ 'AUTH.LOGIN' | translate }}</h2>
     <div class="row">
         <div class="login">
-            <form class="form-inline" (ngSubmit)="onLogin()">
-                <div class="col-md-5">
-                    <label class="sr-only" for="email">El. paštas</label>
-                    <input type="email" class="form-control" name="email" placeholder="Email" required
-                        [(ngModel)]="email">
-                </div>
-                <div class="col-md-5">
-                    <label class="sr-only" for="password">Slaptažodis</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password" required
-                            [(ngModel)]="password">
-                </div>
-                <button type="submit" class="btn btn-primary col-md-2">{{ 'AUTH.LOGIN' | translate }}</button>
+            <form class="form" (ngSubmit)="onLogin()">
+                <label class="sr-only" for="email">{{ 'AUTH.EMAIL' | translate }}</label>
+                <input type="email" class="form-control" name="email" placeholder="{{ 'AUTH.EMAIL' | translate }}" required
+                    [(ngModel)]="email">
+                <label class="sr-only" for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
+                <input type="password" class="form-control" name="password" placeholder="{{ 'AUTH.PASSWORD' | translate }}" required
+                        [(ngModel)]="password">
+                <label *ngIf="signUp" class="sr-only" for="password-confirmation">{{ 'AUTH.PASSWORD_CONFIRMATION' | translate }}</label>
+                <input  *ngIf="signUp" type="password" class="form-control" placeholder="{{ 'AUTH.PASSWORD_CONFIRMATION' | translate }}" autocomplete="off" autofill="off" required
+                       [(ngModel)]="passwordConfirmation" name="password-confirmation">
+                <button *ngIf="signUp" (click)="toggleSignUp()" class="btn btn-primary">{{ 'AUTH.LOGIN' | translate }}</button>
+                <input *ngIf="!signUp" type="submit" class="btn btn-primary" value="{{ 'AUTH.LOGIN' | translate }}">
+                <button *ngIf="!signUp" (click)="toggleSignUp()" class="btn btn-secondary">{{ 'AUTH.SIGNUP' | translate }}</button>
+                <input *ngIf="signUp" type="submit" class="btn btn-secondary" value="{{ 'AUTH.SIGNUP' | translate }}">
             </form>
         </div>
     </div>
@@ -21,8 +23,5 @@
         <div *ngIf="errorMessage" class="alert alert-danger">
             {{ 'OTHER.ERROR' | translate }} {{ errorMessage | translate }}
         </div>
-    </div>
-    <div class="row" id="register">
-        <p>{{ 'AUTH.DONT_HAVE_PROFILE' | translate }} <a [routerLink]="['/register']" class="link">{{ 'AUTH.SIGNUP' | translate }}</a></p>
     </div>
 </div>

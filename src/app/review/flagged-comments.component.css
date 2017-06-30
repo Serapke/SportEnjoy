@@ -7,3 +7,12 @@ td {
 #remove:hover {
   color: #a94442;
 }
+
+@media (max-width: 768px) {
+  #review {
+    padding: 0;
+  }
+  .panel {
+    border: 0;
+  }
+}

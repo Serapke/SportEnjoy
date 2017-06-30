@@ -98,6 +98,12 @@ a {
 					padding: 2px 0 0 7px;
 					line-height: 1;
 				}
+        .post_excerpt img {
+          height: 24px;
+          background: #172935;
+          border-radius: 20px;
+          padding: 4px;
+        }
 				.top-places .geo_link {
 				    color: #007496;
 				    font-size: 12px;

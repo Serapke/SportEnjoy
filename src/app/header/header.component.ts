@@ -3,8 +3,6 @@ import { ROUTER_DIRECTIVES, Router, Event, NavigationEnd } from '@angular/router
 import { LoginService } from '../login/login.service';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { SocialMediaDirective } from './social-media/social-media.directive';
 import { TextTransformService } from '../shared/text-transform.service';
 
 @Component({
@@ -15,15 +13,12 @@ import { TextTransformService } from '../shared/text-transform.service';
     ROUTER_DIRECTIVES,
     SearchFormComponent,
     LoginFormComponent,
-    RegisterFormComponent,
-    SocialMediaDirective
   ]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   sub: any;
   path: string = '';
   navbarClass: boolean = false;
-  showBrand: boolean = true;
   overlayHeight: number = 0;
   backgroundImage: string;
   categories: string[];
@@ -39,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit(): void {
-    this.showBrand = !((document.body.clientWidth < 990) && (this.overlayHeight == 100));
+    document.body.clientWidth < 768 ? this.navbarClass=true : this.navbarClass=false;
     this._router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd ){
         this.path = event.url;
@@ -71,11 +66,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('window:scroll', ['$event'])
-  track(event) {
+  onWindowScroll($event) {
     let t = document.body.scrollTop;
-    t > 15 ? this.navbarClass = true : this.navbarClass=false;
-    // if using mobile or tablet and opened menu hide brand
-    this.showBrand = !((document.body.clientWidth < 990) && (this.overlayHeight == 100));
+    if (t > 15 || document.body.clientWidth < 768) {
+      this.navbarClass = true;
+    } else {
+      this.navbarClass = false;
+    }
   }
 
   checkBgImage() {
@@ -108,23 +105,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.path == '/login';
 
   }
-  showRegister(): boolean {
-    return this.path == '/register';
-  }
-  showSocialMedia(): boolean {
-    return this.path == '/contact';
-
-  }
 
   showOverlay(): void {
     console.log("Show overlay");
     this.overlayHeight = 100;
-    this.showBrand = false;
   }
 
   hideOverlay(): void {
     console.log("Hide overlay");
     this.overlayHeight = 0;
-    this.showBrand = true;
   }
 }

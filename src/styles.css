@@ -27,6 +27,9 @@ h2 {
 .pointer {
   cursor: pointer;
 }
+.no-padding {
+  padding: 0;
+}
 .btn.btn-primary {
     color: #fff;
     background-color: #007496;

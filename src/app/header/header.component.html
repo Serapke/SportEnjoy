@@ -1,55 +1,61 @@
 <nav class="navbar navbar-default" [style.background-image]="'url(' + backgroundImage + ')'">
-	<div *ngIf="showBrand" class="navbar-fixed-top navbar-header" [class.small]="navbarClass">
-		<div class="row navbar-brand">
-			<button class="navbar-toggle collapsed" (click)='showOverlay()'>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="col-md-3">
-				<a [routerLink]="['/spots']" routerLinkActive="active">SportEnjoy</a>
-			</div>
-			<div class="col-md-9">
-				<ul class="nav navbar-nav">
-					<li><a [routerLink]="['/spots']">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
-					<li *ngIf="!isModerator() && !isAdmin()"><a [routerLink]="['/top-places']">{{ 'NAVIGATION.TOP8' | translate }}</a></li>
-					<li *ngIf="!isModerator()  && !isAdmin()"><a [routerLink]="['/spotters']">{{ 'NAVIGATION.SPOTTERS' | translate }}</a></li>
-					<li *ngIf="isLoggedIn() && isAdmin()"><a [routerLink]="['/users']">{{ 'NAVIGATION.USERS' | translate }}</a></li>
-					<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())"><a [routerLink]="['/review']">{{ 'NAVIGATION.REVIEW' | translate }}</a></li>
-					<!-- <li><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
-					<li *ngIf="isLoggedIn()"><a [routerLink]="['/add-spot']">{{ 'NAVIGATION.ADD_SPOT' | translate }}</a></li>
-					<li *ngIf="isLoggedIn()"><a [routerLink]="['/profile']">{{ 'NAVIGATION.PROFILE' | translate }}</a></li>
-					<li *ngIf="!isLoggedIn()" class="active"><a [routerLink]="['/login']" routerLinkActive="active">{{ 'AUTH.LOGIN' | translate }}</a></li>
-					<li *ngIf="!isLoggedIn()" class="active"><a [routerLink]="['/register']" routerLinkActive="active">{{ 'AUTH.REGISTER' | translate }}</a></li>
-					<li *ngIf="isLoggedIn()" class="active"><a (click)="onLogout()" routerLinkActive="active">{{ 'AUTH.LOGOUT' | translate }}</a></li>
-				</ul>
-			</div>
+  <div class="container-fluid no-padding" style="margin-bottom: 54px">
+	  <div class="navbar-header navbar-fixed-top" [class.small]="navbarClass">
+      <button class="navbar-toggle collapsed visible-xs visible-sm" (click)='showOverlay()'>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a [routerLink]="['/spots']" class="navbar-brand">
+        <span style="color: #f39c12;">Sport</span><span style="color: #fff">Enjoy</span>
+      </a>
+
+      <ul id="navbar" class="nav navbar-nav hidden-xs hidden-sm pull-right">
+        <li><a [routerLink]="['/spots']">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
+        <li><a [routerLink]="['/top-places']">{{ 'NAVIGATION.TOP8' | translate }}</a></li>
+        <li><a [routerLink]="['/spotters']">{{ 'NAVIGATION.SPOTTERS' | translate }}</a></li>
+        <li *ngIf="isLoggedIn() && isAdmin()"><a [routerLink]="['/users']">{{ 'NAVIGATION.USERS' | translate }}</a></li>
+        <li *ngIf="isLoggedIn() && (isModerator() || isAdmin())"><a [routerLink]="['/review']">{{ 'NAVIGATION.REVIEW' | translate }}</a></li>
+        <!-- <li><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
+        <li *ngIf="isLoggedIn()"><a [routerLink]="['/profile']">{{ 'NAVIGATION.PROFILE' | translate }}</a></li>
+        <li *ngIf="isLoggedIn()"><a [routerLink]="['/add-spot']" id="add-spot-button">
+          <span class="glyphicon glyphicon-plus-sign"></span>
+          {{ 'NAVIGATION.ADD_SPOT' | translate }}
+        </a></li>
+        <li *ngIf="!isLoggedIn()"><a [routerLink]="['/login']">
+          <span class="glyphicon glyphicon-log-in"></span>
+          {{ 'AUTH.LOGIN' | translate }}
+        </a></li>
+        <li *ngIf="isLoggedIn()"><a (click)="onLogout()">
+          <span class="glyphicon glyphicon-log-out"></span>
+          {{ 'AUTH.LOGOUT' | translate }}
+        </a></li>
+      </ul>
+
 		</div>
 	</div>
 
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div id="myNav" [style.height.%]="overlayHeight" class="overlay navbar-collapse">
-		<a href="javascript:void(0)" class="closebtn" (click)="hideOverlay()">&times;</a>
-		<div class="overlay-content">
-	    <ul class="nav navbar-nav">
-			<li (click)="hideOverlay()"><a [routerLink]="['/spots']" routerLinkActive="active">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
-			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/top-places']" routerLinkActive="active">{{ 'NAVIGATION.TOP8' | translate }}</a></li>
-			<li *ngIf="!isModerator() && !isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/spotters']" routerLinkActive="active">{{ 'NAVIGATION.SPOTTERS' | translate }}</a></li>
-			<li *ngIf="isLoggedIn() && isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/users']">{{ 'NAVIGATION.USERS' | translate }}</a></li>
-			<!-- <li (click)="hideOverlay()"><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
-			<li *ngIf="isLoggedIn() && (isModerator() || isAdmin())" (click)="hideOverlay()"><a [routerLink]="['/review']">{{ 'NAVIGATION.REVIEW' | translate }}</a></li>
-			<li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/add-spot']">{{ 'NAVIGATION.ADD_SPOT' | translate }}</a></li>
-			<li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/profile']">{{ 'NAVIGATION.PROFILE' | translate }}</a></li>
-			<li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/login']" routerLinkActive="active">{{ 'AUTH.LOGIN' | translate }}</a></li>
-			<li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/register']" routerLinkActive="active">{{ 'AUTH.REGISTER' | translate }}</a></li>
-			<li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a (click)="onLogout()" routerLinkActive="active">{{ 'AUTH.LOGOUT' | translate }}</a></li>
-			</ul>
-		</div>
-	</div>
+   <!--Collect the nav links, forms, and other content for toggling-->
+  <div id="myNav" [style.height.%]="overlayHeight" class="overlay navbar-collapse">
+    <a href="javascript:void(0)" class="closebtn" (click)="hideOverlay()">&times;</a>
+    <div class="overlay-content">
+      <ul class="nav navbar-nav">
+        <li (click)="hideOverlay()"><a [routerLink]="['/spots']" routerLinkActive="active">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
+        <li (click)="hideOverlay()"><a [routerLink]="['/top-places']" routerLinkActive="active">{{ 'NAVIGATION.TOP8' | translate }}</a></li>
+        <li (click)="hideOverlay()"><a [routerLink]="['/spotters']" routerLinkActive="active">{{ 'NAVIGATION.SPOTTERS' | translate }}</a></li>
+        <li *ngIf="isLoggedIn() && isAdmin()" (click)="hideOverlay()"><a [routerLink]="['/users']">{{ 'NAVIGATION.USERS' | translate }}</a></li>
+        <!-- <li (click)="hideOverlay()"><a [routerLink]="['/contact']" routerLinkActive="active">Kontaktai</a></li> -->
+        <li *ngIf="isLoggedIn() && (isModerator() || isAdmin())" (click)="hideOverlay()"><a [routerLink]="['/review']">{{ 'NAVIGATION.REVIEW' | translate }}</a></li>
+        <li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/add-spot']">{{ 'NAVIGATION.ADD_SPOT' | translate }}</a></li>
+        <li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/profile']">{{ 'NAVIGATION.PROFILE' | translate }}</a></li>
+        <li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/login']" routerLinkActive="active">{{ 'AUTH.LOGIN' | translate }}</a></li>
+        <li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/register']" routerLinkActive="active">{{ 'AUTH.REGISTER' | translate }}</a></li>
+        <li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a (click)="onLogout()" routerLinkActive="active">{{ 'AUTH.LOGOUT' | translate }}</a></li>
+      </ul>
+    </div>
+  </div>
 
 	<search-form *ngIf="showSearch()"></search-form>
 	<login-form *ngIf="showLogin()"></login-form>
-	<register-form *ngIf="showRegister()"></register-form>
-	<social-media *ngIf="showSocialMedia()" ></social-media>
 
 </nav>

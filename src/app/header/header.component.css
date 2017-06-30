@@ -1,215 +1,128 @@
-.btn {
-    padding: 15px 20px;
-    vertical-align: inherit;
-    border-radius: 0;
-    border: none;
-    font-size: 18px;
-    -o-transition: background-color .3s ease;
-    -webkit-transition: background-color .3s ease;
-    transition: background-color .3s ease;
+.glyphicon {
+  line-height: 0;
 }
-.sebm-google-map-container {
-  height: 300px;
-}
-  @media (max-width: 768px) {
-    .sebm-google-map-container {
-      height: 300px;
-      top: 55px;
-      margin-bottom: 55px;
-      position: relative;
-      display: block;
-    }
-  }
-h2 {
-    margin: 0 0 60px;
-}
-
-.alert.alert-danger {
-  border-radius: 0;
-  margin: 0 50px;
-}
-.ng-valid, .ng-invalid {
+.navbar {
   border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  background: top center no-repeat;
+  background-size: cover;
+}
+.navbar-header {
+  width: 100%;
+  border-top: 4px solid #f39c12;
+  margin: 0;
+}
+/* Navbar look after scrolling */
+.navbar-header.small {
+  background: #172935 none;
+}
+/* Hamburger nav button */
+.navbar-toggle {
+  background: none;
+  border: none;
+}
+.navbar-toggle:hover, .navbar-toggle:active {
+  background: none;
+}
+.navbar-toggle .icon-bar {
+  background-color: #fff!important;
+  height: 4px;
+  width: 23px;
+  -o-transition: all .1s ease-in-out;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+/* SportEnjoy brand */
+.navbar-brand {
+  font-size: 24px;
+}
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin: 0;
+}
+.navbar-brand span {
+  font-weight: 600;
+  font-style: italic;
+}
+/* Overlay navigation */
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1030;
+  left: 0;
+  top: 0;
+  padding: 0 15%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.97);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  font-weight: 700;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+.overlay .closebtn {
+  position: absolute;
+  padding: 0;
+  right: 20px;
+  font-size: 60px !important;
+}
+.navbar-fixed-top .navbar-collapse {
+  max-height: none;
+}
+.navbar-nav {
+  margin-top: 10px;
+  margin-right: 15px;
+  color: #fff;
+}
+#navbar {
+
+}
+#navbar a {
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Cantarell', sans-serif;
+  cursor: pointer;
+  padding: 6px 8px;
+  font-weight: 600;
+}
+#navbar a:hover {
+  color: #203a4c;
+  background: #fff;
+}
+#navbar #add-spot-button {
+  background: #f39c12;
+  color: #fff;
+  margin-top: -15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px 12px 9px;
+  transition: 1s ease padding;
+}
+#navbar #add-spot-button:hover {
+  padding-top: 21px;
+}
+#myNav .nav {
+  margin: 0;
 }
 
-
-.navbar-default {
-    border: none;
-    -webkit-background-size: cover!important;
-    background-size: cover!important;
-    background: #172935;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 600px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 0;
-    -o-transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    border-radius: 0;
-}
-    .navbar-default .navbar-header {
-        float: none;
-        padding: 25px 3% 0;
-        -o-transition: all .3s ease-in-out;
-        -webkit-transition: all .3s ease-in-out;
-        transition: all .3s ease-in-out;
-        background-image: -webkit-linear-gradient(top,rgba(0,0,0,.35) 0,transparent 100%);
-        background-image: -o-linear-gradient(top,rgba(0,0,0,.35) 0,transparent 100%);
-        background-image: -webkit-gradient(linear,left 0,left 100%,from(rgba(0,0,0,.35)),to(transparent));
-        background-image: -webkit-linear-gradient(top,rgba(0,0,0,.35),0,transparent,100%);
-        background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(0,0,0,.35)),to(transparent));
-        background-image: linear-gradient(to bottom,rgba(0,0,0,.35) 0,transparent 100%);
-        background-repeat: repeat-x;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#59000000',endColorstr='#00000000',GradientType=0);
-        -webkit-transform: translateZ(0);
-    }
-    /* Navbar look after scrolling */
-    .navbar-default .navbar-header.small {
-        background-image: none;
-        background: #172935;
-        padding: 20px 3% 12px;
-    }
-        .navbar-default .navbar-header .navbar-brand {
-            height: auto;
-            float: none;
-            -o-transition: all .3s ease-in-out;
-            -webkit-transition: all .3s ease-in-out;
-            transition: all .3s ease-in-out;
-        }
-        .navbar-default .navbar-header.small .navbar-brand {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-            /* Hamburger nav button */
-            .navbar-toggle {
-                background: none;
-                border: none;
-                margin: 2px 15px 0 0;
-                padding: 0;
-                z-index: 2;
-            }
-            .navbar-toggle:hover, .navbar-toggle:active {
-                background: none;
-            }
-                .navbar-toggle .icon-bar {
-                    background-color: #fff!important;
-                    border-radius: 0;
-                    height: 4px;
-                    width: 23px;
-                    -o-transition: all .1s ease-in-out;
-                    -webkit-transition: all .1s ease-in-out;
-                    transition: all .1s ease-in-out;
-                }
-            .navbar-default .navbar-header .navbar-brand .col-md-3 {
-                height: auto;
-            }
-                /* Navbar logo */
-                .navbar-default .navbar-header .navbar-brand .col-md-3 > a {
-                    margin-top: 5px;
-                    display: block;
-                    height: 45px;
-                		font-size: 36px;
-                		font-family: 'Cantarell', sans-serif;
-                		font-weight: 700;
-                		color: #fff;
-                    -webkit-background-size: contain;
-                    background-size: contain;
-                		text-decoration: none;
-                }
-                .navbar-default .navbar-header .navbar-brand .col-md-3 > a:hover {
-                    text-decoration: none;
-                }
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav {
-                    float: right!important;
-                    padding-right: 30px;
-                    margin-top: 0;
-                }
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li {
-                    margin-left: 10px;
-                }
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li a {
-                    font-size: 18px;
-                    font-weight: 700;
-                    color: #fff;
-                    padding: 6px 8px;
-                    cursor: pointer;
-                    -o-transition: all .2s ease;
-                    -webkit-transition: all .2s ease;
-                    transition: all .2s ease;
-                }
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li a:hover,
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li a:focus,
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li a:active {
-                    color: #203a4c;
-                    background: #fff;
-                }
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li.active a,
-                .navbar-default .navbar-header .navbar-brand .col-md-9 .navbar-nav > li.active a:hover {
-                    color: white;
-                    background: transparent;
-                    padding: 4px 6px;
-                    border: solid 2px white;
-                }
-    .navbar-default .container {
-        height: 270px;
-        max-height: 270px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        margin: auto;
-        z-index: 2;
-    }
-    .overlay {
-        height: 0;
-        width: 100%;
-        position: fixed;
-        z-index: 999;
-        left: 0;
-        top: 0;
-        padding: 0 15%;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0, 0.97);
-        overflow-x: hidden;
-        transition: 0.5s;
-        text-align: center;
-    }
-    /* Position the close button (top right corner) */
-    .overlay .closebtn {
-        position: absolute;
-        padding: 0;
-        top: 10px;
-        right: 10px;
-        z-index: 999;
-        line-height: 30px;
-        font-size: 60px !important; /* Override the font-size specified earlier (36px) for all navigation links */
-    }
-    .overlay a {
-        padding: 8px;
-        text-decoration: none;
-        font-size: 36px;
-        font-weight: 700;
-        color: #818181;
-        display: block; /* Display block instead of inline */
-        transition: 0.3s; /* Transition effects on hover (color) */
-    }
-    .overlay .navbar-nav {
-        margin:0;
-    }
-    .overlay a:hover, .overlay a:focus {
-        color: #f1f1f1;
-    }
-    /* Position the content inside the overlay */
-    .overlay-content {
-        position: relative;
-        top: 20%;
-        width: 100%;
-        text-align: center;
-        margin-top: 30px;
-    }
     #myNav ul {
       width: 100%;
     }
@@ -233,7 +146,9 @@ h2 {
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
+    .overlay a {
+      font-size: 20px
+    }
     .closebtn {
         font-size: 40px !important;
         top: 15px;
@@ -243,61 +158,17 @@ h2 {
 
 /* For tablets and smart phones */
 @media (max-width: 991px) {
-    .navbar-default {
-        height: auto!important;
-        -webkit-background-size: 250% 250%!important;
-        background-size: 250%!important;
-        background-position: top center!important;
-    }
-    .navbar .container {
-        position: static;
-        height: auto;
-        max-height: none;
-    }
-    form {
-        padding: 40px;
-    }
-    h2 {
-        margin: 110px 0 0;
-        padding: 0 20px;
-    }
-      .navbar-default .navbar-header {
-          padding: 0!important;
-          height: 55px;
-      }
-          .navbar-default .navbar-header .navbar-brand {
-              height: 50px!important;
-              padding: 15px!important;
-          }
-              /* Show hamburger button */
-              .navbar-toggle {
-                  display: block;
-              }
-              .navbar-default .navbar-header .navbar-brand .col-md-3 {
-                  float: left;
-              }
-                  .navbar-default .navbar-header .navbar-brand .col-md-3 > a {
-                      font-size: 26px;
-                      width: 190px;
-                      height: auto;
-                      -webkit-background-size: contain!important;
-                      background-size: contain!important;
-                      -ms-behavior: url(../images/backgroundsize.min.htc);
-                  }
-              /* Hide usual navigation */
-              .navbar-default .navbar-header .navbar-brand .col-md-9 {
-                  display: none;
-              }
+
+}
+
+/* For smart phones */
+@media (max-width: 767px) {
+  .overlay-content {
+    top: 10%;
+  }
 }
 
 @media (min-width: 768px) {
-  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-      margin-left: -15px;
-  }
-  .navbar-nav {
-      float: left;
-      margin: 0;
-  }
   #myNav ul li a {
       padding-top: 13px;
       padding-bottom: 13px;

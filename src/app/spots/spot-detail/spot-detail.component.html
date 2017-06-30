@@ -1,184 +1,224 @@
 <div *ngIf="spot">
-    <div class="container-fluid">
-      <div *ngIf="isModerator()" class="row spot-review">
-        <div class="col-md-4">
-          <button *ngIf="!isReviewed()" (click)="approve()" type="button" class="btn btn-success">{{ 'SPOT.APPROVE' | translate }}</button>
+  <div class="container-fluid">
+    <div *ngIf="isModerator()" class="row spot-review">
+      <div class="col-md-4">
+        <button *ngIf="!isReviewed()" (click)="approve()" type="button" class="btn btn-success">{{ 'SPOT.APPROVE' | translate }}</button>
+      </div>
+      <div class="col-md-4">
+        <button (click)="update()" type="button" class="btn btn-info">{{ 'SPOT.UPDATE' | translate }}</button>
+      </div>
+      <div class="col-md-4">
+        <button  *ngIf="!isReviewed()" (click)="decline()" type="button" class="btn btn-danger">{{ 'SPOT.DECLINE' | translate }}</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row spot-detail">
+      <div class="col-md-9 main">
+        <h3 class="spot-title">{{ spot.title }}</h3>
+        <div class="geo_link">
+          <a href="#">
+            <img src="https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/content/geo-link-icon.png" />
+            {{ spot.city }}, {{ spot.country}}
+          </a>
         </div>
-        <div class="col-md-4">
-          <button (click)="update()" type="button" class="btn btn-info">{{ 'SPOT.UPDATE' | translate }}</button>
+        <sebm-google-map
+          [latitude]="spot.latitude"
+          [longitude]="spot.longitude"
+          [zoom]="15"
+          [scrollwheel]="false"
+          [mapDraggable]="false"
+          [disableDefaultUI]="true">
+          <sebm-google-map-marker
+            [latitude]="spot.latitude"
+            [longitude]="spot.longitude"
+            [iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/spot-marker'">
+          </sebm-google-map-marker>
+        </sebm-google-map>
+      </div>
+      <div class="col-md-3 sidebar">
+        <div class="beenHere">
+          <h4>{{ 'SPOT.BEEN_HERE' | translate }}?</h4>
+          <p>{{ 'SPOT.RATE_IT' | translate }}!</p>
+          <a *ngIf="!isLoggedIn()" (click)="gotoLogin()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
+          <div *ngIf="isLoggedIn()">
+            <a *ngIf="!beenHere" (click)="showRating()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
+            <div *ngIf="beenHere" id="rating" style="text-align: center">
+              <span (click)="rate(index)"
+                    *ngFor="let index of [5,4,3,2,1]"
+                    [class.selected-stars]="colorStar(index)"
+                    class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-          <button  *ngIf="!isReviewed()" (click)="decline()" type="button" class="btn btn-danger">{{ 'SPOT.DECLINE' | translate }}</button>
+        <div class="spot-stats">
+          <div class="col-md-4 col-xs-4"><p>{{ spot.rating }}<span class="glyphicon glyphicon-star"></span></p></div>
+          <div class="col-md-4 col-xs-4"><p>{{ spot.beenHere }}<span class="glyphicon glyphicon-eye-open"></span></p></div>
+          <div class="col-md-4 col-xs-4">
+            <img
+              [src]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/categories/' + decode(spot.category) + '.png'" />
+          </div>
         </div>
       </div>
     </div>
-    <div class="container">
-			<div class="row spot-detail">
-				<div class="col-md-9 main">
-					<h3 class="spot-title">{{ spot.title }}</h3>
-					<div class="geo_link">
-						<a href="#">
-              <img src="https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/content/geo-link-icon.png" />
-              {{ spot.city }}, {{ spot.country}}
-            </a>
-					</div>
-          <sebm-google-map
-            [latitude]="spot.latitude"
-            [longitude]="spot.longitude"
-            [zoom]="15"
-            [scrollwheel]="false"
-            [mapDraggable]="false"
-            [disableDefaultUI]="true">
-    				<sebm-google-map-marker
-              [latitude]="spot.latitude"
-              [longitude]="spot.longitude"
-              [iconUrl]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/spot-marker'">
-            </sebm-google-map-marker>
-    			</sebm-google-map>
-				</div>
-				<div class="col-md-3 sidebar">
-          <div class="beenHere">
-  					<h4>{{ 'SPOT.BEEN_HERE' | translate }}?</h4>
-  					<p>{{ 'SPOT.RATE_IT' | translate }}!</p>
-            <a *ngIf="!isLoggedIn()" (click)="gotoLogin()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
-            <div *ngIf="isLoggedIn()" class="row">
-              <a *ngIf="!beenHere" (click)="showRating()" class="btn btn-dark">{{ 'SPOT.BEEN' | translate }}</a>
-              <div *ngIf="beenHere" id="rating" style="text-align: center">
-                <span (click)="rate(index)"
-                      *ngFor="let index of [5,4,3,2,1]"
-                      [class.selected-stars]="colorStar(index)"
-                      class="glyphicon glyphicon-star"></span>
-              </div>
-              <span class="row">Your rating: {{ user_rating }}</span>
-            </div>
-          </div>
-          <div class="spot-stats">
-						<div class="col-md-4 col-xs-4"><p>{{ spot.rating }}<span class="glyphicon glyphicon-star"></span></p></div>
-						<div class="col-md-4 col-xs-4"><p>{{ spot.beenHere }}<span class="glyphicon glyphicon-eye-open"></span></p></div>
-            <div class="col-md-4 col-xs-4">
-              <img
-                [src]="'https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/categories/' + decode(spot.category) + '.png'" />
-            </div>
-					</div>
-				</div>
-			</div>
-      <div class="row spot-description">
+    <div class="row spot-description">
+      <div class="col-sm-12">
         <h3>{{ 'SPOT.DESCRIPTION' | translate }}</h3>
-        <p>{{ spot.description }}</p>
-        <p *ngIf="!spot.description" class="alert alert-info">{{ 'SPOT.NO_DESCRIPTION' | translate }}</p>
       </div>
-			<div class="row spot-images">
-        <div class="col-sm-12">
-          <h3>{{ 'SPOT.GALLERY' | translate }}</h3>
-          <button (click)="addImages()" class="btn btn-dark pull-right" style="padding: 10px 15px;">{{ 'SPOT.ADD_IMAGES' | translate }}</button>
-        </div>
-        <div class="col-sm-6 col-sm-offset-3">
-          <div *ngIf="mainImage">
-            <img [src]="mainImage" class="img-responsive" (click)="showLightBox()">
-          </div>
-        </div>
-        <div class="col-sm-12 all-images">
-          <img [src]="spot.main_image" (click)="changeMainImage(spot.main_image)" [style.width.px]="200"><img *ngFor="let image of spot.images" [src]="image.url" (click)="changeMainImage(image.url)" [style.width.px]="200">
-        </div>
-        <div *ngIf="!mainImage" class="alert alert-info">
-            {{ 'SPOT.NO_IMAGES' | translate }}
-        </div>
-			</div>
-
-      <div id="myModal" class="modal" [style.display]="modalShowing">
-        <span class="close cursor" (click)="closeModal()">&times;</span>
-        <div class="modal-content">
-          <div class="mySlides">
-            <div class="numbertext">1 / 4</div>
-            <img [src]="spot.main_image" style="width: 100%">
-          </div>
-          <div *ngFor="let image of spot.images; let i = index" class="mySlides">
-            <div class="numbertext">{{ i + 2 }} / 4</div>
-            <img [src]="image.url" style="width: 100%" alt="{{image.title}}">
-          </div>
-        </div>
-        <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-        <a class="next" (click)="plusSlides(1)">&#10095;</a>
-
-        <div class="caption-container">
-          <p id="caption"></p>
+      <p>{{ spot.description }}</p>
+      <p *ngIf="!spot.description" class="alert alert-info">{{ 'SPOT.NO_DESCRIPTION' | translate }}</p>
+    </div>
+    <div class="row spot-images">
+      <div class="col-sm-12">
+        <h3 class="pull-left" >{{ 'SPOT.GALLERY' | translate }}</h3>
+        <button (click)="addImages()" class="btn btn-dark pull-right" style="padding: 10px 15px;">{{ 'SPOT.ADD_IMAGES' | translate }}</button>
+      </div>
+      <div class="col-sm-6" style="clear: both">
+        <div *ngIf="mainImage">
+          <img [src]="mainImage" class="img-responsive round-image" (click)="showLightBox()">
         </div>
       </div>
+      <div class="col-sm-6 all-images">
+        <div class="row">
+        <div *ngIf="spot.main_image" class="col-sm-4 col-xs-4 no-padding">
+          <img [src]="spot.main_image" (click)="changeMainImage(spot.main_image)" class="round-image">
+        </div>
+        <div class="col-sm-4 col-xs-4 no-padding" *ngFor="let image of spot.images">
+          <img [src]="image.url" (click)="changeMainImage(image.url)" class="round-image">
+        </div>
+        </div>
+      </div>
+      <div *ngIf="!mainImage" class="alert alert-info">
+          {{ 'SPOT.NO_IMAGES' | translate }}
+      </div>
+    </div>
 
-      <div class="col-md-12">
+    <div id="myModal" class="modal" [style.display]="modalShowing">
+      <span class="close cursor" (click)="closeModal()">&times;</span>
+      <div class="modal-content">
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img [src]="spot.main_image" style="width: 100%">
+        </div>
+        <div *ngFor="let image of spot.images; let i = index" class="mySlides">
+          <div class="numbertext">{{ i + 2 }} / 4</div>
+          <img [src]="image.url" style="width: 100%" alt="{{image.title}}">
+        </div>
+      </div>
+      <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+      <a class="next" (click)="plusSlides(1)">&#10095;</a>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
         <h3 class="pull-left">{{ 'SPOT.COMMENTS' | translate }}</h3>
         <button (click)="newComment()" class="btn btn-dark pull-right write-comment" style="padding: 10px 15px;">{{ 'SPOT.WRITE_COMMENT' | translate }}</button>
       </div>
-      <div *ngIf="spot.original_comments.length != 0" class="col-sm-9">
+      <div *ngIf="spot.original_comments.length != 0" class="col-sm-9 col-xs-12">
         <div class="comments-showing">
-          <p><strong>{{ leftBound }}-{{ rightBound }}</strong> of {{ spot.original_comments.length }} comments</p>
+          <p><strong>{{ leftBound }}-{{ rightBound }}</strong> {{ 'OTHER.OF' | translate }} {{ spot.original_comments.length }} {{ 'SPOT.COMMENTS' | translate }}</p>
         </div>
         <div class="row comments">
-          <div *ngFor='let comment of spot.original_comments.slice(leftBound-1, rightBound)' class="comment">
-            <div class="col-sm-2">
-              <div class="thumbnail">
-                <img *ngIf="!comment.user.image" class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                <img *ngIf="comment.user.image" class="img-responsive user-photo" [src]="comment.user.image">
+        <div *ngFor='let comment of spot.original_comments.slice(leftBound-1, rightBound)'>
+          <div class="col-sm-2 col-xs-3">
+            <div class="thumbnail">
+              <img *ngIf="!comment.user.image" class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+              <img *ngIf="comment.user.image" class="img-responsive user-photo" [src]="comment.user.image">
+            </div>
+          </div>
+          <div class="col-sm-10 col-xs-9">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <strong>{{ comment.user.name }}</strong> <span class="text-muted hidden-xs">
+                {{ 'COMMENT.COMMENTED' | translate }} {{ comment.created_at | amTimeAgo }}</span>
+                <a (click)="reportComment(comment.id)"><span class="glyphicon glyphicon-flag pull-right"></span></a>
+              </div>
+              <div class="panel-body">
+                <p class="media-comment">
+                 {{ comment.content }}
+                </p>
+                <div class="pull-right">
+                  <button
+                    class="btn btn-dark btn-round text-uppercase"
+                    (click)="newComment(comment.id)">
+                      <span class="glyphicon glyphicon-share-alt"></span>
+                      <span class="hidden-xs"> {{ 'COMMENT.REPLY' | translate}}</span>
+                  </button>
+                  <button
+                    *ngIf="comment.modified_replies.length != 0"
+                    class="btn btn-warning btn-round text-uppercase"
+                    (click)="comment.showing = !comment.showing">
+                      <span class="glyphicon glyphicon-comment"></span> {{ comment.modified_replies.length }}
+                      <span class="hidden-xs"> {{ 'SPOT.COMMENTS' | translate }}</span>
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="col-sm-10">
+          </div>
+          <div *ngFor='let reply of comment.modified_replies; let i = index' class="collapse reply" [ngClass]="{'in': comment.showing}">
+            <div class="col-sm-2 col-xs-3">
+              <div class="thumbnail">
+                <img *ngIf="!reply.user.image" class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                <img *ngIf="reply.user.image" class="img-responsive user-photo" [src]="reply.user.image">
+              </div>
+            </div>
+            <div class="col-sm-10 col-xs-9">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <strong>{{ comment.user.name }}</strong> <span class="text-muted">commented {{ comment.created_at | amTimeAgo }}</span>
-                  <a (click)="reportComment(comment.id)"><span class="glyphicon glyphicon-flag pull-right"></span></a>
+                  <strong>{{ reply.user.name }}</strong> <span class="text-muted hidden-xs">
+                  {{ 'COMMENT.COMMENTED' | translate }} {{ reply.created_at | amTimeAgo }}</span>
+                  <a (click)="reportComment(reply.id)"><span class="glyphicon glyphicon-flag pull-right"></span></a>
                 </div>
                 <div class="panel-body">
                   <p class="media-comment">
-                   {{ comment.content }}
+                    {{ reply.content }}
                   </p>
                   <div class="pull-right">
-                    <button class="btn btn-dark btn-round text-uppercase" (click)="newComment(comment.id)"><span class="glyphicon glyphicon-share-alt"></span> Reply</button>
-                    <button *ngIf="comment.modified_replies.length != 0" class="btn btn-warning btn-round text-uppercase" (click)="comment.showing = !comment.showing"><span class="glyphicon glyphicon-comment"></span> {{ comment.modified_replies.length }} comments</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div *ngFor='let reply of comment.modified_replies; let i = index' class="collapse reply" [ngClass]="{'in': comment.showing}">
-              <div class="col-sm-2">
-                <div class="thumbnail">
-                  <img *ngIf="!reply.user.image" class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                  <img *ngIf="reply.user.image" class="img-responsive user-photo" [src]="reply.user.image">
-                </div>
-              </div>
-              <div class="col-sm-10">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <strong>{{ reply.user.name }}</strong> <span class="text-muted">commented {{ reply.created_at | amTimeAgo }}</span>
-                    <a (click)="reportComment(reply.id)"><span class="glyphicon glyphicon-flag pull-right"></span></a>
-                  </div>
-                  <div class="panel-body">
-                    <p class="media-comment">
-                      {{ reply.content }}
-                    </p>
-                    <div class="pull-right">
-                      <a class="btn btn-dark btn-round text-uppercase" (click)="newComment(comment.id)"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
-                    </div>
+                    <button
+                      class="btn btn-dark btn-round text-uppercase"
+                      (click)="newComment(comment.id)">
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                        <span class="hidden-xs"> {{ 'COMMENT.REPLY' | translate}}</span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li *ngIf="!firstPage()" class="page-item pull-left"><a class="page-link" (click)="changePage(currentPage-1)">{{ 'OTHER.PREVIOUS' | translate }}</a></li>
-            <li *ngFor="let page of pageArray()" class="page-item">
-              <a [ngClass]="{'active': currentPage == page}" class="page-link" (click)="changePage(page)">{{ page }}</a>
-            </li>
-            <li *ngIf="!lastPage()" class="page-item pull-right"><a class="page-link" (click)="changePage(currentPage+1)">{{ 'OTHER.NEXT' | translate }}</a></li>
-          </ul>
-        </nav>
       </div>
-      <div *ngIf="spot.original_comments.length == 0" class="col-sm-9">
-        <div class="alert alert-info">
-          {{ 'SPOT.NO_COMMENTS' | translate }}
+        <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li *ngIf="!firstPage()" class="page-item pull-left"><a class="page-link" (click)="changePage(currentPage-1)">{{ 'OTHER.PREVIOUS' | translate }}</a></li>
+          <li *ngFor="let page of pageArray()" class="page-item">
+            <a [ngClass]="{'active': currentPage == page}" class="page-link" (click)="changePage(page)">{{ page }}</a>
+          </li>
+          <li *ngIf="!lastPage()" class="page-item pull-right"><a class="page-link" (click)="changePage(currentPage+1)">{{ 'OTHER.NEXT' | translate }}</a></li>
+        </ul>
+      </nav>
+      </div>
+      <div *ngIf="spot.original_comments.length == 0"
+           class="alert alert-info col-sm-9" style="clear: both">
+        {{ 'SPOT.NO_COMMENTS' | translate }}
+      </div>
+    </div>
+      <!-- TODO Could be 'You may also like' part here -->
+    <div class="row recent-spots">
+      <div class="col-sm-12">
+        <h3>{{ 'SPOT.MAY_ALSO_LIKE' | translate }}</h3>
+        <div class="row">
+          <div (click)="toSpot(recent_spot.id)" *ngFor="let recent_spot of recentSpots" class="col-sm-2 col-xs-4 no-padding pointer">
+            <img *ngIf="recent_spot.main_image" [src]="recent_spot.main_image" class="round-image">
+            <img *ngIf="!recent_spot.main_image"
+                 src="https://s3-eu-west-1.amazonaws.com/sportenjoy-files-upload/defaults/test.png" class="round-image">
+            <p class="text-center">{{ recent_spot.title | truncate : contentSize }}</p>
+          </div>
         </div>
       </div>
-				<!-- TODO Could be 'You may also like' part here -->
-    </div><!-- /.content -->
+    </div>
+  </div>
 </div>

@@ -10,7 +10,15 @@ h3 {
 	width: 98%;
 }
 .thumbnail {
-  padding: 0px;
+  padding: 0;
+}
+.no-padding {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+.round-image {
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #d5d5d5;
 }
 .thumbnail > img {
   min-height: 100px;
@@ -101,11 +109,13 @@ h3 {
   padding: 4px;
 }
 .spot-images {
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .all-images img {
 	opacity: 0.8;
   cursor: pointer;
+  width: 100%;
 }
 .all-images img:hover {
   opacity: 1;
@@ -281,6 +291,22 @@ h3 {
   border-color: #46b8da;
 }
 
+.recent-spots img {
+  width: 100%;
+  height: 100px;
+  box-shadow: 2px 0 2px #d5d5d5;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.recent-spots p {
+  word-break: keep-all;
+  background: #909090;
+  padding: 5px 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  min-height: 50px;
+}
 
 /* For desktops */
 @media (min-width: 993px) {
@@ -317,14 +343,6 @@ h3 {
 	.spot-detail .sidebar .spot-stats p  {
     	color: white;
 	}
-	.spot-images h3 {
-		padding-left: 20px;
-		margin: 10px 0;
-	}
-	.spot-description h3 {
-		padding-left: 20px;
-		margin: 10px 0;
-	}
 	.spot-detail .sidebar .spot-stats p {
 		margin-bottom: 0;
 	}
@@ -354,8 +372,38 @@ h3 {
 	h1, h2 {
     font-size: 22px;
 	}
+  h3 {
+    padding: 10px 0;
+    margin: 20px 0;
+  }
+  .spot-images {
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
 	.spot-images .image > img {
 		max-width: 200px;
 		max-height: 200px;
 	}
+  .btn.pull-right {
+    margin: 20px -15px 20px;
+  }
+  .all-images .no-padding {
+    padding: 15px;
+  }
+  .recent-spots .no-padding {
+    padding: 0 5px;
+  }
+  .thumbnail > img {
+    min-height: 50px;
+    max-height: 100px;
+    width: 100%;
+    background: #fff;
+  }
+  .media-comment {
+    word-break: keep-all;
+  }
+  .recent-spots {
+    background: #ecf0f1;
+    padding-bottom: 15px;
+  }
 }

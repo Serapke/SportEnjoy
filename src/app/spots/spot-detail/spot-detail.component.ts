@@ -25,8 +25,12 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
   rightBound: number = 1;
   commentsPerPage: number = 3;
 
+  contentSize: number = 50;
+  CONTENT_SIZE_MIN: number = 50;
+
   modalShowing: string = "none";
   slideIndex: number = 1;
+  private recentSpots: ISpot[];
 
 	constructor(
 		private _spotService: SpotService,
@@ -38,10 +42,15 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
   }
 
 	ngOnInit() {
+    if (document.body.clientWidth < 450) {
+      this.CONTENT_SIZE_MIN = 15;
+      this.contentSize = this.CONTENT_SIZE_MIN;
+    }
     this.sub = this._route.params.subscribe(params => {
 			let id = +params['id'];
       this.getSpot(id);
       this.getSpotRating(id);
+      this.getRecentSpots();
 		});
     this._spotService.getCategories()
       .subscribe(categories => {
@@ -259,5 +268,22 @@ export class SpotDetailComponent implements OnInit, OnDestroy {
 	decode(s: string): string {
 	  s = s.replace(/\s/g, "_");
 	  return s;
+  }
+
+  toSpot(id: number) {
+	  console.log("WTF");
+    this._router.navigate(['/spot/' + id]);
+  }
+
+  private getRecentSpots() {
+    this._spotService.getRecentlyViewedSpots()
+      .subscribe(
+        recentSpots => {
+          this.recentSpots = recentSpots;
+        },
+        error => {
+          this.errorMessage = error;
+        }
+      )
   }
 }

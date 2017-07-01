@@ -37,7 +37,7 @@
 
    <!--Collect the nav links, forms, and other content for toggling-->
   <div id="myNav" [style.height.%]="overlayHeight" class="overlay navbar-collapse">
-    <a href="javascript:void(0)" class="closebtn" (click)="hideOverlay()">&times;</a>
+    <a class="closebtn" (click)="hideOverlay()">&times;</a>
     <div class="overlay-content">
       <ul class="nav navbar-nav">
         <li (click)="hideOverlay()"><a [routerLink]="['/spots']" routerLinkActive="active">{{ 'NAVIGATION.SEARCH' | translate }}</a></li>
@@ -49,7 +49,6 @@
         <li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/add-spot']">{{ 'NAVIGATION.ADD_SPOT' | translate }}</a></li>
         <li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/profile']">{{ 'NAVIGATION.PROFILE' | translate }}</a></li>
         <li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/login']" routerLinkActive="active">{{ 'AUTH.LOGIN' | translate }}</a></li>
-        <li *ngIf="!isLoggedIn()" (click)="hideOverlay()"><a [routerLink]="['/register']" routerLinkActive="active">{{ 'AUTH.REGISTER' | translate }}</a></li>
         <li *ngIf="isLoggedIn()" (click)="hideOverlay()"><a (click)="onLogout()" routerLinkActive="active">{{ 'AUTH.LOGOUT' | translate }}</a></li>
       </ul>
     </div>
